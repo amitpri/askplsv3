@@ -17,6 +17,7 @@
         "outhebox/nova-hidden-field": "^1.0",
         "owenmelbz/nova-radio-field": "^0.0.5",
         "predis/predis": "^1.1", 
+        "silvanite/novatoolpermissions": "^1.0",
         "sparclex/nova-import-card": "^0.1.0"
     },
     "require-dev": {
