@@ -45,6 +45,10 @@
                         <global-search></global-search>
                     @endif
 
+                    <a href="/workspace" class="hover:bg-black text-grey font-bold hover:text-white mx-4 py-2 px-4 border border-grey hover:border-transparent rounded no-underline">Workspace</a>
+ 
+                     
+
                     <dropdown class="ml-auto h-9 flex items-center dropdown-right">
                         @include('nova::partials.user')
                     </dropdown>
