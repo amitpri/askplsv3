@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Auth;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Cards\Help;
 use Illuminate\Support\Facades\Gate;
@@ -88,11 +89,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function gate()
     {
-        Gate::define('viewNova', function ($user) {
-            return in_array($user->email, [
+ //       Gate::define('viewNova', function ($user) {
+  //          return in_array($user->email, [
                 //
-            ]);
-        });
+  //          ]);
+   //     });
     }
 
     /**
@@ -102,12 +103,27 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function cards()
     {
-        return [
-            new GroupCount,
-            new ProfileCount,
-            new ReviewCount,
-            new TopicCount,
-        ];
+
+        $loggedintenant = Auth::user()->tenant; 
+
+        if( $loggedintenant == 0 ){
+
+            return [  
+                new TopicCount,
+                new ReviewCount,
+                
+            ];
+        }else{
+
+
+            return [
+                new GroupCount,
+                new ProfileCount,
+                new ReviewCount,
+                new TopicCount,
+            ];
+
+        }
     }
 
     /**
