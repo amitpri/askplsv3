@@ -34,11 +34,20 @@ class HomeController extends Controller
         return view('workspace');
     }
 
-    public function workspaceget(Request $request)
+    public function workspacefind(Request $request)
     {
         $name = $request->workspace;  
          
         $workspaces = Tenant::where('workspace', 'like' , "%$name%")->get(['id','workspace']);
+    
+        return $workspaces;  
+    }
+
+    public function workspaceget(Request $request)
+    {
+        $loggedinid = Auth::user()->id; 
+         
+        $workspaces = TenantUser::where('user_id', '=' , "$loggedinid")->get(['id','tenant_id']);
     
         return $workspaces;  
     }

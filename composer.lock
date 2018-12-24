@@ -4,8 +4,42 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9aaa0660cfc0663e09683094c83801c2",
+    "content-hash": "617ded3e789e3f3c8bdba12e9d2f8532",
     "packages": [
+        {
+            "name": "askpls/workspace",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./nova-components/Workspace",
+                "reference": "4d3d8d361b4608b908705798bbb02c41c5ae611f",
+                "shasum": null
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Askpls\\Workspace\\CardServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Askpls\\Workspace\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova card.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ]
+        },
         {
             "name": "benjaminhirsch/nova-slug-field",
             "version": "1.1.0",

@@ -122,7 +122,7 @@
        
                         <form id="widget-subscribe-form" action="/register" role="form" method="get" class="nobottommargin"  >
                             <div class="input-group divcenter">
-                                <input @keyup="get" v-model="inpWorkspace" type="text" id="workspace" name="workspace" class="form-control form-control-lg not-dark" placeholder="Enter workspace name.." style="border: 0; box-shadow: none; overflow: hidden;">
+                                <input @keyup="find" v-model="inpWorkspace" type="text" id="workspace" name="workspace" class="form-control form-control-lg not-dark" placeholder="Enter workspace name.." style="border: 0; box-shadow: none; overflow: hidden;">
                                 <button type="submit" class="button " style="border-radius: 3px;">Search</button>  
                                  
                             </div>
@@ -217,10 +217,10 @@
             }, 
             methods: {
 
-                get:function(){
+                find:function(){
 
                     this.showresult = true;
-                    axios.get('/workspace/get' ,{
+                    axios.get('/workspace/find' ,{
 
                         params: {
 

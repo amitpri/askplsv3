@@ -11,8 +11,7 @@ use Laravel\Nova\NovaApplicationServiceProvider;
 use App\Nova\Metrics\ProfileCount;
 use App\Nova\Metrics\GroupCount;
 use App\Nova\Metrics\TopicCount;
-use App\Nova\Metrics\ReviewCount;
-
+use App\Nova\Metrics\ReviewCount; 
 
 use App\Nova\Profile;
 use App\Nova\Group;
@@ -105,18 +104,22 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         if( $loggedintenant == 0 ){
 
             return [  
+                new \Askpls\Workspace\Workspace(),
                 new TopicCount,
-                new ReviewCount,
+                new ReviewCount, 
+                
                 
             ];
         }else{
 
 
             return [
+                new \Askpls\Workspace\Workspace(),
                 new GroupCount,
                 new ProfileCount,
                 new ReviewCount,
                 new TopicCount,
+                
             ];
 
         }

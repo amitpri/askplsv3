@@ -5,6 +5,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/workspace', 'HomeController@workspace');
+Route::get('/workspace/find', 'HomeController@workspacefind');
 Route::get('/workspace/get', 'HomeController@workspaceget');
 Route::get('/workspace/join/{id}/{workspace}', 'HomeController@workspacejoin');
 Route::get('/workspace/joined', 'HomeController@workspacejoined');
