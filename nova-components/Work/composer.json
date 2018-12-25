@@ -1,5 +1,5 @@
 {
-    "name": "askpls/workspace",
+    "name": "askpls/work",
     "description": "A Laravel Nova tool.",
     "keywords": [
         "laravel",
@@ -11,13 +11,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Askpls\\Workspace\\": "src/"
+            "Askpls\\Work\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Askpls\\Workspace\\ToolServiceProvider"
+                "Askpls\\Work\\ToolServiceProvider"
             ]
         }
     },

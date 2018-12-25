@@ -38,8 +38,7 @@
 </template>
 
 <script>
-
-import Show from './Show';
+ 
 
 export default {
     props: [

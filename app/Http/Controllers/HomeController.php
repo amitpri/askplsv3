@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\DB;
+
 use Auth;
 use App\Tenant;
 use App\TenantUser;
@@ -46,8 +49,15 @@ class HomeController extends Controller
     public function workspaceget(Request $request)
     {
         $loggedinid = Auth::user()->id; 
-         
-        $workspaces = TenantUser::where('user_id', '=' , "$loggedinid")->get(['id','tenant_id']);
+          
+        $workspaces = DB::select('SELECT  a.`id`, a.`user_id`,  a.`workspace`,  a.`company`, a.`url` 
+                                        FROM `tenants` a ,  `tenant_users` b 
+                                        WHERE a.`id` = b.`tenant_id`
+                                        AND a.`status` = 1
+                                        AND b.`status` = 1
+                                        AND a.`user_id` = :userid
+                                        ORDER BY a.`updated_at` DESC
+                                        limit 10',[ 'userid' => $loggedinid ]);
     
         return $workspaces;  
     }

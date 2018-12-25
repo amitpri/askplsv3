@@ -1,11 +1,11 @@
 <?php
 
-namespace Askpls\Workspace;
+namespace Askpls\Work;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;
 
-class Workspace extends Tool
+class Work extends Tool
 {
     /**
      * Perform any tasks that need to happen when the tool is booted.
@@ -14,8 +14,8 @@ class Workspace extends Tool
      */
     public function boot()
     {
-        Nova::script('workspace', __DIR__.'/../dist/js/tool.js');
-        Nova::style('workspace', __DIR__.'/../dist/css/tool.css');
+        Nova::script('work', __DIR__.'/../dist/js/tool.js');
+        Nova::style('work', __DIR__.'/../dist/css/tool.css');
     }
 
     /**
@@ -25,6 +25,6 @@ class Workspace extends Tool
      */
     public function renderNavigation()
     {
-        return view('workspace::navigation');
+        return view('work::navigation');
     }
 }

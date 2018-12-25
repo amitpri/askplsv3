@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "617ded3e789e3f3c8bdba12e9d2f8532",
+    "content-hash": "ffd49ce022ab9e7f83e9b24dee7e0958",
     "packages": [
         {
-            "name": "askpls/workspace",
+            "name": "askpls/work",
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "./nova-components/Workspace",
-                "reference": "4d3d8d361b4608b908705798bbb02c41c5ae611f",
+                "url": "./nova-components/Work",
+                "reference": "2386400dcb8fcc4b06736136c80153d3ca6d42cb",
                 "shasum": null
             },
             "require": {
@@ -22,13 +22,47 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Askpls\\Workspace\\CardServiceProvider"
+                        "Askpls\\Work\\ToolServiceProvider"
                     ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Askpls\\Workspace\\": "src/"
+                    "Askpls\\Work\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova tool.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ]
+        },
+        {
+            "name": "askpls/workspacesummary",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./nova-components/Workspacesummary",
+                "reference": "1907f16613c32221629ea8f881471b6ebf972ad7",
+                "shasum": null
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Askpls\\Workspacesummary\\CardServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Askpls\\Workspacesummary\\": "src/"
                 }
             },
             "license": [

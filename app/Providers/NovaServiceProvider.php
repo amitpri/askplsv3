@@ -104,7 +104,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         if( $loggedintenant == 0 ){
 
             return [  
-                new \Askpls\Workspace\Workspace(),
+                new \Askpls\Workspacesummary\Workspacesummary(),
                 new TopicCount,
                 new ReviewCount, 
                 
@@ -114,7 +114,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 
 
             return [
-                new \Askpls\Workspace\Workspace(),
+                new \Askpls\Workspacesummary\Workspacesummary(),
                 new GroupCount,
                 new ProfileCount,
                 new ReviewCount,
@@ -132,7 +132,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools()
     {
-        return [];
+        return [
+
+        new \Askpls\Work\Work(),
+
+    ];
     }
 
     /**

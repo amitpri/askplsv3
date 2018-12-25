@@ -9,7 +9,11 @@
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "build-workspace": "cd nova-components/Workspace && npm run dev",
-        "build-workspace-prod": "cd nova-components/Workspace && npm run prod"
+        "build-workspace-prod": "cd nova-components/Workspace && npm run prod",
+        "build-work": "cd nova-components/Work && npm run dev",
+        "build-work-prod": "cd nova-components/Work && npm run prod",
+        "build-workspacesummary": "cd nova-components/Workspacesummary && npm run dev",
+        "build-workspacesummary-prod": "cd nova-components/Workspacesummary && npm run prod"
     },
     "devDependencies": {
         "axios": "^0.18",

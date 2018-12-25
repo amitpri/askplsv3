@@ -1,6 +1,6 @@
 {
-    "name": "askpls/workspace",
-    "description": "A Laravel Nova tool.",
+    "name": "askpls/workspacesummary",
+    "description": "A Laravel Nova card.",
     "keywords": [
         "laravel",
         "nova"
@@ -11,13 +11,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Askpls\\Workspace\\": "src/"
+            "Askpls\\Workspacesummary\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Askpls\\Workspace\\ToolServiceProvider"
+                "Askpls\\Workspacesummary\\CardServiceProvider"
             ]
         }
     },
