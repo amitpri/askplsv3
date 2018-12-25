@@ -169,7 +169,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n", ""]);
 
 // exports
 
@@ -673,6 +673,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -685,7 +716,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             topics: [],
             inpWorkspace: "",
             workspaceLists: [],
-            workspaceList: ""
+            workspaceList: "",
+            workspacejoined: "",
+            joinstatus: "",
+            disableaddbutton: false,
+            showresult: false,
+            workspaceid: ""
 
         };
     },
@@ -704,19 +740,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         find: function find() {
             var _this2 = this;
 
-            this.showresult = true;
-            axios.get('/workspace/find', {
+            if (this.inpWorkspace.length > 2) {
 
-                params: {
+                this.showresult = true;
+                axios.get('/workspace/find', {
 
-                    workspace: this.inpWorkspace
+                    params: {
 
-                }
+                        workspace: this.inpWorkspace
 
-            }).then(function (response) {
+                    }
 
-                _this2.workspaceLists = response.data;
-            });
+                }).then(function (response) {
+
+                    _this2.workspaceLists = response.data;
+                });
+            }
         },
         createworkspace: function createworkspace(event) {
             var _this3 = this;
@@ -732,9 +771,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                     params: {
 
-                        workspace: this.inpWorkspace,
-                        company: this.inpCompany,
-                        city: this.inpCity
+                        workspace: this.inpWorkspace
 
                     }
 
@@ -744,10 +781,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 });
             }
         },
-        join: function join(event) {
+        join: function join(workspace, id) {
             var _this4 = this;
-
-            event.preventDefault();
 
             var c = confirm("Sure to Join?");
 
@@ -758,17 +793,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                     params: {
 
-                        workspace: this.inpWorkspace,
-                        id: this.inpId,
-                        code: this.inpCode
+                        workspace: workspace,
+                        id: id
 
                     }
 
                 }).then(function (response) {
 
-                    workspacejoined = response.data;
+                    _this4.workspacejoined = response.data;
 
-                    if (workspacejoined === 1) {
+                    if (_this4.workspacejoined === 1) {
 
                         _this4.joinstatus = 1;
                     } else {
@@ -799,12 +833,12 @@ var render = function() {
         "card",
         {
           staticClass: " flex flex-col items-center justify-center",
-          staticStyle: { "min-height": "300px" }
+          staticStyle: { "min-height": "200px" }
         },
         [
           _c(
-            "h1",
-            { staticClass: "text-black text-4xl text-90 font-light mb-6" },
+            "h2",
+            { staticClass: "text-black text-2xl text-90 font-light mb-6" },
             [_vm._v("\n            Create Workspace\n        ")]
           ),
           _vm._v(" "),
@@ -820,49 +854,53 @@ var render = function() {
               }
             },
             [
-              _c("div", { staticClass: "input-group divcenter" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.inpWorkspace,
-                      expression: "inpWorkspace"
-                    }
-                  ],
-                  staticClass:
-                    " shadow appearance-none border rounded w-full py-4 px-8 text-grey-darker leading-tight focus:outline-none focus:shadow-outline",
-                  attrs: {
-                    type: "text",
-                    id: "workspace",
-                    name: "workspace",
-                    placeholder: "Enter workspace name.."
-                  },
-                  domProps: { value: _vm.inpWorkspace },
-                  on: {
-                    keyup: _vm.find,
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.inpWorkspace = $event.target.value
-                    }
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inpWorkspace,
+                    expression: "inpWorkspace"
                   }
-                })
-              ])
+                ],
+                staticClass:
+                  " shadow appearance-none border rounded w-full py-4 px-8 text-grey-darker leading-tight focus:outline-none focus:shadow-outline",
+                staticStyle: { width: "500px" },
+                attrs: {
+                  type: "text",
+                  id: "workspace",
+                  name: "workspace",
+                  placeholder:
+                    "Enter workspace name..min 3 chars.. max 50 chars"
+                },
+                domProps: { value: _vm.inpWorkspace },
+                on: {
+                  keyup: _vm.find,
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inpWorkspace = $event.target.value
+                  }
+                }
+              })
             ]
           ),
+          _vm._v(" "),
+          _c("br"),
           _vm._v(" "),
           _vm.showresult
             ? _c("table", { staticClass: "table" }, [
                 _c("thead", [
-                  _c("tr", [
-                    _c("th", { attrs: { scope: "col" } }, [
-                      _vm._v("Workspace Name")
-                    ]),
-                    _vm._v(" "),
-                    _c("th", { attrs: { scope: "col" } }, [_vm._v(" ")])
-                  ])
+                  _vm.inpWorkspace.length > 2
+                    ? _c("tr", [
+                        _c("th", { attrs: { scope: "col" } }, [
+                          _c("h4", [_vm._v("Workspace Name")])
+                        ]),
+                        _vm._v(" "),
+                        _c("th", { attrs: { scope: "col" } }, [_vm._v(" ")])
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _vm.workspaceLists.length > 0
@@ -870,14 +908,13 @@ var render = function() {
                       "tbody",
                       _vm._l(_vm.workspaceLists, function(workspaceList) {
                         return _c("tr", [
-                          _c("td", [
-                            _vm._v("@" + _vm._s(workspaceList.workspace))
-                          ]),
+                          _c("td", [_vm._v(_vm._s(workspaceList.workspace))]),
                           _vm._v(" "),
                           _c("td", [
                             _c(
                               "a",
                               {
+                                staticClass: "btn btn-default",
                                 attrs: {
                                   href:
                                     "/workspace/join/" +
@@ -885,7 +922,15 @@ var render = function() {
                                     "/" +
                                     workspaceList.workspace
                                 },
-                                on: { click: _vm.join }
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    _vm.join(
+                                      workspaceList.workspace,
+                                      workspaceList.id
+                                    )
+                                  }
+                                }
                               },
                               [_vm._v("Join")]
                             )
@@ -895,24 +940,92 @@ var render = function() {
                       0
                     )
                   : _c("tbody", [
+                      _vm.inpWorkspace.length > 2
+                        ? _c("tr", [
+                            _c("td", [_vm._v(_vm._s(_vm.inpWorkspace))]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: {
+                                    href:
+                                      "/workspace/create?name=" +
+                                      _vm.inpWorkspace
+                                  },
+                                  on: { click: _vm.createworkspace }
+                                },
+                                [_vm._v("Create")]
+                              )
+                            ])
+                          ])
+                        : _vm._e()
+                    ])
+              ])
+            : _vm._e()
+        ]
+      ),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "card",
+        {
+          staticClass: " flex flex-col items-center justify-center",
+          staticStyle: { "min-height": "300px" }
+        },
+        [
+          _vm.topics.length < 1
+            ? _c("h2", { staticClass: "font-light" }, [
+                _vm._v(
+                  "No workspace Created. You won't be able to use Private review feature of AskPls."
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.topics.length > 0
+            ? _c("div", [
+                _c("div", [
+                  _c("table", { staticClass: "table w-full" }, [
+                    _c("thead", [
                       _c("tr", [
-                        _c("td", [_vm._v("@" + _vm._s(_vm.inpWorkspace))]),
+                        _c("th", { staticClass: "text-left" }, [
+                          _vm._v("Workspace")
+                        ]),
                         _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "a",
-                            {
-                              attrs: {
-                                href:
-                                  "/workspace/create?name=" + _vm.inpWorkspace
-                              },
-                              on: { click: _vm.createworkspace }
-                            },
-                            [_vm._v("Create")]
-                          )
+                        _c("th", { staticClass: "text-left" }, [_vm._v("URL")]),
+                        _vm._v(" "),
+                        _c("th", { staticClass: "text-left" }, [
+                          _vm._v("Action")
                         ])
                       ])
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.topics, function(topic) {
+                        return _c("tr", [
+                          _c("td", [_vm._v(_vm._s(topic.workspace))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(topic.url))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-default ",
+                                attrs: { href: "/join" }
+                              },
+                              [_vm._v("Use")]
+                            )
+                          ])
+                        ])
+                      }),
+                      0
+                    )
+                  ])
+                ])
               ])
             : _vm._e()
         ]

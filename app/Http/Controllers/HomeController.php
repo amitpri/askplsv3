@@ -7,26 +7,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use Auth;
+use App\User;
 use App\Tenant;
 use App\TenantUser;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('home');
@@ -76,26 +68,33 @@ class HomeController extends Controller
     {
         $workspace = $request->workspace; 
         $id = $request->id; 
-        $code = $request->code;  
+      //  $code = $request->code;  
 
         $loggedinid = Auth::user()->id; 
 
         $tenantExists = Tenant::where('id','=',$id)
                     ->where('workspace','=',$workspace)
-                    ->where('code','=',$code)
+                //    ->where('code','=',$code)
                     ->where('status','=', 1)
                     ->first(['id','user_id'  ]); 
 
         if( isset($tenantExists->id)  ){
 
-            $newtenantuser = TenantUser::create(
-                [   'user_id' => $loggedinid, 
-                     'tenant_id' => $id,
-                    'admin' =>  1, 
-                    'status' => 1,
-                ]);
+            $tenantuserexist = TenantUser::where('tenant_id', '=' , $id)->where('user_id', '=' , $loggedinid)->first(['id']); 
 
-            return 1;  
+            if( isset($tenantuserexist)){
+                 
+            }else{
+
+                $newtenantuser = TenantUser::create(
+                    [   'user_id' => $loggedinid, 
+                         'tenant_id' => $id,
+                        'admin' =>  0, 
+                        'status' => 0,
+                    ]);
+
+                return 1;     
+            }
 
         }else{
 
@@ -114,33 +113,47 @@ class HomeController extends Controller
     public function workspacecreated(Request $request)
     {
         $workspace = $request->workspace; 
-        $company = $request->company; 
-        $city = $request->city; 
+    //    $company = $request->company; 
+    //    $city = $request->city; 
         $url = "https://askpls.com/" . $workspace ;
         $code = mt_rand(100000, 999999);
 
         $loggedinid = Auth::user()->id; 
 
-        $newtenant = Tenant::create(
+        $tenantexist = Tenant::where('workspace', '=' , $workspace)->first(['id']); 
+
+
+        if( isset($tenantexist)){
+
+
+        }else{
+
+            $newtenant = Tenant::create(
                 [   'user_id' => $loggedinid, 
-                    'workspace' =>  $workspace, 
-                    'company' =>  $company, 
-                    'city' => $city,
+                    'workspace' =>  $workspace,  
                     'url' => $url, 
                     'code' => $code,
                     'status' => '1', 
                 ]); 
 
-        $tenant_id = $newtenant->id;
+            $tenant_id = $newtenant->id;
 
-        $newtenantuser = TenantUser::create(
-                [   'user_id' => $loggedinid, 
-                     'tenant_id' => $tenant_id,
-                    'admin' =>  1, 
-                    'status' => 1,
-                ]); 
-         
-        return $newtenant; 
+            $newtenantuser = TenantUser::create(
+                    [   'user_id' => $loggedinid, 
+                         'tenant_id' => $tenant_id,
+                        'admin' =>  1, 
+                        'status' => 1,
+                    ]); 
+
+
+            $userupdate = User::where('id', $loggedinid)->update(['tenant' => 1]);
+             
+            return $newtenant; 
+        }
+
+        
+
+        
         
     }
 }
