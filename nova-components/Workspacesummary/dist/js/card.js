@@ -307,7 +307,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         workspaceshow: function workspaceshow() {
 
-            Nova.request().post('/nova-vendor/workspace/show');
+            Nova.request().post('/portal/work');
         }
     }
 });
@@ -342,13 +342,15 @@ var render = function() {
           ? _c("div", [
               _c("div", [
                 _c(
-                  "button",
+                  "a",
                   {
-                    staticClass: "btn btn-default",
-                    on: { click: _vm.workspaceshow }
+                    staticClass: "btn btn-default btn-primary",
+                    attrs: { href: "/portal/work" }
                   },
-                  [_vm._v("New Workspace ")]
+                  [_vm._v("New Workspace")]
                 ),
+                _vm._v(" "),
+                _c("br"),
                 _vm._v(" "),
                 _c("table", { staticClass: "table w-full" }, [
                   _c("thead", [
@@ -375,7 +377,7 @@ var render = function() {
                           _c(
                             "a",
                             {
-                              staticClass: "btn btn-default btn-default",
+                              staticClass: "btn btn-default btn-primary",
                               attrs: { href: "/join" }
                             },
                             [_vm._v("Use")]

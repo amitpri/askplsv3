@@ -25,13 +25,13 @@
               <tbody v-if="workspaceLists.length  > 0">
                 <tr v-for="workspaceList in workspaceLists"> 
                   <td>{{ workspaceList.workspace }}</td> 
-                  <td><a @click.prevent="join(workspaceList.workspace , workspaceList.id )" :href="'/workspace/join/' + workspaceList.id + '/' + workspaceList.workspace" class="btn btn-default">Join</a></td> 
+                  <td><a @click.prevent="join(workspaceList.workspace , workspaceList.id )" :href="'/workspace/join/' + workspaceList.id + '/' + workspaceList.workspace" class="btn btn-default btn-primary">Join</a></td> 
                 </tr>  
               </tbody>
               <tbody v-else>
                 <tr v-if="inpWorkspace.length > 2"> 
                   <td>{{ inpWorkspace }}</td>
-                  <td><a class="btn btn-default" @click="createworkspace" :href="'/workspace/create?name=' + inpWorkspace">Create</a></td>
+                  <td><a class="btn btn-default btn-primary" @click="createworkspace" :href="'/workspace/create?name=' + inpWorkspace">Create</a></td>
                 </tr>  
               </tbody>
             </table>
@@ -59,7 +59,7 @@
                             <tr v-for="topic in topics" >
                                 <td>{{ topic.workspace }}</td>
                                 <td>{{ topic.url }}</td> 
-                                <td><a class="btn btn-default " href="/join">Use</a></td>
+                                <td><a class="btn btn-default btn-primary " href="/join">Use</a></td>
                             </tr>
                         </tbody>
                     </table>

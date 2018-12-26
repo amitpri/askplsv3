@@ -8,7 +8,7 @@
             <div v-if="topics.length > 0" >
                 <div >
 
-                    <button @click="workspaceshow" class="btn btn-default">New Workspace </button>
+                    <a href="/portal/work" class="btn btn-default btn-primary">New Workspace</a> </br> 
  
                     <table  class="table w-full">
                         <thead>
@@ -22,7 +22,7 @@
                             <tr v-for="topic in topics" >
                                 <td>{{ topic.workspace }}</td>
                                 <td>{{ topic.url }}</td> 
-                                <td><a class="btn btn-default btn-default" href="/join">Use</a></td>
+                                <td><a class="btn btn-default btn-primary" href="/join">Use</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -66,7 +66,7 @@ export default {
     methods: { 
         workspaceshow:function(){
 
-            Nova.request().post('/nova-vendor/workspace/show');
+            Nova.request().post('/portal/work');
 
         }
     }

@@ -914,7 +914,7 @@ var render = function() {
                             _c(
                               "a",
                               {
-                                staticClass: "btn btn-default",
+                                staticClass: "btn btn-default btn-primary",
                                 attrs: {
                                   href:
                                     "/workspace/join/" +
@@ -948,7 +948,7 @@ var render = function() {
                               _c(
                                 "a",
                                 {
-                                  staticClass: "btn btn-default",
+                                  staticClass: "btn btn-default btn-primary",
                                   attrs: {
                                     href:
                                       "/workspace/create?name=" +
@@ -1014,7 +1014,7 @@ var render = function() {
                             _c(
                               "a",
                               {
-                                staticClass: "btn btn-default ",
+                                staticClass: "btn btn-default btn-primary ",
                                 attrs: { href: "/join" }
                               },
                               [_vm._v("Use")]
