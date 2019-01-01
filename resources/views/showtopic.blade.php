@@ -168,12 +168,12 @@
 		============================================= -->
 
 		<div id="feedback">
-	 		<section id="page-title" class="  border-top center">
+	 		<section id="page-title" class="  border-top center" v-for="topic in topics">
 
 				<div class="container clearfix">
-					<h1 class="font-secondary nott mb-3" style="font-size: 32px;">@{{ inpTopic }}</h1>
-					<h6>Posted by @{{ inpName }} @{{ inpCreated_at}}</h6>
-					<span>@{{ inpDetail }}</span>
+					<h1 class="font-secondary nott mb-3" style="font-size: 32px;">@{{ topic.topic_name }}</h1>
+					<h6>Posted by @{{ topic.name }} @{{ topic.created_at }}</h6>
+					<span>@{{ topic.details }}</span>
 				</div>
 				<div class="contact-widget mt-1 divcenter " style="max-width: 750px"> 
 
@@ -273,6 +273,7 @@
 				data : {
 					id:"", 
 					inpId: "{!! $id !!}",
+					inpTopicName: "{!! $topic_name !!}",
 					inpName: "",
 					inpTopic: "",
 					inpDetail: "", 
@@ -284,6 +285,8 @@
 					inpReview : "",
 					flg_name : false,
 					row_count : 10,
+					topics : [],
+					topic : "",
 				},
 				mounted:function(){
 
@@ -297,11 +300,7 @@
 					})
 					.then(response => {
 
-						this.inpTopic  = response.data.topic_name;
-						this.inpId = response.data.id;
-						this.inpDetail = response.data.details;
-						this.inpName = response.data.username;
-						this.inpCreated_at = response.data.created_at;
+						this.topics = response.data
 						
 
 					});
@@ -368,7 +367,7 @@
 
 								      		review: this.inpReview,
 								      		topicid : this.inpId,
-								      		topicname : this.inpTopic, 
+								      		topicname : this.inpTopicName, 
 								      	 
 								    	}
 									}).then(response => { 

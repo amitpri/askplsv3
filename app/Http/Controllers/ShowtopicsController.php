@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use App\ShowTopic;
 use App\ShowReview;
@@ -86,18 +87,35 @@ class ShowtopicsController extends Controller
     public function showdetails(Request $request)
     {
  
-        $id = $request->id; 
+        $id = $request->id;  
 
-        $topic = ShowTopic::where('id','=',$id)->where('type','=','public')->first(['id','topic_name','details','type']);
+        $topics = DB::select('SELECT  a.`id`, a.`user_id`,  a.`topic_name`,  a.`details` , b.`name`, a.`created_at`
+                                        FROM `topics` a ,  `users` b 
+                                        WHERE a.`id` = :id
+                                        AND a.`user_id` = b.`id`
+                                        AND a.`type` = "public" ', ['id' => $id]);
         
-        return $topic;
+        
+        foreach ($topics as $topic) {
+        
+            $id = $topic->id;
+            $user_id = $topic->user_id;
+            $topic_name = $topic->topic_name;
+            $details = $topic->details;
+            $username = $topic->name;
+            $created_at = $topic->created_at; 
+
+            
+        }
+     
+        return $topics;
     }
 
     public function messages(Request $request)
     {   
         $inpid = $request->id; 
 
-        $topic = ShowReview::where('topic_id','=',$inpid)->get(['id','topic_name','review','created_at']); 
+        $topic = ShowReview::where('topic_id','=',$inpid)->orderBy('updated_at','desc')->get(['id','topic_name','review','created_at']); 
 
         return $topic;
    
@@ -129,7 +147,7 @@ class ShowtopicsController extends Controller
             'data' => [
                 'topic_id' => $inptopicid,
                 'topic' => $inptopicname,
-                'review' => $inpfeedback,
+                'review' => $inpreview,
             ]
             
         ]; 
