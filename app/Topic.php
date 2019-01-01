@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Builder;
 class Topic extends Model
 {
     use  Notifiable;
+    use \Spatie\Tags\HasTags;
 
     public function group()
     {

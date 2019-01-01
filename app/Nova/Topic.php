@@ -22,6 +22,8 @@ use Outhebox\NovaHiddenField\HiddenField;
 
 use OwenMelbz\RadioField\RadioButton;
 
+use Spatie\TagsField\Tags;
+
 class Topic extends Resource
 { 
 
@@ -53,12 +55,26 @@ class Topic extends Resource
                             'The heading of the review being asked for. Max length 100'
                         ), 
 
+                Textarea::make('Details')->rows(10)->rules('required', 'max:4000')->help(
+                            "<i>" . 'Details or links of the topics to be reviewed. Max length 4000 characters'  ."<i>"
+                        ), 
+
                 RadioButton::make('Type')
                 ->options([ 
                     'Public' => 'Public',
                 ])->default('Public')->sortable()->help(
                             "<br><br><i>" . 'Public Topics are displayed at askpls.com and can be reviewed by anybody'  ."<i>"
                         ), 
+
+                RadioButton::make('Category')
+                ->options([ 
+                    'Personal' => 'Personal',
+                    'HR' => 'HR',
+                    'Sales' => 'Sales',
+                    'Marketing' => 'Marketing',
+                    'Operation' => 'Operation',
+                    'Technology' => 'Technology',
+                ])->sortable()->default('Personal'),
 
                 HiddenField::make( 'url')->default('https://askpls.com/topics/' . str_random(10))->hideFromIndex()->hideFromDetail(),
       
@@ -71,9 +87,9 @@ class Topic extends Resource
 
                 }),
 
-                Textarea::make('Details')->rows(10)->rules('required', 'max:4000')->help(
-                            "<i>" . 'Details or links of the topics to be reviewed. Max length 4000 characters'  ."<i>"
-                        ), 
+                
+
+          //      Tags::make('Tags')->withoutSuggestions()->hideFromIndex(), 
 
                 HasMany::make('Review')
             ];
@@ -89,6 +105,10 @@ class Topic extends Resource
                             'The heading of the review being asked for. Max length 100'
                         ), 
 
+                Textarea::make('Details')->rows(10)->rules('required', 'max:4000')->help(
+                            "<i>" . 'Details or links of the topics to be reviewed. Max length 4000 characters'  ."<i>"
+                        ), 
+
                 RadioButton::make('Type')
                 ->options([
                     'Private' => 'Private',
@@ -96,6 +116,16 @@ class Topic extends Resource
                 ])->default('Private')->sortable()->help(
                             "<br><br><i>" . 'Public Topics are displayed at askpls.com and can be reviewed by anybody'  ."<i>"
                         ), 
+
+                RadioButton::make('Category')
+                ->options([ 
+                    'Personal' => 'Personal',
+                    'HR' => 'HR',
+                    'Sales' => 'Sales',
+                    'Marketing' => 'Marketing',
+                    'Operation' => 'Operation',
+                    'Technology' => 'Technology',
+                ])->sortable()->default('Personal'),
 
                 HiddenField::make( 'url')->default('https://askpls.com/topics/' . str_random(10))->hideFromIndex()->hideFromDetail(),
       
@@ -108,9 +138,9 @@ class Topic extends Resource
 
                 }),
 
-                Textarea::make('Details')->rows(10)->rules('required', 'max:4000')->help(
-                            "<i>" . 'Details or links of the topics to be reviewed. Max length 4000 characters'  ."<i>"
-                        ), 
+                
+
+                Tags::make('Tags')->withoutSuggestions()->hideFromIndex(), 
 
                 BelongsToMany::make('Group'),
 

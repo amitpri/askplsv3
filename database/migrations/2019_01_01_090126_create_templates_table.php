@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTopicsTable extends Migration
+class CreateTemplatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateTopicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('topics', function (Blueprint $table) {
-            $table->increments('id'); 
-            $table->integer('tenant_id')->unsigned()->nullable();
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->string('topic_name')->nullable();
-            $table->string('type')->default('private');
-            $table->string('url')->nullable();
+        Schema::create('templates', function (Blueprint $table) {
+            $table->increments('id');  
+            $table->string('topic_name')->nullable();  
             $table->text('details')->nullable();
             $table->string('category')->nullable();
             $table->string('tags')->nullable();
@@ -34,6 +30,6 @@ class CreateTopicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('topics');
+        Schema::dropIfExists('templates');
     }
 }
