@@ -160,8 +160,8 @@
 
 				<div class="container">
 
-					<div class="row">
-						<div class="col-lg-6 col-md-6">
+					<div class="row" style="margin-top:-60px;">
+						<div class="offset-md-3 col-lg-6 col-md-6">
 							<div class="search-control-wrapper">
 								<form action="#">
 									<div class="form-group">
@@ -178,20 +178,47 @@
 
 					<div class="row clearfix" >
 
-						<div class="col-md-12">
+						<div class="col-md-2">
+                            <div class="t400" style="background-color:  ">
+                                <ul class="nav flex-column">
+                                  <li class="nav-item">
+                                    <a class="nav-link active" href="#">Personal</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="#">HR</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="#">Sales</a>
+                                  </li> 
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="#">Marketing</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="#">Operation</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="#">Technology</a>
+                                  </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
                             <div v-for="topic in topics" v-cloak>
-    							<div  class="toggle toggle-bg" data-animate="fadeIn" >
-    								<div class="togglet rounded-top t400"><strong class="mr-1">Q.</strong>@{{ topic.topic_name }}
-                                        <i class="toggle-icon icon-line-circle-plus"></i>
-                                    </div>
-    								<div class="togglec rounded-bottom">
-                                        <p>Posted by 
-                                                <a target="_blank" :href="'/viewprofile/' + topic.user_id">@{{ topic.name }}</a> on 12 Dec 2018 || 
-                                                <a target="_blank" class="btn btn-default" :href="'/topics/' + topic.id "> Comments</a> </p>
-                                         @{{ topic.details }}
-                                         
-                                    </div>                                
-    							</div>
+                                <div class="card" style="margin-bottom: 10px;"  > 
+                                  <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a target="_blank" class="btn btn-default" :href="'/topics/' + topic.id "> @{{ topic.topic_name }}</a>
+                                    </h4>
+                                    <h6 class=" ">
+                                        <p><a target="_blank" :href="'/topics?category=' + topic.category">@{{ topic.category }}</a>  || By 
+                                            <a target="_blank" :href="'/viewprofile/' + topic.user_id">@{{ topic.name }}</a> 
+                                            on 12 Dec 2018  
+                                        </p>
+                                    </h6>
+                                    <p class="card-text">@{{ topic.details }}</p>
+                                     
+                                  </div>
+                                </div> 
                             </div>
 							   
 						</div> 

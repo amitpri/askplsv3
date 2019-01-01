@@ -33,7 +33,7 @@ class TopicController extends Controller
     //    $topics1 = ShowTopic::where('type', '=' , 'public')->
       //                  orderBy('updated_at','desc')->take(10)->find(10)->get();
 
-        $topics = DB::select('SELECT  a.`id`, a.`user_id`,  a.`topic_name`,  a.`details` , b.`name`
+        $topics = DB::select('SELECT  a.`id`, a.`user_id`,  a.`topic_name`,  a.`details` , a.`category`, b.`name`
                                         FROM `topics` a ,  `users` b 
                                         WHERE a.`user_id` = b.`id`
                                         AND a.`type` = "public"
