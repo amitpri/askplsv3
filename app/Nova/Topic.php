@@ -140,7 +140,7 @@ class Topic extends Resource
 
                 
 
-                Tags::make('Tags')->withoutSuggestions()->hideFromIndex(), 
+        //        Tags::make('Tags')->withoutSuggestions()->hideFromIndex(), 
 
                 BelongsToMany::make('Group'),
 
