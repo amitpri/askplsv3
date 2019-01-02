@@ -2,6 +2,8 @@
 
 Auth::routes(['verify' => true]);
 
+Route::get('/toconfirm', 'IndexController@toconfirm');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/workspace', 'HomeController@workspace');

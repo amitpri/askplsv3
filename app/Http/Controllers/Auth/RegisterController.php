@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/portal';
+    protected $redirectTo = '/toconfirm';
 
     /**
      * Create a new controller instance.

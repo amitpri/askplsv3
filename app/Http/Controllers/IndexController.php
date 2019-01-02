@@ -52,4 +52,11 @@ class IndexController extends Controller
     	return view('contact');
 
     }   
+
+    public function toconfirm()
+    {
+
+        return view('toconfirm');
+
+    }   
 }
