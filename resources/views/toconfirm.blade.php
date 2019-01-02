@@ -27,7 +27,7 @@
 
             <form class="bg-white shadow p-8 max-w-login mx-auto"> 
 
-                        <h4 class="text-2xl text-center font-normal mb-6 text-90">Congrats you are Registered to AskPls. Please confirm your email by checkign your mailbox and clicking on the link sent</h4>
+                        <h4 class="text-2xl text-center font-normal mb-6 text-90">Congrats!! you are Registered to AskPls. Please confirm your email by clicking on the link sent to your email address. If you don't find, Please check the SPAM folder.</h4>
  
  
                     </form>
