@@ -214,8 +214,7 @@
                                             <a target="_blank" :href="'/viewprofile/' + topic.user_id">@{{ topic.name }}</a> 
                                             on 12 Dec 2018  
                                         </p>
-                                    </h6>
-                                    <p class="card-text">@{{ topic.details }}</p>
+                                    </h6> 
                                      
                                   </div>
                                 </div> 

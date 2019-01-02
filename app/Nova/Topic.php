@@ -23,6 +23,7 @@ use Outhebox\NovaHiddenField\HiddenField;
 use OwenMelbz\RadioField\RadioButton;
 
 use Spatie\TagsField\Tags;
+use Waynestate\Nova\CKEditor;
 
 class Topic extends Resource
 { 
@@ -54,10 +55,23 @@ class Topic extends Resource
                         ->help(
                             'The heading of the review being asked for. Max length 100'
                         ), 
+                CKEditor::make('Details')->options([
+                    'height' => 300,
+                    'toolbar' => [
+                        ['Cut','Copy','Paste'],
+                        ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+                        ['Image','Table','HorizontalRule','SpecialChar','PageBreak'], 
+                        ['Bold','Italic','Strike','-','Subscript','Superscript'],
+                        ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
+                        ['JustifyLeft','JustifyCenter','JustifyRight'],
+                        ['Link','Unlink'], 
+                        ['Format','FontSize','-','Maximize']
+                    ],
+                ])->hideFromIndex(), 
 
-                Textarea::make('Details')->rows(10)->rules('required', 'max:4000')->help(
-                            "<i>" . 'Details or links of the topics to be reviewed. Max length 4000 characters'  ."<i>"
-                        ), 
+      //          Textarea::make('Details')->rows(10)->rules('required', 'max:4000')->help(
+      //                      "<i>" . 'Details or links of the topics to be reviewed. Max length 4000 characters'  ."<i>"
+       //                 ), 
 
                 RadioButton::make('Type')
                 ->options([ 
@@ -103,11 +117,24 @@ class Topic extends Resource
                 Text::make('Topic Name')->sortable()->rules('required', 'max:100')
                         ->help(
                             'The heading of the review being asked for. Max length 100'
-                        ), 
+                        ),
+                CKEditor::make('Details')->options([
+                    'height' => 300,
+                    'toolbar' => [
+                        ['Cut','Copy','Paste'],
+                        ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+                        ['Image','Table','HorizontalRule','SpecialChar','PageBreak'], 
+                        ['Bold','Italic','Strike','-','Subscript','Superscript'],
+                        ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
+                        ['JustifyLeft','JustifyCenter','JustifyRight'],
+                        ['Link','Unlink'], 
+                        ['Format','FontSize','-','Maximize']
+                    ],
+                ])->hideFromIndex(), 
 
-                Textarea::make('Details')->rows(10)->rules('required', 'max:4000')->help(
-                            "<i>" . 'Details or links of the topics to be reviewed. Max length 4000 characters'  ."<i>"
-                        ), 
+        //        Textarea::make('Details')->rows(10)->rules('required', 'max:4000')->help(
+        //                    "<i>" . 'Details or links of the topics to be reviewed. Max length 4000 characters'  ."<i>"
+           //             ), 
 
                 RadioButton::make('Type')
                 ->options([

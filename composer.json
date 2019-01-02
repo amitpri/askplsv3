@@ -23,7 +23,8 @@
         "silvanite/novatoolpermissions": "^1.0",
         "sixlive/nova-text-copy-field": "^1.2",
         "sparclex/nova-import-card": "^0.1.0",
-        "spatie/nova-tags-field": "^1.1"
+        "spatie/nova-tags-field": "^1.1",
+        "waynestate/nova-ckeditor4-field": "^0.1.4"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

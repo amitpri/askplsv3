@@ -173,7 +173,7 @@
 				<div class="container clearfix">
 					<h1 class="font-secondary nott mb-3" style="font-size: 32px;">@{{ topic.topic_name }}</h1>
 					<h6>Posted by @{{ topic.name }} @{{ topic.created_at }}</h6>
-					<span>@{{ topic.details }}</span>
+					<span v-html="topic.details"> </span>
 				</div>
 				<div class="contact-widget mt-1 divcenter " style="max-width: 750px"> 
 
