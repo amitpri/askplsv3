@@ -8,23 +8,23 @@
     <!-- Stylesheets
     ============================================= -->
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Playfair+Display:700,700i,900" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="style.css" type="text/css" />
-    <link rel="stylesheet" href="css/dark.css" type="text/css" />
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/style.css" type="text/css" />
+    <link rel="stylesheet" href="/css/dark.css" type="text/css" />
 
     <!-- Home Demo Specific Stylesheet -->
-    <link rel="stylesheet" href="demos/interior-design/interior-design.css" type="text/css" />
+    <link rel="stylesheet" href="/demos/interior-design/interior-design.css" type="text/css" />
 
-    <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
-    <link rel="stylesheet" href="css/animate.css" type="text/css" />
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+    <link rel="stylesheet" href="/css/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="/css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css" />
 
     <!-- Reader's Blog Demo Specific Fonts -->
-    <link rel="stylesheet" href="demos/interior-design/css/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="/demos/interior-design/css/fonts.css" type="text/css" />
 
-    <link rel="stylesheet" href="css/responsive.css" type="text/css" />
+    <link rel="stylesheet" href="/css/responsive.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/colors.php?color=1c85e8" type="text/css" />
+    <link rel="stylesheet" href="/css/colors.php?color=1c85e8" type="text/css" />
 
     <script src="/vue/vue.min.js"></script>
         <script src="/axios/axios.min.js"></script>
@@ -109,8 +109,8 @@
                             <!-- Logo
                             ============================================= -->
                             <div id="logo">
-                                <a href="/" class="standard-logo"><img src="images/logo.png" alt="Canvas Logo"></a>
-                                <a href="/" class="retina-logo"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
+                                <a href="/" class="standard-logo"><img src="/images/logo.png" alt="Canvas Logo"></a>
+                                <a href="/" class="retina-logo"><img src="/images/logo@2x.png" alt="Canvas Logo"></a>
                             </div><!-- #logo end -->
 
                         </div>
@@ -121,9 +121,25 @@
                             <nav id="primary-menu" class="with-arrows fnone clearfix">
 
                                 <ul> 
+                                    <li><a href="#"><div>Why AskPls</div></a>
+                                        <ul>
+                                            <li><a href="/how-it-works"><div>How it works?</div></a></li>
+                                            <li><a href="/enterprises"><div>Enterprises</div></a></li> 
+                                            <li><a href="/customers"><div>Customers</div></a></li> 
+                                        </ul>
+                                    </li>
                                     <li><a href="/topics"><div>Topics</div></a></li>
-                                    <li><a href="/solutions"><div>Solutions</div></a></li>
-                                    <li><a href="/why"><div>Why AskPls</div></a></li>
+                                    <li><a href="#"><div>Solutions</div></a>
+                                        <ul>
+                                            <li><a href="/engineering"><div>Engineering</div></a></li>
+                                            <li><a href="/it"><div>IT</div></a></li>
+                                            <li><a href="/customer-support"><div>Customer Support</div></a></li>
+                                            <li><a href="/sales"><div>Sales</div></a></li>
+                                            <li><a href="/marketing"><div>Marketing</div></a></li>
+                                            <li><a href="/human-resources"><div>Human Resources</div></a></li>
+                                            <li><a href="/cxo"><div>CxO</div></a></li>
+                                        </ul>
+                                    </li>
                                     <li><a href="/prices"><div>Prices</div></a></li>
                                     <li><a href="/faqs"><div>FAQs</div></a></li>
                                     <li><a href="/contact"><div>Contact</div></a></li>
@@ -150,89 +166,43 @@
 
 		<!-- Page Title
 		============================================= -->
- 
 
+		<div id="viewprofile"> 
+ 
 		<!-- Content
 		============================================= -->
-		<section  id="topicsdetails">
+			<section class="container">
 
-			<div class="content-wrap clearfix">
-
-				<div class="container">
-
-					<div class="row" style="margin-top:-60px;">
-						<div class="offset-md-3 col-lg-6 col-md-6">
-							<div class="search-control-wrapper">
-								<form action="#">
-									<div class="form-group">
-										<div class="input-group">
-											<input type="text" class="form-control" placeholder="Search Topics" v-model="searchquery"  @keyup="filteredtopics" >
- 											<button class="btn btn-primary" type="button">Search</button>
-											 
-										</div>
-									</div>
-								</form>
-							</div> 
-						</div>
-					</div>
-
-					<div class="row clearfix" >
-
-						<div class="col-md-2">
-                            <div class="t400" style="background-color:  ">
-                                <ul class="nav flex-column">
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="/topics?category=personal">Personal</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="/topics?category=hr">HR</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="/topics?category=sales">Sales</a>
-                                  </li> 
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="/topics?category=marketing">Marketing</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="/topics?category=operation">Operation</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="/topics?category=technology">Technology</a>
-                                  </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-10">
-                            <div v-for="topic in topics" v-cloak>
-                                <div class="card" style="margin-bottom: 10px;"  > 
-                                  <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a target="_blank" class="btn btn-default" :href="'/topics/' + topic.url "> @{{ topic.topic_name }}</a>
-                                    </h4>
-                                    <h6 class=" ">
-                                        <p><a target="_blank" :href="'/topics?category=' + topic.category">@{{ topic.category }}</a>  || By 
-                                            <a target="_blank" :href="'/viewprofile/' + topic.user_code">@{{ topic.name }}</a> 
-                                            on 12 Dec 2018  
-                                        </p>
-                                    </h6> 
-                                     
-                                  </div>
-                                </div> 
-                            </div>
-							   
-						</div> 
-
-					</div>
-
+			  	<div class="card text-center">
+				  <div class="card-header">
+				    
+				  </div>
+				  <div class="card-body">
+				    <h2 class="card-title">@{{inpName}}</h2>
+				    <p class="card-text">@{{inpCity}} | @{{inpCountry}}</p> 
+				  </div> 
 				</div>
+			</br>
 
-			</div>
+				<div class="card text-center" style="width:  " >
+				  <div class="card-header">
+				    <h4>Topics</h4>
+				  </div>
 
-            <div class="center"><button class="btn btn-primary" @click="morerows">Load More</button></div>
+				  <div class="card-body" v-for="topic in topics" v-cloak>
+				    <p class="card-text"><h4><a :href="'/topics/' + topic.url" style="color: black;">@{{topic.topic_name}}</a></h4>	</p>
+				    <h6 class="card-subtitle mb-2 text-muted">@{{topic.category}} | Posted on @{{topic.created_at}}</h6>
+				     
+				  </div>
 
-		</section><!-- #content end -->
 
- 
+				</div> 
+
+
+			</section><!-- #content end -->
+
+ 		</div>
+
 		<!-- Footer
 		============================================= -->
 		<footer id="footer" class="topmargin noborder" style="background-color: #F5F5F5;">          
@@ -271,80 +241,74 @@
 	<script src="../../js/functions.js"></script>
 
     <script>
-    
-        const topicsdetails = new Vue({
+	
+			new Vue({
 
-            el : '#topicsdetails',
-            data : {
-                id:"", 
-                inpId: "", 
-                topic: "",
-                topics: [],
-                inpKey:"", 
-                searchquery : "",
-                row_count : 10,
-            },
-            mounted:function(){ 
+				el : '#viewprofile',
+				data : {
+					id:"", 
+					inpId: "{!! $id !!}",
+					inpUserCode: "{!! $user_code !!}",
+					url:"", 
+					inpUrl: "",  
+					inpName: "",
+					inpCity: "",
+					inpCountry: "",
+					inpTopic: "",
+					inpDetail: "", 
+					inpCreated_at: "",
+					feedback: "",
+					feedbacks: [],
+					inpKey:"", 
+					shownewfeedback: false,
+					inpReview : "",
+					flg_name : false,
+					row_count : 10,
+					topics : [],
+					topic : "", 
+					name: "",
+				},
+				mounted:function(){
 
-                axios.get('/topics/default')
-                .then(response => {
+					axios.get('/viewprofile/details',{
+					params: {
 
-                    this.topics = response.data; 
+				      	id: this.inpId, 
+				      	usercode: this.inpUserCode, 
+				      	 
+				    	}
 
-                }); 
+					})
+					.then(response => {
+ 
+						this.inpName = response.data.name;
+						this.inpCity = response.data.city;
+						this.inpCountry = response.data.country;
+						
 
-            },
-            methods:{
+					});
 
-                filteredtopics:function(){
+					axios.get('/viewprofile/showtopics',{
+					params: {
 
-                    axios.get('/showtopics/filtered' ,{
+				      	id: this.inpId, 
+				      	usercode: this.inpUserCode,  
+				      	 
+				    	}
 
-                            params: {
+					})
+					.then(response => {this.topics = response.data}); 
 
-                                topics : this.searchquery, 
+				},
+				methods: { 
+ 
+	                
+					 
+				},
 
-                                }
+			})
 
-                            })
-                        .then(response => {this.topics = response.data});
-                
-         
-                },
-                morerows:function(){
-
-                    axios.get('/showtopics/getmore' ,{
-
-                            params: {
-                              row_count: this.row_count,
-                            }
-
-                        }).then(response => {
-
-                            for (var i = 0;  i <= response.data.length - 1; i++ ) {
-
-                                this.topics.push({
-
-                                        id : response.data[i].id, 
-                                        user_id : response.data[i].user_id, 
-                                        topic : response.data[i].topic, 
-                                        name : response.data[i].name,  
-
-                                    });
-                            }                       
-
-                        });
-     
-
-                    this.row_count = this.row_count + 10;
-                    
-                }
-            }
-
-        })
-
-
-    </script>
+		</script>
 
 </body>
 </html>

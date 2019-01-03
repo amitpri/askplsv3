@@ -64,12 +64,15 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
+    {   
+        $usercode = mt_rand(100000000, 999999999);
+        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'password_o' => $data['password'],
+            'user_code' => $usercode,
         ]);
     }
 

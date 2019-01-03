@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 
+use App\User;
 use App\ShowTopic;
 use App\ShowReview;
 use Illuminate\Http\Request;
@@ -159,6 +160,48 @@ class ShowtopicsController extends Controller
         return $postfeedback;
    
     } 
+
+    public function viewprofile($user_code)
+    {   
+
+        $user = User::where('user_code','=',$user_code)->first(['id','user_code']); 
+
+        $id = $user->id; 
+ 
+        return view('viewprofile', compact('id', 'user_code'));
+   
+    }
+
+    public function viewprofiledetails(Request $request)
+    {   
+
+        $usercode = $request->usercode;
+        $id = $request->id;  
+
+        $user = User::where('user_code','=',$usercode)->where('id','=',$id)
+                    ->first(['id','user_code', 'name' , 'city' , 'country' , 'profile_photo' ]); 
+
+        return $user;
+   
+    }
+
+    public function viewprofileshowtopics(Request $request)
+    {   
+
+        $usercode = $request->usercode;
+        $id = $request->id;  
+
+        $user = User::where('user_code','=',$usercode)->where('id','=',$id)
+                    ->first(['id','user_code'  ]); 
+
+        $id2 = $user->id; 
+
+        $topics = ShowTopic::where('user_id', '=' , $id2)->where('status', '=' , 1)->where('type', '=' , 'public')
+                    ->orderBy('updated_at','desc')->take(10)->get(['id','user_id','topic_name','url', 'category' , 'created_at']);
+
+        return $topics;
+   
+    }
 
     
 }

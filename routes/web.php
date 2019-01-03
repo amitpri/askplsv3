@@ -47,3 +47,7 @@ Route::get('/showtopics/postreview', 'ShowtopicsController@postreview');
 Route::get('/showtopics/showdetails', 'ShowtopicsController@showdetails'); 
 
 Route::get('/showtopics/{id}', 'ShowtopicsController@show');
+
+Route::get('/viewprofile/details', 'ShowtopicsController@viewprofiledetails');
+Route::get('/viewprofile/showtopics', 'ShowtopicsController@viewprofileshowtopics');
+Route::get('/viewprofile/{user_code}', 'ShowtopicsController@viewprofile');

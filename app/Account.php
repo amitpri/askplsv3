@@ -22,7 +22,11 @@ class Account extends Authenticatable
 
     protected $table = 'users';
 
-  
+    protected $fillable = [
+
+        'profile_photo',
+        
+    ];
 
     protected static function boot()
     {

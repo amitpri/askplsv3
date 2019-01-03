@@ -67,7 +67,7 @@ class Account extends Resource
             
             new Panel('Personal Details', $this->personalFields()),  
 
-            Image::make('Photo')->hideFromIndex(),
+            Image::make('Photo','profile_photo')->disk('public'), 
 
             new Panel('Address Information', $this->addressFields()),
 

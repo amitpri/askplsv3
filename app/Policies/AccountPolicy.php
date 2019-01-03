@@ -24,6 +24,11 @@ class AccountPolicy
     {
         return 1 === 1;
     }
+
+    public function create(User $user)
+    {
+        return 1 === 2;
+    }
     
     public function update(User $user, Account $account)
     {
