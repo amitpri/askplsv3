@@ -102,29 +102,49 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
 
         $loggedintenant = Auth::user()->tenant; 
+        $loggedinemail= Auth::user()->email;
 
-        if( $loggedintenant == 0 ){
+        if( $loggedinemail == "amitpri@gmail.com"){
 
-            return [  
-                new \Askpls\Workspacesummary\Workspacesummary(),
-                new TopicCount,
-                new ReviewCount, 
-                
-                
-            ];
+                return [  
+                    new \Askpls\Workspacesummary\Workspacesummary(),
+                    new TopicCount,
+                    new ReviewCount, 
+
+                    new \Tightenco\NovaGoogleAnalytics\PageViewsMetric,
+                    new \Tightenco\NovaGoogleAnalytics\VisitorsMetric,
+                    new \Tightenco\NovaGoogleAnalytics\MostVisitedPagesCard,
+                    
+                    
+                    ];
+
         }else{
 
+            if( $loggedintenant == 0 ){
 
-            return [
-                new \Askpls\Workspacesummary\Workspacesummary(),
-                new GroupCount,
-                new ProfileCount,
-                new ReviewCount,
-                new TopicCount,
-                
-            ];
+                return [  
+                    new \Askpls\Workspacesummary\Workspacesummary(),
+                    new TopicCount,
+                    new ReviewCount,  
+                    
+                    
+                    ];
+            }else{
 
+
+                return [
+                    new \Askpls\Workspacesummary\Workspacesummary(),
+                    new GroupCount,
+                    new ProfileCount,
+                    new ReviewCount,
+                    new TopicCount, 
+                    
+                ];
+
+            }
         }
+
+        
     }
 
     /**

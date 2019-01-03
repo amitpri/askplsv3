@@ -23,7 +23,9 @@
         "silvanite/novatoolpermissions": "^1.0",
         "sixlive/nova-text-copy-field": "^1.2",
         "sparclex/nova-import-card": "^0.1.0",
+        "spatie/laravel-analytics": "^3.6",
         "spatie/nova-tags-field": "^1.1",
+        "tightenco/nova-google-analytics": "^0.1.4",
         "waynestate/nova-ckeditor4-field": "^0.1.4"
     },
     "require-dev": {
