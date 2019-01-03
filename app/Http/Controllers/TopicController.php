@@ -33,7 +33,7 @@ class TopicController extends Controller
     //    $topics1 = ShowTopic::where('type', '=' , 'public')->
       //                  orderBy('updated_at','desc')->take(10)->find(10)->get();
 
-        $topics = DB::select('SELECT  a.`id`, a.`user_id`,  a.`topic_name`,  a.`details` , a.`category`, b.`name`
+        $topics = DB::select('SELECT  a.`id`, a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , a.`category`, b.`name`
                                         FROM `topics` a ,  `users` b 
                                         WHERE a.`user_id` = b.`id`
                                         AND a.`type` = "public"
@@ -80,29 +80,15 @@ class TopicController extends Controller
    
     } 
 
-    public function show($id)
+    public function show($url)
     {
  
-         $topics = DB::select('SELECT  a.`id`, a.`user_id`,  a.`topic_name`,  a.`details` , b.`name`, a.`created_at`
-                                        FROM `topics` a ,  `users` b 
-                                        WHERE a.`id` = :id
-                                        AND a.`user_id` = b.`id`
-                                        AND a.`type` = "public" ', ['id' => $id]);
+         $topic = ShowTopic::where('url','=',$url)->where('type','=','public')->first(['id','url' , 'topic_name']); 
         
-        
-        foreach ($topics as $topic) {
-        
-            $id = $topic->id;
-            $user_id = $topic->user_id;
-            $topic_name = $topic->topic_name;
-            $details = $topic->details;
-            $username = $topic->name;
-            $created_at = $topic->created_at; 
-
-            
-        }
+        $id = $topic->id;
+        $topic_name = $topic->topic_name;
        
-        return view('showtopic',compact('id', 'user_id', 'username' , 'created_at' , 'topic_name', 'details'));
+        return view('showtopic',compact('url','id' ,'topic_name'));
    
     } 
 

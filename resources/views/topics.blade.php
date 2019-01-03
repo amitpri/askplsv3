@@ -207,7 +207,7 @@
                                 <div class="card" style="margin-bottom: 10px;"  > 
                                   <div class="card-body">
                                     <h4 class="card-title">
-                                        <a target="_blank" class="btn btn-default" :href="'/topics/' + topic.id "> @{{ topic.topic_name }}</a>
+                                        <a target="_blank" class="btn btn-default" :href="'/topics/' + topic.url "> @{{ topic.topic_name }}</a>
                                     </h4>
                                     <h6 class=" ">
                                         <p><a target="_blank" :href="'/topics?category=' + topic.category">@{{ topic.category }}</a>  || By 

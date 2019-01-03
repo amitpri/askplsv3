@@ -123,13 +123,13 @@ class Topic extends Resource
                                 "<i>" . 'By default, Topics will be active forever'  ."<i>"
                             ), 
 
-                    HiddenField::make( 'url')->default('https://askpls.com/topics/' . str_random(10))->hideFromIndex()->hideFromDetail(),
+                    HiddenField::make( 'url')->default(mt_rand(100000000, 999999999))->hideFromIndex()->hideFromDetail(),
           
                     TextCopy::make('Public URL' ,function(){
 
                         if ( $this->type == 'Public'){
 
-                            return $this->url;
+                            return 'https://askpls.com/topics/' . $this->url;
                         }
 
                     }),
@@ -212,13 +212,13 @@ class Topic extends Resource
                                 "<i>" . 'By default, Topics will be active forever'  ."<i>"
                             ), 
 
-                    HiddenField::make( 'url')->default('https://askpls.com/topics/' . str_random(10))->hideFromIndex()->hideFromDetail(),
+                    HiddenField::make( 'url')->default(mt_rand(100000000, 999999999))->hideFromIndex()->hideFromDetail(),
           
                     TextCopy::make('Public URL' ,function(){
 
                         if ( $this->type == 'Public'){
 
-                            return $this->url;
+                            return 'https://askpls.com/topics/' . $this->url;
                         }
 
                     }),

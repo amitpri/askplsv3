@@ -177,7 +177,7 @@
 				</div>
 				<div class="contact-widget mt-1 divcenter " style="max-width: 750px"> 
 
-					<form class="nobottommargin" id="template-contactform" name="template-contactform" action="../../include/sendemail.php" method="post">
+					 
 
 						<div class="col_full"> 
 							<textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="5" cols="30" v-model="inpReview"></textarea>
@@ -186,8 +186,7 @@
 						<div class="col_full">
 							<button class="button  button-small nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit" @click="savefeedback">Submit Review</button>
 						</div>
-
-					</form>
+ 
 			</div>
 
 			</section><!-- #page-title end -->
@@ -273,6 +272,8 @@
 				data : {
 					id:"", 
 					inpId: "{!! $id !!}",
+					url:"", 
+					inpUrl: "{!! $url !!}", 
 					inpTopicName: "{!! $topic_name !!}",
 					inpName: "",
 					inpTopic: "",
@@ -293,7 +294,7 @@
 					axios.get('/showtopics/showdetails',{
 					params: {
 
-				      	id: this.inpId, 
+				      	url: this.inpUrl, 
 				      	 
 				    	}
 

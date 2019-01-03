@@ -87,18 +87,19 @@ class ShowtopicsController extends Controller
     public function showdetails(Request $request)
     {
  
-        $id = $request->id;  
+        $url = $request->url;   
 
-        $topics = DB::select('SELECT  a.`id`, a.`user_id`,  a.`topic_name`,  a.`details` , b.`name`, a.`created_at`
+        $topics = DB::select('SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` , b.`name`, a.`created_at`
                                         FROM `topics` a ,  `users` b 
-                                        WHERE a.`id` = :id
+                                        WHERE a.`url` = :url
                                         AND a.`user_id` = b.`id`
-                                        AND a.`type` = "public" ', ['id' => $id]);
+                                        AND a.`type` = "public" ', ['url' => $url]);
         
-        
+
         foreach ($topics as $topic) {
         
             $id = $topic->id;
+            $url = $topic->url;
             $user_id = $topic->user_id;
             $topic_name = $topic->topic_name;
             $details = $topic->details;
@@ -123,6 +124,7 @@ class ShowtopicsController extends Controller
 
     public function postreview(Request $request)
     {   
+
         $inptopicid = $request->topicid;
         $inptopicname = $request->topicname;
         $inpreview = $request->review;
@@ -141,19 +143,19 @@ class ShowtopicsController extends Controller
                 //    'status' => 1,                                 
                 ]);
 
-        $publishdata = [
+//        $publishdata = [
 
-            'event' => "NewFeedback_$userid",
-            'data' => [
-                'topic_id' => $inptopicid,
-                'topic' => $inptopicname,
-                'review' => $inpreview,
-            ]
+//            'event' => "NewFeedback_$userid",
+//            'data' => [
+//                'topic_id' => $inptopicid,
+//                'topic' => $inptopicname,
+ //               'review' => $inpreview,
+//            ]
             
-        ]; 
+ //       ]; 
 
-        Redis::publish('channel_feedback',json_encode($publishdata));
-
+//        Redis::publish('channel_feedback',json_encode($publishdata));
+        
         return $postfeedback;
    
     } 

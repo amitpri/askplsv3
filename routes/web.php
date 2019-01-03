@@ -36,7 +36,7 @@ Route::get('/topics/messages', 'TopicController@messages');
 Route::get('/topics/postfeedback', 'TopicController@postfeedback'); 
 Route::get('/topics/showdetails', 'TopicController@showdetails'); 
 
-Route::get('/topics/{id}', 'TopicController@show');
+Route::get('/topics/{url}', 'TopicController@show');
  
 Route::get('/showtopics/default', 'ShowtopicsController@default');
 Route::get('/showtopics/getmore', 'ShowtopicsController@getmore');

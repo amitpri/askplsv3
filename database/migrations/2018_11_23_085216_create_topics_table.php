@@ -19,7 +19,7 @@ class CreateTopicsTable extends Migration
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('topic_name')->nullable();
             $table->string('type')->default('private');
-            $table->string('url')->nullable();
+            $table->integer('url')->unique();
             $table->text('details')->nullable();
             $table->string('category')->nullable();
             $table->string('tags')->nullable();
