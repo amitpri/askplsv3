@@ -14,6 +14,10 @@ class Topic extends Model
     use  Notifiable;
     use \Spatie\Tags\HasTags;
 
+    protected $casts = [
+        'displayuptil' => 'datetime'
+    ];
+
     public function group()
     {
 

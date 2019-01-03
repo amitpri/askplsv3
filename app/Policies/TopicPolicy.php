@@ -35,7 +35,7 @@ class TopicPolicy
      */
     public function update(User $user, Topic $topic)
     {
-        return 1 === 2;
+        return 1 === 1;
     }
 
     /**

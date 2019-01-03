@@ -23,6 +23,11 @@ class CreateTopicsTable extends Migration
             $table->text('details')->nullable();
             $table->string('category')->nullable();
             $table->string('tags')->nullable();
+            $table->boolean('sitedisplay')->default(true);
+            $table->boolean('reviewdisplay')->default(true);
+            $table->boolean('frontdisplay')->default(false);
+            $table->boolean('status')->default(true);  
+            $table->datetime('displayuptil')->nullable();          
             $table->timestamps();
         });
     }

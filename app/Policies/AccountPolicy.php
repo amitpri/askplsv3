@@ -39,7 +39,7 @@ class AccountPolicy
 
         }else{
 
-            return $user->tenant > 0; 
+            return 1 == 1;
 
         }
  

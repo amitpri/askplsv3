@@ -6,6 +6,8 @@ use Auth;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\DateTime;
+
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -17,6 +19,7 @@ use Laravel\Nova\Fields\HasMany;
 
 use App\Nova\Actions\EmailTopicGroup;
 use App\Nova\Actions\TestAction;
+use Sixlive\TextCopy\TextCopy;
 
 use Outhebox\NovaHiddenField\HiddenField;
 
@@ -43,138 +46,253 @@ class Topic extends Resource
     {
         
         $loggedintenant = Auth::user()->tenant; 
+        $loggedinemail= Auth::user()->email;
 
-        if( $loggedintenant == 0 ){
+        if( $loggedinemail == "amitpri@gmail.com"){
 
             return [
-                ID::make()->sortable()->hideFromIndex(), 
+                    ID::make()->sortable()->hideFromIndex(), 
 
-                HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
+                    HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
 
-                Text::make('Topic Name')->sortable()->rules('required', 'max:100')
-                        ->help(
-                            'The heading of the review being asked for. Max length 100'
-                        ), 
-                CKEditor::make('Details')->options([
-                    'height' => 300,
-                    'toolbar' => [
-                        ['Cut','Copy','Paste'],
-                        ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
-                        ['Image','Table','HorizontalRule','SpecialChar','PageBreak'], 
-                        ['Bold','Italic','Strike','-','Subscript','Superscript'],
-                        ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
-                        ['JustifyLeft','JustifyCenter','JustifyRight'],
-                        ['Link','Unlink'], 
-                        ['Format','FontSize','-','Maximize']
-                    ],
-                ])->hideFromIndex(), 
+                    Text::make('Topic Name')->sortable()->rules('required', 'max:100')
+                            ->help(
+                                'The heading of the review being asked for. Max length 100'
+                            ), 
 
-      //          Textarea::make('Details')->rows(10)->rules('required', 'max:4000')->help(
-      //                      "<i>" . 'Details or links of the topics to be reviewed. Max length 4000 characters'  ."<i>"
-       //                 ), 
+                    CKEditor::make('Details')->options([
+                        'height' => 300,
+                        'toolbar' => [
+                            ['Cut','Copy','Paste'],
+                            ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+                            ['Image','Table','HorizontalRule','SpecialChar','PageBreak'], 
+                            ['Bold','Italic','Strike','-','Subscript','Superscript'],
+                            ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
+                            ['JustifyLeft','JustifyCenter','JustifyRight'],
+                            ['Link','Unlink'], 
+                            ['Format','FontSize','-','Maximize']
+                        ],
+                    ])->hideFromIndex(),  
 
-                RadioButton::make('Type')
-                ->options([ 
-                    'Public' => 'Public',
-                ])->default('Public')->sortable()->help(
-                            "<br><br><i>" . 'Public Topics are displayed at askpls.com and can be reviewed by anybody'  ."<i>"
-                        ), 
+                    RadioButton::make('Category')
+                    ->options([ 
+                        'Personal' => 'Personal',
+                        'HR' => 'HR',
+                        'Sales' => 'Sales',
+                        'Marketing' => 'Marketing',
+                        'Operation' => 'Operation',
+                        'Technology' => 'Technology',
+                    ])->sortable()->default('Personal'),
 
-                RadioButton::make('Category')
-                ->options([ 
-                    'Personal' => 'Personal',
-                    'HR' => 'HR',
-                    'Sales' => 'Sales',
-                    'Marketing' => 'Marketing',
-                    'Operation' => 'Operation',
-                    'Technology' => 'Technology',
-                ])->sortable()->default('Personal'),
+                    RadioButton::make('Type')
+                    ->options([ 
+                        'Public' => 'Public',
+                    ])->default('Public')->sortable()->help(
+                                "<br><br><i>" . 'Sharable and option to display at askpls.com portal for others to view and review'  ."<i>"
+                            ), 
 
-                HiddenField::make( 'url')->default('https://askpls.com/topics/' . str_random(10))->hideFromIndex()->hideFromDetail(),
-      
-                Text::make('Public URL' ,function(){
+                    RadioButton::make('Searchable', 'sitedisplay')
+                    ->options([ 
+                        '0' => 'No',
+                        '1' => 'Yes',                    
+                    ])->sortable()->default('1')->hideFromIndex()->help(
+                                "<br><br><i>" . 'Sharable and option to display at askpls.com portal for others to view and review'  ."<i>"
+                            ),  
 
-                    if ( $this->type == 'Public'){
+                    RadioButton::make('Review Viewable', 'reviewdisplay')
+                    ->options([ 
+                        '0' => 'No',
+                        '1' => 'Yes',
+                    ])->sortable()->default('1')->hideFromIndex()->help(
+                                "<br><br><i>" . 'Review Viewable by others at AskPls Portal'  ."<i>"
+                            ), 
 
-                        return $this->url;
-                    }
+                    RadioButton::make('Front Display by Admin', 'frontdisplay')
+                    ->options([ 
+                        '0' => 'No',
+                        '1' => 'Yes',
+                    ])->sortable()->default('0')->hideFromIndex(), 
 
-                }),
+                    RadioButton::make('Active', 'status')
+                    ->options([ 
+                        '0' => 'No',
+                        '1' => 'Yes',
+                    ])->sortable()->default('1'),
 
-                
+                    DateTime::make('Expiry Date', 'displayuptil')->sortable()->help(
+                                "<i>" . 'By default, Topics will be active forever'  ."<i>"
+                            ), 
 
-          //      Tags::make('Tags')->withoutSuggestions()->hideFromIndex(), 
+                    HiddenField::make( 'url')->default('https://askpls.com/topics/' . str_random(10))->hideFromIndex()->hideFromDetail(),
+          
+                    TextCopy::make('Public URL' ,function(){
 
-                HasMany::make('Review')
-            ];
+                        if ( $this->type == 'Public'){
+
+                            return $this->url;
+                        }
+
+                    }),
+
+                    
+
+              //      Tags::make('Tags')->withoutSuggestions()->hideFromIndex(), 
+
+                    HasMany::make('Review')
+                ];
+
         }else{
 
-            return [
-                ID::make()->sortable()->hideFromIndex(), 
+            if( $loggedintenant == 0 ){
 
-                HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
+                return [
+                    ID::make()->sortable()->hideFromIndex(), 
 
-                Text::make('Topic Name')->sortable()->rules('required', 'max:100')
-                        ->help(
-                            'The heading of the review being asked for. Max length 100'
-                        ),
-                CKEditor::make('Details')->options([
-                    'height' => 300,
-                    'toolbar' => [
-                        ['Cut','Copy','Paste'],
-                        ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
-                        ['Image','Table','HorizontalRule','SpecialChar','PageBreak'], 
-                        ['Bold','Italic','Strike','-','Subscript','Superscript'],
-                        ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
-                        ['JustifyLeft','JustifyCenter','JustifyRight'],
-                        ['Link','Unlink'], 
-                        ['Format','FontSize','-','Maximize']
-                    ],
-                ])->hideFromIndex(), 
+                    HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
 
-        //        Textarea::make('Details')->rows(10)->rules('required', 'max:4000')->help(
-        //                    "<i>" . 'Details or links of the topics to be reviewed. Max length 4000 characters'  ."<i>"
-           //             ), 
+                    Text::make('Topic Name')->sortable()->rules('required', 'max:100')
+                            ->help(
+                                'The heading of the review being asked for. Max length 100'
+                            ), 
 
-                RadioButton::make('Type')
-                ->options([
-                    'Private' => 'Private',
-                    'Public' => 'Public',
-                ])->default('Private')->sortable()->help(
-                            "<br><br><i>" . 'Public Topics are displayed at askpls.com and can be reviewed by anybody'  ."<i>"
-                        ), 
+                    CKEditor::make('Details')->options([
+                        'height' => 300,
+                        'toolbar' => [
+                            ['Cut','Copy','Paste'],
+                            ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+                            ['Image','Table','HorizontalRule','SpecialChar','PageBreak'], 
+                            ['Bold','Italic','Strike','-','Subscript','Superscript'],
+                            ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
+                            ['JustifyLeft','JustifyCenter','JustifyRight'],
+                            ['Link','Unlink'], 
+                            ['Format','FontSize','-','Maximize']
+                        ],
+                    ])->hideFromIndex(),  
 
-                RadioButton::make('Category')
-                ->options([ 
-                    'Personal' => 'Personal',
-                    'HR' => 'HR',
-                    'Sales' => 'Sales',
-                    'Marketing' => 'Marketing',
-                    'Operation' => 'Operation',
-                    'Technology' => 'Technology',
-                ])->sortable()->default('Personal'),
+                    RadioButton::make('Category')
+                    ->options([ 
+                        'Personal' => 'Personal',
+                        'HR' => 'HR',
+                        'Sales' => 'Sales',
+                        'Marketing' => 'Marketing',
+                        'Operation' => 'Operation',
+                        'Technology' => 'Technology',
+                    ])->sortable()->default('Personal'),
 
-                HiddenField::make( 'url')->default('https://askpls.com/topics/' . str_random(10))->hideFromIndex()->hideFromDetail(),
-      
-                Text::make('Public URL' ,function(){
+                    RadioButton::make('Type')
+                    ->options([ 
+                        'Public' => 'Public',
+                    ])->default('Public')->sortable()->help(
+                                "<br><br><i>" . 'Sharable and option to display at askpls.com portal for others to view and review'  ."<i>"
+                            ), 
 
-                    if ( $this->type == 'Public'){
+                    RadioButton::make('Searchable', 'sitedisplay')
+                    ->options([ 
+                        '0' => 'No',
+                        '1' => 'Yes',                    
+                    ])->sortable()->default('1')->hideFromIndex()->help(
+                                "<br><br><i>" . 'Sharable and option to display at askpls.com portal for others to view and review'  ."<i>"
+                            ),  
 
-                        return $this->url;
-                    }
+                    RadioButton::make('Review Viewable', 'reviewdisplay')
+                    ->options([ 
+                        '0' => 'No',
+                        '1' => 'Yes',
+                    ])->sortable()->default('1')->hideFromIndex()->help(
+                                "<br><br><i>" . 'Review Viewable by others at AskPls Portal'  ."<i>"
+                            ),  
 
-                }),
+                    RadioButton::make('Active', 'status')
+                    ->options([ 
+                        '0' => 'No',
+                        '1' => 'Yes',
+                    ])->sortable()->default('1'),
 
-                
+                    DateTime::make('Expiry Date', 'displayuptil')->sortable()->help(
+                                "<i>" . 'By default, Topics will be active forever'  ."<i>"
+                            ), 
 
-        //        Tags::make('Tags')->withoutSuggestions()->hideFromIndex(), 
+                    HiddenField::make( 'url')->default('https://askpls.com/topics/' . str_random(10))->hideFromIndex()->hideFromDetail(),
+          
+                    TextCopy::make('Public URL' ,function(){
 
-                BelongsToMany::make('Group'),
+                        if ( $this->type == 'Public'){
 
-                HasMany::make('Review')
-            ];
+                            return $this->url;
+                        }
 
+                    }),
+
+                    
+
+              //      Tags::make('Tags')->withoutSuggestions()->hideFromIndex(), 
+
+                    HasMany::make('Review')
+                ];
+            }else{
+
+                return [
+                    ID::make()->sortable()->hideFromIndex(), 
+
+                    HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
+
+                    Text::make('Topic Name')->sortable()->rules('required', 'max:100')
+                            ->help(
+                                'The heading of the review being asked for. Max length 100'
+                            ),
+                    CKEditor::make('Details')->options([
+                        'height' => 300,
+                        'toolbar' => [
+                            ['Cut','Copy','Paste'],
+                            ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+                            ['Image','Table','HorizontalRule','SpecialChar','PageBreak'], 
+                            ['Bold','Italic','Strike','-','Subscript','Superscript'],
+                            ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
+                            ['JustifyLeft','JustifyCenter','JustifyRight'],
+                            ['Link','Unlink'], 
+                            ['Format','FontSize','-','Maximize']
+                        ],
+                    ])->hideFromIndex(),  
+
+                    RadioButton::make('Type')
+                    ->options([
+                        'Private' => 'Private',
+                        'Public' => 'Public',
+                    ])->default('Private')->sortable()->help(
+                                "<br><br><i>" . 'Public Topics are displayed at askpls.com and can be reviewed by anybody'  ."<i>"
+                            ), 
+
+                    RadioButton::make('Category')
+                    ->options([ 
+                        'Personal' => 'Personal',
+                        'HR' => 'HR',
+                        'Sales' => 'Sales',
+                        'Marketing' => 'Marketing',
+                        'Operation' => 'Operation',
+                        'Technology' => 'Technology',
+                    ])->sortable()->default('Personal'),
+
+                    HiddenField::make( 'url')->default('https://askpls.com/topics/' . str_random(10))->hideFromIndex()->hideFromDetail(),
+          
+                    Text::make('Public URL' ,function(){
+
+                        if ( $this->type == 'Public'){
+
+                            return $this->url;
+                        }
+
+                    }),
+
+
+                    BelongsToMany::make('Group'),
+
+                    HasMany::make('Review')
+                ];
+
+            }
         }
+
+        
 
        
     }
