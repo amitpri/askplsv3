@@ -159,24 +159,15 @@
 			<div class="content-wrap clearfix">
 
 				<div class="container">
+                    <form id="widget-subscribe-form"   class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
+                        <div class="input-group divcenter">
+                            <input   type="text" id="workspace" name="workspace" class="form-control form-control-lg not-dark" placeholder="Search Topics." style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchquery"  @keyup="filteredtopics" >
+                            <button type="submit" class="button " style="border-radius: 3px;">Search</button>  
+                             
+                        </div>
+                    </form> 
 
-					<div class="row" style="margin-top:-60px;">
-						<div class="offset-md-3 col-lg-6 col-md-6">
-							<div class="search-control-wrapper">
-								<form action="#">
-									<div class="form-group">
-										<div class="input-group">
-											<input type="text" class="form-control" placeholder="Search Topics" v-model="searchquery"  @keyup="filteredtopics" >
- 											<button class="btn btn-primary" type="button">Search</button>
-											 
-										</div>
-									</div>
-								</form>
-							</div> 
-						</div>
-					</div>
-
-					<div class="row clearfix" >
+					<div class="row clearfix" style="margin-top:30px; "  >
 
 						<div class="col-md-2">
                             <div class="t400" style="background-color:  ">
@@ -201,26 +192,27 @@
                                   </li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="col-md-10">
-                            <div v-for="topic in topics" v-cloak>
-                                <div class="card" style="margin-bottom: 10px;"  > 
-                                  <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a target="_blank" class="btn btn-default" :href="'/topics/' + topic.url "> @{{ topic.topic_name }}</a>
-                                    </h4>
-                                    <h6 class=" ">
-                                        <p><a target="_blank" :href="'/topics?category=' + topic.category">@{{ topic.category }}</a>  || By 
-                                            <a target="_blank" :href="'/viewprofile/' + topic.user_code">@{{ topic.name }}</a> 
-                                            on 12 Dec 2018  
-                                        </p>
-                                    </h6> 
-                                     
-                                  </div>
-                                </div> 
-                            </div>
-							   
-						</div> 
+                        </div>  
+                        <div class="col-lg-10 ">
+                            <div class="row" v-for="topic in topics" style="margin-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
+                                <div class="col-12 col-md-3">
+                                    <div class="review-company"><a target="_blank" :href="'/viewprofile/' + topic.user_code">@{{ topic.name }}</a> </div>
+                                    <div class="review-id"><a target="_blank" :href="'/topics?category=' + topic.category">@{{ topic.category }}</a></div>
+                                    
+                                    <div class="review-date">
+                                        @{{ topic.updated_at }}<br> 
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <div class="review-title">
+                                        <h4><a target="_blank" :href="'/topics/' + topic.url" style="">@{{ topic.topic_name }}</a></h4>
+                                    </div>
+                                    <div class="review-content">
+                                        <h6 v-html="topic.details">  </h6>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div> 
 
 					</div>
 
