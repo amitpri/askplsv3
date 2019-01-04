@@ -167,28 +167,22 @@
 		<!-- Page Title
 		============================================= -->
 
-		<div id="feedback">
-	 		<section id="page-title" class="  border-top center" v-for="topic in topics">
-
-				<div class="container clearfix">
-					<h1 class="font-secondary nott mb-3" style="font-size: 32px;">@{{ topic.topic_name }}</h1>
-					<h6>Posted by @{{ topic.name }} @{{ topic.created_at }}</h6>
-					<span v-html="topic.details"> </span>
-				</div>
-				<div class="contact-widget mt-1 divcenter " style="max-width: 750px"> 
-
-					 
-
-						<div class="col_full"> 
-							<textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="5" cols="30" v-model="inpReview"></textarea>
-						</div> 
-
-						<div class="col_full">
-							<button class="button  button-small nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit" @click="savefeedback">Submit Review</button>
-						</div>
+		<div id="feedback" style=" margin-top:40px;     ">
+	 		<section  class="  center" v-for="topic in topics">
+				<h1 class="font-secondary nott mb-3" style="color: black; font-size: 42px;    ">@{{ topic.topic_name }}</h1>
+				<p style="font-weight: 300; opacity: .7; color: black;  ">Posted by <a href="">@{{ topic.name }}</a> @{{ topic.created_at }} </p>
+				<span v-html="topic.details"> </span>
+				<div class="container clearfix"> 
+					<div class="clearfix center divcenter" style="max-width: 800px;">
+						<div id="widget-subscribe-form">
+                            <div class="  divcenter">
+                                <textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="5" cols="30" v-model="inpReview" style="border: none;" placeholder="Enter Anonymous Review"></textarea>   
+                                <button @click="savefeedback" type="submit" class="button " style="border-radius: 3px;">Submit Review</button>                   
+                            </div>
+                        </div>
+                    </div>
  
-			</div>
-
+				</div> 
 			</section><!-- #page-title end -->
  
 		<!-- Content
@@ -198,19 +192,15 @@
 				<div class="content-wrap clearfix">
 
 					<div class="container">
-	 
 
 						<div class="row clearfix" >
 
 							<div class="col-md-12">
-	                            <div v-for="feedback in feedbacks" v-cloak>
-	    							<div  class="toggle toggle-bg" data-animate="fadeIn" >
-	    								 
-	    								<div class="togglec rounded-bottom">
-	                                        <p>Posted on @{{ feedback.created_at }} </p>
-	                                         @{{ feedback.review }} 
-	                                    </div>                                
-	    							</div>
+	                            <div id="widget-subscribe-form"  style="margin-bottom: 10px; "  v-for="feedback in feedbacks" v-cloak >
+	    						    
+                                    <p>Posted on @{{ feedback.created_at }} </p>
+                                     <p>@{{ feedback.review }} </p>
+	                                       
 	                            </div>
 								   
 							</div> 
