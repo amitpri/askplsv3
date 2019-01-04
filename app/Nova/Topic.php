@@ -123,7 +123,7 @@ class Topic extends Resource
                                 "<i>" . 'By default, Topics will be active forever'  ."<i>"
                             ), 
 
-                    HiddenField::make( 'url')->default(mt_rand(100000000, 999999999))->hideFromIndex()->hideFromDetail(),
+                    HiddenField::make( 'url')->default(mt_rand(100000000, 999999999))->hideFromIndex()->hideFromDetail()->hideWhenUpdating(),
           
                     TextCopy::make('Public URL' ,function(){
 
@@ -132,7 +132,7 @@ class Topic extends Resource
                             return 'https://askpls.com/topics/' . $this->url;
                         }
 
-                    }),
+                    })->hideWhenUpdating(),
 
                     
 
@@ -153,7 +153,11 @@ class Topic extends Resource
                     Text::make('Topic Name')->sortable()->rules('required', 'max:100')
                             ->help(
                                 'The heading of the review being asked for. Max length 100'
-                            ), 
+                            )->hideWhenUpdating(), 
+
+                    Text::make('Topic Name')->hideFromIndex()->onlyOnForms()->hideWhenCreating()->withMeta(['extraAttributes' => [
+                              'readonly' => true
+                        ]]), 
 
                     CKEditor::make('Details')->options([
                         'height' => 300,
@@ -212,7 +216,7 @@ class Topic extends Resource
                                 "<i>" . 'By default, Topics will be active forever'  ."<i>"
                             ), 
 
-                    HiddenField::make( 'url')->default(mt_rand(100000000, 999999999))->hideFromIndex()->hideFromDetail(),
+                    HiddenField::make( 'url')->default(mt_rand(100000000, 999999999))->hideFromIndex()->hideFromDetail()->hideWhenUpdating(),
           
                     TextCopy::make('Public URL' ,function(){
 
@@ -221,7 +225,7 @@ class Topic extends Resource
                             return 'https://askpls.com/topics/' . $this->url;
                         }
 
-                    }),
+                    })->hideWhenUpdating(),
 
                     
 
