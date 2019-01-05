@@ -138,9 +138,10 @@ class ShowtopicsController extends Controller implements ShouldQueue
         $inptopicname = $request->topicname;
         $inpreview = $request->review;
 
-        $topic = ShowTopic::where('id','=',$inptopicid)->where('topic_name','=',$inptopicname)->first(['id','user_id']); 
+        $topic = ShowTopic::where('id','=',$inptopicid)->where('topic_name','=',$inptopicname)->first(['id','user_id', 'url']); 
 
         $userid = $topic->user_id;
+        $url = $topic->url;
 
         $postfeedback = ShowReview::create(
                 [   
@@ -171,7 +172,7 @@ class ShowtopicsController extends Controller implements ShouldQueue
 
 //        Redis::publish('channel_feedback',json_encode($publishdata));
         
-        \Mail::to($emailid)->queue(new PostReview($inptopicid,$inptopicname,$name,$inpreview));
+        \Mail::to($emailid)->queue(new PostReview($url,$inptopicname,$name));
 
 
         return $postfeedback;

@@ -138,14 +138,14 @@
                                     <!-- COPY -->
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
-                                            <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding">Hello from AskPls</td>
+                                            <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding">Hello {{$name}}</td>
                                         </tr>
                                         <tr>
                                             <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding"> You have recieved a review for your posted Topic</td>
                                         </tr>
                                         <tr>
                                             <td align="center" style="font-size: 22px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding">  
-                                                <a href="https://askpls.com/topics/{{$inptopicid}}">{{$inptopicname}}</a></td>
+                                                <a href="https://askpls.com/topics/{{$url}}">{{$inptopicname}}</a></td>
                                         </tr>
                                         <tr>
                                             <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;">Please click on the topic link above to check your reviews </td>

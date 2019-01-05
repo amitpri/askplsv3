@@ -11,17 +11,15 @@ class PostReview extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $inptopicid;
+    public $url;
     public $inptopicname;
-    public $name;
-    public $inpreview;
+    public $name; 
 
     public function __construct($inptopicid, $inptopicname, $name, $inpreview)
     {
-        $this->inptopicid = $inptopicid;
+        $this->url = $url;
         $this->inptopicname = $inptopicname;
-        $this->name = $name;
-        $this->inpreview = $inpreview;
+        $this->name = $name; 
     }
 
     /**
