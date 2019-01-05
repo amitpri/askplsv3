@@ -1,15 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Bus\Queueable;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
+
 use Illuminate\Support\Facades\DB;
 
 use App\User;
 use App\ShowTopic;
 use App\ShowReview;
+
+use App\Mail\PostReview;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
-class ShowtopicsController extends Controller
+class ShowtopicsController extends Controller implements ShouldQueue
 {
     public function index()
     {
@@ -144,6 +152,12 @@ class ShowtopicsController extends Controller
                 //    'status' => 1,                                 
                 ]);
 
+        $userdetails = User::where('id','=',$userid)->first(['id','email','name']);
+
+        $emailid = $userdetails->email;
+        $name = $userdetails->name;
+
+
 //        $publishdata = [
 
 //            'event' => "NewFeedback_$userid",
@@ -157,6 +171,9 @@ class ShowtopicsController extends Controller
 
 //        Redis::publish('channel_feedback',json_encode($publishdata));
         
+        \Mail::to($emailid)->queue(new PostReview($inptopicid,$inptopicname,$name,$inpreview));
+
+
         return $postfeedback;
    
     } 
