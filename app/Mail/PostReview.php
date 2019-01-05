@@ -31,6 +31,6 @@ class PostReview extends Mailable
      */
     public function build()
     {
-    //    return $this->view('emails.postreview');
+        return $this->view('emails.postreview');
     }
 }
