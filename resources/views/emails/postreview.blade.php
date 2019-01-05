@@ -109,7 +109,7 @@
                 <tr>
                     <td align="center" valign="top" style="padding: 15px 0;" class="logo">
                         <a href="http://askpls.com" target="_blank">
-                         <img src="https://askpls.com/images/logo.png">
+                         <img width="100" src="https://askpls.com/images/logo.png">
                         </a>
                     </td>
                 </tr>
@@ -141,19 +141,15 @@
                                             <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding">Hello from AskPls</td>
                                         </tr>
                                         <tr>
-                                            <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">  has asked for your honest feedback for the following topic</td>
+                                            <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding"> You have recieved a review for your posted Topic</td>
                                         </tr>
                                         <tr>
-                                            <td align="center" style="font-size: 22px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding">{{$inptopicname}}</td>
+                                            <td align="center" style="font-size: 22px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding">  
+                                                <a href="/topics/{{$inptopicid}}">{{$inptopicname}}</a></td>
                                         </tr>
                                         <tr>
-                                            <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;">Your review will be completely <b>Anonymous</b> and the sender <b>will never</b> know who wrote the feedback. </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">
-                                              Please submit your honest review by clicking the link below
-                                            </td>
-                                        </tr>
+                                            <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;">Please click on the topic link above to check your reviews </td>
+                                        </tr> 
                                     </table>
                                 </td>
                             </tr>
