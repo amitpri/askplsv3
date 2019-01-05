@@ -15,7 +15,7 @@ class PostReview extends Mailable
     public $inptopicname;
     public $name; 
 
-    public function __construct($inptopicid, $inptopicname, $name, $inpreview)
+    public function __construct($url, $inptopicname, $name)
     {
         $this->url = $url;
         $this->inptopicname = $inptopicname;
