@@ -184,8 +184,8 @@
                                 <div class="col-md-12">
                                     <div id="widget-subscribe-form"  style="margin-bottom: 10px; "  v-for="topic in topics" v-cloak >
                                         
-                                        <p>Category @{{topic.category}} | Posted on @{{topic.created_at}} </p>
-                                         <p>@{{topic.topic_name}} </p>
+                                        <p> @{{topic.category}} | Posted on @{{topic.created_at}} </p>
+                                         <p><h4><a :href="'/topics/' + topic.url">@{{topic.topic_name}}</a></h4> </p>
                                                
                                     </div>
                                        
