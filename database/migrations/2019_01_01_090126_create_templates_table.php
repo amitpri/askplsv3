@@ -17,8 +17,7 @@ class CreateTemplatesTable extends Migration
             $table->increments('id');  
             $table->string('topic_name')->nullable();  
             $table->text('details')->nullable();
-            $table->string('category')->nullable();
-            $table->string('tags')->nullable();
+            $table->integer('category_id')->unsigned()->nullable(); 
             $table->timestamps();
         });
     }

@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Textarea;
 use OwenMelbz\RadioField\RadioButton;
 
 use Sixlive\TextCopy\TextCopy;
+use Laravel\Nova\Fields\BelongsTo;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -51,18 +52,9 @@ class Template extends Resource
         return [
             ID::make()->sortable(),
 
-            TextCopy::make('Topic Name'), 
+            TextCopy::make('Topic Name'),  
 
-            TextCopy::make('Details')->help(
-                        "<i>" . 'Details or links of the topics to be reviewed. Max length 4000 characters'  ."<i>"
-                    ), 
-            DuplicateField::make('Duplicate')
-            ->withMeta([
-                'resource' => 'topics', // resource url
-                'model' => 'App\Template', // model path
-                'id' => $this->id, // id of record 
-                'relations' => ['one', 'two'] 
-            ]),
+            BelongsTo::make('Category'),
         ];
     }
 
