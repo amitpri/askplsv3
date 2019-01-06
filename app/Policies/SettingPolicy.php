@@ -41,7 +41,24 @@ class SettingPolicy
     
     public function create(User $user)
     {
-        return 1 === 1;
+        
+        $loggedinid = Auth::user()->id;
+
+        $setting = Setting::where('user_id' , '=' , $loggedinid)->first(['id']);
+
+        if( isset($setting)){
+
+            return 1 === 2;
+
+        }else{
+
+            return 1 === 1;
+
+        }
+
+        
+
+
     }
  
     public function update(User $user, Setting $setting)
@@ -74,15 +91,10 @@ class SettingPolicy
             return 1 === 1;
         }else
         {
-
-            if ( $setting->user_id == $loggedinid ) {
-
-                return 1 === 1;
-
-            }else{
+ 
 
                 return 1 === 2;
-            }
+            
         }
     }
  
@@ -97,17 +109,10 @@ class SettingPolicy
     }
 
     public function viewAny(User $user )
-    {
+    { 
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
-
-            return 1 == 1;
-
-        }else{
-
-            return $user->tenant > 0; 
-
-        }
+        return 1 == 1;
+ 
  
 
     }  

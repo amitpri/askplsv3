@@ -19,7 +19,7 @@ class Review extends Resource
      * @var string
      */
 
-    public static $group = '2.Reviews';
+    public static $group = 'Reviews';
     
 
     public static $model = 'App\Review';

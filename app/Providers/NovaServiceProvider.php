@@ -107,7 +107,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         if( $loggedinemail == "amitpri@gmail.com"){
 
                 return [  
-                    new \Askpls\Workspacesummary\Workspacesummary(),
+          //          new \Askpls\Workspacesummary\Workspacesummary(),
                     new TopicCount,
                     new ReviewCount, 
 
@@ -123,7 +123,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             if( $loggedintenant == 0 ){
 
                 return [  
-                    new \Askpls\Workspacesummary\Workspacesummary(),
+              //     new \Askpls\Workspacesummary\Workspacesummary(),
                     new TopicCount,
                     new ReviewCount,  
                     
@@ -133,7 +133,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 
 
                 return [
-                    new \Askpls\Workspacesummary\Workspacesummary(),
+              //      new \Askpls\Workspacesummary\Workspacesummary(),
                     new GroupCount,
                     new ProfileCount,
                     new ReviewCount,
@@ -156,7 +156,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
 
-        new \Askpls\Work\Work(),
+      //  new \Askpls\Work\Work(),
 
     ];
     }

@@ -22,7 +22,7 @@ use Laravel\Nova\Fields\Timezone;
 class Setting extends Resource
 {
 
-    public static $group = "3.Admin";
+    public static $group = "Setting";
 
     public static $model = 'App\\Setting';
  
@@ -50,8 +50,7 @@ class Setting extends Resource
 
             Select::make('Language', 'language')->options([
                 'English' => 'English', 
-            ])->sortable()
-                ->rules('required', 'max:255'), 
+            ])->sortable(), 
 
             Timezone::make('Time Zone', 'timezone'),
  

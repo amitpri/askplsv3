@@ -31,7 +31,7 @@ use Waynestate\Nova\CKEditor;
 class Topic extends Resource
 { 
 
-    public static $group = '2.Reviews';
+    public static $group = 'Reviews';
     
     public static $model = 'App\Topic';
  
