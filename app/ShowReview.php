@@ -13,4 +13,9 @@ class ShowReview extends Model
         'user_id', 'topic_id', 'topic_name','review',
         
     ];
+
+    public function getCreatedAtAttribute($value){
+
+		return date('d-M-Y h:i A',strtotime($value));
+	}
 }
