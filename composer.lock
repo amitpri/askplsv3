@@ -1638,16 +1638,16 @@
         },
         {
             "name": "maatwebsite/laravel-nova-excel",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Nova-Excel.git",
-                "reference": "4ecc6c0f815da56e2874d15e79735734930fea0a"
+                "reference": "806cafa2cf38de9a8f6c8cbc835445f406148b69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Nova-Excel/zipball/4ecc6c0f815da56e2874d15e79735734930fea0a",
-                "reference": "4ecc6c0f815da56e2874d15e79735734930fea0a",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Nova-Excel/zipball/806cafa2cf38de9a8f6c8cbc835445f406148b69",
+                "reference": "806cafa2cf38de9a8f6c8cbc835445f406148b69",
                 "shasum": ""
             },
             "require": {
@@ -1688,7 +1688,7 @@
                 "nova",
                 "phpspreadsheet"
             ],
-            "time": "2018-10-31T11:51:20+00:00"
+            "time": "2018-12-27T13:20:35+00:00"
         },
         {
             "name": "madewithlove/illuminate-psr-cache-bridge",

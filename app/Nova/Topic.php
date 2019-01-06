@@ -119,7 +119,7 @@ class Topic extends Resource
                         '1' => 'Yes',
                     ])->sortable()->default('1'),
 
-                    DateTime::make('Expiry Date', 'displayuptil')->sortable()->help(
+                    DateTime::make('Expiry Date', 'displayuptil')->format('DD MMM YYYY, LT')->sortable()->help(
                                 "<i>" . 'By default, Topics will be active forever'  ."<i>"
                             ), 
 
@@ -212,7 +212,7 @@ class Topic extends Resource
                         '1' => 'Yes',
                     ])->sortable()->default('1'),
 
-                    DateTime::make('Expiry Date', 'displayuptil')->sortable()->help(
+                    DateTime::make('Expiry Date', 'displayuptil')->format('DD MMM YYYY, LT')->sortable()->help(
                                 "<i>" . 'By default, Topics will be active forever'  ."<i>"
                             ), 
 

@@ -7,9 +7,12 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Outhebox\NovaHiddenField\HiddenField;
+use Laravel\Nova\Fields\DateTime;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
+
+use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 
 class Review extends Resource
 {
@@ -40,12 +43,26 @@ class Review extends Resource
     public function fields(Request $request)
     {
 
-        return [
-            ID::make()->sortable(),
-            HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
-            Text::make('Topic Name')->sortable(),
-            Text::make('Review')
-        ];
+        $loggedintenant = Auth::user()->tenant; 
+        $loggedinemail= Auth::user()->email;
+
+        if( $loggedinemail == "amitpri@gmail.com"){
+
+            return [
+                ID::make()->sortable(), 
+                Text::make('Topic Name')->sortable(),
+                Text::make('Review'),
+                DateTime::make('Created at')->format('DD MMM YYYY, LT')->sortable()
+            ];
+        }else{
+
+            return [ 
+                Text::make('Topic Name')->sortable(),
+                Text::make('Review'),
+                DateTime::make('Created at')->format('DD MMM YYYY, LT')->sortable()
+            ];
+
+        }
 
     }
 
@@ -70,6 +87,9 @@ class Review extends Resource
  
     public function actions(Request $request)
     {
-        return [];
+         return [
+
+            new DownloadExcel, 
+        ];
     }
 }
