@@ -31,7 +31,7 @@
 
     <!-- Document Title
     ============================================= -->
-    <title>AskPls | Anonymous Review System</title>
+    <title>{{ $topic_name }}</title>
 
 </head>
 
