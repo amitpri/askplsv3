@@ -49,12 +49,44 @@ class GroupPolicy
  
     public function update(User $user, Group $group)
     {
-        return 1 === 1;
+        $loggedinid = Auth::user()->id;
+
+        if ( $user->email == 'amitpri@gmail.com' ) {
+
+            return 1 === 1;
+        }else
+        {
+
+            if ( $group->user_id == $loggedinid ) {
+
+                return 1 === 1;
+
+            }else{
+
+                return 1 === 2;
+            }
+        }
     }
  
     public function delete(User $user, Group $group)
     {
-        return 1 === 1;
+        $loggedinid = Auth::user()->id;
+
+        if ( $user->email == 'amitpri@gmail.com' ) {
+
+            return 1 === 1;
+        }else
+        {
+
+            if ( $group->user_id == $loggedinid ) {
+
+                return 1 === 1;
+
+            }else{
+
+                return 1 === 2;
+            }
+        }
     }
  
     public function restore(User $user, Group $group)

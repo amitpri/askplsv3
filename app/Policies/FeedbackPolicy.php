@@ -44,6 +44,22 @@ class FeedbackPolicy
     
     public function update(User $user, Feedback $feedback)
     {
-        return 1 === 1;
+        $loggedinid = Auth::user()->id;
+
+        if ( $user->email == 'amitpri@gmail.com' ) {
+
+            return 1 === 1;
+        }else
+        {
+
+            if ( $feedback->user_id == $loggedinid ) {
+
+                return 1 === 1;
+
+            }else{
+
+                return 1 === 2;
+            }
+        }
     }
 }

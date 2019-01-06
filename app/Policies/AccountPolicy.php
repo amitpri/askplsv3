@@ -49,7 +49,23 @@ class AccountPolicy
     
     public function update(User $user, Account $account)
     {
-        return 1 === 1;
+        $loggedinid = Auth::user()->id;
+
+        if ( $user->email == 'amitpri@gmail.com' ) {
+
+            return 1 === 1;
+        }else
+        {
+
+            if ( $account->id == $loggedinid ) {
+
+                return 1 === 1;
+
+            }else{
+
+                return 1 === 2;
+            }
+        }
     }
 
     public function viewAny(User $user )

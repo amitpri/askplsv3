@@ -52,7 +52,23 @@ class TopicPolicy
      */
     public function update(User $user, Topic $topic)
     {
-        return 1 === 1;
+        $loggedinid = Auth::user()->id;
+
+        if ( $user->email == 'amitpri@gmail.com' ) {
+
+            return 1 === 1;
+        }else
+        {
+
+            if ( $topic->user_id == $loggedinid ) {
+
+                return 1 === 1;
+
+            }else{
+
+                return 1 === 2;
+            }
+        }
     }
 
     /**
@@ -64,7 +80,23 @@ class TopicPolicy
      */
     public function delete(User $user, Topic $topic)
     {
-        return 1 === 1;
+        $loggedinid = Auth::user()->id;
+
+        if ( $user->email == 'amitpri@gmail.com' ) {
+
+            return 1 === 1;
+        }else
+        {
+
+            if ( $topic->user_id == $loggedinid ) {
+
+                return 1 === 1;
+
+            }else{
+
+                return 1 === 2;
+            }
+        }
     }
 
     /**

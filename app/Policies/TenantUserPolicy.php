@@ -62,7 +62,23 @@ class TenantUserPolicy
      */
     public function update(User $user, TenantUser $tenantuser)
     {
-        return 1 === 1;
+        $loggedinid = Auth::user()->id;
+
+        if ( $user->email == 'amitpri@gmail.com' ) {
+
+            return 1 === 1;
+        }else
+        {
+
+            if ( $tenantuser->user_id == $loggedinid ) {
+
+                return 1 === 1;
+
+            }else{
+
+                return 1 === 2;
+            }
+        }
     }
 
     /**
@@ -74,7 +90,23 @@ class TenantUserPolicy
      */
     public function delete(User $user, TenantUser $tenantuser)
     {
-        return 1 === 1;
+        $loggedinid = Auth::user()->id;
+
+        if ( $user->email == 'amitpri@gmail.com' ) {
+
+            return 1 === 1;
+        }else
+        {
+
+            if ( $tenantuser->user_id == $loggedinid ) {
+
+                return 1 === 1;
+
+            }else{
+
+                return 1 === 2;
+            }
+        }
     }
 
     /**
