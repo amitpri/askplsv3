@@ -33,9 +33,9 @@ class TopicController extends Controller
     //    $topics1 = ShowTopic::where('type', '=' , 'public')->
       //                  orderBy('updated_at','desc')->take(10)->find(10)->get();
 
-        $topics = DB::select('SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , a.`category`, b.`name`
-                                        FROM `topics` a ,  `users` b 
+        $topics = DB::select('SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, b.`name` FROM `topics` a ,  `users` b,  `categories` c 
                                         WHERE a.`user_id` = b.`id`
+                                        AND a.`category_id` = c.`id`
                                         AND a.`type` = "public"
                                         ORDER BY a.`updated_at` DESC
                                         limit 10');
