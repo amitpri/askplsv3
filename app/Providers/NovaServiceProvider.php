@@ -32,6 +32,7 @@ use App\Nova\TopicMail;
 use App\Nova\Job;
 use App\Nova\Tenant;
 use App\Nova\TenantUser;
+use App\Nova\Category;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -42,24 +43,30 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function resources()
       { 
-             Nova::resources([
-
-                Profile::class,
-                Group::class,
-                GroupProfile::class,
-                DataImport::class,
-                Topic::class,  
-                Review::class,
-                Template::class, 
-                TopicLog::class,
-                TopicMail::class,
-                Job::class,
-                Account::class,
-                Setting::class,
-                Tenant::class,
-                TenantUser::class, 
+            $loggedinemail = Auth::user()->email;
  
-             ]);
+
+                Nova::resources([
+
+                    Profile::class,
+                    Group::class,
+                    GroupProfile::class,
+                    DataImport::class,
+                    Topic::class,  
+                    Review::class,
+                    Template::class, 
+                    TopicLog::class,
+                    TopicMail::class,
+                    Job::class,
+                    Account::class,
+                    Setting::class,
+                    Tenant::class,
+                    TenantUser::class, 
+                    Category::class,
+     
+                ]);
+
+          
         
      }
 

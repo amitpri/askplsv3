@@ -17,11 +17,11 @@ class CreateTopicsTable extends Migration
             $table->increments('id'); 
             $table->integer('tenant_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();
+            $table->integer('category_id')->unsigned()->nullable();
             $table->string('topic_name')->nullable();
             $table->string('type')->default('private');
             $table->integer('url')->unique();
-            $table->text('details')->nullable();
-            $table->string('category')->nullable();
+            $table->text('details')->nullable(); 
             $table->string('tags')->nullable();
             $table->boolean('sitedisplay')->default(true);
             $table->boolean('reviewdisplay')->default(true);

@@ -14,6 +14,8 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Select;
 
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\BelongsTo;
+
 
 use Laravel\Nova\Fields\HasMany;
 
@@ -26,7 +28,7 @@ use Outhebox\NovaHiddenField\HiddenField;
 use OwenMelbz\RadioField\RadioButton;
 
 use Spatie\TagsField\Tags;
-use Waynestate\Nova\CKEditor;
+use Waynestate\Nova\CKEditor; 
 
 class Topic extends Resource
 { 
@@ -74,15 +76,7 @@ class Topic extends Resource
                         ],
                     ])->hideFromIndex(),  
 
-                    RadioButton::make('Category')
-                    ->options([ 
-                        'Personal' => 'Personal',
-                        'HR' => 'HR',
-                        'Sales' => 'Sales',
-                        'Marketing' => 'Marketing',
-                        'Operation' => 'Operation',
-                        'Technology' => 'Technology',
-                    ])->sortable()->default('Personal'),
+                    BelongsTo::make('Category'), 
 
                     RadioButton::make('Type')
                     ->options([ 
@@ -173,15 +167,7 @@ class Topic extends Resource
                         ],
                     ])->hideFromIndex(),  
 
-                    RadioButton::make('Category')
-                    ->options([ 
-                        'Personal' => 'Personal',
-                        'HR' => 'HR',
-                        'Sales' => 'Sales',
-                        'Marketing' => 'Marketing',
-                        'Operation' => 'Operation',
-                        'Technology' => 'Technology',
-                    ])->sortable()->default('Personal'),
+                    BelongsTo::make('Category'), 
 
                     RadioButton::make('Type')
                     ->options([ 
@@ -266,15 +252,7 @@ class Topic extends Resource
                                 "<br><br><i>" . 'Public Topics are displayed at askpls.com and can be reviewed by anybody'  ."<i>"
                             ), 
 
-                    RadioButton::make('Category')
-                    ->options([ 
-                        'Personal' => 'Personal',
-                        'HR' => 'HR',
-                        'Sales' => 'Sales',
-                        'Marketing' => 'Marketing',
-                        'Operation' => 'Operation',
-                        'Technology' => 'Technology',
-                    ])->sortable()->default('Personal'),
+                    BelongsTo::make('Category'), 
 
                     HiddenField::make( 'url')->default('https://askpls.com/topics/' . str_random(10))->hideFromIndex()->hideFromDetail(),
           

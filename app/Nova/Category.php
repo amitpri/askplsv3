@@ -2,22 +2,14 @@
 
 namespace App\Nova;
 
-use Auth;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-
-use Laravel\Nova\Fields\Textarea;
+use OwenMelbz\RadioField\RadioButton;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Http\Requests\NovaRequest; 
+use Laravel\Nova\Http\Requests\NovaRequest;
 
-use App\Nova\Metrics\GroupCount; 
-
-use Laravel\Nova\Fields\BelongsToMany;
-
-use Outhebox\NovaHiddenField\HiddenField;
-
-class Group extends Resource
+class Category extends Resource
 {
     /**
      * The model the resource corresponds to.
@@ -25,16 +17,16 @@ class Group extends Resource
      * @var string
      */
 
-    public static $group = '1.Setup';
+    public static $group = 'Setup';
 
-    public static $model = 'App\Group';
+    public static $model = 'App\Category';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'category';
 
     /**
      * The columns that should be searched.
@@ -42,7 +34,7 @@ class Group extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title'
+        'id',
     ];
 
     /**
@@ -54,17 +46,18 @@ class Group extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
-
-            HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
+            ID::make()->sortable()->hideFromIndex(), 
  
-            Text::make('Title')->sortable()->rules('required', 'max:255'),
+            Text::make('Category')->sortable(), 
+            
+            RadioButton::make('Active', 'status')
+                    ->options([ 
+                        '0' => 'No',
+                        '1' => 'Yes',
+                    ])->sortable()->default('1'),
 
-            Textarea::make('Body')->rows(10),
+
  
-            BelongsToMany::make('Profiles'),
-
-            BelongsToMany::make('Topics')
         ];
     }
 
@@ -76,10 +69,7 @@ class Group extends Resource
      */
     public function cards(Request $request)
     {
-        return [
- 
-
-        ];
+        return [];
     }
 
     /**

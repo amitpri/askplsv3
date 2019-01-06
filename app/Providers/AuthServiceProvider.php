@@ -16,6 +16,7 @@ use App\Setting;
 use App\Feedback;
 use App\Tenant;
 use App\TenantUser;
+use App\Category;
 
 use App\Policies\ProfilePolicy;
 use App\Policies\GroupPolicy;
@@ -31,6 +32,7 @@ use App\Policies\SettingPolicy;
 use App\Policies\FeedbackPolicy;
 use App\Policies\TenantPolicy;
 use App\Policies\TenantUserPolicy;
+use App\Policies\CategoryPolicy;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -58,6 +60,7 @@ class AuthServiceProvider extends ServiceProvider
         Feedback::class => FeedbackPolicy::class, 
         Tenant::class => TenantPolicy::class,
         TenantUser::class => TenantUserPolicy::class,
+        Category::class => CategoryPolicy::class,
         
     ];
 
