@@ -69,6 +69,8 @@ class Account extends Resource
 
             Image::make('Photo','profile_photo')->disk('public'), 
 
+            new Panel('Social Details', $this->socialFields()),
+
             new Panel('Address Information', $this->addressFields()),
 
             new Panel('Company Information', $this->companyFields()),
@@ -101,6 +103,18 @@ class Account extends Resource
         ];
     }
 
+    protected function socialFields()
+    {
+        return [ 
+            Text::make('Instagram', 'instagram')->hideFromIndex(),
+            Text::make('Twitter', 'twitter')->hideFromIndex(),
+            Text::make('Facebook', 'facebook')->hideFromIndex(), 
+            Text::make('Tiktok', 'tiktok')->hideFromIndex(),
+            Text::make('Snapchat', 'snapchat')->hideFromIndex(),
+            Text::make('Linkedin', 'linkedin')->hideFromIndex(),
+        ];
+    }
+
     protected function addressFields()
     {
         return [
@@ -116,8 +130,8 @@ class Account extends Resource
     protected function companyFields()
     {
         return [
-            Text::make('Company Name', 'companyname'),
-            Text::make('Designation', 'designation'),
+            Text::make('Company Name', 'companyname')->hideFromIndex(),
+            Text::make('Designation', 'designation')->hideFromIndex(),
             Text::make('No of emp', 'noofemp')->hideFromIndex(),
             Place::make('Company Address', 'companyaddress')->hideFromIndex(),
             Text::make('Company City','companycity')->hideFromIndex(), 

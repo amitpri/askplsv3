@@ -21,6 +21,12 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('phone')->nullable(); 
             $table->string('phone2')->nullable(); 
+            $table->string('instagram')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('tiktok')->nullable();
+            $table->string('snapchat')->nullable();
+            $table->string('linkedin')->nullable();
             $table->string('address_line_1')->nullable(); 
             $table->string('address_line_2')->nullable(); 
             $table->string('city')->nullable(); 
