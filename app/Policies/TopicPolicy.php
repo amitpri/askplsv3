@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use Auth;
 use App\User;
 use App\Topic;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -12,7 +13,23 @@ class TopicPolicy
 
     public function view(User $user, Topic $topic)
     {
-        return 1 === 1;
+        $loggedinid = Auth::user()->id;
+
+        if ( $user->email == 'amitpri@gmail.com' ) {
+
+            return 1 === 1;
+        }else
+        {
+
+            if ( $topic->user_id == $loggedinid ) {
+
+                return 1 === 1;
+
+            }else{
+
+                return 1 === 2;
+            }
+        }
     }
 
     /**

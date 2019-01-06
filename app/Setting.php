@@ -19,7 +19,14 @@ class Setting extends Model
         static::addGlobalScope('user_id', function (Builder $builder) {
 
             $loggedinid = Auth::user()->id;
-            $builder->where('user_id', '=', $loggedinid);
+
+            $loggedinemail = Auth::user()->email;
+
+            if( $loggedinemail != 'amitpri@gmail.com' ){
+            	
+            	$builder->where('user_id', '=', $loggedinid);
+
+            }
 
         });
     }    

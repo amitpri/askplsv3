@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use Auth;
 use App\User;
 use App\Setting;
 
@@ -19,7 +20,23 @@ class SettingPolicy
 
     public function view(User $user, Setting $setting)
     {
-        return 1 === 1;
+        $loggedinid = Auth::user()->id;
+
+        if ( $user->email == 'amitpri@gmail.com' ) {
+
+            return 1 === 1;
+        }else
+        {
+
+            if ( $setting->user_id == $loggedinid ) {
+
+                return 1 === 1;
+
+            }else{
+
+                return 1 === 2;
+            }
+        }
     } 
     
     public function create(User $user)

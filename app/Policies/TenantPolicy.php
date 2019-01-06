@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use Auth;
 use App\User;
 use App\Tenant;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -21,7 +22,23 @@ class TenantPolicy
     }
     public function view(User $user, Tenant $tenant)
     {
-        return 1 === 1;
+        $loggedinid = Auth::user()->id;
+
+        if ( $user->email == 'amitpri@gmail.com' ) {
+
+            return 1 === 1;
+        }else
+        {
+
+            if ( $tenant->user_id == $loggedinid ) {
+
+                return 1 === 1;
+
+            }else{
+
+                return 1 === 2;
+            }
+        }
     }
 
     /**

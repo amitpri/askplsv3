@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use Auth;
 use App\User;
 use App\DataImport;
 use Illuminate\Auth\Access\HandlesAuthorization;
