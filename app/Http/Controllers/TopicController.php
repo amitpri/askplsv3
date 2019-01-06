@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use App\ShowTopic;
 use App\Feedback;
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
@@ -15,7 +16,9 @@ class TopicController extends Controller
     public function index()
     {
 
-        return view('topics');
+        $categories = Category::where('status', '=' , 1)->get(['id','category']);
+
+        return view('topics',compact('categories'));
    
     }
 

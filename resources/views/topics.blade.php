@@ -185,24 +185,12 @@
 						<div class="col-md-2">
                             <div class="t400" style="background-color:  ">
                                 <ul class="nav flex-column">
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="/topics?category=personal">Personal</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="/topics?category=hr">HR</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="/topics?category=sales">Sales</a>
-                                  </li> 
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="/topics?category=marketing">Marketing</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="/topics?category=operation">Operation</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="/topics?category=technology">Technology</a>
-                                  </li>
+                                    @foreach ($categories as $category)
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="/topics?category={{ $category->id}}">{{ $category->category}}</a>
+                                      </li>
+                                    @endforeach
+                                   
                                 </ul>
                             </div>
                         </div>  
