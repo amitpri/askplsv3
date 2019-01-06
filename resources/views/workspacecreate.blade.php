@@ -66,9 +66,8 @@
                             <nav id="primary-menu" class="with-arrows fnone clearfix">
 
                                 <ul> 
-                                    <li><a href="/topics"><div>Topics</div></a></li>
-                                    <li><a href="/solutions"><div>Solutions</div></a></li>
-                                    <li><a href="/why"><div>Why AskPls</div></a></li>
+                                    <li><a href="/about"><div>About AskPls</div></a></li>
+                                    <li><a href="/topics"><div>Topics</div></a></li> 
                                     <li><a href="/prices"><div>Prices</div></a></li>
                                     <li><a href="/faqs"><div>FAQs</div></a></li>
                                     <li><a href="/contact"><div>Contact</div></a></li>

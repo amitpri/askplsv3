@@ -121,25 +121,8 @@
                             <nav id="primary-menu" class="with-arrows fnone clearfix">
 
                                 <ul> 
-                                    <li><a href="#"><div>Why AskPls</div></a>
-                                        <ul>
-                                            <li><a href="/how-it-works"><div>How it works?</div></a></li>
-                                            <li><a href="/enterprises"><div>Enterprises</div></a></li> 
-                                            <li><a href="/customers"><div>Customers</div></a></li> 
-                                        </ul>
-                                    </li>
-                                    <li><a href="/topics"><div>Topics</div></a></li>
-                                    <li><a href="#"><div>Solutions</div></a>
-                                        <ul>
-                                            <li><a href="/engineering"><div>Engineering</div></a></li>
-                                            <li><a href="/it"><div>IT</div></a></li>
-                                            <li><a href="/customer-support"><div>Customer Support</div></a></li>
-                                            <li><a href="/sales"><div>Sales</div></a></li>
-                                            <li><a href="/marketing"><div>Marketing</div></a></li>
-                                            <li><a href="/human-resources"><div>Human Resources</div></a></li>
-                                            <li><a href="/cxo"><div>CxO</div></a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="/about"><div>About AskPls</div></a></li>
+                                    <li><a href="/topics"><div>Topics</div></a></li> 
                                     <li><a href="/prices"><div>Prices</div></a></li>
                                     <li><a href="/faqs"><div>FAQs</div></a></li>
                                     <li><a href="/contact"><div>Contact</div></a></li>
