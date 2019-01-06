@@ -209,15 +209,18 @@ class ShowtopicsController extends Controller implements ShouldQueue
     {   
 
         $usercode = $request->usercode;
-        $id = $request->id;  
-
-        $user = User::where('user_code','=',$usercode)->where('id','=',$id)
-                    ->first(['id','user_code'  ]); 
-
-        $id2 = $user->id; 
-
-        $topics = ShowTopic::where('user_id', '=' , $id2)->where('status', '=' , 1)->where('type', '=' , 'public')
-                    ->orderBy('updated_at','desc')->take(10)->get(['id','user_id','topic_name','url', 'category' , 'created_at']);
+        $id = $request->id;   
+        
+        $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
+                                    ,  a.`created_at` , c.`category`
+                                FROM `topics` a ,  `users` b,  `categories` c 
+                                        WHERE a.`user_id` = b.`id`
+                                        AND a.`category_id` = c.`id`
+                                        AND a.`type` = 'public'
+                                        AND b.`id` = :id
+                                        AND b.`user_code` = :user_code
+                                        ORDER BY a.`updated_at` DESC
+                                        limit 10", ['id' => $id, 'user_code' => $usercode]);
 
         return $topics;
    
