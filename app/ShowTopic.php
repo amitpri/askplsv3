@@ -15,4 +15,9 @@ class ShowTopic extends Model
     	return $this->belongsTo('App\User');
 
     }
+
+    public function getCreatedAtAttribute($value){
+
+		return date('d-M-Y',strtotime($value));
+	}
 }

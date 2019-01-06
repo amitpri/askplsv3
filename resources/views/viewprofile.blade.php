@@ -167,39 +167,38 @@
 		<!-- Page Title
 		============================================= -->
 
-		<div id="viewprofile"> 
+		<div id="viewprofile" style=" margin-top:40px;     "> 
  
 		<!-- Content
 		============================================= -->
-			<section class="container">
+            <div class="container">
+    			<section  class="  center" > 
 
-			  	<div class="card text-center">
-				  <div class="card-header">
-				    
-				  </div>
-				  <div class="card-body">
-				    <h2 class="card-title">@{{inpName}}</h2>
-				    <p class="card-text">@{{inpCity}} | @{{inpCountry}}</p> 
-				  </div> 
-				</div>
-			</br>
+                    <h1 class="font-secondary nott mb-3" style="color: black; font-size: 42px;    ">@{{ inpName }}</h1>
+                    <p style="font-weight: 300; opacity: .7; color: black;  ">@{{inpCity}} &nbsp; @{{inpCountry}} </p>
+     
+                      <div class="content-wrap clearfix">
 
-				<div class="card text-center" style="width:  " >
-				  <div class="card-header">
-				    <h4>Topics</h4>
-				  </div>
+                            <div class="row clearfix" >
 
-				  <div class="card-body" v-for="topic in topics" v-cloak>
-				    <p class="card-text"><h4><a :href="'/topics/' + topic.url" style="color: black;">@{{topic.topic_name}}</a></h4>	</p>
-				    <h6 class="card-subtitle mb-2 text-muted">@{{topic.category}} | Posted on @{{topic.created_at}}</h6>
-				     
-				  </div>
+                                <div class="col-md-12">
+                                    <div id="widget-subscribe-form"  style="margin-bottom: 10px; "  v-for="topic in topics" v-cloak >
+                                        
+                                        <p>Category @{{topic.category}} | Posted on @{{topic.created_at}} </p>
+                                         <p>@{{topic.topic_name}} </p>
+                                               
+                                    </div>
+                                       
+                                </div> 
 
+                            </div>
+     
 
-				</div> 
+                    </div> 
 
 
-			</section><!-- #content end -->
+    			</section><!-- #content end -->
+            </div>
 
  		</div>
 
