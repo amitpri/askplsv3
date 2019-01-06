@@ -23,7 +23,15 @@ class ReviewPolicy
      */
     public function create(User $user)
     {
-        return 1 === 2;
+        if ( $user->email == 'amitpri@gmail.com' ) {
+
+            return 1 == 1;
+
+        }else{
+
+            return $user->tenant > 0; 
+
+        }
     }
 
     /**
@@ -35,7 +43,15 @@ class ReviewPolicy
      */
     public function update(User $user, Review $review)
     {
-        return 1 === 2;
+        if ( $user->email == 'amitpri@gmail.com' ) {
+
+            return 1 == 1;
+
+        }else{
+
+            return $user->tenant > 0; 
+
+        }
     }
 
     /**
@@ -47,7 +63,15 @@ class ReviewPolicy
      */
     public function delete(User $user, Review $review)
     {
-        return 1 === 2;
+        if ( $user->email == 'amitpri@gmail.com' ) {
+
+            return 1 == 1;
+
+        }else{
+
+            return $user->tenant > 0; 
+
+        }
     }
 
     /**
