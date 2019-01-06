@@ -130,15 +130,28 @@
                             </nav><!-- #primary-menu end -->
                         </div>
 
-                        <div class="col-lg-2 d-none d-lg-inline-flex d-xl-inline-flex justify-content-end nomargin">
-                            <!-- Top Search
-                            ============================================= -->
-                            <div id="side-panel-trigger" class="side-panel-trigger">
-                                <a href="#" class="d-block d-lg-none"><i class="icon-line-lock"></i></a>
-                                
-                                <a href="#" class="d-none d-lg-block">Sign In <i class="icon-line-arrow-right"></i></a>
-                            </div><!-- #top-search end -->
-                        </div>
+                        @if (Route::has('login'))
+                            @if (Auth::check())
+                                <div class="col-lg-2 d-none d-lg-inline-flex d-xl-inline-flex justify-content-end nomargin">
+                                    <!-- Top Search
+                                    ============================================= -->
+                                    <div id="side-panel-trigger"  > 
+                                        
+                                        <a href="/portal" class="d-none d-lg-block">Portal <i class="icon-line-arrow-right"></i></a>
+                                    </div><!-- #top-search end -->
+                                </div> 
+                            @else
+                                <div class="col-lg-2 d-none d-lg-inline-flex d-xl-inline-flex justify-content-end nomargin">
+                                    <!-- Top Search
+                                    ============================================= -->
+                                    <div id="side-panel-trigger" class="side-panel-trigger">
+                                        <a href="#" class="d-block d-lg-none"><i class="icon-line-lock"></i></a>
+                                        
+                                        <a href="#" class="d-none d-lg-block">Sign In <i class="icon-line-arrow-right"></i></a>
+                                    </div><!-- #top-search end -->
+                                </div>                           
+                            @endif
+                        @endif
                         <a href="#" class="d-block d-lg-none mobile-side-panel side-panel-trigger"><i class="icon-line-arrow-right"></i></a>
                     </div>
                 </div>
