@@ -98,11 +98,12 @@ class ShowtopicsController extends Controller implements ShouldQueue
  
         $url = $request->url;   
 
-        $topics = DB::select('SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` , b.`name`, a.`created_at`
+        $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` , b.`name`
+                                    , b.`user_code`,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at
                                         FROM `topics` a ,  `users` b 
                                         WHERE a.`url` = :url
                                         AND a.`user_id` = b.`id`
-                                        AND a.`type` = "public" ', ['url' => $url]);
+                                        AND a.`type` = 'public' ", ['url' => $url]);
         
 
         foreach ($topics as $topic) {
@@ -114,6 +115,7 @@ class ShowtopicsController extends Controller implements ShouldQueue
             $details = $topic->details;
             $username = $topic->name;
             $created_at = $topic->created_at; 
+            $user_code = $topic->user_code;
 
             
         }
