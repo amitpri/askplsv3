@@ -23,6 +23,7 @@ Route::get('/product', 'IndexController@product');
 Route::get('/prices', 'IndexController@prices'); 
 Route::get('/faqs', 'IndexController@faqs'); 
 Route::get('/contact', 'IndexController@contact'); 
+Route::get('/contactform', 'IndexController@contactform'); 
 
 Route::get('/review/default', 'ReviewController@default');
 Route::get('/review/draft', 'ReviewController@draft');

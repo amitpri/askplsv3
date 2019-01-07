@@ -4,9 +4,7 @@
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="SemiColonWeb" />
-
-    <!-- Stylesheets
-    ============================================= -->
+ 
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Playfair+Display:700,700i,900" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="style.css" type="text/css" />
@@ -26,8 +24,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/colors.php?color=1c85e8" type="text/css" />
 
-    <!-- Document Title
-    ============================================= -->
+    <script src="/vue/vue.min.js"></script>
+        <script src="/axios/axios.min.js"></script> 
     <title>AskPls | Anonymous Review System</title>
 
 </head>
@@ -162,7 +160,7 @@
 
         <!-- Content
         ============================================= -->
-        <section id="content">
+        <section id="contactform">
 
             <div class="content-wrap clearfix">
 
@@ -170,45 +168,41 @@
 
                     <div class="contact-widget mt-5 divcenter" style="max-width: 750px">
 
-                        <div class="contact-form-result"></div>
-
-                        <form class="nobottommargin" id="template-contactform" name="template-contactform" action="../../include/sendemail.php" method="post">
-
-                            <div class="form-process"></div>
+  
 
                             <div class="col_half">
                                 <label class="nott" for="template-contactform-name">Name <small>*</small></label>
-                                <input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control required" />
+                                <input v-model="name"  type="text"  class="sm-form-control required" />
                             </div>
 
                             <div class="col_half col_last">
                                 <label class="nott" for="template-contactform-email">Email <small>*</small></label>
-                                <input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email sm-form-control" />
+                                <input v-model="email" type="email"  class="required email sm-form-control" />
                             </div>
 
                             <div class="clear"></div>
 
                             <div class="col_full">
                                 <label class="nott" for="template-contactform-phone">Phone</label>
-                                <input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="sm-form-control" />
+                                <input v-model="phone" type="text"  class="sm-form-control" />
                             </div>
 
                             <div class="clear"></div>
 
                             <div class="col_full">
                                 <label class="nott" for="template-contactform-message">Message <small>*</small></label>
-                                <textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="6" cols="30"></textarea>
+                                <textarea v-model="message" class="required sm-form-control"    rows="6" cols="30"></textarea>
                             </div>
 
                             <div class="col_full hidden">
-                                <input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
+                                <input type="text"  name="template-contactform-botcheck"  class="sm-form-control" />
                             </div>
 
                             <div class="col_full">
-                                <button class="button button-rounded button-large nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Send Message</button>
+                                <a @click="sendmessage" class="button button-rounded button-large nomargin" href="">Send Message</a>
+                                 
                             </div>
-
-                        </form>
+ 
                     </div>
 
                 </div>
@@ -255,6 +249,49 @@
     <!-- Footer Scripts
     ============================================= -->
     <script src="js/functions.js"></script>
+    <script>
+    
+        new Vue({
 
+            el : '#contactform',
+            data : {
+                name:"", 
+                email: "", 
+                phone: "",
+                message:  "", 
+            }, 
+            methods:{
+
+                sendmessage:function(event){
+
+                    event.preventDefault(); 
+
+                    axios.get('/contactform' ,{
+
+                            params: {
+
+                                name : this.name, 
+                                email : this.email,
+                                phone : this.phone, 
+                                message : this.message,
+
+                                }
+
+                            })
+                        .then(response => {
+ 
+
+                        }); 
+
+                    
+             
+         
+                },  
+            }
+
+        })
+
+
+    </script>
 </body>
 </html>
