@@ -81,13 +81,9 @@ class Topic extends Resource
                         ],
                     ])->hideFromIndex(),
 
-                    ExternalImage::make('Image')->help(
-                                'You can paste the image link here'
-                            ),
+                    ExternalImage::make('Image'),
 
-                    Youtube::make('Youtube Video','Video')->hideFromIndex()->help(
-                                'Only Youtube videos are supported. Please enter the youtube link'
-                            ),
+                    Youtube::make('Video'),
 
                     RadioButton::make('Type')
                     ->options([ 
@@ -180,13 +176,9 @@ class Topic extends Resource
                         ],
                     ])->hideFromIndex(),
 
-                    ExternalImage::make('Image')->help(
-                                'You can paste the image link here'
-                            ),
+                    ExternalImage::make('Image'),
 
-                    Youtube::make('Youtube Video','Video')->hideFromIndex()->help(
-                                'Only Youtube videos are supported. Please enter the youtube link'
-                            ),
+                    Youtube::make('Video'),
 
                     RadioButton::make('Type')
                     ->options([ 
@@ -265,13 +257,9 @@ class Topic extends Resource
                         ],
                     ])->hideFromIndex(),
 
-                    ExternalImage::make('Image')->help(
-                                'You can paste the image link here'
-                            ),
+                    ExternalImage::make('Image'),
 
-                    Youtube::make('Youtube Video','Video')->hideFromIndex()->help(
-                                'Only Youtube videos are supported. Please enter the youtube link'
-                            ),
+                    Youtube::make('Video'),
 
                     HiddenField::make( 'url')->default('https://askpls.com/topics/' . str_random(10))->hideFromIndex()->hideFromDetail(),
           
