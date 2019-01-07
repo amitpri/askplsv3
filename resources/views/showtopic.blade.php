@@ -170,12 +170,12 @@
  				
 				<img v-if="topic.image" :src="topic.image" max-width="640">
 
-				<br>
+				<br><br>
 
 				<iframe v-if="topic.video" width="640" height="360" class="embed-responsive-item" 
 				  		:src="'https://www.youtube.com/embed/' + topic.video" ></iframe> 
 
-				 <br>
+				 <br><br><br>
 				<div class="container clearfix"> 
 					<div class="clearfix center divcenter" style="max-width: 800px;">
 						<div id="widget-subscribe-form">
