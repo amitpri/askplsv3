@@ -150,8 +150,7 @@
                                         </tr>
                                         
                                         <tr>
-                                            <td align="center" style="font-size: 22px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding">  
-                                                <a href="https://askpls.com/topics/{{$url}}">{{$message}}</a></td>
+                                            <td align="center" style="font-size: 22px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding"> {{$message}}</a></td>
                                         </tr>
                                          
                                     </table>
