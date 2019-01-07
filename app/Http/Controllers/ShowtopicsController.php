@@ -98,7 +98,8 @@ class ShowtopicsController extends Controller implements ShouldQueue
  
         $url = $request->url;   
 
-        $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` , b.`name`
+        $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
                                     , b.`user_code`,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at
                                         FROM `topics` a ,  `users` b 
                                         WHERE a.`url` = :url

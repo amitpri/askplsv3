@@ -22,6 +22,8 @@ class CreateTopicsTable extends Migration
             $table->string('type')->default('private');
             $table->integer('url')->unique();
             $table->text('details')->nullable(); 
+            $table->string('image')->nullable();
+            $table->string('video')->nullable();
             $table->string('tags')->nullable();
             $table->boolean('sitedisplay')->default(true);
             $table->boolean('reviewdisplay')->default(true);

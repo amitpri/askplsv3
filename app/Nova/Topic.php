@@ -30,6 +30,9 @@ use OwenMelbz\RadioField\RadioButton;
 use Spatie\TagsField\Tags;
 use Waynestate\Nova\CKEditor; 
 
+use Chaseconey\ExternalImage\ExternalImage;
+use Media24si\NovaYoutubeField\Youtube;
+
 class Topic extends Resource
 { 
 
@@ -60,7 +63,9 @@ class Topic extends Resource
                     Text::make('Topic Name')->sortable()->rules('required', 'max:100')
                             ->help(
                                 'The heading of the review being asked for. Max length 100'
-                            ), 
+                            ),   
+
+                    BelongsTo::make('Category')->rules('required', 'max:100'), 
 
                     CKEditor::make('Details')->options([
                         'height' => 300,
@@ -74,9 +79,15 @@ class Topic extends Resource
                             ['Link','Unlink'], 
                             ['Format','FontSize','-','Maximize']
                         ],
-                    ])->hideFromIndex(),  
+                    ])->hideFromIndex(),
 
-                    BelongsTo::make('Category'), 
+                    ExternalImage::make('Image')->help(
+                                'You can paste the image link here'
+                            ),
+
+                    Youtube::make('Youtube Video','Video')->hideFromIndex()->help(
+                                'Only Youtube videos are supported. Please enter the youtube link'
+                            ),
 
                     RadioButton::make('Type')
                     ->options([ 
@@ -115,7 +126,7 @@ class Topic extends Resource
 
                     DateTime::make('Expiry Date', 'displayuptil')->format('DD MMM YYYY, LT')->sortable()->help(
                                 "<i>" . 'By default, Topics will be active forever'  ."<i>"
-                            ), 
+                            )->hideFromIndex(), 
 
                     HiddenField::make( 'url')->default(mt_rand(100000000, 999999999))->hideFromIndex()->hideFromDetail()->hideWhenUpdating(),
           
@@ -153,6 +164,8 @@ class Topic extends Resource
                               'readonly' => true
                         ]]), 
 
+                    BelongsTo::make('Category')->rules('required', 'max:100'), 
+
                     CKEditor::make('Details')->options([
                         'height' => 300,
                         'toolbar' => [
@@ -165,9 +178,15 @@ class Topic extends Resource
                             ['Link','Unlink'], 
                             ['Format','FontSize','-','Maximize']
                         ],
-                    ])->hideFromIndex(),  
+                    ])->hideFromIndex(),
 
-                    BelongsTo::make('Category'), 
+                    ExternalImage::make('Image')->help(
+                                'You can paste the image link here'
+                            ),
+
+                    Youtube::make('Youtube Video','Video')->hideFromIndex()->help(
+                                'Only Youtube videos are supported. Please enter the youtube link'
+                            ),
 
                     RadioButton::make('Type')
                     ->options([ 
@@ -200,7 +219,7 @@ class Topic extends Resource
 
                     DateTime::make('Expiry Date', 'displayuptil')->format('DD MMM YYYY, LT')->sortable()->help(
                                 "<i>" . 'By default, Topics will be active forever'  ."<i>"
-                            ), 
+                            )->hideFromIndex(), 
 
                     HiddenField::make( 'url')->default(mt_rand(100000000, 999999999))->hideFromIndex()->hideFromDetail()->hideWhenUpdating(),
           
@@ -230,6 +249,8 @@ class Topic extends Resource
                             ->help(
                                 'The heading of the review being asked for. Max length 100'
                             ),
+                    BelongsTo::make('Category')->rules('required', 'max:100'), 
+
                     CKEditor::make('Details')->options([
                         'height' => 300,
                         'toolbar' => [
@@ -242,17 +263,15 @@ class Topic extends Resource
                             ['Link','Unlink'], 
                             ['Format','FontSize','-','Maximize']
                         ],
-                    ])->hideFromIndex(),  
+                    ])->hideFromIndex(),
 
-                    RadioButton::make('Type')
-                    ->options([
-                        'Private' => 'Private',
-                        'Public' => 'Public',
-                    ])->default('Private')->sortable()->help(
-                                "<br><br><i>" . 'Public Topics are displayed at askpls.com and can be reviewed by anybody'  ."<i>"
-                            ), 
+                    ExternalImage::make('Image')->help(
+                                'You can paste the image link here'
+                            ),
 
-                    BelongsTo::make('Category'), 
+                    Youtube::make('Youtube Video','Video')->hideFromIndex()->help(
+                                'Only Youtube videos are supported. Please enter the youtube link'
+                            ),
 
                     HiddenField::make( 'url')->default('https://askpls.com/topics/' . str_random(10))->hideFromIndex()->hideFromDetail(),
           
