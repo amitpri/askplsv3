@@ -279,7 +279,13 @@
 
                             })
                         .then(response => {
- 
+                            toastr.options = {
+                                    
+                                            "timeOut": "1000",
+                                            "positionClass": "toast-top-center",
+                                        };
+
+                                        toastr.info('Thank You!!Your mail is sent!!',{ fadeAway: 1 });    
 
                         }); 
 

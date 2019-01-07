@@ -33,6 +33,7 @@ use App\Nova\Job;
 use App\Nova\Tenant;
 use App\Nova\TenantUser;
 use App\Nova\Category;
+use App\Nova\ContactForm;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -63,6 +64,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     Tenant::class,
                     TenantUser::class, 
                     Category::class,
+                    ContactForm::class,
      
                 ]);
 

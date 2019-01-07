@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\ContactForm;
+
 use Illuminate\Http\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-use App\Mail\ContactForm;
+use App\Mail\MailContactForm;
 
 class IndexController extends Controller
 {
@@ -71,16 +73,27 @@ class IndexController extends Controller
     public function contactform(Request $request)
     {
         
-
         $name = $request->name;
         $phone = $request->phone;
         $email = $request->email;
         $message = $request->message;
 
         $emailid = "amitpri@gmail.com";
+ 
+
+        $newcontact = ContactForm::create(
+                [   
+                      'name' => $name
+                    , 'phone' => $phone
+                    , 'email' => $email
+                    , 'message' => $message 
+
+                ]);   
 
 
-        \Mail::to($emailid)->queue(new ContactForm($name,$email,$phone, $message));
+        \Mail::to($emailid)->queue(new MailContactForm($name,$email,$phone, $message));
+
+        return $newcontact->id ;
 
     }   
 

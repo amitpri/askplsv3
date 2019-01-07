@@ -16,19 +16,7 @@
                                     <!-- COPY -->
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
-                                            {{$name}} 
-                                        </tr>
-
-                                        <tr>
-                                             {{$email}} 
-                                        </tr>
-
-                                        <tr>
-                                              {{$phone}} 
-                                        </tr>
-                                        
-                                        <tr>
-                                             {{$message}} 
+                                            A new message is sent
                                         </tr>
                                          
                                     </table>
