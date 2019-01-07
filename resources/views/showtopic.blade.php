@@ -377,13 +377,16 @@
 										this.feedback = "";
 										this.shownewfeedback = false; 
 
+										this.inpReview = "";
+
 
 										toastr.options = {
 						            
 								            "timeOut": "1000",
+								            "positionClass": "toast-top-center",
 								        };
 
-										toastr.success('Thank You!!Your Feedback is Posted!!',{ fadeAway: 1 });	
+										toastr.info('Thank You!!Your Feedback is Posted!!',{ fadeAway: 1 });	
 				 
 								});
 
