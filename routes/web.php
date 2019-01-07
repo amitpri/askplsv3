@@ -29,6 +29,9 @@ Route::get('/review/draft', 'ReviewController@draft');
 Route::get('/review/save', 'ReviewController@save');
 Route::get('/review/{key}', 'ReviewController@review');
 
+Route::get('/categories/default', 'TopicController@categoriesdefault');
+Route::get('/topics/categories', 'TopicController@topicscategories');
+
 
 Route::get('/topics', 'TopicController@index');
 Route::get('/topics/default', 'TopicController@default');

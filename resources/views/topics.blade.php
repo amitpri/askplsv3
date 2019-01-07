@@ -184,12 +184,11 @@
 
 						<div class="col-md-2">
                             <div class="t400" style="background-color:  ">
-                                <ul class="nav flex-column">
-                                    @foreach ($categories as $category)
-                                      <li class="nav-item">
-                                        <a class="nav-link" href="/topics?category={{ $category->id}}">{{ $category->category}}</a>
-                                      </li>
-                                    @endforeach
+                                <ul class="nav flex-column"> 
+
+                                  <li class="nav-item" v-for="category in categories">
+                                    <a @click="categorysearch(category)" class="nav-link" href="#">@{{ category.category}}</a>
+                                  </li> 
                                    
                                 </ul>
                             </div>
@@ -198,7 +197,7 @@
                             <div class="row" v-for="topic in topics" style="margin-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
                                 <div class="col-12 col-md-3">
                                     <div class="review-company"><a target="_blank" :href="'/viewprofile/' + topic.user_code">@{{ topic.name }}</a> </div>
-                                    <div class="review-id"><a target="_blank" :href="'/topics?category=' + topic.category">@{{ topic.category }}</a></div>
+                                    <div class="review-id"><a target="_blank" :href="'/topics?category=' + topic.category_id">@{{ topic.category }}</a></div>
                                     
                                     <div class="review-date">
                                         @{{ topic.updated_at }}<br> 
@@ -276,6 +275,9 @@
                 inpKey:"", 
                 searchquery : "",
                 row_count : 10,
+                category : "",
+                categories: [], 
+                inpCategoryId : "",
             },
             mounted:function(){ 
 
@@ -283,6 +285,13 @@
                 .then(response => {
 
                     this.topics = response.data; 
+
+                }); 
+
+                axios.get('/categories/default')
+                .then(response => {
+
+                    this.categories = response.data; 
 
                 }); 
 
@@ -303,6 +312,26 @@
                         .then(response => {this.topics = response.data});
                 
          
+                },
+                categorysearch:function(row){
+
+                    var rowcategory = this.categories.indexOf(row); 
+
+                    this.inpcategoryid = this.categories[rowcategory].id;
+
+                    axios.get('/topics/categories' ,{
+
+                            params: {
+
+                                categoryid : this.inpcategoryid, 
+
+                                }
+
+                            })
+                        .then(response => {this.topics = response.data});
+
+ 
+
                 },
                 morerows:function(){
 

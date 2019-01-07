@@ -22,30 +22,56 @@ class TopicController extends Controller
    
     }
 
-    public function default()
-    {
+    public function default(Request $request)
+    { 
 
-  //      $topics = ShowTopic::
-      //          where('published', '=' , 1)->
-         //       where('status', '=' , 1)->
-     //           where('type', '=' , 'public')->
-    //            orderBy('updated_at','desc')->
-    //            take(10)->
-      //          get(['id','user_id','topic_name' ,'details'   ]);
+        $category = $request->category;
 
-    //    $topics1 = ShowTopic::where('type', '=' , 'public')->
-      //                  orderBy('updated_at','desc')->take(10)->find(10)->get();
+        if(isset($category)){
 
-        $topics = DB::select('SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, b.`name` FROM `topics` a ,  `users` b,  `categories` c 
-                                        WHERE a.`user_id` = b.`id`
-                                        AND a.`category_id` = c.`id`
-                                        AND a.`type` = "public"
-                                        ORDER BY a.`updated_at` DESC
-                                        limit 10');
-                                                                                                                
- 
+
+
+        }else{
+
+            $topics = DB::select('SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` FROM `topics` a ,  `users` b,  `categories` c 
+                                            WHERE a.`user_id` = b.`id`
+                                            AND a.`category_id` = c.`id`
+                                            AND a.`type` = "public"
+                                            ORDER BY a.`updated_at` DESC
+                                            limit 10');
+
+        }
 
         return $topics;
+   
+    }
+
+    public function topicscategories(Request $request)
+    { 
+
+        $categoryid = $request->categoryid;
+ 
+
+        $topics = DB::select("SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` FROM `topics` a ,  `users` b,  `categories` c 
+                                            WHERE a.`user_id` = b.`id`
+                                            AND a.`category_id` = c.`id`
+                                            AND a.`type` = 'public'
+                                            AND c.`id` = :categoryid
+                                            ORDER BY a.`updated_at` DESC
+                                            limit 10", ['categoryid' => $categoryid]);
+ 
+
+            return $topics;
+   
+    }
+
+    public function categoriesdefault()
+    { 
+
+        $categories = Category::get(['id','category']);
+ 
+
+        return $categories;
    
     }
 
