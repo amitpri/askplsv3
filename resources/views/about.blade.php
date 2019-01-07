@@ -431,7 +431,7 @@
                 <div class="container clearfix">
 
                     <div class="col_full center nomargin">
-                        <span>Copyrights &copy; 2018 All Rights Reserved by AskPls.</span>
+                        <span>Copyrights &copy; 2019 All Rights Reserved by AskPls.</span>
                     </div>
 
                 </div>
