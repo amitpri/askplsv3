@@ -29,8 +29,6 @@ class TopicController extends Controller
 
         if(isset($category)){
 
-
-
         }else{
 
             $topics = DB::select('SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` FROM `topics` a ,  `users` b,  `categories` c 

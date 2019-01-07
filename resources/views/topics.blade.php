@@ -37,7 +37,7 @@
 
 <body class="stretched side-push-panel">
 
-	<div id="side-panel">
+    <div id="side-panel">
 
         <div id="side-panel-trigger-close" class="side-panel-trigger"><a href="#"><i class="icon-line-cross"></i></a></div>
 
@@ -46,7 +46,6 @@
             <div class="widget clearfix">
 
                 <h4 class="t400">Login</h4>
-
                 
                 <div class="line line-sm"></div>
 
@@ -89,13 +88,13 @@
 
     </div>
 
-	<!-- Document Wrapper
-	============================================= -->
-	<div id="wrapper" class="clearfix">
+    <!-- Document Wrapper
+    ============================================= -->
+    <div id="wrapper" class="clearfix">
 
-		<!-- Header
-		============================================= -->
-		<header id="header">
+        <!-- Header
+        ============================================= -->
+        <header id="header">
 
             <div id="header-wrap">
 
@@ -119,7 +118,6 @@
                             <!-- Primary Navigation
                             ============================================= -->
                             <nav id="primary-menu" class="with-arrows fnone clearfix">
-
                                 <ul> 
                                     <li><a href="/about"><div>About AskPls</div></a></li>
                                     <li><a href="/topics"><div>Topics</div></a></li> 
@@ -161,30 +159,31 @@
 
         </header><!-- #header end -->
 
-		<!-- Page Title
-		============================================= -->
+        <!-- Page Title
+        ============================================= -->
  
 
-		<!-- Content
-		============================================= -->
-		<section  id="topicsdetails">
+        <!-- Content
+        ============================================= -->
+        <section  id="topicsdetails">
 
-			<div class="content-wrap clearfix">
+            <div class="content-wrap clearfix">
 
-				<div class="container">
+                <div class="container">
                     <form id="widget-subscribe-form"   class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
                         <div class="input-group divcenter">
-                            <input   type="text" id="workspace" name="workspace" class="form-control form-control-lg not-dark" placeholder="Search Topics." style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchquery"  @keyup="filteredtopics" >
+                            <input   type="text" id="workspace" name="workspace" class="form-control form-control-lg not-dark" placeholder="Search Topics... Min 3 chars" style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchquery"  @keyup="filteredtopics" >
                             <button type="submit" class="button " style="border-radius: 3px;">Search</button>  
                              
                         </div>
                     </form> 
 
-					<div class="row clearfix" style="margin-top:30px; "  >
+                    <div class="row clearfix" style="margin-top:30px; "  >
 
-						<div class="col-md-2">
+                        <div class="col-md-2">
                             <div class="t400" style="background-color:  ">
                                 <ul class="nav flex-column"> 
+                                    <a @click="clearfilter" v-if="vCat1 > 0" href="" style="margin-bottom: 20px;">Clear Filters</a> 
 
                                   <li class="nav-item" v-for="category in categories">
                                     <a @click="categorysearch(category)" class="nav-link" href="#">@{{ category.category}}</a>
@@ -196,8 +195,11 @@
                         <div class="col-lg-10 ">
                             <div class="row" v-for="topic in topics" style="margin-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
                                 <div class="col-12 col-md-3">
-                                    <div class="review-company"><a target="_blank" :href="'/viewprofile/' + topic.user_code">@{{ topic.name }}</a> </div>
-                                    <div class="review-id"><a target="_blank" :href="'/topics?category=' + topic.category_id">@{{ topic.category }}</a></div>
+                                    <div class="review-company">
+                                            <h6 style="font-weight: normal;"><a  class="nav-link" target="_blank" :href="'/viewprofile/' + topic.user_code">@{{ topic.name }}</a></h6> 
+                                    </div>
+                                    <div class="review-id">
+                                            <h6 style="font-weight: normal;"><a class="nav-link" @click="categorytopicsearch(topic)"  href="#" >@{{ topic.category }}</a></h6></div>
                                     
                                     <div class="review-date">
                                         @{{ topic.updated_at }}<br> 
@@ -214,20 +216,20 @@
                             </div> 
                         </div> 
 
-					</div>
+                    </div>
 
-				</div>
+                </div>
 
-			</div>
+            </div>
 
             <div class="center"><button class="btn btn-primary" @click="morerows">Load More</button></div>
 
-		</section><!-- #content end -->
+        </section><!-- #content end -->
 
  
-		<!-- Footer
-		============================================= -->
-		<footer id="footer" class="topmargin noborder" style="background-color: #F5F5F5;">          
+        <!-- Footer
+        ============================================= -->
+        <footer id="footer" class="topmargin noborder" style="background-color: #F5F5F5;">          
 
             <div class="line nomargin"></div>
 
@@ -247,20 +249,20 @@
 
         </footer><!-- #footer end -->
 
-	</div><!-- #wrapper end -->
+    </div><!-- #wrapper end -->
 
-	<!-- Go To Top
-	============================================= -->
-	<div id="gotoTop" class="icon-angle-up"></div>
+    <!-- Go To Top
+    ============================================= -->
+    <div id="gotoTop" class="icon-angle-up"></div>
 
-	<!-- External JavaScripts
-	============================================= -->
-	<script src="../../js/jquery.js"></script>
-	<script src="../../js/plugins.js"></script>
+    <!-- External JavaScripts
+    ============================================= -->
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/plugins.js"></script>
 
-	<!-- Footer Scripts
-	============================================= -->
-	<script src="../../js/functions.js"></script>
+    <!-- Footer Scripts
+    ============================================= -->
+    <script src="../../js/functions.js"></script>
 
     <script>
     
@@ -278,6 +280,8 @@
                 category : "",
                 categories: [], 
                 inpCategoryId : "",
+                vCat1 : "", 
+                vCatId : "",
             },
             mounted:function(){ 
 
@@ -300,24 +304,48 @@
 
                 filteredtopics:function(){
 
-                    axios.get('/showtopics/filtered' ,{
+                    
+                    if( this.vCat1 == 1){
 
-                            params: {
+                        axios.get('/showtopics/filtered' ,{
 
-                                topics : this.searchquery, 
+                                params: {
 
-                                }
+                                    topics : this.searchquery, 
+                                    categoryid : this.vCatId,
 
-                            })
-                        .then(response => {this.topics = response.data});
-                
+                                    }
+
+                                })
+                            .then(response => {this.topics = response.data}); 
+
+                    }else{
+
+                        axios.get('/showtopics/filtered' ,{
+
+                                params: {
+
+                                    topics : this.searchquery, 
+                                    categoryid : 0,
+
+                                    }
+
+                                })
+                            .then(response => {this.topics = response.data});   
+                    }
+
+             
          
                 },
                 categorysearch:function(row){
 
-                    var rowcategory = this.categories.indexOf(row); 
+                    var rowcategory = this.categories.indexOf(row);
+
+                    this.vCat1 = 1; 
 
                     this.inpcategoryid = this.categories[rowcategory].id;
+
+                    this.vCatId = this.inpcategoryid;
 
                     axios.get('/topics/categories' ,{
 
@@ -332,6 +360,44 @@
 
  
 
+                },
+                categorytopicsearch:function(row){ 
+
+                    var rowtopics = this.topics.indexOf(row); 
+
+                    this.vCat1 = 1;
+
+                    this.inpcategoryid = this.topics[rowtopics].category_id; 
+
+                    this.vCatId = this.inpcategoryid;
+
+                    axios.get('/topics/categories' ,{
+
+                            params: {
+
+                                categoryid : this.inpcategoryid, 
+
+                                }
+
+                            })
+                        .then(response => {this.topics = response.data});
+
+                },
+                clearfilter:function(event){
+                    event.preventDefault();
+                    this.vCat1 = 0;
+
+                    axios.get('/showtopics/filtered' ,{
+
+                                params: {
+
+                                    topics : this.searchquery, 
+                                    categoryid : 0,
+
+                                    }
+
+                                })
+                            .then(response => {this.topics = response.data});   
                 },
                 morerows:function(){
 
