@@ -169,15 +169,13 @@
 				<p style="font-weight: 300; opacity: .7; color: black;  ">Posted by <a target="_blank" :href="'/viewprofile/' + topic.user_code">@{{ topic.name }}</a> on @{{ topic.created_at }} </p> 
  				
 				<img v-if="topic.image" :src="topic.image" max-width="640">
-
-				<br><br>
+ 
 
 				<iframe v-if="topic.video" width="640" height="360" class="embed-responsive-item" 
 				  		:src="'https://www.youtube.com/embed/' + topic.video" ></iframe> 
-
-				 <br><br><br>
+ 
 				<div class="container clearfix"> 
-					<div class="clearfix center divcenter" style="max-width: 800px;">
+					<div class="clearfix center divcenter" style="max-width: 800px; margin-top:40px;">
 						<div id="widget-subscribe-form">
                             <div class="  divcenter">
                                 <textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="5" cols="30" v-model="inpReview" style="border: none;" placeholder="Enter Anonymous Review"></textarea>   
