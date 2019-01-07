@@ -120,8 +120,7 @@
                                 <ul> 
                                     <li><a href="/about"><div>About AskPls</div></a></li>
                                     <li><a href="/topics"><div>Topics</div></a></li> 
-                                    <li><a href="/prices"><div>Prices</div></a></li>
-                                    <li><a href="/faqs"><div>FAQs</div></a></li>
+                                    <li><a href="/prices"><div>Prices</div></a></li> 
                                     <li><a href="/contact"><div>Contact</div></a></li>
                                 </ul>
                             </nav><!-- #primary-menu end -->
@@ -171,35 +170,35 @@
 
                     <div class="row clearfix">
 
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <div class="toggle toggle-bg" data-animate="fadeIn">
                                 <div class="togglet rounded-top t400"><strong class="mr-1">Q.</strong>What is AskPls?<i class="toggle-icon icon-line-circle-plus"></i></div>
-                                <div class="togglec rounded-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, dolorum, vero ipsum molestiae minima odio quo voluptate illum excepturi quam cum voluptates doloribus quae nisi tempore necessitatibus dolores ducimus enim libero eaque explicabo suscipit animi at quaerat aliquid ex expedita perspiciatis? Saepe, aperiam, nam unde quas beatae vero vitae nulla.</div>
+                                <div class="togglec rounded-bottom">AskPls helps you getting genuine reviews from people you know or from general public. AskPls makes sure identity of the reviewer is never captured and hence allowing them to write a genuine review of any of your question</div>
+                            </div>
+
+                            <div class="toggle toggle-bg" data-animate="fadeIn" data-delay="100">
+                                <div class="togglet t400 rounded-top"><strong class="mr-1">Q.</strong>What is a Topic and how to create one?<i class="toggle-icon icon-line-circle-plus"></i></div>
+                                <div class="togglec rounded-bottom">Topic is the question which you will ask your friends and circle for review. You can register to the AskPls Portal and create one Topic. Give a name of the topic that will be displayed as title and provide other details like description, provide image link and youtube videos. Once a topic is created, you will be shared a link which you can share at your social platforms like Facebook, Twitter, Linkedin, Whatsapp etc.</div>
                             </div>
 
                             <div class="toggle toggle-bg" data-animate="fadeIn" data-delay="200">
-                                <div class="togglet t400 rounded-top"><strong class="mr-1">Q.</strong>How can I create a topic for anonymous reviews?<i class="toggle-icon icon-line-circle-plus"></i></div>
-                                <div class="togglec rounded-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad odio ab quis architecto recusandae doloremque incidunt! Eius, quidem, pariatur necessitatibus commodi aliquid deleniti repudiandae accusantium tempora soluta vel nesciunt est quibusdam iure adipisci aspernatur maiores saepe ea eaque quo harum reprehenderit similique nemo voluptate ullam natus illum magnam alias nobis doloremque delectus ipsa dicta repellat maxime dignissimos eveniet quae debitis ratione assumenda tempore officiis fugiat dolor. Saepe iusto praesentium ullam aliquam impedit.</div>
+                                <div class="togglet t400 rounded-top"><strong class="mr-1">Q.</strong>What is a Anonymous Review?<i class="toggle-icon icon-line-circle-plus"></i></div>
+                                <div class="togglec rounded-bottom">Anonymous review is where identity of a reviewer is never captured even if he / she is logged in to the portal. You have to click on the Topic link and then enter your genuine review about the question asked.</div>
+                            </div>
+
+                            <div class="toggle toggle-bg" data-animate="fadeIn" data-delay="300">
+                                <div class="togglet t400 rounded-top"><strong class="mr-1">Q.</strong>What are Public and Private Topics<i class="toggle-icon icon-line-circle-plus"></i></div>
+                                <div class="togglec rounded-bottom">Public topics are the ones which allows you use the link and share with your circle outside the AskPls. It also allows you to post the topic on the AskPls portal and is searchable by general public and can be reviewed by anyone. Private topics are generally used by organization where they can configure the profiles and groups within the organizations and topics are shared for review only to specified set of people and groups.</div>
                             </div>
 
                             <div class="toggle toggle-bg" data-animate="fadeIn" data-delay="400">
-                                <div class="togglet t400 rounded-top"><strong class="mr-1">Q.</strong>How to Load Profiles?<i class="toggle-icon icon-line-circle-plus"></i></div>
-                                <div class="togglec rounded-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, fugiat iste nisi tempore nesciunt nemo fuga? Nesciunt, delectus laboriosam nisi repudiandae nam fuga saepe animi recusandae. Asperiores, provident, esse, doloremque, adipisci eaque alias dolore molestias assumenda quasi saepe nisi ab illo ex nesciunt nobis laboriosam iusto quia nulla ad voluptatibus iste beatae voluptas corrupti facilis accusamus recusandae sequi debitis reprehenderit quibusdam. Facilis eligendi a exercitationem nisi et placeat excepturi velit!</div>
+                                <div class="togglet t400 rounded-top"><strong class="mr-1">Q.</strong>Pricing?<i class="toggle-icon icon-line-circle-plus"></i></div>
+                                <div class="togglec rounded-bottom">Public based reviews are completely free of cost. However Private topics which can be shared to specific profiles and groups of the organization comes with a cost. Please contact us for the price.</div>
                             </div>
 
-                            <div class="toggle toggle-bg" data-animate="fadeIn" data-delay="600">
-                                <div class="togglet t400 rounded-top"><strong class="mr-1">Q.</strong>How to create groups and link with Profiles?<i class="toggle-icon icon-line-circle-plus"></i></div>
-                                <div class="togglec rounded-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, fugiat iste nisi tempore nesciunt nemo fuga? Nesciunt, delectus laboriosam nisi repudiandae nam fuga saepe animi recusandae. Asperiores, provident, esse, doloremque, adipisci eaque alias dolore molestias assumenda quasi saepe nisi ab illo ex nesciunt nobis laboriosam iusto quia nulla ad voluptatibus iste beatae voluptas corrupti facilis accusamus recusandae sequi debitis reprehenderit quibusdam. Facilis eligendi a exercitationem nisi et placeat excepturi velit!</div>
-                            </div>
-
-                            <div class="toggle toggle-bg" data-animate="fadeIn" data-delay="800">
+                            <div class="toggle toggle-bg" data-animate="fadeIn" data-delay="500">
                                 <div class="togglet t400 rounded-top"><strong class="mr-1">Q.</strong>How to Track Reviews<i class="toggle-icon icon-line-circle-plus"></i></div>
-                                <div class="togglec rounded-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, quisquam atque vero delectus corrupti! Quo, maiores, dolorem, hic commodi nulla ratione accusamus doloribus fuga magnam id temporibus dignissimos deleniti quidem ipsam corporis sapiente nam expedita saepe quas ab? Vero, assumenda.</div>
-                            </div>
-
-                            <div class="toggle toggle-bg" data-animate="fadeIn" data-delay="1000">
-                                <div class="togglet t400 rounded-top"><strong class="mr-1">Q.</strong>How can I use it for my work environment<i class="toggle-icon icon-line-circle-plus"></i></div>
-                                <div class="togglec rounded-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti laudantium eius, numquam mollitia delectus non illo error ea cumque minus eveniet soluta. Omnis atque necessitatibus consequatur voluptatum vitae iure, maxime, cumque minus, ipsa nemo, qui architecto officia unde ullam impedit.</div>
+                                <div class="togglec rounded-bottom">Once you post a topic, you will start getting the reviews depending upon how well you market your links and how easily it is searchable on the AskPls portal. You can view all the reviews by logging into your account and check under review menu. You can even export the reviews in excel to analyze later.</div>
                             </div>
                         </div>
 
