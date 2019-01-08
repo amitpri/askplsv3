@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "40f73f93127a2892eb2de856706b61d7",
+    "content-hash": "7d130582673905fea9225ef117c2b7f0",
     "packages": [
         {
             "name": "askpls/work",
@@ -3346,6 +3346,47 @@
                 "uuid"
             ],
             "time": "2018-07-19T23:38:55+00:00"
+        },
+        {
+            "name": "saumini/ellipsis-textarea",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nsaumini/ellipsis-textarea.git",
+                "reference": "76c39a9aeb88d3aae02eee04cd9689dcac843388"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nsaumini/ellipsis-textarea/zipball/76c39a9aeb88d3aae02eee04cd9689dcac843388",
+                "reference": "76c39a9aeb88d3aae02eee04cd9689dcac843388",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Saumini\\EllipsisTextarea\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Saumini\\EllipsisTextarea\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova textarea field with ellipsis support",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2018-11-14T04:41:10+00:00"
         },
         {
             "name": "silvanite/brandenburg",

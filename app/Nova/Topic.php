@@ -44,7 +44,7 @@ class Topic extends Resource
 
     public static $search = [
         
-        'id', 'topic_name' , 'type'
+        'user_id' ,'topic_name' , 'url'
     ];
   
     public function fields(Request $request)
@@ -56,9 +56,11 @@ class Topic extends Resource
         if( $loggedinemail == "amitpri@gmail.com"){
 
             return [
-                    ID::make()->sortable()->hideFromIndex(), 
+                    ID::make()->sortable(), 
 
-                    HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
+                    DateTime::make('Created at')->format('DD MMM YYYY, LT')->sortable()->hideFromDetail(),
+
+                    Text::make('User', 'user_id')->sortable(),
 
                     Text::make('Topic Name')->sortable()->rules('required', 'max:100')
                             ->help(
@@ -82,16 +84,16 @@ class Topic extends Resource
                     ])->hideFromIndex(),
  
 
-                    ImageCropper::make('Image'),
+                    ImageCropper::make('Image')->hideFromIndex()->hideFromDetail(),
 
-                    Youtube::make('Video'),
+                    Youtube::make('Video')->hideFromIndex()->hideFromDetail(),
 
                     RadioButton::make('Type')
                     ->options([ 
                         'Public' => 'Public',
                     ])->default('Public')->sortable()->help(
                                 "<br><br><i>" . 'Sharable and option to display at askpls.com portal for others to view and review'  ."<i>"
-                            ), 
+                            )->hideFromIndex()->hideFromDetail(), 
 
                     RadioButton::make('Searchable', 'sitedisplay')
                     ->options([ 

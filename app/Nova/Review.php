@@ -5,9 +5,12 @@ namespace App\Nova;
 use Auth;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\TextArea;
+
 use Laravel\Nova\Fields\Trix;
 use Outhebox\NovaHiddenField\HiddenField;
 use Laravel\Nova\Fields\DateTime;
+use Saumini\EllipsisTextarea\EllipsisTextarea;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -35,7 +38,7 @@ class Review extends Resource
  
     public static $search = [
 
-        'id', 'topic_name' , 'review'
+         'topic_name' , 'review'
 
     ];
 
@@ -50,15 +53,15 @@ class Review extends Resource
 
             return [
                 ID::make()->sortable(), 
-                Text::make('Topic Name')->sortable(),
-                Text::make('Review'),
+                Text::make('Topic Name')->sortable(), 
+                EllipsisTextarea::make('Review')->displayLength(25),
                 DateTime::make('Created at')->format('DD MMM YYYY, LT')->sortable()
             ];
         }else{
 
             return [ 
                 Text::make('Topic Name')->sortable(),
-                Text::make('Review'),
+                EllipsisTextarea::make('Review')->displayLength(25),
                 DateTime::make('Created at')->format('DD MMM YYYY, LT')->sortable()
             ];
 
