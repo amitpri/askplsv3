@@ -108,8 +108,8 @@
                             <!-- Logo
                             ============================================= -->
                             <div id="logo">
-                                <a href="/" class="standard-logo"><img src="images/logo.png" alt="Canvas Logo"></a>
-                                <a href="/" class="retina-logo"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
+                                <a href="/" class="standard-logo"><img src="images/logo.png" alt="AskPls"></a>
+                                <a href="/" class="retina-logo"><img src="images/logo@2x.png" alt="AskPls"></a>
                             </div><!-- #logo end -->
 
                         </div>
@@ -177,10 +177,18 @@
                         </div>
                     </form> 
 
+                    
+
                     <div class="row clearfix" style="margin-top:30px; "  >
 
                         <div class="col-md-2">
-                            <div class="t400" style="background-color:  ">
+                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                       
+                              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" >
+                                <span class="navbar-toggler-icon"></span>
+                              </button>
+
+                              <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="nav flex-column"> 
                                     <a @click="clearfilter" v-if="vCat1 > 0" href="" style="margin-bottom: 20px;">Clear Filters</a> 
 
@@ -189,7 +197,9 @@
                                   </li> 
                                    
                                 </ul>
-                            </div>
+                              </div>
+                            </nav> 
+                                 
                         </div>  
                         <div class="col-lg-10 ">
                             <div class="row" v-for="topic in topics" style="margin-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
