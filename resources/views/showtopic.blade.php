@@ -109,8 +109,8 @@
                             <!-- Logo
                             ============================================= -->
                             <div id="logo">
-                                <a href="/" class="standard-logo"><img src="/images/logo.png" alt="Canvas Logo"></a>
-                                <a href="/" class="retina-logo"><img src="/images/logo@2x.png" alt="Canvas Logo"></a>
+                                <a href="/" class="standard-logo"><img src="/images/logo.png" alt="AskPls Logo"></a>
+                                <a href="/" class="retina-logo"><img src="/images/logo@2x.png" alt="AskPls Logo"></a>
                             </div><!-- #logo end -->
 
                         </div>

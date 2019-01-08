@@ -32,6 +32,7 @@ use Waynestate\Nova\CKEditor;
 
 use Chaseconey\ExternalImage\ExternalImage;
 use Media24si\NovaYoutubeField\Youtube;
+use R64\NovaImageCropper\ImageCropper;
 
 class Topic extends Resource
 { 
@@ -81,7 +82,11 @@ class Topic extends Resource
                         ],
                     ])->hideFromIndex(),
 
-                    ExternalImage::make('Image'),
+                //    ExternalImage::make('Image'),
+
+                    ImageCropper::make('Image'),
+
+                    
 
                     Youtube::make('Video'),
 

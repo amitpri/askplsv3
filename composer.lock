@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d341e86d93dcd9b2d6ce7c74fc93f35e",
+    "content-hash": "40f73f93127a2892eb2de856706b61d7",
     "packages": [
         {
             "name": "askpls/work",
@@ -3183,6 +3183,47 @@
                 "shell"
             ],
             "time": "2018-10-13T15:16:03+00:00"
+        },
+        {
+            "name": "r64/nova-image-cropper",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/64robots/nova-image-cropper.git",
+                "reference": "8ccc80894b82cafb789a822cf4cfe19f4218b513"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/64robots/nova-image-cropper/zipball/8ccc80894b82cafb789a822cf4cfe19f4218b513",
+                "reference": "8ccc80894b82cafb789a822cf4cfe19f4218b513",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "R64\\NovaImageCropper\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "R64\\NovaImageCropper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova field.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2018-12-03T12:34:26+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
