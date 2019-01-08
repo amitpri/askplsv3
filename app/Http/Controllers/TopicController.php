@@ -31,7 +31,7 @@ class TopicController extends Controller
 
         }else{
 
-            $topics = DB::select('SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` FROM `topics` a ,  `users` b,  `categories` c 
+            $topics = DB::select('SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name`, a.`video` ,a.`image` FROM `topics` a ,  `users` b,  `categories` c 
                                             WHERE a.`user_id` = b.`id`
                                             AND a.`category_id` = c.`id`
                                             AND a.`type` = "public"
@@ -50,7 +50,7 @@ class TopicController extends Controller
         $categoryid = $request->categoryid;
  
 
-        $topics = DB::select("SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` FROM `topics` a ,  `users` b,  `categories` c 
+        $topics = DB::select("SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` , a.`video` ,a.`image` FROM `topics` a ,  `users` b,  `categories` c 
                                             WHERE a.`user_id` = b.`id`
                                             AND a.`category_id` = c.`id`
                                             AND a.`type` = 'public'
