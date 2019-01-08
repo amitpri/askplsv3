@@ -54,14 +54,14 @@ class Review extends Resource
             return [
                 ID::make()->sortable(), 
                 Text::make('Topic Name')->sortable(), 
-                EllipsisTextarea::make('Review')->displayLength(25),
+                EllipsisTextarea::make('Review')->displayLength(100),
                 DateTime::make('Created at')->format('DD MMM YYYY, LT')->sortable()
             ];
         }else{
 
             return [ 
                 Text::make('Topic Name')->sortable(),
-                EllipsisTextarea::make('Review')->displayLength(25),
+                EllipsisTextarea::make('Review')->displayLength(100),
                 DateTime::make('Created at')->format('DD MMM YYYY, LT')->sortable()
             ];
 
