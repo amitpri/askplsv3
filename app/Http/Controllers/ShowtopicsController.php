@@ -40,11 +40,14 @@ class ShowtopicsController extends Controller implements ShouldQueue
 
         $row_count = $request->row_count;
 
-        $topics = ShowTopic::
-            //    where('published', '=' , 1)->
-           //     where('status', '=' , 1)->
-                where('type', '=' , 'public')->
-                orderBy('updated_at','desc')->offset($row_count)->take(10)->get(['id','user_id','topic_name']);
+
+        $topics = DB::select('SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` FROM `topics` a ,  `users` b,  `categories` c 
+                                            WHERE a.`user_id` = b.`id`
+                                            AND a.`category_id` = c.`id`
+                                            AND a.`type` = "public"
+                                            ORDER BY a.`updated_at` DESC
+                                            limit 10 offset :offset', ['offset' => $row_count]);
+ 
 
         return $topics;
    

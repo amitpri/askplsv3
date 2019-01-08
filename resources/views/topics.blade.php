@@ -177,9 +177,7 @@
                         </div>
                     </form> 
 
-                    
-
-                    <div class="row clearfix" style="margin-top:30px; "  >
+                   <div class="row clearfix" style="margin-top:30px; "  >
 
                         <div class="col-md-2">
                             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -285,7 +283,7 @@
                 topics: [],
                 inpKey:"", 
                 searchquery : "",
-                row_count : 10,
+                row_count : 0,
                 category : "",
                 categories: [], 
                 inpCategoryId : "",
@@ -410,6 +408,8 @@
                 },
                 morerows:function(){
 
+                    this.row_count = this.row_count + 10;
+
                     axios.get('/showtopics/getmore' ,{
 
                             params: {
@@ -423,9 +423,14 @@
                                 this.topics.push({
 
                                         id : response.data[i].id, 
+                                        user_code : response.data[i].user_code, 
+                                        url : response.data[i].url, 
                                         user_id : response.data[i].user_id, 
-                                        topic : response.data[i].topic, 
-                                        name : response.data[i].name,  
+                                        topic_name : response.data[i].topic_name, 
+                                        details : response.data[i].details, 
+                                        category : response.data[i].category, 
+                                        category_id : response.data[i].category_id, 
+                                        name : response.data[i].name, 
 
                                     });
                             }                       
@@ -433,7 +438,7 @@
                         });
      
 
-                    this.row_count = this.row_count + 10;
+                    
                     
                 }
             }
