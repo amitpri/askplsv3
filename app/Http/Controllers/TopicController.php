@@ -66,7 +66,7 @@ class TopicController extends Controller
     public function categoriesdefault()
     { 
 
-        $categories = Category::get(['id','category']);
+        $categories = Category::orderBy('category','asc')->get(['id','category']);
  
 
         return $categories;
