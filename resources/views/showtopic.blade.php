@@ -167,7 +167,7 @@
 				<h1 class="font-secondary nott mb-3" style="color: black; font-size: 36px;    ">@{{ topic.topic_name }}</h1>
 				<p style="font-weight: 300; opacity: .7; color: black;  ">Posted by <a target="_blank" :href="'/viewprofile/' + topic.user_code">@{{ topic.name }}</a> on @{{ topic.created_at }} </p> 
  				
- 				<p  style="color: black; font-size: 24px;    "><span v-html="topic.details"> </span></p>
+ 				<p  style="color: black; font-size: 18px;    "><span v-html="topic.details"> </span></p>
 
 				<img v-if="topic.image" :src="'/storage/' + topic.image" max-width="400">
  
