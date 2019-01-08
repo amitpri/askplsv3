@@ -28,7 +28,7 @@ class Topic extends Model
     public function review()
     {
 
-    	return $this->hasMany('App\Review', 'id');
+    	return $this->hasMany('App\Review');
 
     }
 
