@@ -217,7 +217,7 @@
                                         <h4><a target="_blank" :href="'/topics/' + topic.url" style="">@{{ topic.topic_name }}</a></h4>
                                     </div>
                                     <div class="review-content"> 
-                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  max-width="200">
+                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100">
                                         <img  v-if="topic.video" :src="'https://img.youtube.com/vi/' + topic.video + '/default.jpg'">
                                         <h6 v-html="topic.details">  </h6>
                                     </div>
