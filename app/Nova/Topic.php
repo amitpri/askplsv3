@@ -31,7 +31,7 @@ use Spatie\TagsField\Tags;
 use Waynestate\Nova\CKEditor; 
  
 use Media24si\NovaYoutubeField\Youtube;
-//use R64\NovaImageCropper\ImageCropper;
+use R64\NovaImageCropper\ImageCropper;
 
 class Topic extends Resource
 { 
@@ -80,10 +80,9 @@ class Topic extends Resource
                             ['Format','FontSize','-','Maximize']
                         ],
                     ])->hideFromIndex(),
+ 
 
-                //    ExternalImage::make('Image'),
-
-               //     ImageCropper::make('Image'),
+                    ImageCropper::make('Image'),
 
                     Youtube::make('Video'),
 
@@ -178,7 +177,7 @@ class Topic extends Resource
                         ],
                     ])->hideFromIndex(),
 
-               //     ImageCropper::make('Image'),
+                    ImageCropper::make('Image'),
 
                     Youtube::make('Video'),
 
@@ -259,7 +258,7 @@ class Topic extends Resource
                         ],
                     ])->hideFromIndex(),
 
-//                    ImageCropper::make('Image'),
+                    ImageCropper::make('Image'),
 
                     Youtube::make('Video'),
 
