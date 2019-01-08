@@ -29,8 +29,7 @@ use OwenMelbz\RadioField\RadioButton;
 
 use Spatie\TagsField\Tags;
 use Waynestate\Nova\CKEditor; 
-
-use Chaseconey\ExternalImage\ExternalImage;
+ 
 use Media24si\NovaYoutubeField\Youtube;
 use R64\NovaImageCropper\ImageCropper;
 
@@ -85,8 +84,6 @@ class Topic extends Resource
                 //    ExternalImage::make('Image'),
 
                     ImageCropper::make('Image'),
-
-                    
 
                     Youtube::make('Video'),
 
@@ -181,7 +178,7 @@ class Topic extends Resource
                         ],
                     ])->hideFromIndex(),
 
-                    ExternalImage::make('Image'),
+                    ImageCropper::make('Image'),
 
                     Youtube::make('Video'),
 
@@ -262,7 +259,7 @@ class Topic extends Resource
                         ],
                     ])->hideFromIndex(),
 
-                    ExternalImage::make('Image'),
+                    ImageCropper::make('Image'),
 
                     Youtube::make('Video'),
 
