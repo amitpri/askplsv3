@@ -172,7 +172,7 @@
                     <h1 class="font-secondary nott mb-3" style="color: black; font-size: 42px;">@{{ inpName }}</h1>
                     <p style="font-weight: 300; opacity: .7; color: black;  ">@{{inpCity}} &nbsp; @{{inpCountry}} </p>
 
-                    <img v-if="profile_photo"  :src="'/storage/' + profile_photo" max-width="400">
+                    <img v-if="profile_photo"  :src="'/storage/' + profile_photo" max-width="200">
      
      
                       <div class="content-wrap clearfix">
