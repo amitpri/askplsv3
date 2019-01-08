@@ -169,10 +169,10 @@
             <div class="content-wrap clearfix">
 
                 <div class="container">
-                    <form id="widget-subscribe-form"   class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
+                    <form id="widget-subscribe-form"  target="#"  class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
                         <div class="input-group divcenter">
-                            <input   type="text" id="workspace" name="workspace" class="form-control form-control-lg not-dark" placeholder="Search Topics..." style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchquery"  @keyup="filteredtopics" >
-                            <button type="submit" class="button " style="border-radius: 3px;">Search</button>  
+                            <input   type="text" id="workspace" class="form-control form-control-lg not-dark" placeholder="Search Topics..." style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchquery"  @keyup="filteredtopics" >
+                            <a @click="filteredtopics"  href="" class="button " style="border-radius: 3px;">Search</a>  
                              
                         </div>
                     </form> 
