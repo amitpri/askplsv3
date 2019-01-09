@@ -200,8 +200,8 @@
                                  
                         </div>  
                         <div class="col-lg-10 ">
-                            <div class="row" v-for="topic in topics" style="margin-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
-                                <div class="col-12 col-md-3">
+                            <div  class="row" v-for="topic in topics" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
+                                <div class="col-12 col-md-2">
                                     <div class="review-company">
                                             <h6 style="font-weight: normal;"><a  class="nav-link" target="_blank" :href="'/p/' + topic.user_code">@{{ topic.name }}</a></h6> 
                                     </div>
@@ -212,14 +212,15 @@
                                         @{{ topic.updated_at }}<br> 
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-9">
+                                <div class="col-12 col-md-10"  >
                                     <div class="review-title">
                                         <h4><a target="_blank" :href="'/t/' + topic.url" style="">@{{ topic.topic_name }}</a></h4>
                                     </div>
                                     <div class="review-content"> 
                                         <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100">
                                         <img  v-if="topic.video" :src="'https://img.youtube.com/vi/' + topic.video + '/default.jpg'">
-                                        <h6 v-html="topic.details">  </h6>
+
+                                        <p  v-html="topic.details"></p>
                                     </div>
                                 </div>
                             </div> 
