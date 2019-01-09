@@ -166,7 +166,7 @@
 			<div class="container">
 		 		<section  class="  center" v-for="topic in topics">
 					<h1 class="font-secondary nott mb-3" style="color: black; font-size: 36px;    ">@{{ topic.topic_name }}</h1>
-					<p style="font-weight: 300; opacity: .7; color: black;  ">Posted by <a target="_blank" :href="'/viewprofile/' + topic.user_code">@{{ topic.name }}</a> on @{{ topic.created_at }} </p> 
+					<p style="font-weight: 300; opacity: .7; color: black;  ">Posted by <a target="_blank" :href="'/p/' + topic.user_code">@{{ topic.name }}</a> on @{{ topic.created_at }} </p> 
 	 				
 	 				<p  style="color: black; font-size: 18px;    "><span v-html="topic.details"> </span></p>
 
@@ -285,7 +285,7 @@
 				},
 				mounted:function(){
 
-					axios.get('/showtopics/showdetails',{
+					axios.get('/st/showdetails',{
 					params: {
 
 				      	url: this.inpUrl, 
@@ -300,7 +300,7 @@
 
 					});
 
-					axios.get('/showtopics/messages',{
+					axios.get('/st/messages',{
 					params: {
 
 				      	id: this.inpId, 
@@ -315,7 +315,7 @@
  
 	                moremessages:function(){
 
-	                    axios.get('/showtopics/getmoremessages' ,{
+	                    axios.get('/st/getmoremessages' ,{
 
 	                            params: {
 	                              row_count: this.row_count,
@@ -357,7 +357,7 @@
 
 							if( c == true){
 
-								axios.get('/showtopics/postreview' ,{
+								axios.get('/st/postreview' ,{
 									params: {
 
 								      		review: this.inpReview,

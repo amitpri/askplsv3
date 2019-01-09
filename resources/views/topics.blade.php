@@ -120,7 +120,7 @@
                             <nav id="primary-menu" class="with-arrows fnone clearfix">
                                 <ul> 
                                     <li><a href="/about"><div>About AskPls</div></a></li>
-                                    <li><a href="/topics"><div>Topics</div></a></li>  
+                                    <li><a href="/t"><div>Topics</div></a></li>  
                                     <li><a href="/faqs"><div>FAQs</div></a></li>
                                     <li><a href="/contact"><div>Contact</div></a></li>
                                 </ul>
@@ -203,7 +203,7 @@
                             <div class="row" v-for="topic in topics" style="margin-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
                                 <div class="col-12 col-md-3">
                                     <div class="review-company">
-                                            <h6 style="font-weight: normal;"><a  class="nav-link" target="_blank" :href="'/viewprofile/' + topic.user_code">@{{ topic.name }}</a></h6> 
+                                            <h6 style="font-weight: normal;"><a  class="nav-link" target="_blank" :href="'/p/' + topic.user_code">@{{ topic.name }}</a></h6> 
                                     </div>
                                     <div class="review-id">
                                             <h6 style="font-weight: normal;"><a class="nav-link" @click="categorytopicsearch(topic)"  href="#" >@{{ topic.category }}</a></h6></div>
@@ -214,7 +214,7 @@
                                 </div>
                                 <div class="col-12 col-md-9">
                                     <div class="review-title">
-                                        <h4><a target="_blank" :href="'/topics/' + topic.url" style="">@{{ topic.topic_name }}</a></h4>
+                                        <h4><a target="_blank" :href="'/t/' + topic.url" style="">@{{ topic.topic_name }}</a></h4>
                                     </div>
                                     <div class="review-content"> 
                                         <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100">
@@ -294,7 +294,7 @@
             },
             mounted:function(){ 
 
-                axios.get('/topics/default')
+                axios.get('/t/default')
                 .then(response => {
 
                     this.topics = response.data; 
@@ -316,7 +316,7 @@
                     
                     if( this.vCat1 == 1){
 
-                        axios.get('/showtopics/filtered' ,{
+                        axios.get('/st/filtered' ,{
 
                                 params: {
 
@@ -330,7 +330,7 @@
 
                     }else{
 
-                        axios.get('/showtopics/filtered' ,{
+                        axios.get('/st/filtered' ,{
 
                                 params: {
 
@@ -356,7 +356,7 @@
 
                     this.vCatId = this.inpcategoryid;
 
-                    axios.get('/topics/categories' ,{
+                    axios.get('/t/categories' ,{
 
                             params: {
 
@@ -380,7 +380,7 @@
 
                     this.vCatId = this.inpcategoryid;
 
-                    axios.get('/topics/categories' ,{
+                    axios.get('/t/categories' ,{
 
                             params: {
 
@@ -396,7 +396,7 @@
                     event.preventDefault();
                     this.vCat1 = 0;
 
-                    axios.get('/showtopics/filtered' ,{
+                    axios.get('/st/filtered' ,{
 
                                 params: {
 
@@ -412,7 +412,7 @@
 
                     this.row_count = this.row_count + 10;
 
-                    axios.get('/showtopics/getmore' ,{
+                    axios.get('/st/getmore' ,{
 
                             params: {
                               row_count: this.row_count,

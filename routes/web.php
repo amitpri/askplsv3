@@ -31,29 +31,29 @@ Route::get('/review/save', 'ReviewController@save');
 Route::get('/review/{key}', 'ReviewController@review');
 
 Route::get('/categories/default', 'TopicController@categoriesdefault');
-Route::get('/topics/categories', 'TopicController@topicscategories');
+Route::get('/t/categories', 'TopicController@topicscategories');
 
 
-Route::get('/topics', 'TopicController@index');
-Route::get('/topics/default', 'TopicController@default');
-Route::get('/topics/getmore', 'TopicController@getmore');
-Route::get('/topics/filtered', 'TopicController@filtered');
-Route::get('/topics/messages', 'TopicController@messages');
-Route::get('/topics/postfeedback', 'TopicController@postfeedback'); 
-Route::get('/topics/showdetails', 'TopicController@showdetails'); 
+Route::get('/t', 'TopicController@index');
+Route::get('/t/default', 'TopicController@default');
+Route::get('/t/getmore', 'TopicController@getmore');
+Route::get('/t/filtered', 'TopicController@filtered');
+Route::get('/t/messages', 'TopicController@messages');
+Route::get('/t/postfeedback', 'TopicController@postfeedback'); 
+Route::get('/t/showdetails', 'TopicController@showdetails'); 
 
-Route::get('/topics/{url}', 'TopicController@show');
+Route::get('/t/{url}', 'TopicController@show');
  
-Route::get('/showtopics/default', 'ShowtopicsController@default');
-Route::get('/showtopics/getmore', 'ShowtopicsController@getmore');
-Route::get('/showtopics/getmoremessages', 'ShowtopicsController@getmoremessages');
-Route::get('/showtopics/filtered', 'ShowtopicsController@filtered');
-Route::get('/showtopics/messages', 'ShowtopicsController@messages');
-Route::get('/showtopics/postreview', 'ShowtopicsController@postreview'); 
-Route::get('/showtopics/showdetails', 'ShowtopicsController@showdetails'); 
+Route::get('/st/default', 'ShowtopicsController@default');
+Route::get('/st/getmore', 'ShowtopicsController@getmore');
+Route::get('/st/getmoremessages', 'ShowtopicsController@getmoremessages');
+Route::get('/st/filtered', 'ShowtopicsController@filtered');
+Route::get('/st/messages', 'ShowtopicsController@messages');
+Route::get('/st/postreview', 'ShowtopicsController@postreview'); 
+Route::get('/st/showdetails', 'ShowtopicsController@showdetails'); 
 
-Route::get('/showtopics/{id}', 'ShowtopicsController@show');
+Route::get('/st/{id}', 'ShowtopicsController@show');
 
-Route::get('/viewprofile/details', 'ShowtopicsController@viewprofiledetails');
-Route::get('/viewprofile/showtopics', 'ShowtopicsController@viewprofileshowtopics');
-Route::get('/viewprofile/{user_code}', 'ShowtopicsController@viewprofile');
+Route::get('/p/details', 'ShowtopicsController@viewprofiledetails');
+Route::get('/p/showtopics', 'ShowtopicsController@viewprofileshowtopics');
+Route::get('/p/{user_code}', 'ShowtopicsController@viewprofile');
