@@ -29,6 +29,8 @@
     <script src="/vue/vue.min.js"></script>
         <script src="/axios/axios.min.js"></script>
 
+    @include('analytics')
+
     <!-- Document Title
     ============================================= -->
     <title>AskPls | Anonymous Review System</title>

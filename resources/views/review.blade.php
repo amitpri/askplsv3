@@ -30,7 +30,7 @@
 	<script src="/axios/axios.min.js"></script>
 	<script src="/toastr/toastr.min.js"></script> 
     <link href="/toastr/toastr.min.css" rel="stylesheet" type="text/css"> 
-
+    @include('analytics')
 
     <!-- Document Title
     ============================================= -->
