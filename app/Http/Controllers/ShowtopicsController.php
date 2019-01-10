@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 use Illuminate\Support\Facades\DB;
 
+ 
 use App\User;
 use App\ShowTopic;
 use App\ShowReview;
@@ -162,9 +163,23 @@ class ShowtopicsController extends Controller implements ShouldQueue
     {   
         $inpid = $request->id; 
 
-        $topic = ShowReview::where('topic_id','=',$inpid)->orderBy('updated_at','desc')->get(['id','topic_name','review','created_at']); 
+        $topic = ShowTopic::where('id','=',$inpid)->first(['id' , 'reviewdisplay']);
 
-        return $topic;
+        if( $topic->reviewdisplay == 1 ){
+
+            $reviews = ShowReview::where('topic_id','=',$inpid)->orderBy('updated_at','desc')->get(['id','topic_name','review','created_at']); 
+
+        }else{
+
+            $reviews = [
+                'error_code' => 0,
+            ];
+
+        }
+
+        
+
+        return $reviews;
    
     } 
 

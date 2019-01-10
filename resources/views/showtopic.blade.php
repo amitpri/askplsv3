@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css" />
 
     <!-- Reader's Blog Demo Specific Fonts -->
-    <link rel="stylesheet" href="/fontsaskpls.css" type="text/css" />
+    <link rel="stylesheet" href="/askplsfonts.css" type="text/css" />
 
     <link rel="stylesheet" href="/css/responsive.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -195,25 +195,42 @@
 
 					<div class="container">
 
-						<div class="row clearfix" >
+						<div v-if="showreview == -1" v-cloak > 
 
-							<div class="col-md-12">
-	                            <div id="widget-subscribe-form"  style="margin-bottom: 10px; "  v-for="feedback in feedbacks" v-cloak >
-	    						    
-                                    <p>Posted on @{{ feedback.created_at }} </p>
-                                     <p>@{{ feedback.review }} </p>
-	                                       
-	                            </div>
-								   
-							</div> 
-
+							<div class="center">Reviews are Loading.....</div>
 						</div>
+
+						<div v-else-if="showreview == 0" v-cloak > 
+
+							<div class="center">Reviews are not publicly viewable</div>
+						</div>
+
+						<div v-else   >
+
+							<div class="row clearfix" >
+
+								<div class="col-md-12">
+		                            <div id="widget-subscribe-form"  style="margin-bottom: 10px; "  v-for="feedback in feedbacks" v-cloak >
+		    						    
+	                                    <p>Posted on @{{ feedback.created_at }} </p>
+	                                     <p>@{{ feedback.review }} </p>
+		                                       
+		                            </div>
+									   
+								</div> 
+
+							</div>
+
+							<div class="center" v-cloak ><button class="btn btn-primary"  @click="moremessages">Load More</button></div>
+						</div>
+						
+
 
 					</div>
 
 				</div>
 
-	            <div class="center"><button class="btn btn-default"  @click="moremessages">Load More</button></div>
+	            
 
 			</section><!-- #content end -->
 
@@ -280,6 +297,7 @@
 					row_count : 10,
 					topics : [],
 					topic : "",
+					showreview : -1,
 				},
 				mounted:function(){
 
@@ -299,14 +317,27 @@
 					});
 
 					axios.get('/st/messages',{
-					params: {
+						params: {
 
-				      	id: this.inpId, 
-				      	 
-				    	}
+					      	id: this.inpId, 
+					      	 
+					    	}
 
-					})
-					.then(response => {this.feedbacks = response.data}); 
+						})
+						.then(response => {
+
+							if( response.data.error_code == 0){
+
+							this.showreview = 0;
+
+						}else{
+
+
+							this.feedbacks = response.data
+							this.showreview = 1;
+						}
+
+					}); 
 
 				},
 				methods: { 
