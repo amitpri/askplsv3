@@ -115,7 +115,7 @@ class Topic extends Resource
                     ->options([ 
                         '0' => 'No',
                         '1' => 'Yes',
-                    ])->sortable()->default('0')->hideFromIndex(), 
+                    ])->sortable()->default('1')->hideFromIndex(), 
 
                     RadioButton::make('Active', 'status')
                     ->options([ 
