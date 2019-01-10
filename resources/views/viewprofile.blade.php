@@ -194,6 +194,8 @@
 
                     </div> 
 
+                    <div  v-if="showLoadMore > 0"  class="center"><button class="btn btn-primary" @click="moretopics">Load More</button></div>
+
 
     			</section><!-- #content end -->
             </div>
@@ -265,6 +267,7 @@
 					topics : [],
 					topic : "", 
 					name: "",
+                    showLoadMore : 0,
 				},
 				mounted:function(){
 
@@ -296,13 +299,69 @@
 				    	}
 
 					})
-					.then(response => {this.topics = response.data}); 
+					.then(response => {
+
+                        if( response.data.length < 10){
+
+                            this.showLoadMore = 0;
+
+                        }else{
+
+                            this.showLoadMore = 1;
+                            
+                        }
+
+                        this.topics = response.data
+
+                    }); 
 
 				},
 				methods: { 
-            
-					 
-				},
+ 
+                    moretopics:function(){
+
+                        this.row_count = this.row_count + 10;
+
+                        axios.get('/p/getmore' ,{
+
+                                params: {
+                                  row_count: this.row_count,
+                                  id: this.inpId, 
+                                  usercode: this.inpUserCode, 
+                                }
+
+                            }).then(response => {
+
+                                if( response.data.length < 10){
+
+                                        this.showLoadMore = 0;
+
+                                    }else{
+
+                                        this.showLoadMore = 1;
+                                        
+                                }
+
+                                for (var i = 0;  i <= response.data.length - 1; i++ ) {
+
+                                    this.topics.push({
+
+                                            id : response.data[i].id,  
+                                            url : response.data[i].url, 
+                                            user_id : response.data[i].user_id, 
+                                            topic_name : response.data[i].topic_name, 
+                                            created_at : response.data[i].created_at, 
+                                            
+                                            category : response.data[i].category, 
+                                            
+                                            
+
+                                        });
+                                }                       
+
+                        });
+                   }
+                },
 
 			})
 

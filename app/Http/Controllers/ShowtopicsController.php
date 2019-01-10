@@ -278,5 +278,27 @@ class ShowtopicsController extends Controller implements ShouldQueue
    
     }
 
+    public function getmoretopics(Request $request)
+    {   
+
+        $row_count = $request->row_count; 
+        $usercode = $request->usercode;
+        $id = $request->id; 
+        
+        $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
+                                    ,  a.`created_at` , c.`category`
+                                FROM `topics` a ,  `users` b,  `categories` c 
+                                        WHERE a.`user_id` = b.`id`
+                                        AND a.`category_id` = c.`id`
+                                        AND a.`type` = 'public'
+                                        AND b.`id` = :id
+                                        AND b.`user_code` = :user_code
+                                        ORDER BY a.`updated_at` DESC
+                                        limit 10 offset :offset", ['id' => $id, 'user_code' => $usercode, 'offset' => $row_count]);
+
+        return $topics;
+   
+    }
+
     
 }

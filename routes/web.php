@@ -56,4 +56,5 @@ Route::get('/st/{id}', 'ShowtopicsController@show');
 
 Route::get('/p/details', 'ShowtopicsController@viewprofiledetails');
 Route::get('/p/showtopics', 'ShowtopicsController@viewprofileshowtopics');
+Route::get('/p/getmore', 'ShowtopicsController@getmoretopics');
 Route::get('/p/{user_code}', 'ShowtopicsController@viewprofile');
