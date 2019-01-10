@@ -133,7 +133,7 @@ class Topic extends Resource
 
                         if ( $this->type == 'Public'){
 
-                            return 'https://askpls.com/topics/' . $this->url;
+                            return 'https://askpls.com/t/' . $this->url;
                         }
 
                     })->hideWhenUpdating(),
@@ -222,7 +222,7 @@ class Topic extends Resource
 
                         if ( $this->type == 'Public'){
 
-                            return 'https://askpls.com/topics/' . $this->url;
+                            return 'https://askpls.com/t/' . $this->url;
                         }
 
                     })->hideWhenUpdating(),
@@ -264,7 +264,7 @@ class Topic extends Resource
 
                     Youtube::make('Video'),
 
-                    HiddenField::make( 'url')->default('https://askpls.com/topics/' . str_random(10))->hideFromIndex()->hideFromDetail(),
+                    HiddenField::make( 'url')->default('https://askpls.com/t/' . str_random(10))->hideFromIndex()->hideFromDetail(),
           
                     Text::make('Public URL' ,function(){
 
