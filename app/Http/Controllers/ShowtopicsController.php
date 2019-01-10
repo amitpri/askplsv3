@@ -45,6 +45,9 @@ class ShowtopicsController extends Controller implements ShouldQueue
                                             WHERE a.`user_id` = b.`id`
                                             AND a.`category_id` = c.`id`
                                             AND a.`type` = "public"
+                                            AND a.`sitedisplay` = 1
+                                            AND a.`status` = 1
+                                            AND a.`frontdisplay` = 1
                                             ORDER BY a.`updated_at` DESC
                                             limit 10 offset :offset', ['offset' => $row_count]);
  
@@ -84,6 +87,9 @@ class ShowtopicsController extends Controller implements ShouldQueue
                                                 WHERE a.`user_id` = b.`id`
                                                 AND a.`category_id` = c.`id`
                                                 AND a.`type` = 'public'
+                                                AND a.`sitedisplay` = 1
+                                                AND a.`status` = 1
+                                                AND a.`frontdisplay` = 1
                                                 AND a.`topic_name` like '%" . $topicsinput . "%'
                                                 ORDER BY a.`updated_at` DESC
                                                 limit 10");
@@ -95,6 +101,9 @@ class ShowtopicsController extends Controller implements ShouldQueue
                                                 WHERE a.`user_id` = b.`id`
                                                 AND a.`category_id` = c.`id`
                                                 AND a.`type` = 'public'
+                                                AND a.`sitedisplay` = 1
+                                                AND a.`status` = 1
+                                                AND a.`frontdisplay` = 1
                                                 AND c.`id` = " . $categoryid . "
                                                 AND a.`topic_name` like '%" . $topicsinput . "%'
                                                 ORDER BY a.`updated_at` DESC

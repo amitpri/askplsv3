@@ -35,6 +35,9 @@ class TopicController extends Controller
                                             WHERE a.`user_id` = b.`id`
                                             AND a.`category_id` = c.`id`
                                             AND a.`type` = "public"
+                                            AND a.`sitedisplay` = 1
+                                            AND a.`status` = 1
+                                            AND a.`frontdisplay` = 1
                                             ORDER BY a.`updated_at` DESC
                                             limit 10');
 
@@ -54,6 +57,9 @@ class TopicController extends Controller
                                             WHERE a.`user_id` = b.`id`
                                             AND a.`category_id` = c.`id`
                                             AND a.`type` = 'public'
+                                            AND a.`sitedisplay` = 1
+                                            AND a.`status` = 1
+                                            AND a.`frontdisplay` = 1
                                             AND c.`id` = :categoryid
                                             ORDER BY a.`updated_at` DESC
                                             limit 10", ['categoryid' => $categoryid]);
