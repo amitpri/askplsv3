@@ -3,22 +3,19 @@
 <head>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="SemiColonWeb" />
+    <meta name="author" content="AskPls" />
  
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Playfair+Display:700,700i,900" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="style.css" type="text/css" />
     <link rel="stylesheet" href="css/dark.css" type="text/css" />
-
-    <!-- Home Demo Specific Stylesheet -->
-    <link rel="stylesheet" href="demos/interior-design/interior-design.css" type="text/css" />
+ 
+    <link rel="stylesheet" href="askpls.css" type="text/css" />
 
     <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
     <link rel="stylesheet" href="css/animate.css" type="text/css" />
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
-
-    <!-- Reader's Blog Demo Specific Fonts -->
-    <link rel="stylesheet" href="demos/interior-design/css/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" /> 
+    <link rel="stylesheet" href="fontsaskpls.css" type="text/css" />
 
     <link rel="stylesheet" href="css/responsive.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -85,13 +82,9 @@
         </div>
 
     </div>
-
-    <!-- Document Wrapper
-    ============================================= -->
+ 
     <div id="wrapper" class="clearfix">
-
-        <!-- Header
-        ============================================= -->
+ 
         <header id="header">
 
             <div id="header-wrap">
@@ -103,18 +96,15 @@
                     <div class="row justify-content-xl-between justify-content-lg-between clearfix">
 
                         <div class="col-lg-2 col-12 d-flex align-self-center">
-                            <!-- Logo
-                            ============================================= -->
+                             
                             <div id="logo">
                                 <a href="/" class="standard-logo"><img src="images/logo.png" alt="Canvas Logo"></a>
                                 <a href="/" class="retina-logo"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
-                            </div><!-- #logo end -->
+                            </div> 
 
                         </div>
 
-                        <div class="col-lg-8 col-12 d-xl-flex d-lg-flex justify-content-xl-center justify-content-lg-center">
-                            <!-- Primary Navigation
-                            ============================================= -->
+                        <div class="col-lg-8 col-12 d-xl-flex d-lg-flex justify-content-xl-center justify-content-lg-center"> 
                             <nav id="primary-menu" class="with-arrows fnone clearfix">
 
                                 <ul> 
@@ -123,28 +113,26 @@
                                     <li><a href="/faqs"><div>FAQs</div></a></li>
                                     <li><a href="/contact"><div>Contact</div></a></li>
                                 </ul>
-                            </nav><!-- #primary-menu end -->
+                            </nav> 
                         </div>
 
                         @if (Route::has('login'))
                             @if (Auth::check())
                                 <div class="col-lg-2 d-none d-lg-inline-flex d-xl-inline-flex justify-content-end nomargin">
-                                    <!-- Top Search
-                                    ============================================= -->
+                                     
                                     <div id="side-panel-trigger"  > 
                                         
                                         <a href="/portal" class="d-none d-lg-block">Portal <i class="icon-line-arrow-right"></i></a>
-                                    </div><!-- #top-search end -->
+                                    </div> 
                                 </div> 
                             @else
                                 <div class="col-lg-2 d-none d-lg-inline-flex d-xl-inline-flex justify-content-end nomargin">
-                                    <!-- Top Search
-                                    ============================================= -->
+                                     
                                     <div id="side-panel-trigger" class="side-panel-trigger">
                                         <a href="#" class="d-block d-lg-none"><i class="icon-line-lock"></i></a>
                                         
                                         <a href="#" class="d-none d-lg-block">Sign In <i class="icon-line-arrow-right"></i></a>
-                                    </div><!-- #top-search end -->
+                                    </div> 
                                 </div>                           
                             @endif
                         @endif
@@ -154,14 +142,7 @@
 
             </div>
 
-        </header><!-- #header end -->
-
-        <!-- Slider
-        ============================================= -->
-        
-
-        <!-- Content
-        ============================================= -->
+        </header> 
         <section id="contactform">
 
             <div class="content-wrap clearfix">
@@ -171,7 +152,6 @@
                     <div class="contact-widget mt-5 divcenter" style="max-width: 750px">
 
   
-
                             <div class="col_half">
                                 <label class="nott" for="template-contactform-name">Name <small>*</small></label>
                                 <input v-model="name"  type="text"  class="sm-form-control required" />
@@ -220,9 +200,7 @@
           
 
             <div class="line nomargin"></div>
-
-            <!-- Copyrights
-            ============================================= -->
+ 
             <div id="copyrights" class="" style="background-color: #FFF">
 
                 <div class="container clearfix">
@@ -233,23 +211,17 @@
 
                 </div>
 
-            </div><!-- #copyrights end -->
+            </div> 
 
-        </footer><!-- #footer end -->
+        </footer> 
 
-    </div><!-- #wrapper end -->
-
-    <!-- Go To Top
-    ============================================= -->
+    </div> 
+ 
     <div id="gotoTop" class="icon-angle-up"></div>
-
-    <!-- External JavaScripts
-    ============================================= -->
+ 
     <script src="js/jquery.js"></script>
     <script src="js/plugins.js"></script>
-
-    <!-- Footer Scripts
-    ============================================= -->
+ 
     <script src="js/functions.js"></script>
     <script>
     
