@@ -42,15 +42,15 @@ class ShowtopicsController extends Controller implements ShouldQueue
         $row_count = $request->row_count;
 
 
-        $topics = DB::select('SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` ,   a.`video` ,a.`image` FROM `topics` a ,  `users` b,  `categories` c 
+        $topics = DB::select("SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` ,   a.`video` ,a.`image` ,  DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at FROM `topics` a ,  `users` b,  `categories` c 
                                             WHERE a.`user_id` = b.`id`
                                             AND a.`category_id` = c.`id`
-                                            AND a.`type` = "public"
+                                            AND a.`type` = 'public'
                                             AND a.`sitedisplay` = 1
                                             AND a.`status` = 1
                                             AND a.`frontdisplay` = 1
                                             ORDER BY a.`updated_at` DESC
-                                            limit 10 offset :offset', ['offset' => $row_count]);
+                                            limit 10 offset :offset", ['offset' => $row_count]);
  
 
         return $topics;
@@ -84,7 +84,7 @@ class ShowtopicsController extends Controller implements ShouldQueue
 
         if( $categoryid == 0){
 
-            $topics = DB::select("SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` , a.`video` ,a.`image` FROM `topics` a ,  `users` b,  `categories` c 
+            $topics = DB::select("SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` , a.`video` ,a.`image` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  FROM `topics` a ,  `users` b,  `categories` c 
                                                 WHERE a.`user_id` = b.`id`
                                                 AND a.`category_id` = c.`id`
                                                 AND a.`type` = 'public'

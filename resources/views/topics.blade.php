@@ -182,8 +182,8 @@
                                     <div class="review-id">
                                             <h6 style="font-weight: normal;"><a class="nav-link" @click="categorytopicsearch(topic)"  href="#" >@{{ topic.category }}</a></h6></div>
                                     
-                                    <div class="review-date">
-                                        @{{ topic.updated_at }}<br> 
+                                    <div class="review-date"> 
+                                        <h6 style="font-weight: normal;"><p class="nav-link text text-primary"  >@{{ topic.created_at }}</p></h6>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-10"  >
@@ -397,6 +397,7 @@
                                         name : response.data[i].name, 
                                         image : response.data[i].image, 
                                         video : response.data[i].video, 
+                                        created_at : response.data[i].created_at, 
 
                                     });
                             }                       
