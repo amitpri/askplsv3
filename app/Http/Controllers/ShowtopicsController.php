@@ -167,7 +167,9 @@ class ShowtopicsController extends Controller implements ShouldQueue
 
         if( $topic->reviewdisplay == 1 ){
 
-            $reviews = ShowReview::where('topic_id','=',$inpid)->orderBy('updated_at','desc')->get(['id','topic_name','review','created_at']); 
+            $reviews = ShowReview::where('topic_id','=',$inpid)
+                    ->orderBy('updated_at','desc')->take(10)
+                    ->get(['id','topic_name','review','created_at']); 
 
         }else{
 

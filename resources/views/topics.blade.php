@@ -206,7 +206,7 @@
 
             </div>
 
-            <div class="center"><button class="btn btn-primary" @click="morerows">Load More</button></div>
+            <div  v-if="showLoadMore > 0"  class="center"><button class="btn btn-primary" @click="morerows">Load More</button></div>
 
         </section> 
         <footer id="footer" class="topmargin noborder" style="background-color: #F5F5F5;">          
@@ -253,11 +253,22 @@
                 inpCategoryId : "",
                 vCat1 : "", 
                 vCatId : "",
+                showLoadMore : 0,
             },
             mounted:function(){ 
 
                 axios.get('/t/default')
                 .then(response => {
+
+                    if( response.data.length < 10){
+
+                        this.showLoadMore = 0;
+
+                    }else{
+
+                        this.showLoadMore = 1;
+
+                    }
 
                     this.topics = response.data; 
 
@@ -288,7 +299,19 @@
                                     }
 
                                 })
-                            .then(response => {this.topics = response.data}); 
+                            .then(response => {
+
+                                if( response.data.length < 10){
+
+                                    this.showLoadMore = 0;
+
+                                }else{
+
+                                    this.showLoadMore = 1;
+                                    
+                                }
+
+                                this.topics = response.data}); 
 
                     }else{
 
@@ -302,7 +325,19 @@
                                     }
 
                                 })
-                            .then(response => {this.topics = response.data});   
+                            .then(response => {
+
+                                if( response.data.length < 10){
+
+                                    this.showLoadMore = 0;
+
+                                }else{
+
+                                    this.showLoadMore = 1;
+                                    
+                                }
+
+                                this.topics = response.data});   
                     }
 
              
@@ -327,7 +362,19 @@
                                 }
 
                             })
-                        .then(response => {this.topics = response.data});
+                        .then(response => {
+
+                            if( response.data.length < 10){
+
+                                    this.showLoadMore = 0;
+
+                                }else{
+
+                                    this.showLoadMore = 1;
+                                    
+                                }
+
+                            this.topics = response.data});
 
  
 
@@ -351,7 +398,19 @@
                                 }
 
                             })
-                        .then(response => {this.topics = response.data});
+                        .then(response => {
+
+                            if( response.data.length < 10){
+
+                                    this.showLoadMore = 0;
+
+                                }else{
+
+                                    this.showLoadMore = 1;
+                                    
+                                }
+
+                            this.topics = response.data});
 
                 },
                 clearfilter:function(event){
@@ -368,7 +427,19 @@
                                     }
 
                                 })
-                            .then(response => {this.topics = response.data});   
+                            .then(response => {
+
+                                if( response.data.length < 10){
+
+                                    this.showLoadMore = 0;
+
+                                }else{
+
+                                    this.showLoadMore = 1;
+                                    
+                                }
+
+                            this.topics = response.data});   
                 },
                 morerows:function(){
 
@@ -381,6 +452,16 @@
                             }
 
                         }).then(response => {
+
+                            if( response.data.length < 10){
+
+                                    this.showLoadMore = 0;
+
+                                }else{
+
+                                    this.showLoadMore = 1;
+                                    
+                                }
 
                             for (var i = 0;  i <= response.data.length - 1; i++ ) {
 

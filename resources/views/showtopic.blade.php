@@ -27,8 +27,7 @@
     <script src="/vue/vue.min.js"></script>
         <script src="/axios/axios.min.js"></script>
         @include('analytics')
-    <!-- Document Title
-    ============================================= -->
+ 
     <title>{{ $topic_name }}</title>
 
 </head>
@@ -86,13 +85,9 @@
         </div>
 
     </div>
-
-	<!-- Document Wrapper
-	============================================= -->
+ 
 	<div id="wrapper" class="clearfix">
-
-		<!-- Header
-		============================================= -->
+ 
 		<header id="header">
 
             <div id="header-wrap">
@@ -187,8 +182,7 @@
 					</div> 
 				</section><!-- #page-title end -->
  			</div
-		<!-- Content
-		============================================= -->
+		 -->
 			<section>
 
 				<div class="content-wrap clearfix">
@@ -221,12 +215,14 @@
 
 							</div>
 
-							<div class="center" v-cloak ><button class="btn btn-primary"  @click="moremessages">Load More</button></div>
+							
 						</div>
 						
 
 
 					</div>
+
+						<div  v-if="showLoadMore > 0" class="center" v-cloak ><button class="btn btn-primary"  @click="moremessages">Load More</button></div>
 
 				</div>
 
@@ -263,14 +259,10 @@
 	<!-- Go To Top
 	============================================= -->
 	<div id="gotoTop" class="icon-angle-up"></div>
-
-	<!-- External JavaScripts
-	============================================= -->
+ 
 	<script src="../../js/jquery.js"></script>
 	<script src="../../js/plugins.js"></script>
-
-	<!-- Footer Scripts
-	============================================= -->
+ 
 	<script src="../../js/functions.js"></script>
 
     <script>
@@ -298,6 +290,7 @@
 					topics : [],
 					topic : "",
 					showreview : -1,
+					showLoadMore : 0,
 				},
 				mounted:function(){
 
@@ -332,6 +325,11 @@
 
 						}else{
 
+							if( response.data.length < 10){
+								this.showLoadMore = 0;
+							}else{
+								this.showLoadMore = 1;
+							}
 
 							this.feedbacks = response.data
 							this.showreview = 1;
@@ -353,14 +351,21 @@
 
 	                        }).then(response => {
 
+	                        	if( response.data.length < 10){
+									this.showLoadMore = 0;
+								}else{
+									this.showLoadMore = 1;
+								}
+
 	                            for (var i = 0;  i <= response.data.length - 1; i++ ) {
 
-	                                this.topics.push({
+	                                this.feedbacks.push({
 
 	                                        id : response.data[i].id, 
 	                                        user_id : response.data[i].user_id, 
 	                                        topic_name : response.data[i].topic_name, 
-	                                 //       name : response.data[i].name,  
+	                                        ImageTopic1 : response.data[i].ImageTopic1, 
+	                                        review : response.data[i].review,  
 
 	                                    });
 	                            }                       
@@ -373,11 +378,10 @@
 	                },
 					savefeedback:function(e){
 
+						if( this.inpReview  === '' ){
 
-						if( this.inpReview == null ){
-					
-							this.flg_name = true; 
-
+							alert("Please write some review and submit!!");
+							
 						}else{
 							
 							this.flg_name = false;
