@@ -28,7 +28,7 @@ class SettingPolicy
         }else
         {
 
-            if ( $setting->user_id == $loggedinid ) {
+            if ( $setting->id == $loggedinid ) {
 
                 return 1 === 1;
 
@@ -44,7 +44,7 @@ class SettingPolicy
         
         $loggedinid = Auth::user()->id;
 
-        $setting = Setting::where('user_id' , '=' , $loggedinid)->first(['id']);
+        $setting = Setting::where('id' , '=' , $loggedinid)->first(['id']);
 
         if( isset($setting)){
 
@@ -71,7 +71,7 @@ class SettingPolicy
         }else
         {
 
-            if ( $setting->user_id == $loggedinid ) {
+            if ( $setting->id == $loggedinid ) {
 
                 return 1 === 1;
 

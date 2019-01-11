@@ -10,13 +10,14 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Setting extends Model
 {
+    protected $table = 'users';
      
     protected static function boot()
     {
         parent::boot();
 
          
-        static::addGlobalScope('user_id', function (Builder $builder) {
+        static::addGlobalScope('id', function (Builder $builder) {
 
             $loggedinid = Auth::user()->id;
 
@@ -24,7 +25,7 @@ class Setting extends Model
 
             if( $loggedinemail != 'amitpri@gmail.com' ){
             	
-            	$builder->where('user_id', '=', $loggedinid);
+            	$builder->where('id', '=', $loggedinid);
 
             }
 

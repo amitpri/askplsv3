@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Auth;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
@@ -36,26 +37,52 @@ class Setting extends Resource
     
     public function fields(Request $request)
     {
-        return [
+        $loggedinemail= Auth::user()->email;
+        if( $loggedinemail == "amitpri@gmail.com"){
 
-            ID::make()->sortable()->hideFromIndex(),
+           return [
 
-            HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex(),
+                ID::make()->sortable(),
 
-            RadioButton::make('Notification - Reply', 'notification_reply')
-            ->options([
-                'Yes' => 'Yes',
-                'No' => 'No',
-            ])->default('Private')->sortable(),
+                RadioButton::make('Notification - Reply', 'notification_reply')
+                ->options([
+                    'Yes' => 'Yes',
+                    'No' => 'No',
+                ])->default('Private')->sortable(),
 
-            Select::make('Language', 'language')->options([
-                'English' => 'English', 
-            ])->sortable(), 
+                Select::make('Language', 'language')->options([
+                    'English' => 'English', 
+                ])->sortable(), 
 
-            Timezone::make('Time Zone', 'timezone'),
- 
+                Timezone::make('Time Zone', 'timezone'),
+     
 
-        ];
+            ]; 
+
+        }else{
+
+
+            return [
+
+                ID::make()->sortable()->hideFromIndex(), 
+
+                RadioButton::make('Notification - Reply', 'notification_reply')
+                ->options([
+                    'Yes' => 'Yes',
+                    'No' => 'No',
+                ])->default('Private')->sortable(),
+
+                Select::make('Language', 'language')->options([
+                    'English' => 'English', 
+                ])->sortable(), 
+
+                Timezone::make('Time Zone', 'timezone'),
+     
+
+            ];
+
+        }
+        
     }
 
  
