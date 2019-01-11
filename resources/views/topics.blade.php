@@ -176,29 +176,25 @@
                         </div>  
                         <div class="col-lg-10 ">
                             <div  class="row" v-for="topic in topics" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
-                                <div class="container">
-                                  <div class="row">
-                                    <div class="col-sm">
-                                      <h6 style="font-weight: normal;"><a  class="nav-link" target="_blank" :href="'/p/' + topic.user_code">@{{ topic.name }}</a></h6> 
-                                    </div>
-                                    <div class="col-sm">
-                                      <h6 style="font-weight: normal;"><a class="nav-link" @click="categorytopicsearch(topic)"  href="#" >@{{ topic.category }}</a></h6>
-                                    </div>
-                                    <div class="col-sm">
-                                      <h6 style="font-weight: normal;"><p class="nav-link text text-primary"  >@{{ topic.created_at }}</p></h6>
-                                    </div>
-                                  </div>
-                                </div> 
-                                <div class="col-12 col-md-10"  >
+                                 
+                                <div class="col-12 col-md-12"  >
                                     <div class="review-title">
-                                        <h4><a target="_blank" :href="'/t/' + topic.url" style="padding-left: 20px; ">@{{ topic.topic_name }}</a></h4>
+                                        <h4><a target="_blank" :href="'/t/' + topic.url" style="">@{{ topic.topic_name }}</a></h4>
                                     </div>
                                     <div class="review-content"> 
-                                        <img style="padding-left: 20px; " v-if="topic.image" :src="'/storage/' + topic.image"  width="100">
-                                        <img  style="padding-left: 20px; " v-if="topic.video" :src="'https://img.youtube.com/vi/' + topic.video + '/default.jpg'">
-                                        <p  style="padding-left: 20px; " v-html="topic.details"></p>
+                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100">
+                                        <img  v-if="topic.video" :src="'https://img.youtube.com/vi/' + topic.video + '/default.jpg'">
+
+                                        <p  v-html="topic.details"></p>
                                     </div>
+                                    <ul class="entry-meta clearfix">
+                                    <li><i class="icon-calendar3"></i> @{{ topic.created_at }}</li>
+                                    <li><a href="#" :href="'/p/' + topic.user_code"><i class="icon-user"></i> @{{ topic.name }}</a></li>
+                                    <li><i class="icon-folder-open"></i> <a @click="categorytopicsearch(topic)"   href="#">@{{ topic.category }}</a> </li>
+                                    <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 13 Comments</a></li> 
+                                </ul>
                                 </div>
+                                
                             </div> 
                         </div> 
 
