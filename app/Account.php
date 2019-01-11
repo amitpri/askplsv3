@@ -38,9 +38,7 @@ class Account extends Authenticatable
             $loggedinid = Auth::user()->id;
             $loggedinemail = Auth::user()->email;
 
-            if ( $loggedinemail == 'amitpri@gmail.com' ) {
-
-            }else{
+            if( $loggedinemail != 'amitpri@gmail.com' ){
                 
                 $builder->where('id', '=', $loggedinid);
 

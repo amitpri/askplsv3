@@ -43,13 +43,6 @@ class TopicPolicy
         return 1 === 1;
     }
 
-    /**
-     * Determine whether the user can update the review.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Review  $review
-     * @return mixed
-     */
     public function update(User $user, Topic $topic)
     {
         $loggedinid = Auth::user()->id;

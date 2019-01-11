@@ -11,16 +11,6 @@ class AccountPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Create a new policy instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
- 
     public function view(User $user, Account $account)
     {
         $loggedinid = Auth::user()->id;

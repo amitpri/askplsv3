@@ -55,7 +55,7 @@ class Account extends Resource
     public static function indexQuery(NovaRequest $request, $query)
     {
 
-        return $query->where('id', $request->user()->id);
+     //   return $query->where('id', $request->user()->id);
 
     }
 
