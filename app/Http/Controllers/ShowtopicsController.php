@@ -270,7 +270,7 @@ class ShowtopicsController extends Controller implements ShouldQueue
         $id = $request->id;   
         
         $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
-                                    ,  a.`created_at` , c.`category`
+                                    , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at  , c.`category`
                                 FROM `topics` a ,  `users` b,  `categories` c 
                                         WHERE a.`user_id` = b.`id`
                                         AND a.`category_id` = c.`id`
@@ -292,7 +292,7 @@ class ShowtopicsController extends Controller implements ShouldQueue
         $id = $request->id; 
         
         $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
-                                    ,  a.`created_at` , c.`category`
+                                    , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at , c.`category`
                                 FROM `topics` a ,  `users` b,  `categories` c 
                                         WHERE a.`user_id` = b.`id`
                                         AND a.`category_id` = c.`id`
