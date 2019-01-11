@@ -145,6 +145,7 @@
                 <div class="container">
                     <form id="widget-subscribe-form"  target="#"  class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
                         <div class="input-group divcenter">
+
                             <input   type="text" id="workspace" class="form-control form-control-lg not-dark" placeholder="Search Topics..." style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchquery"  @keyup="filteredtopics" >
                             <a @click="filteredtopics"  href="" class="button " style="border-radius: 3px;">Search</a>  
                              
@@ -175,26 +176,27 @@
                         </div>  
                         <div class="col-lg-10 ">
                             <div  class="row" v-for="topic in topics" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
-                                <div class="col-12 col-md-2">
-                                    <div class="review-company">
-                                            <h6 style="font-weight: normal;"><a  class="nav-link" target="_blank" :href="'/p/' + topic.user_code">@{{ topic.name }}</a></h6> 
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col-sm">
+                                      <h6 style="font-weight: normal;"><a  class="nav-link" target="_blank" :href="'/p/' + topic.user_code">@{{ topic.name }}</a></h6> 
                                     </div>
-                                    <div class="review-id">
-                                            <h6 style="font-weight: normal;"><a class="nav-link" @click="categorytopicsearch(topic)"  href="#" >@{{ topic.category }}</a></h6></div>
-                                    
-                                    <div class="review-date"> 
-                                        <h6 style="font-weight: normal;"><p class="nav-link text text-primary"  >@{{ topic.created_at }}</p></h6>
+                                    <div class="col-sm">
+                                      <h6 style="font-weight: normal;"><a class="nav-link" @click="categorytopicsearch(topic)"  href="#" >@{{ topic.category }}</a></h6>
                                     </div>
-                                </div>
+                                    <div class="col-sm">
+                                      <h6 style="font-weight: normal;"><p class="nav-link text text-primary"  >@{{ topic.created_at }}</p></h6>
+                                    </div>
+                                  </div>
+                                </div> 
                                 <div class="col-12 col-md-10"  >
                                     <div class="review-title">
-                                        <h4><a target="_blank" :href="'/t/' + topic.url" style="">@{{ topic.topic_name }}</a></h4>
+                                        <h4><a target="_blank" :href="'/t/' + topic.url" style="padding-left: 20px; ">@{{ topic.topic_name }}</a></h4>
                                     </div>
                                     <div class="review-content"> 
-                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100">
-                                        <img  v-if="topic.video" :src="'https://img.youtube.com/vi/' + topic.video + '/default.jpg'">
-
-                                        <p  v-html="topic.details"></p>
+                                        <img style="padding-left: 20px; " v-if="topic.image" :src="'/storage/' + topic.image"  width="100">
+                                        <img  style="padding-left: 20px; " v-if="topic.video" :src="'https://img.youtube.com/vi/' + topic.video + '/default.jpg'">
+                                        <p  style="padding-left: 20px; " v-html="topic.details"></p>
                                     </div>
                                 </div>
                             </div> 
