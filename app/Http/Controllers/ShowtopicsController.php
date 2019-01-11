@@ -30,7 +30,7 @@ class ShowtopicsController extends Controller implements ShouldQueue
     public function default()
     {
 
-        $topics = ShowTopic::where('published', '=' , 1)->where('status', '=' , 1)->where('type', '=' , 'public')->orderBy('updated_at','desc')->take(10)->get(['id','user_id','topic','name']);
+        $topics = ShowTopic::where('published', '=' , 1)->where('status', '=' , 1)->where('type', '=' , 'public')->orderBy('updated_at','desc')->take(10)->get(['id','user_id','topic','name' , 'comments']);
 
         return $topics;
    
@@ -42,7 +42,7 @@ class ShowtopicsController extends Controller implements ShouldQueue
         $row_count = $request->row_count;
 
 
-        $topics = DB::select("SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` ,   a.`video` ,a.`image` ,  DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at FROM `topics` a ,  `users` b,  `categories` c 
+        $topics = DB::select("SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` ,   a.`video` ,a.`image` ,  DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at , a.`comments` FROM `topics` a ,  `users` b,  `categories` c 
                                             WHERE a.`user_id` = b.`id`
                                             AND a.`category_id` = c.`id`
                                             AND a.`type` = 'public'
@@ -84,7 +84,7 @@ class ShowtopicsController extends Controller implements ShouldQueue
 
         if( $categoryid == 0){
 
-            $topics = DB::select("SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` , a.`video` ,a.`image` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  FROM `topics` a ,  `users` b,  `categories` c 
+            $topics = DB::select("SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` , a.`video` ,a.`image` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  , a.`comments` FROM `topics` a ,  `users` b,  `categories` c 
                                                 WHERE a.`user_id` = b.`id`
                                                 AND a.`category_id` = c.`id`
                                                 AND a.`type` = 'public'
@@ -98,7 +98,7 @@ class ShowtopicsController extends Controller implements ShouldQueue
         }else{
  
 
-            $topics = DB::select("SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` , a.`video` ,a.`image` FROM `topics` a ,  `users` b,  `categories` c 
+            $topics = DB::select("SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name` , a.`video` ,a.`image` , a.`comments` FROM `topics` a ,  `users` b,  `categories` c 
                                                 WHERE a.`user_id` = b.`id`
                                                 AND a.`category_id` = c.`id`
                                                 AND a.`type` = 'public'
@@ -192,7 +192,9 @@ class ShowtopicsController extends Controller implements ShouldQueue
         $inptopicname = $request->topicname;
         $inpreview = $request->review;
 
-        $topic = ShowTopic::where('id','=',$inptopicid)->where('topic_name','=',$inptopicname)->first(['id','user_id', 'url']); 
+        $topic = ShowTopic::where('id','=',$inptopicid)->where('topic_name','=',$inptopicname)->first(['id','user_id', 'url' , 'comments']);
+
+        $topiccomments = $topic->comments; 
 
         $userid = $topic->user_id;
         $url = $topic->url;
@@ -206,6 +208,10 @@ class ShowtopicsController extends Controller implements ShouldQueue
                 //    'published' => 1,
                 //    'status' => 1,                                 
                 ]);
+
+        $topicupdate = ShowTopic::where('id', $inptopicid)->where('topic_name','=',$inptopicname)
+                        ->update(['comments' => $topiccomments + 1]);
+
 
         $userdetails = User::where('id','=',$userid)->first(['id','email','name']);
 

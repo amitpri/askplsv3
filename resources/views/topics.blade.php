@@ -191,7 +191,7 @@
                                     <li><i class="icon-calendar3"></i> @{{ topic.created_at }}</li>
                                     <li><a href="#" :href="'/p/' + topic.user_code"><i class="icon-user"></i> @{{ topic.name }}</a></li>
                                     <li><i class="icon-folder-open"></i> <a @click="categorytopicsearch(topic)"   href="#">@{{ topic.category }}</a> </li>
-                                    <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 13 Comments</a></li> 
+                                    <li v-if="topic.comments > 0"><a href="blog-single.html#comments"><i class="icon-comments"></i> @{{ topic.comments }} Reviews</a></li> 
                                 </ul>
                                 </div>
                                 
@@ -477,6 +477,7 @@
                                         image : response.data[i].image, 
                                         video : response.data[i].video, 
                                         created_at : response.data[i].created_at, 
+                                        comments : response.data[i].comments,
 
                                     });
                             }                       
