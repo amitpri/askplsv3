@@ -48,7 +48,7 @@ class Setting extends Resource
                 ->options([
                     'Yes' => 'Yes',
                     'No' => 'No',
-                ])->default('Private')->sortable(),
+                ])->default('No')->sortable(),
 
                 Select::make('Language', 'language')->options([
                     'English' => 'English', 
@@ -70,7 +70,7 @@ class Setting extends Resource
                 ->options([
                     'Yes' => 'Yes',
                     'No' => 'No',
-                ])->default('Private')->sortable(),
+                ])->default('No')->sortable(),
 
                 Select::make('Language', 'language')->options([
                     'English' => 'English', 
