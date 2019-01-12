@@ -44,7 +44,7 @@ class Topic extends Resource
 
     public static $search = [
         
-        'user_id' ,'topic_name' , 'url'
+        'user_id' ,'topic_name' , 'url' ,'category'
     ];
   
     public function fields(Request $request)

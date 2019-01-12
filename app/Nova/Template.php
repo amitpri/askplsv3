@@ -38,7 +38,7 @@ class Template extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id', 'topic_name'
     ];
 
     /**
