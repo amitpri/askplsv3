@@ -275,7 +275,7 @@
 					inpId: "{!! $id !!}",
 					url:"", 
 					inpUrl: "{!! $url !!}", 
-					inpTopicName: "{!! $topic_name !!}",
+					inpTopicName:  @json($topic_name) ,
 					inpName: "",
 					inpTopic: "",
 					inpDetail: "", 
