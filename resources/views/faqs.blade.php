@@ -150,7 +150,7 @@
                         <div class="col-md-12">
                             <div class="toggle toggle-bg" data-animate="fadeIn">
                                 <div class="togglet rounded-top t400"><strong class="mr-1">Q.</strong>What is AskPls?<i class="toggle-icon icon-line-circle-plus"></i></div>
-                                <div class="togglec rounded-bottom">AskPls helps you getting genuine reviews from people you know or from general public. AskPls makes sure identity of the reviewer is never captured and hence allowing them to write a genuine review of any of your question</div>
+                                <div class="togglec rounded-bottom">AskPls helps you getting genuine reviews from people you know or from general public who sees your question posted. AskPls makes sure identity of the reviewer is never captured and hence allowing them to write a genuine review of any of your question</div>
                             </div>
 
                             <div class="toggle toggle-bg" data-animate="fadeIn" data-delay="100">
