@@ -30,6 +30,12 @@ class Account extends Resource
 
     public static $model = 'App\\Account';
 
+    public static function label() {
+
+        return 'My Profile';
+
+    }
+
     public static function uriKey() :string
     {
         return 'users';
