@@ -56,6 +56,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     Topic::class,  
                     Review::class,
                     Template::class, 
+                    Category::class,
                     TopicLog::class,
                     TopicMail::class,
                     Job::class,
@@ -63,7 +64,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     Setting::class,
                     Tenant::class,
                     TenantUser::class, 
-                    Category::class,
                     ContactForm::class,
      
                 ]);
