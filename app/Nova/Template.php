@@ -21,7 +21,7 @@ class Template extends Resource
      *
      * @var string
      */
-    public static $group = 'Reviews';
+    public static $group = 'Setup';
 
     public static $model = 'App\Template';
 
