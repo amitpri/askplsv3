@@ -67,9 +67,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     ContactForm::class,
      
                 ]);
-
-          
-        
+     
      }
 
     public function boot()

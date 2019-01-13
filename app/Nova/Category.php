@@ -9,6 +9,8 @@ use OwenMelbz\RadioField\RadioButton;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
+use Laravel\Nova\Fields\HasMany;
+
 class Category extends Resource
 {
     /**
@@ -56,8 +58,11 @@ class Category extends Resource
                         '1' => 'Yes',
                     ])->sortable()->default('1'),
 
+            HasMany::make('Templates'),
 
- 
+            HasMany::make('Topics'),
+
+
         ];
     }
 

@@ -6,5 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    //
+    public function topics()
+    {
+
+    	return $this->hasMany('App\Topic');
+
+    }
+
+    public function templates()
+    {
+
+    	return $this->hasMany('App\Template');
+
+    }
 }
