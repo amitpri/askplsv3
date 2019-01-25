@@ -11,6 +11,7 @@ use App\User;
 use App\Tenant;
 use App\TenantUser;
 
+
 class HomeController extends Controller
 {
 

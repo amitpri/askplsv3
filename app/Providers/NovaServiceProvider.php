@@ -34,14 +34,19 @@ use App\Nova\Tenant;
 use App\Nova\TenantUser;
 use App\Nova\Category;
 use App\Nova\ContactForm;
+use App\Nova\Hotel;
+use App\Nova\Doctor;
+use App\Nova\Lawyer;
+use App\Nova\TopicCategory;
+
+use App\Nova\School;
+use App\Nova\College;
+use App\Nova\Restaurant;
+use App\Nova\FitnessCenter;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
+ 
     protected function resources()
       { 
             $loggedinemail = Auth::user()->email;
@@ -65,7 +70,16 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     Tenant::class,
                     TenantUser::class, 
                     ContactForm::class,
-     
+                    TopicCategory::class,
+                    College::class,
+                    Company::class,
+                    Doctor::class,
+                    FitnessCenter::class,
+                    Hotel::class,
+                    Lawyer::class,
+                    Restaurant::class,
+                    School::class,
+ 
                 ]);
      
      }

@@ -22,6 +22,8 @@
     <script src="/vue/vue.min.js"></script>
     <script src="/axios/axios.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.15.4"></script>
+
     @include('analytics')
  
     <title>AskPls | Anonymous Review System</title>
@@ -144,10 +146,26 @@
 
                 <div class="container">
                     <form id="widget-subscribe-form"  target="#"  class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
-                        <div class="input-group divcenter">
+                        <div class="input-group divcenter" v-if="vCatType > 0" >
 
                             <input   type="text" id="workspace" class="form-control form-control-lg not-dark" placeholder="Search Topics..." style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchquery"  @keyup="filteredtopics" >
-                            <a @click="filteredtopics"  href="" class="button " style="border-radius: 3px;">Search</a>  
+                            <a @click="filteredtopics"  href="" class="button " style="border-radius: 3px;">Search Topics</a>  
+                             
+                        </div>
+
+                        <div class="input-group divcenter" v-if="vCatType < 1" >
+
+                            <input   type="search" id="address-input" class="form-control form-control-lg not-dark" placeholder="Enter City..." style="border: 0; box-shadow: none; overflow: hidden;" v-model="citylist"  @keyup="filteredcities" >
+                            <input   type="text" id="workspace" class="form-control form-control-lg not-dark" :placeholder="vPlaceholders" style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchquery"  @keyup="filteredtopics" >
+                            <a @click="filteredtopics"  href="" class="button " style="border-radius: 3px;">@{{ vSearchName}}</a>  
+                             
+                        </div>
+
+                        <div class="input-group divcenter" v-if="vCatType < 1" >
+
+                           <div v-for="city in cities">
+                               <li style=" list-style: none;">  <a href="#" @click="event.preventDefault();setcity(city)">@{{city.name}} |  @{{city.country}} @{{city.state}} </a></li> 
+                           </div>
                              
                         </div>
                     </form> 
@@ -174,7 +192,8 @@
                             </nav> 
                                  
                         </div>  
-                        <div class="col-lg-10 ">
+                        <div class="col-lg-10 " v-if="vCatTopics == 0">
+                            <div v-show="showspinner" class="text-center"><img src="/ajax_loader.gif"></div>
                             <div  class="row" v-for="topic in topics" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
                                  
                                 <div class="col-12 col-md-12"  >
@@ -193,6 +212,140 @@
                                     <li><i class="icon-folder-open"></i> <a @click="categorytopicsearch(topic)"   href="#">@{{ topic.category }}</a> </li>
                                     <li v-if="topic.comments > 0"><a :href="'/t/' + topic.url"><i class="icon-comments"></i> @{{ topic.comments }} Reviews</a></li> 
                                 </ul>
+                                </div>
+                                
+                            </div> 
+                        </div> 
+
+                        <div class="col-lg-10 " v-if="vCatTopics == 1">
+                            <div  class="row" v-for="topic in topics" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
+                                 
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Colleges'"  >
+                                    <div class="review-title">
+                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> </h6></a></h4>
+                                    </div>
+                                    <div class="review-content"> 
+                                        <img  v-if="topic.image" :src="'/storage/' + topic.profilepic"  width="100"> 
+ 
+                                    </div>
+                                    <ul class="entry-meta clearfix">
+                                        <li><i class="icon-calendar3"></i> @{{ topic.type}}</li>
+                                        <li> <i class="icon-user"></i> @{{ topic.city }} </li>
+                                        <li><i class="icon-group"></i> @{{ topic.country }} </li>
+                                    
+                                    </ul>
+                                </div>
+
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Doctors'"  >
+                                    <div class="review-title">
+                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.speciality}}</h6></a></h4>
+                                    </div>
+                                    <div class="review-content"> 
+                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100"> 
+ 
+                                    </div>
+                                    <ul class="entry-meta clearfix">
+                                        <li><i class="icon-calendar3"></i> @{{ topic.locality }}</li>
+                                        <li> <i class="icon-user"></i> @{{ topic.city }} </li>
+                                        <li><i class="icon-folder-open"></i> @{{ topic.country }} </li>
+                                    
+                                    </ul>
+                                </div>
+
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Companies'"  >
+                                    <div class="review-title">
+                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.type}}</h6></a></h4>
+                                    </div>
+                                    <div class="review-content"> 
+                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100"> 
+ 
+                                    </div>
+                                    <ul class="entry-meta clearfix">
+                                        <li><i class="icon-calendar3"></i> @{{ topic.locality }}</li>
+                                        <li> <i class="icon-user"></i> @{{ topic.city }} </li>
+                                        <li><i class="icon-folder-open"></i> @{{ topic.country }} </li>
+                                    
+                                    </ul>
+                                </div>
+
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Fitness Centers'"  >
+                                    <div class="review-title">
+                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.type}}</h6></a></h4>
+                                    </div>
+                                    <div class="review-content"> 
+                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100"> 
+ 
+                                    </div>
+                                    <ul class="entry-meta clearfix">
+                                        <li><i class="icon-calendar3"></i> @{{ topic.locality }}</li>
+                                        <li> <i class="icon-user"></i> @{{ topic.city }} </li>
+                                        <li><i class="icon-folder-open"></i> @{{ topic.country }} </li>
+                                    
+                                    </ul>
+                                </div>
+
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Hotels'"  >
+                                    <div class="review-title">
+                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.type}}</h6></a></h4>
+                                    </div>
+                                    <div class="review-content"> 
+                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100"> 
+ 
+                                    </div>
+                                    <ul class="entry-meta clearfix">
+                                        <li><i class="icon-calendar3"></i> @{{ topic.locality }}</li>
+                                        <li> <i class="icon-user"></i> @{{ topic.city }} </li>
+                                        <li><i class="icon-folder-open"></i> @{{ topic.country }} </li>
+                                    
+                                    </ul>
+                                </div>
+
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Lawyers'"  >
+                                    <div class="review-title">
+                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.type}}</h6></a></h4>
+                                    </div>
+                                    <div class="review-content"> 
+                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100"> 
+ 
+                                    </div>
+                                    <ul class="entry-meta clearfix">
+                                        <li><i class="icon-calendar3"></i> @{{ topic.locality }}</li>
+                                        <li> <i class="icon-user"></i> @{{ topic.city }} </li>
+                                        <li><i class="icon-folder-open"></i> @{{ topic.country }} </li>
+                                    
+                                    </ul>
+                                </div>
+
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Restaurants'"  >
+                                    <div class="review-title">
+                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.type}}</h6></a></h4>
+                                    </div>
+                                    <div class="review-content"> 
+                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100"> 
+ 
+                                    </div>
+                                    <ul class="entry-meta clearfix">
+                                        <li><i class="icon-calendar3"></i> @{{ topic.locality }}</li>
+                                        <li> <i class="icon-user"></i> @{{ topic.city }} </li>
+                                        <li><i class="icon-folder-open"></i> @{{ topic.country }} </li>
+                                    
+                                    </ul>
+                                </div>
+
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Schools'"  >
+                                    <div class="review-title">
+                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.type}}</h6></a></h4>
+                                    </div>
+                                    <div class="review-content"> 
+                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100"> 
+ 
+                                    </div>
+                                    <ul class="entry-meta clearfix">
+                                        <li><i class="icon-calendar3"></i> @{{ topic.locality }}</li>
+                                        <li> <i class="icon-user"></i> @{{ topic.city }} </li>
+                                        <li><i class="icon-folder-open"></i> @{{ topic.country }} </li>
+                                    
+                                    </ul>
                                 </div>
                                 
                             </div> 
@@ -248,10 +401,19 @@
                 row_count : 0,
                 category : "",
                 categories: [], 
+                city: "",
+                cities: [],
                 inpCategoryId : "",
                 vCat1 : "", 
                 vCatId : "",
                 showLoadMore : 0,
+                citylist: "",
+                vCatName: "",
+                vCatTopics: 0,
+                vCatType: 1,
+                showspinner : false,
+                vPlaceholders: "",
+                vSearchName: "",
             },
             mounted:function(){ 
 
@@ -284,7 +446,8 @@
 
                 filteredtopics:function(){
 
-                    
+                    this.showspinner = true;
+
                     if( this.vCat1 == 1){
 
                         axios.get('/st/filtered' ,{
@@ -308,6 +471,8 @@
                                     this.showLoadMore = 1;
                                     
                                 }
+
+                                this.showspinner = false;
 
                                 this.topics = response.data}); 
 
@@ -335,23 +500,148 @@
                                     
                                 }
 
+                                this.showspinner = false;
+
                                 this.topics = response.data});   
                     }
 
              
          
                 },
+                filteredcities:function(){ 
+
+                    this.showspinner = true;
+                    axios.get('/cities/get' ,{
+
+                            params: {
+
+                                city : this.citylist,  
+
+                                }
+
+                            })
+                        .then(response => { 
+
+                            this.showspinner = false;
+                            this.cities = response.data
+
+                        }); 
+ 
+         
+                },
+                setcity:function(city){
+
+                    var rowcity= this.cities.indexOf(city);
+                    this.cityname = this.cities[rowcity].name;
+
+                    this.citylist = this.cityname; 
+
+                    axios.get('/categories/gettopics' ,{
+
+                            params: {
+
+                                category : this.vCatName,
+                                city: this.citylist,  
+
+                                }
+
+                            })
+                        .then(response => { 
+
+                            this.vCatTopics = 1;
+
+                            this.topics = response.data
+
+                        }); 
+
+                },
                 categorysearch:function(row){
 
                     var rowcategory = this.categories.indexOf(row);
+
+                    this.showspinner = true;
 
                     this.vCat1 = 1; 
 
                     this.inpcategoryid = this.categories[rowcategory].id;
 
+                    this.vCatName = this.categories[rowcategory].category; 
+
+                    this.vCatType = this.categories[rowcategory].status; 
+
                     this.vCatId = this.inpcategoryid;
 
-                    axios.get('/t/categories' ,{
+                    
+                    if(this.vCatName == 'Colleges'){
+                        this.vPlaceholders = "Enter College or Institute name..";
+                        this.vSearchName = "Search Colleges";
+                    }
+                    if(this.vCatName == 'Companies'){
+                        this.vPlaceholders = "Enter Company name..";
+                        this.vSearchName = "Search Companies";
+                    }
+                    if(this.vCatName == 'Doctors'){
+                        this.vPlaceholders = "Enter Doctor, Clinic or Hospital name..";
+                        this.vSearchName = "Search Doctors";
+                    }
+                    if(this.vCatName == 'Fitness Centers'){
+                        this.vPlaceholders = "Enter Fitness Center name..";
+                        this.vSearchName = "Search Fitness Center";
+                    }
+                    if(this.vCatName == 'Hotels'){
+                        this.vPlaceholders = "Enter Hotel name..";
+                        this.vSearchName = "Search Hotels";
+                    }
+                    if(this.vCatName == 'Lawyers'){
+                        this.vPlaceholders = "Enter Lawyer name..";
+                        this.vSearchName = "Search Lawyers";
+                    }
+                    if(this.vCatName == 'Restaurants'){
+                        this.vPlaceholders = "Enter Restaurant name..";
+                        this.vSearchName = "Search Restaurants";
+                    }
+
+                    if(this.vCatName == 'Schools'){
+                        this.vPlaceholders = "Enter School name..";
+                        this.vSearchName = "Search Schools";
+                    }
+
+                    // vCatType = 0 means specialized categories like doc, hotels 
+
+                    if(this.vCatType < 1){
+
+                        axios.get('/t/d/categories' ,{
+
+                            params: {
+
+                                categoryid : this.inpcategoryid, 
+                                type: this.vCatName,
+
+                                }
+
+                            })
+                        .then(response => {
+
+                            if( response.data.length < 10){
+
+                                    this.showLoadMore = 0;
+
+                                }else{
+
+                                    this.showLoadMore = 1;
+                                    
+                                }
+
+                            this.showspinner = false;
+
+                            this.vCatTopics = 1;
+
+                            this.topics = response.data
+
+                        });
+                    }else{
+
+                        axios.get('/t/categories' ,{
 
                             params: {
 
@@ -372,9 +662,16 @@
                                     
                                 }
 
-                            this.topics = response.data});
+                            this.showspinner = false;
 
- 
+                            this.vCatTopics = 0;
+
+                            this.topics = response.data
+
+                        });
+                    }
+
+
 
                 },
                 categorytopicsearch:function(row){ 
@@ -387,6 +684,8 @@
 
                     this.vCatId = this.inpcategoryid;
 
+                    this.showspinner = true;
+
                     axios.get('/t/categories' ,{
 
                             params: {
@@ -408,12 +707,20 @@
                                     
                                 }
 
-                            this.topics = response.data});
+                            this.showspinner = false;
+
+                            this.topics = response.data;
+                        });
 
                 },
                 clearfilter:function(event){
                     event.preventDefault();
                     this.vCat1 = 0;
+                    this.vCatTopics = 0;
+                    this.vCatType = 1;
+
+                    this.showspinner = true;
+
 
                     axios.get('/st/filtered' ,{
 
@@ -437,7 +744,9 @@
                                     
                                 }
 
-                            this.topics = response.data});   
+                            this.showspinner = false;
+
+                            this.topics = response.data;});   
                 },
                 morerows:function(){
 

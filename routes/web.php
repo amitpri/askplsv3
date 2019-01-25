@@ -5,6 +5,8 @@ Auth::routes(['verify' => true]);
 Route::get('/toconfirm', 'IndexController@toconfirm');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/cities/get', 'IndexController@citiesget');
+Route::get('/categories/gettopics', 'TopicController@gettopics');
 
 Route::get('/workspace', 'HomeController@workspace');
 Route::get('/workspace/find', 'HomeController@workspacefind');
@@ -42,7 +44,7 @@ Route::get('/t/messages', 'TopicController@messages');
 Route::get('/t/postfeedback', 'TopicController@postfeedback'); 
 Route::get('/t/showdetails', 'TopicController@showdetails'); 
 
-Route::get('/t/{url}', 'TopicController@show');
+
  
 Route::get('/st/default', 'ShowtopicsController@default');
 Route::get('/st/getmore', 'ShowtopicsController@getmore');
@@ -58,3 +60,16 @@ Route::get('/p/details', 'ShowtopicsController@viewprofiledetails');
 Route::get('/p/showtopics', 'ShowtopicsController@viewprofileshowtopics');
 Route::get('/p/getmore', 'ShowtopicsController@getmoretopics');
 Route::get('/p/{user_code}', 'ShowtopicsController@viewprofile');
+
+Route::get('/c/{category}/{url}', 'TopicController@categoryurl');
+Route::get('/p/d/details', 'TopicController@viewprofiledoctordetails');
+Route::get('/p/d/showtopics', 'TopicController@viewprofileshowtopicsdoctor');
+
+Route::get('/st/d/showdetails', 'TopicController@showdoctordetails'); 
+Route::get('/st/d/messages', 'TopicController@messagesdoctor');
+Route::get('/st/d/postreview', 'TopicController@postreviewdoctor'); 
+
+Route::get('/t/d', 'TopicController@showdoctortopic');
+Route::get('/t/d/categories', 'TopicController@topicscategoriesdoctor');
+
+Route::get('/t/{url}', 'TopicController@show');

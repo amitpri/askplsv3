@@ -27,6 +27,10 @@ class ModifyUsersAddSettings extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('notification_reply');
+            $table->dropColumn('language');
+            $table->dropColumn('timezone');
+        });
     }
 }

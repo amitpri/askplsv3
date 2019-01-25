@@ -1,34 +1,18 @@
 <?php
 
 namespace App;
-
-use Auth;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
+ 
+use Illuminate\Database\Eloquent\Model; 
 
 class Company extends Model
 {
 
-    protected static function boot()
+    public function topiccategories()
     {
-        parent::boot();
+  
 
-         
-        static::addGlobalScope('user_id', function (Builder $builder) {
+        return $this->morphMany('App\TopicCategory', 'topicable');
 
-        	$loggedinid = Auth::user()->id;
-
-        	$loggedinemail = Auth::user()->email;
-
-            if ( $loggedinemail == 'amitpri@gmail.com' ) {
-
-            }else{
-
-	            $builder->where('companies.user_id', '=', $loggedinid);
-
-	        }
-
-        });
     }
     
 }

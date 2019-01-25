@@ -10,7 +10,7 @@ class ShowReview extends Model
 
     protected $fillable = [
 
-        'user_id', 'topic_id', 'topic_name','review',
+        'user_id', 'topic_id', 'topic_categories_id' , 'topic_name','review',
         
     ];
 

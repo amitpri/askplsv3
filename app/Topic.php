@@ -11,8 +11,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Topic extends Model
 {
-    use  Notifiable;
-    use \Spatie\Tags\HasTags;
+    use  Notifiable; 
 
     protected $casts = [
         'displayuptil' => 'datetime'
@@ -44,8 +43,7 @@ class Topic extends Model
 
         return $this->belongsTo('App\Category', 'category_id');
 
-    } 
-
+    }  
 
     protected static function boot()
     {

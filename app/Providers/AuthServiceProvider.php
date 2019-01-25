@@ -19,6 +19,14 @@ use App\TenantUser;
 use App\Category;
 use App\Template;
 use App\ContactForm;
+use App\College;
+use App\Company;
+use App\Doctor;
+use App\FitnessCenter;
+use App\Hotel;
+use App\Lawyer;
+use App\Restaurant;
+use App\School;
 
 use App\Policies\ProfilePolicy;
 use App\Policies\GroupPolicy;
@@ -37,6 +45,15 @@ use App\Policies\TenantUserPolicy;
 use App\Policies\CategoryPolicy;
 use App\Policies\TemplatePolicy;
 use App\Policies\ContactFormPolicy;
+
+use App\Policies\CollegePolicy;
+use App\Policies\CompanyPolicy;
+use App\Policies\DoctorPolicy;
+use App\Policies\FitnessCenterPolicy;
+use App\Policies\HotelPolicy;
+use App\Policies\LawyerPolicy;
+use App\Policies\RestaurantPolicy;
+use App\Policies\SchoolPolicy;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -67,6 +84,16 @@ class AuthServiceProvider extends ServiceProvider
         Category::class => CategoryPolicy::class,
         Template::class => TemplatePolicy::class,
         ContactForm::class => ContactFormPolicy::class,
+
+        College::class => CollegePolicy::class,
+        Company::class => CompanyPolicy::class,
+        Doctor::class => DoctorPolicy::class,
+        FitnessCenter::class => FitnessCenterPolicy::class,
+        Hotel::class => HotelPolicy::class,
+        Lawyer::class => LawyerPolicy::class,
+        Restaurant::class => RestaurantPolicy::class,
+        School::class => SchoolPolicy::class,
+
         
     ];
 

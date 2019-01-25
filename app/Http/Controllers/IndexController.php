@@ -10,6 +10,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
+use App\City;
+
 use App\Mail\MailContactForm;
 
 class IndexController extends Controller
@@ -103,4 +105,23 @@ class IndexController extends Controller
         return view('toconfirm');
 
     }   
+ 
+    public function citiesget(Request $request)
+    {
+        $city = $request->city; 
+
+        $cities = City::where('name' , 'like' , "%$city%")->take(5)->get(['id', 'name', 'state' , 'country']);
+
+   //     $appId = '';
+   //     $apiKey = '';
+
+ //       $places = \AlgoliaSearch\Client::initPlaces($appId, $apiKey);
+
+
+  //      $cities = $places->search('Paris');
+
+        return $cities;
+    }
+
+
 }

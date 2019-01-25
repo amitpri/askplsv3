@@ -16,7 +16,6 @@ use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\BelongsTo;
 
-
 use Laravel\Nova\Fields\HasMany;
 
 use App\Nova\Actions\EmailTopicGroup;
@@ -31,12 +30,12 @@ use Spatie\TagsField\Tags;
 use Waynestate\Nova\CKEditor; 
  
 use Media24si\NovaYoutubeField\Youtube;
-use R64\NovaImageCropper\ImageCropper;
+use R64\NovaImageCropper\ImageCropper;  
 
 class Topic extends Resource
 { 
 
-    public static $group = 'Reviews';
+    public static $group = '1.Topics';
     
     public static $model = 'App\Topic';
  
@@ -138,155 +137,90 @@ class Topic extends Resource
 
                     })->hideWhenUpdating(),
 
-                    
-
-              //      Tags::make('Tags')->withoutSuggestions()->hideFromIndex(), 
-
-                    HasMany::make('Review')
+                     
                 ];
 
         }else{
+ 
+            return [
+                ID::make()->sortable()->hideFromIndex(), 
 
-            if( $loggedintenant == 0 ){
+                HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
 
-                return [
-                    ID::make()->sortable()->hideFromIndex(), 
+                Text::make('Topic Name')->sortable()->rules('required', 'max:100')
+                        ->help(
+                            'The heading of the review being asked for. Max length 100'
+                        )->hideWhenUpdating(), 
 
-                    HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
+                Text::make('Topic Name')->hideFromIndex()->onlyOnForms()->hideWhenCreating()->withMeta(['extraAttributes' => [
+                          'readonly' => true
+                    ]]), 
 
-                    Text::make('Topic Name')->sortable()->rules('required', 'max:100')
-                            ->help(
-                                'The heading of the review being asked for. Max length 100'
-                            )->hideWhenUpdating(), 
+                BelongsTo::make('Category')->rules('required', 'max:100')->hideFromIndex(), 
 
-                    Text::make('Topic Name')->hideFromIndex()->onlyOnForms()->hideWhenCreating()->withMeta(['extraAttributes' => [
-                              'readonly' => true
-                        ]]), 
+                CKEditor::make('Details')->options([
+                    'height' => 300,
+                    'toolbar' => [
+                        ['Cut','Copy','Paste'],
+                        ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+                        ['Image','Table','HorizontalRule','SpecialChar','PageBreak'], 
+                        ['Bold','Italic','Strike','-','Subscript','Superscript'],
+                        ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
+                        ['JustifyLeft','JustifyCenter','JustifyRight'],
+                        ['Link','Unlink'], 
+                        ['Format','FontSize','-','Maximize']
+                    ],
+                ])->hideFromIndex(),
 
-                    BelongsTo::make('Category')->rules('required', 'max:100'), 
+                ImageCropper::make('Image'),
 
-                    CKEditor::make('Details')->options([
-                        'height' => 300,
-                        'toolbar' => [
-                            ['Cut','Copy','Paste'],
-                            ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
-                            ['Image','Table','HorizontalRule','SpecialChar','PageBreak'], 
-                            ['Bold','Italic','Strike','-','Subscript','Superscript'],
-                            ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
-                            ['JustifyLeft','JustifyCenter','JustifyRight'],
-                            ['Link','Unlink'], 
-                            ['Format','FontSize','-','Maximize']
-                        ],
-                    ])->hideFromIndex(),
+                Youtube::make('Video'),
 
-                    ImageCropper::make('Image'),
+                RadioButton::make('Type')
+                ->options([ 
+                    'Public' => 'Public',
+                ])->default('Public')->sortable()->help(
+                            "<br><br><i>" . 'Sharable and option to display at askpls.com portal for others to view and review'  ."<i>"
+                        ), 
 
-                    Youtube::make('Video'),
+                RadioButton::make('Searchable', 'sitedisplay')
+                ->options([ 
+                    '0' => 'No',
+                    '1' => 'Yes',                    
+                ])->sortable()->default('1')->hideFromIndex()->help(
+                            "<br><br><i>" . 'Sharable and option to display at askpls.com portal for others to view and review'  ."<i>"
+                        ),  
 
-                    RadioButton::make('Type')
-                    ->options([ 
-                        'Public' => 'Public',
-                    ])->default('Public')->sortable()->help(
-                                "<br><br><i>" . 'Sharable and option to display at askpls.com portal for others to view and review'  ."<i>"
-                            ), 
+                RadioButton::make('Review Viewable', 'reviewdisplay')
+                ->options([ 
+                    '0' => 'No',
+                    '1' => 'Yes',
+                ])->sortable()->default('1')->hideFromIndex()->help(
+                            "<br><br><i>" . 'Review Viewable by others at AskPls Portal'  ."<i>"
+                        ),  
 
-                    RadioButton::make('Searchable', 'sitedisplay')
-                    ->options([ 
-                        '0' => 'No',
-                        '1' => 'Yes',                    
-                    ])->sortable()->default('1')->hideFromIndex()->help(
-                                "<br><br><i>" . 'Sharable and option to display at askpls.com portal for others to view and review'  ."<i>"
-                            ),  
+                RadioButton::make('Active', 'status')
+                ->options([ 
+                    '0' => 'No',
+                    '1' => 'Yes',
+                ])->sortable()->default('1'), 
 
-                    RadioButton::make('Review Viewable', 'reviewdisplay')
-                    ->options([ 
-                        '0' => 'No',
-                        '1' => 'Yes',
-                    ])->sortable()->default('1')->hideFromIndex()->help(
-                                "<br><br><i>" . 'Review Viewable by others at AskPls Portal'  ."<i>"
-                            ),  
+                HiddenField::make( 'url')->default(mt_rand(100000000, 999999999))->hideFromIndex()->hideFromDetail()->hideWhenUpdating(),
+      
+                TextCopy::make('Public URL' ,function(){
 
-                    RadioButton::make('Active', 'status')
-                    ->options([ 
-                        '0' => 'No',
-                        '1' => 'Yes',
-                    ])->sortable()->default('1'),
+                    if ( $this->type == 'Public'){
 
-                    DateTime::make('Expiry Date', 'displayuptil')->format('DD MMM YYYY, LT')->sortable()->help(
-                                "<i>" . 'By default, Topics will be active forever'  ."<i>"
-                            )->hideFromIndex(), 
+                        return 'https://askpls.com/t/' . $this->url;
+                    }
 
-                    HiddenField::make( 'url')->default(mt_rand(100000000, 999999999))->hideFromIndex()->hideFromDetail()->hideWhenUpdating(),
-          
-                    TextCopy::make('Public URL' ,function(){
+                })->hideWhenUpdating(), 
 
-                        if ( $this->type == 'Public'){
-
-                            return 'https://askpls.com/t/' . $this->url;
-                        }
-
-                    })->hideWhenUpdating(),
-
-                    
-
-              //      Tags::make('Tags')->withoutSuggestions()->hideFromIndex(), 
-
-                    HasMany::make('Review')
-                ];
-            }else{
-
-                return [
-                    ID::make()->sortable()->hideFromIndex(), 
-
-                    HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
-
-                    Text::make('Topic Name')->sortable()->rules('required', 'max:100')
-                            ->help(
-                                'The heading of the review being asked for. Max length 100'
-                            ),
-                    BelongsTo::make('Category')->rules('required', 'max:100'), 
-
-                    CKEditor::make('Details')->options([
-                        'height' => 300,
-                        'toolbar' => [
-                            ['Cut','Copy','Paste'],
-                            ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
-                            ['Image','Table','HorizontalRule','SpecialChar','PageBreak'], 
-                            ['Bold','Italic','Strike','-','Subscript','Superscript'],
-                            ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
-                            ['JustifyLeft','JustifyCenter','JustifyRight'],
-                            ['Link','Unlink'], 
-                            ['Format','FontSize','-','Maximize']
-                        ],
-                    ])->hideFromIndex(),
-
-                    ImageCropper::make('Image'),
-
-                    Youtube::make('Video'),
-
-                    HiddenField::make( 'url')->default('https://askpls.com/t/' . str_random(10))->hideFromIndex()->hideFromDetail(),
-          
-                    Text::make('Public URL' ,function(){
-
-                        if ( $this->type == 'Public'){
-
-                            return $this->url;
-                        }
-
-                    }),
-
-
-                    BelongsToMany::make('Group'),
-
-                    HasMany::make('Review')
-                ];
-
-            }
+                HasMany::make('Review'),
+            ];
+ 
         }
-
-        
-
-       
+      
     }
 
  

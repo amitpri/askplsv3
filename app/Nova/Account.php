@@ -26,7 +26,7 @@ class Account extends Resource
      * @var string
      */
 
-    public static $group = "Setup";
+    public static $group = "4.Personal";
 
     public static $model = 'App\\Account';
 
