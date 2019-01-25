@@ -18,6 +18,8 @@ use Outhebox\NovaHiddenField\HiddenField;
 use OwenMelbz\RadioField\RadioButton;
  
 use Waynestate\Nova\CKEditor; 
+
+use Laravel\Nova\Fields\Number; 
  
 use Media24si\NovaYoutubeField\Youtube;
 use Laravel\Nova\Fields\Image;
@@ -64,8 +66,12 @@ class Doctor extends Resource
 
                     RadioButton::make('Speciality')
                     ->options([ 
-                        'Physician' => 'Physician',
+                        'General Physician' => 'General Physician',
                         'Ortho' => 'Ortho' ])->sortable(), 
+
+                    Text::make('Qualification')->hideFromIndex(),
+
+                    Number::make('Exp')->min(0)->max(100)->step(1)->hideFromIndex(), 
 
                     new Panel('Address Information', $this->addressFields()), 
 
@@ -128,9 +134,14 @@ class Doctor extends Resource
                     ]]), 
 
                 RadioButton::make('Speciality')
-                ->options([ 
-                    'Physician' => 'Physician',
-                    'Ortho' => 'Ortho' ])->sortable(), 
+                    ->options([ 
+                        'General Physician' => 'General Physician',
+                        'Ortho' => 'Ortho' ])->sortable(), 
+
+                Text::make('Qualification')->hideFromIndex(),
+
+                Number::make('Exp ( in Yrs)', 'exp')->min(0)->max(100)->step(1)->hideFromIndex(), 
+ 
 
                 new Panel('Address Information', $this->addressFields()), 
 
@@ -181,8 +192,9 @@ class Doctor extends Resource
     protected function addressFields()
     {
         return [ 
-            Text::make('Locality')->hideFromIndex(),
+            
             Place::make('City')->onlyCities()->rules('required', 'max:100'),
+            Text::make('Locality')->hideFromIndex(),
             Text::make('State')->hideFromIndex(), 
             Country::make('Country')->hideFromIndex(),
         ];
