@@ -9,6 +9,11 @@ class ShowTopicCategory extends Model
 {
     protected $table = 'topic_categories';
 
+    protected $fillable = [
+
+        'user_id', 'topicable_type' , 'topicable_id' , 'topic_name', 'type', 'url', 'status' 
+    ];
+
     public function user()
     {
 

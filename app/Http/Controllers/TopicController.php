@@ -359,42 +359,75 @@ class TopicController extends Controller
             
             $user = College::where('collegekey','=',$url)->first(['id','collegekey AS user_code']);
 
+            $topicable = "App\College";
+
         }
         if( $categorytype == 'Companies'){
 
             $user = Company::where('companykey','=',$url)->first(['id','companykey AS user_code']);
 
+            $topicable = "App\Company";
+
         }
         if( $categorytype == 'Doctors'){
 
             $user = Doctor::where('doctorkey','=',$url)->first(['id','doctorkey AS user_code']);
+
+            $topicable = "App\Doctor";
         }
         if( $categorytype == 'Fitness Centers'){
 
             $user = FitnessCenter::where('fitnesscenterkey','=',$url)->first(['id','fitnesscenterkey AS user_code']);
 
+            $topicable = "App\FitnessCenter";
+
         }
         if( $categorytype == 'Hotels'){
 
             $user = Hotel::where('hotelkey','=',$url)->first(['id','hotelkey AS user_code']);
+
+            $topicable = "App\Hotel";
         }
         if( $categorytype == 'Lawyers'){
 
             $user = Lawyer::where('lawyerkey','=',$url)->first(['id','lawyerkey AS user_code']);
+
+            $topicable = "App\Lawyer";
         }
         if( $categorytype == 'Restaurants'){
 
             $user = Restaurant::where('restaurantkey','=',$url)->first(['id','restaurantkey AS user_code']);
+
+            $topicable = "App\Restaurant";
         }
 
         if( $categorytype == 'Schools'){ 
 
             $user = School::where('schoolkey','=',$url)->first(['id','schoolkey AS user_code']);
 
-         }  
-         
+            $topicable = "App\School";
 
-        $id = $user->id; 
+         }  
+
+         $id = $user->id;
+         
+        $topic = ShowTopicCategory::where('topicable_type', '=', $topicable)->where('topicable_id', '=', $id)->first(['id']);
+
+        if(!isset($topic)){
+            
+            $url = mt_rand(100000000, 999999999);
+            $createtopic = ShowTopicCategory::create(
+                [   
+                    'user_id' => 1,
+                    'topicable_type' => $topicable,
+                    'topicable_id' => $id,
+                    'topic_name' => "What is your review!",  
+                    'type' => 'private',
+                    'url' => $url,  
+                    'status' => 1,                     
+                ]);
+
+        }
  
         return view('viewprofiledoctor', compact('id', 'user_code', 'categorytype'));
     }
