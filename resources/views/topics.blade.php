@@ -156,7 +156,8 @@
                         <div class="input-group divcenter" v-if="vCatType < 1" >
 
                             <input   type="search" id="address-input" class="form-control form-control-lg not-dark" placeholder="Enter City..." style="border: 0; box-shadow: none; overflow: hidden;" v-model="citylist"  @keyup="filteredcities" >
-                            <input   type="text" id="workspace" class="form-control form-control-lg not-dark" :placeholder="vPlaceholders" style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchquery"  @keyup="filteredtopics" >
+
+                            <input   type="text" id="workspace" class="form-control form-control-lg not-dark" :placeholder="vPlaceholders" style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchcategoryname"  @keyup="filteredcategoryname" >
                             <a @click="filteredtopics"  href="" class="button " style="border-radius: 3px;">@{{ vSearchName}}</a>  
                              
                         </div>
@@ -238,18 +239,22 @@
 
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Doctors'"  >
                                     <div class="review-title">
-                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.speciality}}</h6></a></h4>
+                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
                                     </div>
                                     <div class="review-content"> 
                                         <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100"> 
- 
                                     </div>
-                                    <ul class="entry-meta clearfix">
-                                        <li><i class="icon-calendar3"></i> @{{ topic.locality }}</li>
-                                        <li> <i class="icon-user"></i> @{{ topic.city }} </li>
-                                        <li><i class="icon-folder-open"></i> @{{ topic.country }} </li>
+                                    <div class="" style="margin-top: -20px;">  
+                                        <p>@{{ topic.qualification}}  |  @{{ topic.exp}} yrs exp. </p>  
+
+                                    </div>
+                                     <ul class="entry-meta clearfix">
+                                      
+                                        <li> <i class="icon-user"></i><a href="">@{{ topic.speciality }}</a>  </li>
+                                        <li><i class="icon-calendar3"></i><a href=""> @{{ topic.locality }}</a></li>
+                                        <li> <i class="icon-user"></i><a href=""> @{{ topic.city }}</a></li> 
                                     
-                                    </ul>
+                                    </ul> 
                                 </div>
 
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Companies'"  >
@@ -357,7 +362,9 @@
 
             </div>
 
-            <div  v-if="showLoadMore > 0"  class="center"><button class="btn btn-primary" @click="morerows">Load More</button></div>
+            <div v-if="vCatTopics == 0"><div   v-if="showLoadMore > 0"  class="center"><button class="btn btn-primary" @click="morerows">Load More Topics</button></div></div>
+
+            <div v-if="vCatTopics > 0"><div   v-if="showLoadMoreCategory > 0"  class="center"><button class="btn btn-primary" @click="morerowscategory">Load More</button></div></div>
 
         </section> 
         <footer id="footer" class="topmargin noborder" style="background-color: #F5F5F5;">          
@@ -399,6 +406,7 @@
                 inpKey:"", 
                 searchquery : "",
                 row_count : 0,
+                row_count_category : 0,
                 category : "",
                 categories: [], 
                 city: "",
@@ -407,6 +415,7 @@
                 vCat1 : "", 
                 vCatId : "",
                 showLoadMore : 0,
+                showLoadMoreCategory : 0,
                 citylist: "",
                 vCatName: "",
                 vCatTopics: 0,
@@ -414,6 +423,7 @@
                 showspinner : false,
                 vPlaceholders: "",
                 vSearchName: "",
+                searchcategoryname : "",
             },
             mounted:function(){ 
 
@@ -536,24 +546,72 @@
 
                     this.citylist = this.cityname; 
 
-                    axios.get('/categories/gettopics' ,{
+                    axios.get('/t/d/categories' ,{
 
                             params: {
 
-                                category : this.vCatName,
-                                city: this.citylist,  
+                                categoryid : this.inpcategoryid, 
+                                type: this.vCatName,
+                                city: this.citylist,
 
                                 }
 
                             })
-                        .then(response => { 
+                        .then(response => {
+
+                            if( response.data.length < 10){
+
+                                    this.showLoadMoreCategory = 0;
+
+                                }else{
+
+                                    this.showLoadMoreCategory = 1;
+                                    
+                                }
+
+                            this.showspinner = false;
 
                             this.vCatTopics = 1;
 
                             this.topics = response.data
 
-                        }); 
+                        });
 
+                },
+                filteredcategoryname:function(){
+ 
+
+                    axios.get('/t/d/categories' ,{
+
+                            params: {
+
+                                categoryid : this.inpcategoryid, 
+                                type: this.vCatName,
+                                city: this.citylist,
+                                search: this.searchcategoryname,
+
+                                }
+
+                            })
+                        .then(response => {
+
+                            if( response.data.length < 10){
+
+                                    this.showLoadMoreCategory = 0;
+
+                                }else{
+
+                                    this.showLoadMoreCategory = 1;
+                                    
+                                }
+
+                            this.showspinner = false;
+
+                            this.vCatTopics = 1;
+
+                            this.topics = response.data
+
+                        });
                 },
                 categorysearch:function(row){
 
@@ -624,11 +682,11 @@
 
                             if( response.data.length < 10){
 
-                                    this.showLoadMore = 0;
+                                    this.showLoadMoreCategory = 0;
 
                                 }else{
 
-                                    this.showLoadMore = 1;
+                                    this.showLoadMoreCategory = 1;
                                     
                                 }
 
@@ -670,8 +728,6 @@
 
                         });
                     }
-
-
 
                 },
                 categorytopicsearch:function(row){ 
@@ -787,6 +843,52 @@
                                         video : response.data[i].video, 
                                         created_at : response.data[i].created_at, 
                                         comments : response.data[i].comments,
+
+                                    });
+                            }                       
+
+                        });
+                     
+                },
+                morerowscategory:function(){ 
+
+                    this.row_count_category = this.row_count_category + 10;
+
+                    axios.get('/st/d/getmore' ,{
+
+                            params: {
+                              row_count_category: this.row_count_category,
+                              type: this.vCatName, 
+                              city: this.citylist,
+                              search: this.searchcategoryname,
+                            }
+
+                        }).then(response => {
+
+                            if( response.data.length < 10){
+
+                                    this.showLoadMore = 0;
+
+                                }else{
+
+                                    this.showLoadMore = 1;
+                                    
+                                }
+
+                            for (var i = 0;  i <= response.data.length - 1; i++ ) {
+
+                                this.topics.push({
+
+                                        id : response.data[i].id,  
+                                        url : response.data[i].url,  
+                                        name : response.data[i].name, 
+                                        speciality : response.data[i].speciality, 
+                                        locality : response.data[i].locality, 
+                                        city : response.data[i].city,  
+                                        country : response.data[i].country, 
+                                        qualification : response.data[i].qualification, 
+                                        created_at : response.data[i].created_at, 
+                                        exp : response.data[i].exp,
 
                                     });
                             }                       

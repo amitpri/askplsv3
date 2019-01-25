@@ -41,7 +41,7 @@ class Doctor extends Resource
      
     public static $search = [
 
-        'id', 'name' , 'city'   , 'speciality' , 'doctorkey'
+        'id', 'name' , 'city' , 'locality'  , 'speciality' , 'doctorkey'
     ];
  
  
@@ -193,8 +193,8 @@ class Doctor extends Resource
     {
         return [ 
             
-            Place::make('City')->onlyCities()->rules('required', 'max:100'),
-            Text::make('Locality')->hideFromIndex(),
+            Place::make('City')->onlyCities()->sortable()->rules('required', 'max:100'),
+            Text::make('Locality')->sortable(),
             Text::make('State')->hideFromIndex(), 
             Country::make('Country')->hideFromIndex(),
         ];

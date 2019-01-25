@@ -92,15 +92,32 @@ class TopicController extends Controller
         $categoryid = $request->categoryid;
         $categorytype = $request->type;
 
+        $query_option = "";
+
+        if(isset($request->city)){
+
+            $query_option .= " AND `city` = '" . $request->city . "'" ;
+        }
+
+        if(isset($request->search)){
+             
+            $query_option .= " AND `name` like '%" . $request->search . "%'" ;
+        }
+
+        $query_option .= " AND 1 = 1"; 
+
         if( $categorytype == 'Colleges'){
             
             $category_table = 'colleges';
 
             $topics = DB::select("SELECT  a.`id`,a.`collegekey` as url , a.`name` , a.`type`,  a.`address`,  a.`locality` , a.`city` ,a.`state`,a.`country` ,  a.`profilepic` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
                                             FROM `colleges` a   
-                                            WHERE a.`status` = 1  
+                                            WHERE a.`status` = 1  " .
+                                            $query_option . "
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
+
+      
 
         }
         if( $categorytype == 'Companies'){
@@ -110,7 +127,8 @@ class TopicController extends Controller
              $topics = DB::select("SELECT  a.`id`,a.`companykey` as url , a.`name` , a.`type`,   a.`locality` ,
                               a.`city` ,a.`state`,a.`country` , a.`website`,  a.`links`,  a.`profilepic`, a.`video`,  DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
                                             FROM `companies` a 
-                                            WHERE  a.`status` = 1  
+                                            WHERE  a.`status` = 1   " .
+                                            $query_option . "
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
         }
@@ -119,11 +137,13 @@ class TopicController extends Controller
              $category_table = 'doctors';
 
              $topics = DB::select("SELECT  a.`id`,a.`doctorkey` as url , a.`name` , a.`speciality`,  a.`gender`,  a.`locality` ,
-                              a.`city` ,a.`state`,a.`country` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
+                              a.`city` ,a.`state`,a.`country` , a.`qualification`, a.`exp` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
                                             FROM `doctors` a 
-                                            WHERE  a.`status` = 1  
+                                            WHERE  a.`status` = 1  " .
+                                            $query_option . "
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
+ 
         }
         if( $categorytype == 'Fitness Centers'){
 
@@ -132,7 +152,8 @@ class TopicController extends Controller
              $topics = DB::select("SELECT  a.`id`,a.`fitnesscenterkey` as url , a.`name` , a.`type`,  a.`address`,  a.`locality` ,
                               a.`city` ,a.`state`,a.`country` ,a.`website`,  a.`links`,  a.`profilepic`, a.`video`, DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
                                             FROM `fitness_centers` a 
-                                            WHERE  a.`status` = 1  
+                                            WHERE  a.`status` = 1   " .
+                                            $query_option . "
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
         }
@@ -143,7 +164,8 @@ class TopicController extends Controller
              $topics = DB::select("SELECT  a.`id`,a.`hotelkey` as url , a.`name` , a.`type`,  a.`address`,  a.`locality` ,
                               a.`city` ,a.`state`,a.`country`,a.`website`,  a.`links`,  a.`profilepic`, a.`video` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
                                             FROM `hotels` a 
-                                            WHERE  a.`status` = 1  
+                                            WHERE  a.`status` = 1   " .
+                                            $query_option . "
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
         }
@@ -154,7 +176,8 @@ class TopicController extends Controller
              $topics = DB::select("SELECT  a.`id`,a.`lawyerkey` as url , a.`name` , a.`speciality`,  a.`gender`, a.`address` ,  a.`locality` ,
                               a.`city` ,a.`state`,a.`country`,a.`website`,  a.`links`,  a.`profilepic`, a.`video`  , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
                                             FROM `lawyers` a 
-                                            WHERE  a.`status` = 1  
+                                            WHERE  a.`status` = 1   " .
+                                            $query_option . "
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
         }
@@ -165,7 +188,8 @@ class TopicController extends Controller
              $topics = DB::select("SELECT  a.`id`,a.`restaurantkey` as url , a.`name` , a.`type`,  a.`address`,  a.`locality` ,
                               a.`city` ,a.`state`,a.`country` ,a.`website`,  a.`links`,  a.`profilepic`, a.`video`, DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
                                             FROM `restaurants` a 
-                                            WHERE  a.`status` = 1  
+                                            WHERE  a.`status` = 1   " .
+                                            $query_option . "
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
         }
@@ -177,7 +201,8 @@ class TopicController extends Controller
             $topics = DB::select("SELECT  a.`id`,a.`schoolkey` as url , a.`name` , a.`type`,  a.`address`,  a.`locality` ,
                               a.`city` ,a.`state`,a.`country` ,a.`website`,  a.`links`,  a.`profilepic`, a.`video`, DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
                                             FROM `schools` a 
-                                            WHERE  a.`status` = 1  
+                                            WHERE  a.`status` = 1   " .
+                                            $query_option . "
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
 
@@ -311,9 +336,8 @@ class TopicController extends Controller
 
             $topics = DB::select("SELECT  a.`id`,a.`doctorkey` as url , a.`name` , a.`speciality`,  a.`gender`,  a.`locality` ,
                               a.`city` ,a.`state`,a.`country` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
-                                            FROM `doctors` a ,    `categories` b  
-                                            WHERE a.`category_id` = b.`id`  
-                                            AND a.`status` = 1 
+                                            FROM `doctors` a   
+                                            WHERE  a.`status` = 1 
                                             AND b.`category` = :category
                                             ORDER BY a.`updated_at` DESC
                                             limit 10", ['category' => $category]);
@@ -735,6 +759,135 @@ class TopicController extends Controller
         }
  
         return $postfeedback;
+   
+    }
+
+    public function getmoredoctor(Request $request)
+    {
+
+        $row_count = $request->row_count_category; 
+
+        $categoryid = $request->categoryid;
+        $categorytype = $request->type;
+
+        $query_option = "";
+
+        if(isset($request->city)){
+
+            $query_option .= " AND `city` = '" . $request->city . "'" ;
+        }
+
+        if(isset($request->search)){
+             
+            $query_option .= " AND `name` like '%" . $request->search . "%'" ;
+        }
+
+        $query_option .= " AND 1 = 1"; 
+
+
+        if( $categorytype == 'Colleges'){
+            
+            $category_table = 'colleges';
+
+            $topics = DB::select("SELECT  a.`id`,a.`collegekey` as url , a.`name` , a.`type`,  a.`address`,  a.`locality` , a.`city` ,a.`state`,a.`country` ,  a.`profilepic` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
+                                            FROM `colleges` a   
+                                            WHERE a.`status` = 1   " .
+                                            $query_option . "
+                                            ORDER BY a.`updated_at` DESC
+                                            limit 10 offset :offset", ['offset' => $row_count]);
+
+        }
+        if( $categorytype == 'Companies'){
+
+             $category_table = 'companies';
+
+             $topics = DB::select("SELECT  a.`id`,a.`companykey` as url , a.`name` , a.`type`,   a.`locality` ,
+                              a.`city` ,a.`state`,a.`country` , a.`website`,  a.`links`,  a.`profilepic`, a.`video`,  DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
+                                            FROM `companies` a 
+                                            WHERE  a.`status` = 1   " .
+                                            $query_option . "
+                                            ORDER BY a.`updated_at` DESC
+                                            limit 10 offset :offset", ['offset' => $row_count]);
+        }
+        if( $categorytype == 'Doctors'){
+
+             $category_table = 'doctors';
+
+             $topics = DB::select("SELECT  a.`id`,a.`doctorkey` as url , a.`name` , a.`speciality`,  a.`gender`,  a.`locality` ,
+                              a.`city` ,a.`state`,a.`country` , a.`qualification`, a.`exp` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
+                                            FROM `doctors` a 
+                                            WHERE  a.`status` = 1   " .
+                                            $query_option . "
+                                            ORDER BY a.`updated_at` DESC
+                                            limit 10 offset :offset", ['offset' => $row_count]);
+        }
+        if( $categorytype == 'Fitness Centers'){
+
+             $category_table = 'fitness_centers';
+
+             $topics = DB::select("SELECT  a.`id`,a.`fitnesscenterkey` as url , a.`name` , a.`type`,  a.`address`,  a.`locality` ,
+                              a.`city` ,a.`state`,a.`country` ,a.`website`,  a.`links`,  a.`profilepic`, a.`video`, DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
+                                            FROM `fitness_centers` a 
+                                            WHERE  a.`status` = 1   " .
+                                            $query_option . "
+                                            ORDER BY a.`updated_at` DESC
+                                            limit 10 offset :offset", ['offset' => $row_count]);
+        }
+        if( $categorytype == 'Hotels'){
+
+             $category_table = 'hotels';
+
+             $topics = DB::select("SELECT  a.`id`,a.`hotelkey` as url , a.`name` , a.`type`,  a.`address`,  a.`locality` ,
+                              a.`city` ,a.`state`,a.`country`,a.`website`,  a.`links`,  a.`profilepic`, a.`video` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
+                                            FROM `hotels` a 
+                                            WHERE  a.`status` = 1  " .
+                                            $query_option . " 
+                                            ORDER BY a.`updated_at` DESC
+                                            limit 10 offset :offset", ['offset' => $row_count]);
+        }
+        if( $categorytype == 'Lawyers'){
+
+             $category_table = 'lawyers';
+
+             $topics = DB::select("SELECT  a.`id`,a.`lawyerkey` as url , a.`name` , a.`speciality`,  a.`gender`, a.`address` ,  a.`locality` ,
+                              a.`city` ,a.`state`,a.`country`,a.`website`,  a.`links`,  a.`profilepic`, a.`video`  , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
+                                            FROM `lawyers` a 
+                                            WHERE  a.`status` = 1   " .
+                                            $query_option . "
+                                            ORDER BY a.`updated_at` DESC
+                                            limit 10 offset :offset", ['offset' => $row_count]);
+        }
+        if( $categorytype == 'Restaurants'){
+
+             $category_table = 'restaurants';
+
+             $topics = DB::select("SELECT  a.`id`,a.`restaurantkey` as url , a.`name` , a.`type`,  a.`address`,  a.`locality` ,
+                              a.`city` ,a.`state`,a.`country` ,a.`website`,  a.`links`,  a.`profilepic`, a.`video`, DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
+                                            FROM `restaurants` a 
+                                            WHERE  a.`status` = 1   " .
+                                            $query_option . "
+                                            ORDER BY a.`updated_at` DESC
+                                            limit 10 offset :offset", ['offset' => $row_count]);
+        }
+
+        if( $categorytype == 'Schools'){ 
+
+             $category_table = 'schools';
+
+            $topics = DB::select("SELECT  a.`id`,a.`schoolkey` as url , a.`name` , a.`type`,  a.`address`,  a.`locality` ,
+                              a.`city` ,a.`state`,a.`country` ,a.`website`,  a.`links`,  a.`profilepic`, a.`video`, DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
+                                            FROM `schools` a 
+                                            WHERE  a.`status` = 1   " .
+                                            $query_option . "
+                                            ORDER BY a.`updated_at` DESC
+                                            limit 10 offset :offset", ['offset' => $row_count]);
+
+         }
+
+
+       
+
+        return $topics;
    
     } 
 }

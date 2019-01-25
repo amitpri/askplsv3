@@ -73,3 +73,4 @@ Route::get('/t/d', 'TopicController@showdoctortopic');
 Route::get('/t/d/categories', 'TopicController@topicscategoriesdoctor');
 
 Route::get('/t/{url}', 'TopicController@show');
+Route::get('/st/d/getmore', 'TopicController@getmoredoctor');
