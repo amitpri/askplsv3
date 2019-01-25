@@ -41,7 +41,7 @@ class Doctor extends Resource
      
     public static $search = [
 
-        'id', 'name' , 'city'   , 'type' , 'doctorkey'
+        'id', 'name' , 'city'   , 'speciality' , 'doctorkey'
     ];
  
  
