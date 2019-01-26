@@ -155,9 +155,9 @@
 
                         <div class="input-group divcenter" v-if="vCatType < 1" >
 
-                            <input   type="search" id="address-input" class="form-control form-control-lg not-dark" placeholder="Enter City..." style="border: 0; box-shadow: none; overflow: hidden;" v-model="citylist"  @keyup="filteredcities" >
+                            <input   type="search" id="address-input" class="form-control form-control-lg not-dark" placeholder="Enter City..." style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;" v-model="citylist"  @keyup="filteredcities" >
 
-                            <input   type="text" id="workspace" class="form-control form-control-lg not-dark" :placeholder="vPlaceholders" style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchcategoryname"  @keyup="filteredcategoryname" >
+                            <input   type="text" id="workspace" class="form-control form-control-lg not-dark" :placeholder="vPlaceholders" style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;" v-model="searchcategoryname"  @keyup="filteredcategoryname" >
                             <a @click="filteredtopics"  href="" class="button " style="border-radius: 3px;">@{{ vSearchName}}</a>  
                              
                         </div>
@@ -165,7 +165,8 @@
                         <div class="input-group divcenter" v-if="vCatType < 1" >
 
                            <div v-for="city in cities">
-                               <li style=" list-style: none;">  <a href="#" @click="event.preventDefault();setcity(city)">@{{city.name}} |  @{{city.country}} @{{city.state}} </a></li> 
+                               <li style=" list-style: none;">  
+                                <a href="#" @click="event.preventDefault();setcity(city)">@{{city.name}}&nbsp;  </a></li> 
                            </div>
                              
                         </div>
@@ -639,7 +640,7 @@
                         this.vSearchName = "Search Companies";
                     }
                     if(this.vCatName == 'Doctors'){
-                        this.vPlaceholders = "Enter Doctor, Clinic or Hospital name..";
+                        this.vPlaceholders = "Enter Doctor or Hospital name";
                         this.vSearchName = "Search Doctors";
                     }
                     if(this.vCatName == 'Fitness Centers'){

@@ -107,8 +107,8 @@
                             <!-- Logo
                             ============================================= -->
                             <div id="logo">
-                                <a href="/" class="standard-logo"><img src="/images/logo.png" alt="Canvas Logo"></a>
-                                <a href="/" class="retina-logo"><img src="/images/logo@2x.png" alt="Canvas Logo"></a>
+                                <a href="/" class="standard-logo"><img src="/images/logo.png" alt="AskPls"></a>
+                                <a href="/" class="retina-logo"><img src="/images/logo@2x.png" alt="AskPls"></a>
                             </div><!-- #logo end -->
 
                         </div>
@@ -168,27 +168,28 @@
     			<section  class="  center" > 
 
                     <h1 class="font-secondary nott mb-3" style="color: black; font-size: 42px;">@{{ inpName }}</h1>
-                    <p style="font-weight: 300; opacity: .7; color: black;  ">@{{inpCity}} &nbsp; @{{inpCountry}} </p>
+                    <p style="font-weight: 300; opacity: .7; color: black;  ">@{{inpLocality}} &nbsp; @{{inpCity}} &nbsp; @{{inpCountry}} </p>
+                    <p style="font-weight: 600; opacity: 1; color: black;  ">@{{inpSpeciality}} </p>
+                    <p style="font-weight: 600; opacity: 1; color: black;  ">@{{inpQualification}}, &nbsp;  @{{inpExp}} yrs experience </p>
 
-                    <img v-if="profile_photo"  :src="'/storage/' + profile_photo" width="200">
+                    <img v-if="profile_photo"  :src="'/storage/' + profile_photo" width="200">     
      
-     
-                      <div class="content-wrap clearfix">
+                    <div class="content-wrap clearfix" style="margin-top: -50px;">
 
-                            <div class="row clearfix" >
+                        <div class="row clearfix" >
 
-                                <div class="col-md-12">
-                                    <div id="widget-subscribe-form"  style="margin-bottom: 10px; "  v-for="topic in topics" v-cloak >
-                                        
-                                        <p> @{{topic.category}} | Posted on @{{topic.created_at}} </p>
-                                         <p><h4><a :href="'/t/d?url=' + topic.url + '&type=' + categorytype">@{{topic.topic_name}}</a></h4> </p>
-                                               
-                                    </div>
-                                       
-                                </div> 
+                            <div class="col-md-12">
+                                <h4 >Available topics for review</h4>
+                                <div id="widget-subscribe-form"  style="margin-bottom: 10px; "  v-for="topic in topics" v-cloak >
+                                    
+                                    <p>   Posted on @{{topic.created_at}} </p>
+                                     <p style="margin-top: -20px "><h4><a :href="'/t/d?url=' + topic.url + '&type=' + categorytype">@{{topic.topic_name}}</a></h4> </p>
+                                           
+                                </div>
+                                   
+                            </div> 
 
-                            </div>
-     
+                        </div>
 
                     </div> 
 
@@ -283,9 +284,18 @@
 					.then(response => {
  
 						this.inpName = response.data.name;
-						this.inpCity = response.data.city;
-						this.inpCountry = response.data.country;
-                        this.profile_photo = response.data.profile_photo;
+                        this.inpSpeciality = response.data.speciality;
+                        this.inpGender = response.data.gender;
+                        this.inpAddress = response.data.address;
+                        this.inpLocality = response.data.locality; 
+                        this.inpCity = response.data.city;
+                        this.inpCountry = response.data.country;
+                        this.inpWebsite = response.data.website;
+                        this.inpLinks = response.data.links;
+                        this.inpDetails = response.data.details;
+                        this.inpQualification = response.data.qualification;
+                        this.inpExp = response.data.exp;
+                        this.profile_photo = response.data.profile_photo; 
 						
 
 					});

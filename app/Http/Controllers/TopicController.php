@@ -453,7 +453,7 @@ class TopicController extends Controller
         if( $categorytype == 'Doctors'){
 
             $user = Doctor::where('doctorkey','=',$usercode)->where('id','=',$id)
-                    ->first(['id','doctorkey', 'name' , 'city' , 'country' , 'profilepic' ]); 
+                    ->first(['id','doctorkey', 'name' , 'speciality','gender','address','locality',  'city' , 'country' ,'website','links','details','qualification', 'exp' , 'profilepic' ]); 
         }
         if( $categorytype == 'Fitness Centers'){
 
