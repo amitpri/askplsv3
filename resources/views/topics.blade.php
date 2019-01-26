@@ -242,11 +242,18 @@
                                     <div class="review-title">
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
                                     </div>
-                                    <div class="review-content"> 
-                                        <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100"> 
+                                    <div class="review-content">  
+
+                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">  
+                                    
+ 
                                     </div>
-                                    <div class="" style="margin-top: -20px;">  
-                                        <p>@{{ topic.qualification}}  |  @{{ topic.exp}} yrs exp. </p>  
+                                    <div v-if="topic.profilepic"  class="" style=" ">  
+                                        <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.qualification}}  |  @{{ topic.exp}} yrs exp. </p>  
+
+                                    </div>
+                                    <div v-else class="" style="margin-top: -20px;">  
+                                        <p style="font-weight: 400; opacity: 0.8;   ">@{{ topic.qualification}}  |  @{{ topic.exp}} yrs exp. </p>  
 
                                     </div>
                                      <ul class="entry-meta clearfix">
