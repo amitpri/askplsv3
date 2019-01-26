@@ -11,6 +11,7 @@
         "php": "^7.1.3",
         "alexpgates/horizon-link": "^0.0.3",
         "algolia/algoliasearch-client-php": "1.27",
+        "anhskohbo/no-captcha": "^3.0",
         "askpls/work": "*",
         "askpls/workspacesummary": "*",
         "chaseconey/nova-external-image": "^0.0.3",
