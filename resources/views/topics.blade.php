@@ -203,7 +203,7 @@
                                         <h4><a target="_blank" :href="'/t/' + topic.url" style="">@{{ topic.topic_name }}</a></h4>
                                     </div>
                                     <div class="review-content"> 
-                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100">
+                                        <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">
                                         <img  v-if="topic.video" :src="'https://img.youtube.com/vi/' + topic.video + '/default.jpg'">
 
                                         <p  v-html="topic.details"></p>
@@ -847,7 +847,7 @@
                                         category : response.data[i].category, 
                                         category_id : response.data[i].category_id, 
                                         name : response.data[i].name, 
-                                        image : response.data[i].image, 
+                                        profilepic : response.data[i].profilepic, 
                                         video : response.data[i].video, 
                                         created_at : response.data[i].created_at, 
                                         comments : response.data[i].comments,

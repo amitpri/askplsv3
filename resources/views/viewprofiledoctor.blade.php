@@ -295,7 +295,7 @@
                         this.inpDetails = response.data.details;
                         this.inpQualification = response.data.qualification;
                         this.inpExp = response.data.exp;
-                        this.profile_photo = response.data.profile_photo; 
+                        this.profilepic = response.data.profilepic; 
 						
 
 					});
