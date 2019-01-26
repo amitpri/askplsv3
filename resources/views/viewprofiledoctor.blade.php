@@ -172,7 +172,7 @@
                     <p style="font-weight: 600; opacity: 1; color: black;  ">@{{inpSpeciality}} </p>
                     <p style="font-weight: 600; opacity: 1; color: black;  ">@{{inpQualification}}, &nbsp;  @{{inpExp}} yrs experience </p>
 
-                    <img v-if="profile_photo"  :src="'/storage/' + profile_photo" width="200">     
+                    <img v-if="profilepic"  :src="'/storage/' + profilepic" width="200">     
      
                     <div class="content-wrap clearfix" style="margin-top: -50px;">
 
