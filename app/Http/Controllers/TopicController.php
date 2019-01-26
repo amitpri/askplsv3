@@ -137,7 +137,7 @@ class TopicController extends Controller
              $category_table = 'doctors';
 
              $topics = DB::select("SELECT  a.`id`,a.`doctorkey` as url , a.`name` , a.`speciality`,  a.`gender`,  a.`locality` ,
-                              a.`city` ,a.`state`,a.`country` , a.`qualification`, a.`exp` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
+                              a.`city` ,a.`state`,a.`country` , a.`qualification`,  a.`profilepic`, a.`exp` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
                                             FROM `doctors` a 
                                             WHERE  a.`status` = 1  " .
                                             $query_option . "
