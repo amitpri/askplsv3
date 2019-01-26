@@ -89,7 +89,7 @@ class Company extends Resource
                         ],
                     ])->hideFromIndex(),
 
-                    Image::make('Image')->disk('public')->hideFromIndex(), 
+                    Image::make('Image', 'profilepic')->disk('public')->hideFromIndex(), 
 
                     RadioButton::make('Active', 'status')
                     ->options([ 
@@ -152,7 +152,7 @@ class Company extends Resource
                     ],
                 ])->hideFromIndex(),
 
-                Image::make('Image')->disk('public')->hideFromIndex(), 
+                Image::make('Image', 'profilepic')->disk('public')->hideFromIndex(), 
 
                 RadioButton::make('Active', 'status')
                 ->options([ 

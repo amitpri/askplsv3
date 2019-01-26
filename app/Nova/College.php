@@ -97,7 +97,7 @@ class College extends Resource
                         ],
                     ])->hideFromIndex(),
 
-                    Image::make('Image')->disk('public'),
+                    Image::make('Image', 'profilepic')->disk('public'),
 
                     Youtube::make('Video')->hideFromIndex(),
 
@@ -169,7 +169,7 @@ class College extends Resource
                     ],
                 ])->hideFromIndex(),
 
-                Image::make('Image')->disk('public'),
+                Image::make('Image', 'profilepic')->disk('public'),
 
                 Youtube::make('Video')->hideFromIndex(),
 
