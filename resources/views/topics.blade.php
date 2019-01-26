@@ -227,7 +227,7 @@
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> </h6></a></h4>
                                     </div>
                                     <div class="review-content"> 
-                                        <img  v-if="topic.image" :src="'/storage/' + topic.profilepic"  width="100"> 
+                                        <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100"> 
  
                                     </div>
                                     <ul class="entry-meta clearfix">
@@ -243,7 +243,7 @@
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
                                     </div>
                                     <div class="review-content"> 
-                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100"> 
+                                        <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100"> 
                                     </div>
                                     <div class="" style="margin-top: -20px;">  
                                         <p>@{{ topic.qualification}}  |  @{{ topic.exp}} yrs exp. </p>  
@@ -263,7 +263,7 @@
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.type}}</h6></a></h4>
                                     </div>
                                     <div class="review-content"> 
-                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100"> 
+                                        <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100"> 
  
                                     </div>
                                     <ul class="entry-meta clearfix">
@@ -279,7 +279,7 @@
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.type}}</h6></a></h4>
                                     </div>
                                     <div class="review-content"> 
-                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100"> 
+                                        <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100"> 
  
                                     </div>
                                     <ul class="entry-meta clearfix">
@@ -295,7 +295,7 @@
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.type}}</h6></a></h4>
                                     </div>
                                     <div class="review-content"> 
-                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100"> 
+                                        <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100"> 
  
                                     </div>
                                     <ul class="entry-meta clearfix">
@@ -311,7 +311,7 @@
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.type}}</h6></a></h4>
                                     </div>
                                     <div class="review-content"> 
-                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100"> 
+                                        <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100"> 
  
                                     </div>
                                     <ul class="entry-meta clearfix">
@@ -327,7 +327,7 @@
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.type}}</h6></a></h4>
                                     </div>
                                     <div class="review-content"> 
-                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100"> 
+                                        <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100"> 
  
                                     </div>
                                     <ul class="entry-meta clearfix">
@@ -343,7 +343,7 @@
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.type}}</h6></a></h4>
                                     </div>
                                     <div class="review-content"> 
-                                        <img  v-if="topic.image" :src="'/storage/' + topic.image"  width="100"> 
+                                        <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100"> 
  
                                     </div>
                                     <ul class="entry-meta clearfix">
