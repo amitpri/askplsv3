@@ -299,18 +299,21 @@
 
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Hotels'"  >
                                     <div class="review-title">
-                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.type}}</h6></a></h4>
+                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
                                     </div>
-                                    <div class="review-content"> 
-                                        <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100"> 
- 
-                                    </div>
-                                    <ul class="entry-meta clearfix">
-                                        <li><i class="icon-calendar3"></i> @{{ topic.locality }}</li>
-                                        <li> <i class="icon-user"></i> @{{ topic.city }} </li>
-                                        <li><i class="icon-folder-open"></i> @{{ topic.country }} </li>
+                                    <div class="review-content">  
+
+                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">  
                                     
-                                    </ul>
+ 
+                                    </div>  
+                                     <ul class="entry-meta clearfix">
+                                      
+                                        <li> <i class="icon-user"></i><a href="">@{{ topic.type }}</a>  </li>
+                                        <li><i class="icon-calendar3"></i><a href=""> @{{ topic.locality }}</a></li>
+                                        <li> <i class="icon-user"></i><a href=""> @{{ topic.city }}</a></li> 
+                                    
+                                    </ul> 
                                 </div>
 
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Lawyers'"  >
@@ -891,6 +894,7 @@
                                         url : response.data[i].url,  
                                         name : response.data[i].name, 
                                         speciality : response.data[i].speciality, 
+                                        type : response.data[i].type, 
                                         locality : response.data[i].locality, 
                                         city : response.data[i].city,  
                                         country : response.data[i].country, 

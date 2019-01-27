@@ -464,7 +464,8 @@ class TopicController extends Controller
         if( $categorytype == 'Hotels'){
 
             $user = Hotel::where('hotelkey','=',$usercode)->where('id','=',$id)
-                    ->first(['id','hotelkey', 'name' , 'city' , 'country' , 'profilepic' ]); 
+                    ->first(['id','hotelkey', 'name' ,'type' ,'address','locality',  'city' , 'country' ,'website','links','details' 
+                        , 'profilepic' , 'video']); 
         }
         if( $categorytype == 'Lawyers'){
 
