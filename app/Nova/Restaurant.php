@@ -108,6 +108,8 @@ class Restaurant extends Resource
         }else{
 
             return [
+                MorphMany::make('TopicCategories'),
+
                 ID::make()->sortable()->hideFromIndex(), 
 
                 HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
@@ -161,7 +163,7 @@ class Restaurant extends Resource
  
                 })->hideWhenUpdating(), 
 
-                MorphMany::make('TopicCategories'),
+                
             ];
          
         }

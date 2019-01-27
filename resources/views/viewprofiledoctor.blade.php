@@ -168,10 +168,12 @@
     			<section  class="  center" > 
 
                     <h1 class="font-secondary nott mb-3" style="color: black; font-size: 42px;">@{{ inpName }}</h1>
+                    <p style="font-weight: 300; opacity: .7; color: black;  ">@{{inpAddress}} </p>
                     <p style="font-weight: 300; opacity: .7; color: black;  ">@{{inpLocality}} &nbsp; @{{inpCity}} &nbsp; @{{inpCountry}} </p>
 
                     <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpSpeciality}} </p>
                     <p v-if="categorytype == 'Hotels'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpType}} </p>
+                    <p v-if="categorytype == 'Restaurants'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpType}} </p>
 
                     <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpQualification}}, &nbsp;  @{{inpExp}} yrs experience </p>
 

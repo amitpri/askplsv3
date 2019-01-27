@@ -441,13 +441,13 @@ class TopicController extends Controller
         if( $categorytype == 'Colleges'){
             
             $user = College::where('collegekey','=',$usercode)->where('id','=',$id)
-                    ->first(['id','collegekey', 'name' , 'city' , 'country' , 'profilepic' ]); 
+                    ->first(['id','collegekey', 'name','type'  ,'address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic'  ]); 
 
         }
         if( $categorytype == 'Companies'){
 
             $user = Company::where('companykey','=',$usercode)->where('id','=',$id)
-                    ->first(['id','companykey', 'name' , 'city' , 'country' , 'profilepic' ]); 
+                    ->first(['id','companykey', 'name','type'  ,'address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic' ]); 
 
         }
         if( $categorytype == 'Doctors'){
@@ -458,35 +458,34 @@ class TopicController extends Controller
         if( $categorytype == 'Fitness Centers'){
 
             $user = FitnessCenter::where('fitnesscenterkey','=',$usercode)->where('id','=',$id)
-                    ->first(['id','fitnesscenterkey', 'name' , 'city' , 'country' , 'profilepic' ]); 
+                    ->first(['id','fitnesscenterkey', 'name','type'  ,'address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic' ]); 
 
         }
         if( $categorytype == 'Hotels'){
 
             $user = Hotel::where('hotelkey','=',$usercode)->where('id','=',$id)
-                    ->first(['id','hotelkey', 'name' ,'type' ,'address','locality',  'city' , 'country' ,'website','links','details' 
-                        , 'profilepic' , 'video']); 
+                    ->first(['id','hotelkey', 'name' ,'type' ,'address','locality',  'city' , 'country'
+                         ,'website','links','details'   , 'profilepic' , 'video']); 
         }
         if( $categorytype == 'Lawyers'){
 
             $user = Lawyer::where('lawyerkey','=',$usercode)->where('id','=',$id)
-                    ->first(['id','lawyerkey', 'name' , 'city' , 'country' , 'profilepic' ]); 
+                    ->first(['id','lawyerkey', 'name','speciality', 'gender' ,'address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic' ]); 
         }
         if( $categorytype == 'Restaurants'){
 
             $user = Restaurant::where('restaurantkey','=',$usercode)->where('id','=',$id)
-                    ->first(['id','restaurantkey', 'name' , 'city' , 'country' , 'profilepic' ]); 
+                    ->first(['id','restaurantkey', 'name','type','address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic' ]); 
         }
 
         if( $categorytype == 'Schools'){ 
 
             $user = School::where('schoolkey','=',$usercode)->where('id','=',$id)
-                    ->first(['id','schoolkey', 'name' , 'city' , 'country' , 'profilepic' ]); 
+                    ->first(['id','schoolkey', 'name','type','address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic' ]); 
 
          }  
 
         
-
         return $user;
 
     }
