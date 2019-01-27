@@ -111,7 +111,7 @@ class College extends Resource
           
                     TextCopy::make('Public URL' ,function(){
 
-                            return 'https://askpls.com/c/' . $this->collegekey;
+                            return 'https://askpls.com/c/Colleges/' . $this->collegekey;
 
                     })->hideWhenUpdating(),
 
@@ -183,7 +183,7 @@ class College extends Resource
       
                 TextCopy::make('Public URL' ,function(){
 
-                        return 'https://askpls.com/c/' . $this->collegekey;
+                        return 'https://askpls.com/c/Colleges/' . $this->collegekey;
 
                 })->hideWhenUpdating(),
 

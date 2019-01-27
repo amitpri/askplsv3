@@ -101,7 +101,7 @@ class Company extends Resource
           
                     TextCopy::make('Public URL' ,function(){ 
 
-                            return 'https://askpls.com/o/' . $this->companykey; 
+                            return 'https://askpls.com/c/Companies/' . $this->companykey; 
 
                     })->hideWhenUpdating(),
 
@@ -164,7 +164,7 @@ class Company extends Resource
       
                 TextCopy::make('Public URL' ,function(){ 
 
-                        return 'https://askpls.com/o/' . $this->companykey; 
+                        return 'https://askpls.com/c/Companies/' . $this->companykey; 
 
                 })->hideWhenUpdating(), 
 

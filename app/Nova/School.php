@@ -107,7 +107,7 @@ class School extends Resource
           
                     TextCopy::make('Public URL' ,function(){ 
 
-                            return 'https://askpls.com/s/' . $this->schoolkey;
+                            return 'https://askpls.com/c/Schools/' . $this->schoolkey;
      
 
                     })->hideWhenUpdating(), 
@@ -170,7 +170,7 @@ class School extends Resource
       
                 TextCopy::make('Public URL' ,function(){ 
 
-                        return 'https://askpls.com/s/' . $this->schoolkey;
+                        return 'https://askpls.com/c/Schools/' . $this->schoolkey;
  
 
                 })->hideWhenUpdating(), 

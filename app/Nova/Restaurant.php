@@ -99,7 +99,7 @@ class Restaurant extends Resource
           
                     TextCopy::make('Public URL' ,function(){
 
-                         return 'https://askpls.com/r/' . $this->restaurantkey;
+                         return 'https://askpls.com/c/Restaurants/' . $this->restaurantkey;
      
                     })->hideWhenUpdating(), 
  
@@ -157,7 +157,7 @@ class Restaurant extends Resource
       
                 TextCopy::make('Public URL' ,function(){
 
-                     return 'https://askpls.com/r/' . $this->restaurantkey;
+                     return 'https://askpls.com/c/Restaurants/' . $this->restaurantkey;
  
                 })->hideWhenUpdating(), 
 

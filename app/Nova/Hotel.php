@@ -94,7 +94,7 @@ class Hotel extends Resource
           
                     TextCopy::make('Public URL' ,function(){
 
-                        return 'https://askpls.com/h/' . $this->hotelkey;
+                        return 'https://askpls.com/c/Hotels/' . $this->hotelkey;
  
                     })->hideWhenUpdating(),
 
@@ -155,7 +155,7 @@ class Hotel extends Resource
       
                 TextCopy::make('Public URL' ,function(){
 
-                     return 'https://askpls.com/h/' . $this->hotelkey;
+                     return 'https://askpls.com/c/Hotels/' . $this->hotelkey;
  
                 })->hideWhenUpdating(), 
 
