@@ -49,6 +49,9 @@ class Hotel extends Resource
         if( $loggedinemail == "amitpri@gmail.com"){
 
             return [
+
+                    MorphMany::make('TopicCategories'),
+
                     ID::make()->sortable(),  
 
                     Text::make('User', 'user_id')->sortable(),
@@ -98,13 +101,16 @@ class Hotel extends Resource
  
                     })->hideWhenUpdating(),
 
-                    MorphMany::make('TopicCategories'),
+                    
      
                 ];
 
         }else{
 
             return [
+
+                MorphMany::make('TopicCategories'), 
+
                 ID::make()->sortable()->hideFromIndex(), 
 
                 HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),  
@@ -159,7 +165,7 @@ class Hotel extends Resource
  
                 })->hideWhenUpdating(), 
 
-                MorphMany::make('TopicCategories'), 
+                
             ];
          
         }
