@@ -310,7 +310,7 @@
                                      <ul class="entry-meta clearfix">
                                       
                                         <li> <i class="icon-user"></i><a href="">@{{ topic.type }}</a>  </li>
-                                        <li><i class="icon-calendar3"></i><a href=""> @{{ topic.locality }}</a></li>
+                                        <li v-if="topic.locality"><i class="icon-calendar3"></i><a href=""> @{{ topic.locality }}</a></li>
                                         <li> <i class="icon-user"></i><a href=""> @{{ topic.city }}</a></li> 
                                     
                                     </ul> 
