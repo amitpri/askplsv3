@@ -321,18 +321,29 @@
 
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Lawyers'"  >
                                     <div class="review-title">
-                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.type}}</h6></a></h4>
+                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
                                     </div>
-                                    <div class="review-content"> 
-                                        <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100"> 
+                                    <div class="review-content">  
+
+                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">  
+                                    
  
                                     </div>
-                                    <ul class="entry-meta clearfix">
-                                        <li><i class="icon-calendar3"></i> @{{ topic.locality }}</li>
-                                        <li> <i class="icon-user"></i> @{{ topic.city }} </li>
-                                        <li><i class="icon-folder-open"></i> @{{ topic.country }} </li>
+                                    <div v-if="topic.profilepic"  class="" style=" ">  
+                                        <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.address}}    </p>  
+
+                                    </div>
+                                    <div v-else class="" style="margin-top: -20px;">  
+                                        <p style="font-weight: 400; opacity: 0.8;   ">@{{ topic.address}}   </p>  
+
+                                    </div>
+                                     <ul class="entry-meta clearfix">
+                                      
+                                        <li> <i class="icon-user"></i><a href="">@{{ topic.speciality }}</a>  </li>
+                                        <li><i class="icon-calendar3"></i><a href=""> @{{ topic.locality }}</a></li>
+                                        <li> <i class="icon-user"></i><a href=""> @{{ topic.city }}</a></li> 
                                     
-                                    </ul>
+                                    </ul> 
                                 </div>
 
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Restaurants'"  >
