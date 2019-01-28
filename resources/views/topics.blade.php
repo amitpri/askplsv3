@@ -662,7 +662,7 @@
                     } 
                     if(this.vCatName == 'Doctors'){
                         this.vPlaceholders = "Enter Doctor or Hospital name";
-                        this.vSearchName = "Search Doctors or Hospitals";
+                        this.vSearchName = "Search Doctors / Hospitals";
                     }
                     if(this.vCatName == 'Fitness Centers'){
                         this.vPlaceholders = "Enter Fitness Center name..";
