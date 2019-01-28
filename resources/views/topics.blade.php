@@ -659,10 +659,10 @@
                     if(this.vCatName == 'Companies'){
                         this.vPlaceholders = "Enter Company name..";
                         this.vSearchName = "Search Companies";
-                    }
+                    } 
                     if(this.vCatName == 'Doctors'){
                         this.vPlaceholders = "Enter Doctor or Hospital name";
-                        this.vSearchName = "Search Doctors";
+                        this.vSearchName = "Search Doctors or Hospitals";
                     }
                     if(this.vCatName == 'Fitness Centers'){
                         this.vPlaceholders = "Enter Fitness Center name..";
