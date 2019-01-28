@@ -267,18 +267,21 @@
 
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Companies'"  >
                                     <div class="review-title">
-                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> @{{ topic.type}}</h6></a></h4>
+                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
                                     </div>
-                                    <div class="review-content"> 
-                                        <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100"> 
- 
-                                    </div>
-                                    <ul class="entry-meta clearfix">
-                                        <li><i class="icon-calendar3"></i> @{{ topic.locality }}</li>
-                                        <li> <i class="icon-user"></i> @{{ topic.city }} </li>
-                                        <li><i class="icon-folder-open"></i> @{{ topic.country }} </li>
+                                    <div class="review-content">  
+
+                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">  
                                     
-                                    </ul>
+ 
+                                    </div> 
+                                     <ul class="entry-meta clearfix">
+                                      
+                                        <li v-if="topic.type"> <i class="icon-user"></i><a href="">@{{ topic.type }}</a>  </li>
+                                        <li v-if="topic.city"><i class="icon-calendar3"></i><a href=""> @{{ topic.city }}</a></li>
+                                        <li v-if="topic.country"> <i class="icon-user"></i><a href=""> @{{ topic.country }}</a></li> 
+                                    
+                                    </ul> 
                                 </div>
 
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Fitness Centers'"  >
