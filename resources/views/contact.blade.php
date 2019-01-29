@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
     <link rel="stylesheet" href="css/animate.css" type="text/css" />
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" /> 
-    <link rel="stylesheet" href="fontsaskpls.css" type="text/css" />
+    <link rel="stylesheet" href="askplsfonts.css" type="text/css" />
 
     <link rel="stylesheet" href="css/responsive.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -98,8 +98,8 @@
                         <div class="col-lg-2 col-12 d-flex align-self-center">
                              
                             <div id="logo">
-                                <a href="/" class="standard-logo"><img src="images/logo.png" alt="Canvas Logo"></a>
-                                <a href="/" class="retina-logo"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
+                                <a href="/" class="standard-logo"><img src="images/logo.png" alt="AskPls"></a>
+                                <a href="/" class="retina-logo"><img src="images/logo@2x.png" alt="AskPls"></a>
                             </div> 
 
                         </div>
@@ -151,6 +151,11 @@
 
                     <div class="contact-widget mt-5 divcenter" style="max-width: 750px">
 
+                            <div>
+                                <p v-show="shownameerrors > 0" class="text text-danger">Please enter your name</p>
+                                <p v-show="showemailiderrors > 0" class="text text-danger">Please enter Email Id</p>
+                                <p v-show="showmessageerrors > 0" class="text text-danger">Please enter the message</
+                            </div>
   
                             <div class="col_half">
                                 <label class="nott" for="template-contactform-name">Name <small>*</small></label>
@@ -233,14 +238,45 @@
                 email: "", 
                 phone: "",
                 message:  "", 
+                validation: 1,
+                showmessageerrors: 0,
+                showemailiderrors: 0,
+                shownameerrors: 0,
             }, 
             methods:{
 
                 sendmessage:function(event){
 
-                    event.preventDefault(); 
+                    event.preventDefault();  
+                    this.validation = 1;
+                    this.shownameerrors = 0;
+                    this.showemailiderrors = 0;
+                    this.showmessageerrors = 0;
 
-                    axios.get('/contactform' ,{
+                    if( this.name == ""){
+
+                        this.validation = 0;
+
+                        this.shownameerrors = 1; 
+                    }
+
+                    if( this.email == ""){
+
+                        this.validation = 0;
+
+                        this.showemailiderrors = 1;
+ 
+                    }
+                    if( this.message == ""){
+
+                        this.validation = 0;
+
+                        this.showmessageerrors = 1; 
+                    }
+
+                    if( this.validation == 1){
+
+                        axios.get('/contactform' ,{
 
                             params: {
 
@@ -253,6 +289,11 @@
 
                             })
                         .then(response => {
+
+                            this.name = "";
+                            this.email = "";
+                            this.message = "";
+                            
                             toastr.options = {
                                     
                                             "timeOut": "1000",
@@ -262,10 +303,9 @@
                                         toastr.info('Thank You!!Your mail is sent!!',{ fadeAway: 1 });    
 
                         }); 
+                    }
 
                     
-             
-         
                 },  
             }
 
