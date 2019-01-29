@@ -231,9 +231,9 @@
  
                                     </div>
                                     <ul class="entry-meta clearfix">
-                                        <li><i class="icon-calendar3"></i> @{{ topic.type}}</li>
-                                        <li> <i class="icon-user"></i> @{{ topic.city }} </li>
-                                        <li><i class="icon-group"></i> @{{ topic.country }} </li>
+                                        <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type}}</a> </li>
+                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city}}</a>  </li>
+                                        <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">@{{ topic.country}}</a></li>
                                     
                                     </ul>
                                 </div>
@@ -273,13 +273,12 @@
 
                                       <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">  
                                     
- 
                                     </div> 
                                      <ul class="entry-meta clearfix">
                                       
-                                        <li v-if="topic.type"> <i class="icon-user"></i><a href="">@{{ topic.type }}</a>  </li>
-                                        <li v-if="topic.city"><i class="icon-calendar3"></i><a href=""> @{{ topic.city }}</a></li>
-                                        <li v-if="topic.country"> <i class="icon-user"></i><a href=""> @{{ topic.country }}</a></li> 
+                                        <li v-if="topic.type"> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>   </li>
+                                        <li v-if="topic.city"><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li>
+                                        <li v-if="topic.country"> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcountry(topic.country)">@{{ topic.country }}</a> </li> 
                                     
                                     </ul> 
                                 </div>
@@ -304,9 +303,9 @@
                                     </div>
                                      <ul class="entry-meta clearfix">
                                       
-                                        <li> <i class="icon-user"></i><a href="">@{{ topic.type }}</a>  </li>
-                                        <li><i class="icon-calendar3"></i><a href=""> @{{ topic.locality }}</a></li>
-                                        <li> <i class="icon-user"></i><a href=""> @{{ topic.city }}</a></li> 
+                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>   </li>
+                                        <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
+                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
                                     
                                     </ul> 
                                 </div>
@@ -323,9 +322,9 @@
                                     </div>  
                                      <ul class="entry-meta clearfix">
                                       
-                                        <li> <i class="icon-user"></i><a href="">@{{ topic.type }}</a>  </li>
-                                        <li v-if="topic.locality"><i class="icon-calendar3"></i><a href=""> @{{ topic.locality }}</a></li>
-                                        <li> <i class="icon-user"></i><a href=""> @{{ topic.city }}</a></li> 
+                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>  </li>
+                                        <li v-if="topic.locality"><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
+                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
                                     
                                     </ul> 
                                 </div>
@@ -350,9 +349,9 @@
                                     </div>
                                      <ul class="entry-meta clearfix">
                                       
-                                        <li> <i class="icon-user"></i><a href="">@{{ topic.speciality }}</a>  </li>
-                                        <li><i class="icon-calendar3"></i><a href=""> @{{ topic.locality }}</a></li>
-                                        <li> <i class="icon-user"></i><a href=""> @{{ topic.city }}</a></li> 
+                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setspeciality(topic.specialty)">@{{ topic.specialty }}</a>  </li>
+                                        <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
+                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
                                     
                                     </ul> 
                                 </div>
@@ -377,9 +376,9 @@
                                     </div>
                                      <ul class="entry-meta clearfix">
                                       
-                                        <li> <i class="icon-user"></i><a href="">@{{ topic.type }}</a>  </li>
-                                        <li><i class="icon-calendar3"></i><a href=""> @{{ topic.locality }}</a></li>
-                                        <li> <i class="icon-user"></i><a href=""> @{{ topic.city }}</a></li> 
+                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>   </li>
+                                        <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
+                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
                                     
                                     </ul> 
                                 </div>
@@ -404,9 +403,9 @@
                                     </div>
                                      <ul class="entry-meta clearfix">
                                       
-                                        <li> <i class="icon-user"></i><a href="">@{{ topic.type }}</a>  </li>
-                                        <li><i class="icon-calendar3"></i><a href=""> @{{ topic.locality }}</a></li>
-                                        <li> <i class="icon-user"></i><a href=""> @{{ topic.city }}</a></li> 
+                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>  </li>
+                                        <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
+                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
                                     
                                     </ul> 
                                 </div>
@@ -670,20 +669,17 @@
                         });
 
                 },
-                setspeciality:function(city){
+                settype:function(type){ 
 
-                    var rowcity= this.cities.indexOf(city);
-                    this.cityname = this.cities[rowcity].name;
-
-                    this.citylist = this.cityname; 
+                    this.type = type; 
 
                     axios.get('/t/d/categories' ,{
 
                             params: {
-
-                                categoryid : this.inpcategoryid, 
+ 
                                 type: this.vCatName,
                                 city: this.citylist,
+                                searchtype: this.type,
 
                                 }
 
@@ -709,12 +705,45 @@
                         });
 
                 },
-                setlocality:function(city){
+                setspeciality:function(speciality){ 
 
-                    var rowcity= this.cities.indexOf(city);
-                    this.cityname = this.cities[rowcity].name;
+                    this.speciality = speciality; 
 
-                    this.citylist = this.cityname; 
+                    axios.get('/t/d/categories' ,{
+
+                            params: {
+ 
+                                type: this.vCatName,
+                                city: this.citylist,
+                                speciality: this.speciality,
+
+                                }
+
+                            })
+                        .then(response => {
+
+                            if( response.data.length < 10){
+
+                                    this.showLoadMoreCategory = 0;
+
+                                }else{
+
+                                    this.showLoadMoreCategory = 1;
+                                    
+                                }
+
+                            this.showspinner = false;
+
+                            this.vCatTopics = 1;
+
+                            this.topics = response.data
+
+                        });
+
+                },
+                setlocality:function(locality){
+
+                    this.locality = locality;
 
                     axios.get('/t/d/categories' ,{
 
@@ -723,6 +752,42 @@
                                 categoryid : this.inpcategoryid, 
                                 type: this.vCatName,
                                 city: this.citylist,
+                                locality: this.locality,
+
+                                }
+
+                            })
+                        .then(response => {
+
+                            if( response.data.length < 10){
+
+                                    this.showLoadMoreCategory = 0;
+
+                                }else{
+
+                                    this.showLoadMoreCategory = 1;
+                                    
+                                }
+
+                            this.showspinner = false;
+
+                            this.vCatTopics = 1;
+
+                            this.topics = response.data
+
+                        });
+
+                },
+                setcountry:function(country){
+
+                    this.country = country;
+
+                    axios.get('/t/d/categories' ,{
+
+                            params: {
+ 
+                                type: this.vCatName, 
+                                country: this.country,
 
                                 }
 
