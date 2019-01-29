@@ -258,9 +258,9 @@
                                     </div>
                                      <ul class="entry-meta clearfix">
                                       
-                                        <li> <i class="icon-user"></i><a href="">@{{ topic.speciality }}</a>  </li>
-                                        <li><i class="icon-calendar3"></i><a href=""> @{{ topic.locality }}</a></li>
-                                        <li> <i class="icon-user"></i><a href=""> @{{ topic.city }}</a></li> 
+                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setspeciality(topic.speciality)">@{{ topic.speciality }}</a>  </li>
+                                        <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)"> @{{ topic.locality }}</a></li>
+                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)"> @{{ topic.city }}</a></li> 
                                     
                                     </ul> 
                                 </div>
@@ -598,6 +598,118 @@
          
                 },
                 setcity:function(city){
+
+                    var rowcity= this.cities.indexOf(city);
+                    this.cityname = this.cities[rowcity].name;
+
+                    this.citylist = this.cityname; 
+
+                    axios.get('/t/d/categories' ,{
+
+                            params: {
+
+                                categoryid : this.inpcategoryid, 
+                                type: this.vCatName,
+                                city: this.citylist,
+
+                                }
+
+                            })
+                        .then(response => {
+
+                            if( response.data.length < 10){
+
+                                    this.showLoadMoreCategory = 0;
+
+                                }else{
+
+                                    this.showLoadMoreCategory = 1;
+                                    
+                                }
+
+                            this.showspinner = false;
+
+                            this.vCatTopics = 1;
+
+                            this.topics = response.data
+
+                        });
+
+                },
+                setcity2:function(cityname){ 
+                    
+                    axios.get('/t/d/categories' ,{
+
+                            params: {
+
+                                categoryid : this.inpcategoryid, 
+                                type: this.vCatName,
+                                city: cityname,
+
+                                }
+
+                            })
+                        .then(response => {
+
+                            if( response.data.length < 10){
+
+                                    this.showLoadMoreCategory = 0;
+
+                                }else{
+
+                                    this.showLoadMoreCategory = 1;
+                                    
+                                }
+
+                            this.showspinner = false;
+
+                            this.vCatTopics = 1;
+
+                            this.topics = response.data
+
+                        });
+
+                },
+                setspeciality:function(city){
+
+                    var rowcity= this.cities.indexOf(city);
+                    this.cityname = this.cities[rowcity].name;
+
+                    this.citylist = this.cityname; 
+
+                    axios.get('/t/d/categories' ,{
+
+                            params: {
+
+                                categoryid : this.inpcategoryid, 
+                                type: this.vCatName,
+                                city: this.citylist,
+
+                                }
+
+                            })
+                        .then(response => {
+
+                            if( response.data.length < 10){
+
+                                    this.showLoadMoreCategory = 0;
+
+                                }else{
+
+                                    this.showLoadMoreCategory = 1;
+                                    
+                                }
+
+                            this.showspinner = false;
+
+                            this.vCatTopics = 1;
+
+                            this.topics = response.data
+
+                        });
+
+                },
+                setlocality:function(city){
 
                     var rowcity= this.cities.indexOf(city);
                     this.cityname = this.cities[rowcity].name;
