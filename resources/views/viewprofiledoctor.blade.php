@@ -188,9 +188,9 @@
                     <div class="content-wrap clearfix" style="margin-top: -50px;">
 
                         <div class="row clearfix" >
-
+                            <h4 style="float:left;" >Available topics for review</h4> 
                             <div class="col-md-12">
-                                <h4 >Available topics for review</h4>
+                                
                                 <div id="widget-subscribe-form"  style="margin-bottom: 10px; "  v-for="topic in topics" v-cloak >
                                     
                                     <p>   Posted on @{{topic.created_at}} </p>
