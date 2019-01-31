@@ -967,6 +967,24 @@ class TopicController extends Controller
             $query_option .= " AND `name` like '%" . $request->search . "%'" ;
         }
 
+        if(isset($request->locality)){
+             
+            $query_option .= " AND `locality` like '%" . $request->locality . "%'" ;
+        }
+
+        if(isset($request->country)){
+             
+            $query_option .= " AND `country` like '%" . $request->country . "%'" ;
+        }
+
+        if(isset($request->speciality)){
+             
+            $query_option .= " AND `speciality` like '%" . $request->speciality . "%'" ;
+        }
+
+       
+
+
         $query_option .= " AND 1 = 1"; 
 
 

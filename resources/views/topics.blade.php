@@ -170,11 +170,15 @@
                            </div>
                              
                         </div>
-                    </form> 
+
+
+                    </form>  
 
                    <div class="row clearfix" style="margin-top:30px; "  >
 
                         <div class="col-md-2">
+ 
+
                             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                        
                               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" >
@@ -196,6 +200,7 @@
                         </div>  
                         <div class="col-lg-10 " v-if="vCatTopics == 0">
                             <div v-show="showspinner" class="text-center"><img src="/ajax_loader.gif"></div>
+
                             <div  class="row" v-for="topic in topics" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
                                  
                                 <div class="col-12 col-md-12"  >
@@ -220,6 +225,23 @@
                         </div> 
 
                         <div class="col-lg-10 " v-if="vCatTopics == 1">
+                            <div class="row" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 20px; border: 1px solid #F2E7E5; " class="border border-danger">
+                                <p><b>Search criteria <a href="" @click="clearfilter">Clear All</a> :</b></p><br>
+                                <ul><li style="list-style: none;">&nbsp;</li>
+                                    <li v-if="vCatTopics" style="list-style: none;"> <b>Category :</b> @{{ vCatName}} 
+                                            </li>
+                                    <li v-if="vlocality" style="list-style: none;"><b> Locality :</b> @{{ vlocality}} 
+                                        <a href="" @click="event.preventDefault();clear('locality')">clear</a></li>
+                                    <li v-if="vcity" style="list-style: none;"><b> City :</b> @{{ vcity}} 
+                                        <a href=""  @click="event.preventDefault();clear('city')">clear</a></li>
+                                    <li v-if="vcountry" style="list-style: none;"> <b>Country :</b> @{{ vcountry}} 
+                                        <a href=""  @click="event.preventDefault();clear('country')">clear</a></li>
+                                    <li v-if="vtype" style="list-style: none;"><b> Type :</b> @{{ vtype}} 
+                                        <a href=""  @click="event.preventDefault();clear('type')">clear</a></li>
+                                    <li v-if="vspeciality" style="list-style: none;"> <b>Speciality :</b> @{{ vspeciality}} 
+                                        <a href=""  @click="event.preventDefault();clear('speciality')">clear</a></li>
+                                </ul>
+                            </div>
                             <div  class="row" v-for="topic in topics" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
                                  
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Colleges'"  >
@@ -232,7 +254,7 @@
                                     </div>
                                     <ul class="entry-meta clearfix">
                                         <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type}}</a> </li>
-                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city}}</a>  </li>
+                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">@{{ topic.city}}</a>  </li>
                                         <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">@{{ topic.country}}</a></li>
                                     
                                     </ul>
@@ -421,7 +443,7 @@
 
             <div v-if="vCatTopics == 0"><div   v-if="showLoadMore > 0"  class="center"><button class="btn btn-primary" @click="morerows">Load More Topics</button></div></div>
 
-            <div v-if="vCatTopics > 0"><div   v-if="showLoadMoreCategory > 0"  class="center"><button class="btn btn-primary" @click="morerowscategory">Load More</button></div></div>
+            <div v-if="vCatTopics > 0"><div   v-if="showLoadMoreCategory > 0"  class="center"><button class="btn btn-primary" @click="morerowscategory(vtype,vspeciality,vlocality,vcity,vcountry)">Load More</button></div></div>
 
         </section> 
         <footer id="footer" class="topmargin noborder" style="background-color: #F5F5F5;">          
@@ -481,6 +503,13 @@
                 vPlaceholders: "",
                 vSearchName: "",
                 searchcategoryname : "",
+                vlocality : "",
+                vtype: "",
+                vspeciality: "",
+                vcity: "",
+                vcountry: "",
+                
+
             },
             mounted:function(){ 
 
@@ -636,7 +665,7 @@
 
                 },
                 setcity2:function(cityname){ 
-                    
+
                     axios.get('/t/d/categories' ,{
 
                             params: {
@@ -644,6 +673,11 @@
                                 categoryid : this.inpcategoryid, 
                                 type: this.vCatName,
                                 city: cityname,
+                                searchtype: this.vtype,
+                                speciality: this.vspeciality,
+                                country: this.vcountry,
+                                locality: this.vlocality,
+
 
                                 }
 
@@ -663,6 +697,8 @@
                             this.showspinner = false;
 
                             this.vCatTopics = 1;
+
+                            this.vcity = cityname;
 
                             this.topics = response.data
 
@@ -679,7 +715,10 @@
  
                                 type: this.vCatName,
                                 city: this.citylist,
-                                searchtype: this.type,
+                                searchtype: this.type, 
+                                speciality: this.vspeciality,
+                                country: this.vcountry,
+                                locality: this.vlocality,
 
                                 }
 
@@ -700,7 +739,10 @@
 
                             this.vCatTopics = 1;
 
-                            this.topics = response.data
+                            this.vtype = type;
+
+                            this.topics = response.data;
+
 
                         });
 
@@ -717,6 +759,11 @@
                                 city: this.citylist,
                                 speciality: this.speciality,
 
+
+                                searchtype: this.vtype, 
+                                country: this.vcountry,
+                                locality: this.vlocality,
+
                                 }
 
                             })
@@ -735,6 +782,8 @@
                             this.showspinner = false;
 
                             this.vCatTopics = 1;
+
+                            this.vspeciality = speciality;
 
                             this.topics = response.data
 
@@ -754,6 +803,11 @@
                                 city: this.citylist,
                                 locality: this.locality,
 
+
+                                searchtype: this.vtype,
+                                speciality: this.vspeciality,
+                                country: this.vcountry, 
+
                                 }
 
                             })
@@ -767,11 +821,14 @@
 
                                     this.showLoadMoreCategory = 1;
                                     
+                                    
                                 }
 
                             this.showspinner = false;
 
                             this.vCatTopics = 1;
+
+                            this.vlocality = locality;
 
                             this.topics = response.data
 
@@ -789,6 +846,11 @@
                                 type: this.vCatName, 
                                 country: this.country,
 
+
+                                searchtype: this.vtype,
+                                speciality: this.vspeciality, 
+                                locality: this.vlocality,
+
                                 }
 
                             })
@@ -807,6 +869,8 @@
                             this.showspinner = false;
 
                             this.vCatTopics = 1;
+
+                            this.vcountry = country;
 
                             this.topics = response.data
 
@@ -1004,6 +1068,62 @@
                         });
 
                 },
+                clear:function($type){
+
+                    if( $type == "locality"){
+                        this.vlocality = "";
+                    }
+                    if( $type == "city"){
+                        this.vcity = "";
+                    }
+                    if( $type == "country"){
+                        this.vcountry = "";
+                    }
+                    if( $type == "category"){
+                        this.vCatTopics = "";
+                    }
+                    if( $type == "speciality"){
+                        this.vspeciality = "";
+                    }
+                    if( $type == "type"){
+                        this.vtype ="";
+                    }
+
+                    axios.get('/t/d/categories' ,{
+
+                            params: {
+
+                                categoryid : this.inpcategoryid, 
+                                type: this.vCatName,
+                                city: this.citylist,
+                                locality: this.vlocality,
+                                searchtype: this.vtype,
+                                speciality: this.vspeciality,
+                                country: this.vcountry, 
+
+                                }
+
+                            })
+                        .then(response => {
+
+                            if( response.data.length < 10){
+
+                                    this.showLoadMoreCategory = 0;
+
+                                }else{
+
+                                    this.showLoadMoreCategory = 1;
+                                    
+                                    
+                                }
+
+                            this.showspinner = false;
+
+                            this.vCatTopics = 1; 
+                            this.topics = response.data
+
+                        });
+                },
                 clearfilter:function(event){
                     event.preventDefault();
                     this.vCat1 = 0;
@@ -1089,6 +1209,7 @@
 
                     this.row_count_category = this.row_count_category + 10;
 
+
                     axios.get('/st/d/getmore' ,{
 
                             params: {
@@ -1096,6 +1217,10 @@
                               type: this.vCatName, 
                               city: this.citylist,
                               search: this.searchcategoryname,
+                              locality: this.vlocality,
+                              speciality : this.vspeciality,
+                              country: this.vcountry,
+
                             }
 
                         }).then(response => {
