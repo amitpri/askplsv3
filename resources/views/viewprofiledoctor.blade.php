@@ -29,7 +29,7 @@
         @include('analytics')
     <!-- Document Title
     ============================================= -->
-    <title>AskPls | Anonymous Review System</title>
+    <title>AskPls | {{ $name }} Reviews</title>
 
 </head>
 

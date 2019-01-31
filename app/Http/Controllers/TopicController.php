@@ -588,59 +588,60 @@ class TopicController extends Controller
 
         if( $categorytype == 'Colleges' || $categorytype == 'colleges'){
             
-            $user = College::where('collegekey','=',$url)->first(['id','collegekey AS user_code']);
+            $user = College::where('collegekey','=',$url)->first(['id','collegekey AS user_code', 'name']);
 
             $topicable = "App\College";
 
         }
         if( $categorytype == 'Companies' || $categorytype == 'companies'){
 
-            $user = Company::where('companykey','=',$url)->first(['id','companykey AS user_code']);
+            $user = Company::where('companykey','=',$url)->first(['id','companykey AS user_code', 'name']);
 
             $topicable = "App\Company";
 
         }
         if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
 
-            $user = Doctor::where('doctorkey','=',$url)->first(['id','doctorkey AS user_code']);
+            $user = Doctor::where('doctorkey','=',$url)->first(['id','doctorkey AS user_code', 'name']);
 
             $topicable = "App\Doctor";
         }
         if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
 
-            $user = FitnessCenter::where('fitnesscenterkey','=',$url)->first(['id','fitnesscenterkey AS user_code']);
+            $user = FitnessCenter::where('fitnesscenterkey','=',$url)->first(['id','fitnesscenterkey AS user_code', 'name']);
 
             $topicable = "App\FitnessCenter";
 
         }
         if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
 
-            $user = Hotel::where('hotelkey','=',$url)->first(['id','hotelkey AS user_code']);
+            $user = Hotel::where('hotelkey','=',$url)->first(['id','hotelkey AS user_code', 'name']);
 
             $topicable = "App\Hotel";
         }
         if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
 
-            $user = Lawyer::where('lawyerkey','=',$url)->first(['id','lawyerkey AS user_code']);
+            $user = Lawyer::where('lawyerkey','=',$url)->first(['id','lawyerkey AS user_code', 'name']);
 
             $topicable = "App\Lawyer";
         }
         if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
 
-            $user = Restaurant::where('restaurantkey','=',$url)->first(['id','restaurantkey AS user_code']);
+            $user = Restaurant::where('restaurantkey','=',$url)->first(['id','restaurantkey AS user_code', 'name']);
 
             $topicable = "App\Restaurant";
         }
 
         if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
 
-            $user = School::where('schoolkey','=',$url)->first(['id','schoolkey AS user_code']);
+            $user = School::where('schoolkey','=',$url)->first(['id','schoolkey AS user_code' , 'name']);
 
-            $topicable = "App\School";
+            $topicable = "App\School"; 
 
          }  
 
          $id = $user->id;
+         $name = $user->name;
          
         $topic = ShowTopicCategory::where('topicable_type', '=', $topicable)->where('topicable_id', '=', $id)->first(['id']);
 
@@ -660,7 +661,7 @@ class TopicController extends Controller
 
         }
  
-        return view('viewprofiledoctor', compact('id', 'user_code', 'categorytype'));
+        return view('viewprofiledoctor', compact('id', 'user_code', 'categorytype', 'name'));
     }
 
     public function viewprofiledoctordetails(Request $request){
