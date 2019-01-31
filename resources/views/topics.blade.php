@@ -176,9 +176,12 @@
 
                    <div class="row clearfix" style="margin-top:30px; "  >
 
-                        <div class="col-md-2">
- 
+                    
 
+                        <div class="col-md-2">
+
+                            @empty($categorytype)
+ 
                             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                        
                               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" >
@@ -196,8 +199,12 @@
                                 </ul>
                               </div>
                             </nav> 
+
+                            @endempty 
                                  
-                        </div>  
+                        </div> 
+
+                    
                         <div class="col-lg-10 " v-if="vCatTopics == 0">
                             <div v-show="showspinner" class="text-center"><img src="/ajax_loader.gif"></div>
 
@@ -225,26 +232,53 @@
                         </div> 
 
                         <div class="col-lg-10 " v-if="vCatTopics == 1">
-                            <div class="row" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 20px; border: 1px solid #F2E7E5; " class="border border-danger">
-                                <p><b>Search criteria <a href="" @click="clearfilter">Clear All</a> :</b></p><br>
+
+                            <div class="row"  style="margin-bottom: 4px;padding-bottom: 4px;   border: 1px solid #F2E7E5; " class="border border-danger">
+
+                                @empty($categorytype)
+
+                                    <p ><b>Search criteria <a href="" @click="clearfilter">Clear All</a> :</b></p>
+                                    <br>
+                                @endempty
+
                                 <ul><li style="list-style: none;">&nbsp;</li>
-                                    <li v-if="vCatTopics" style="list-style: none;"> <b>Category :</b> @{{ vCatName}} 
-                                            </li>
-                                    <li v-if="vlocality" style="list-style: none;"><b> Locality :</b> @{{ vlocality}} 
-                                        <a href="" @click="event.preventDefault();clear('locality')">clear</a></li>
-                                    <li v-if="vcity" style="list-style: none;"><b> City :</b> @{{ vcity}} 
-                                        <a href=""  @click="event.preventDefault();clear('city')">clear</a></li>
-                                    <li v-if="vcountry" style="list-style: none;"> <b>Country :</b> @{{ vcountry}} 
-                                        <a href=""  @click="event.preventDefault();clear('country')">clear</a></li>
-                                    <li v-if="vtype" style="list-style: none;"><b> Type :</b> @{{ vtype}} 
-                                        <a href=""  @click="event.preventDefault();clear('type')">clear</a></li>
-                                    <li v-if="vspeciality" style="list-style: none;"> <b>Speciality :</b> @{{ vspeciality}} 
-                                        <a href=""  @click="event.preventDefault();clear('speciality')">clear</a></li>
+
+                                    @if(empty($categorytype))
+                                  
+
+                                        <li v-if="vCatTopics" style="list-style: none;"> <b>Category :</b> @{{ vCatName}}   </li>
+                                        <li v-if="vlocality" style="list-style: none;"><b> Locality :</b> @{{ vlocality}} 
+                                            <a href="" @click="event.preventDefault();clear('locality')">clear</a></li>
+                                        <li v-if="vcity" style="list-style: none;"><b> City :</b> @{{ vcity}} 
+                                            <a href=""  @click="event.preventDefault();clear('city')">clear</a></li>
+                                        <li v-if="vcountry" style="list-style: none;"> <b>Country :</b> @{{ vcountry}} 
+                                            <a href=""  @click="event.preventDefault();clear('country')">clear</a></li>
+                                        <li v-if="vtype" style="list-style: none;"><b> Type :</b> @{{ vtype}} 
+                                            <a href=""  @click="event.preventDefault();clear('type')">clear</a></li>
+                                        <li v-if="vspeciality" style="list-style: none;"> <b>Speciality :</b> @{{ vspeciality}} 
+                                            <a href=""  @click="event.preventDefault();clear('speciality')">clear</a></li>
+                                    @else
+                                    <div >
+                                        <h4 class="center" >Showing @{{ categorytypename }}</h4>
+                                        <li v-if="vlocality" style="list-style: none;"><b> Locality :</b> @{{ vlocality}} 
+                                            <a href="" @click="event.preventDefault();clear('locality')">clear</a></li>
+                                        <li v-if="vcity" style="list-style: none;"><b> City :</b> @{{ vcity}} 
+                                            <a href=""  @click="event.preventDefault();clear('city')">clear</a></li>
+                                        <li v-if="vcountry" style="list-style: none;"> <b>Country :</b> @{{ vcountry}} 
+                                            <a href=""  @click="event.preventDefault();clear('country')">clear</a></li>
+                                        <li v-if="vtype" style="list-style: none;"><b> Type :</b> @{{ vtype}} 
+                                            <a href=""  @click="event.preventDefault();clear('type')">clear</a></li>
+                                        <li v-if="vspeciality" style="list-style: none;"> <b>Speciality :</b> @{{ vspeciality}} 
+                                            <a href=""  @click="event.preventDefault();clear('speciality')">clear</a></li>
+
+                                    </div>
+                                    @endif
                                 </ul>
                             </div>
+
                             <div  class="row" v-for="topic in topics" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
                                  
-                                <div class="col-12 col-md-12" v-if="vCatName == 'Colleges'"  >
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Colleges' || vCatName == 'colleges'"  >
                                     <div class="review-title">
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> </h6></a></h4>
                                     </div>
@@ -260,7 +294,7 @@
                                     </ul>
                                 </div>
 
-                                <div class="col-12 col-md-12" v-if="vCatName == 'Doctors'"  >
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Doctors' || vCatName == 'doctors'"  >
                                     <div class="review-title">
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
                                     </div>
@@ -287,7 +321,7 @@
                                     </ul> 
                                 </div>
 
-                                <div class="col-12 col-md-12" v-if="vCatName == 'Companies'"  >
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Companies' || vCatName == 'companies'"  >
                                     <div class="review-title">
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
                                     </div>
@@ -305,7 +339,7 @@
                                     </ul> 
                                 </div>
 
-                                <div class="col-12 col-md-12" v-if="vCatName == 'Fitness Centers'"  >
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Fitness Centers' || vCatName == 'fitnesscenters'"  >
                                     <div class="review-title">
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
                                     </div>
@@ -332,7 +366,7 @@
                                     </ul> 
                                 </div>
 
-                                <div class="col-12 col-md-12" v-if="vCatName == 'Hotels'"  >
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Hotels' || vCatName == 'hotels'"  >
                                     <div class="review-title">
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
                                     </div>
@@ -351,7 +385,7 @@
                                     </ul> 
                                 </div>
 
-                                <div class="col-12 col-md-12" v-if="vCatName == 'Lawyers'"  >
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Lawyers' || vCatName == 'lawyers'"  >
                                     <div class="review-title">
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
                                     </div>
@@ -378,7 +412,7 @@
                                     </ul> 
                                 </div>
 
-                                <div class="col-12 col-md-12" v-if="vCatName == 'Restaurants'"  >
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Restaurants' || vCatName == 'restaurants'"  >
                                     <div class="review-title">
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
                                     </div>
@@ -405,7 +439,7 @@
                                     </ul> 
                                 </div>
 
-                                <div class="col-12 col-md-12" v-if="vCatName == 'Schools'"  >
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Schools' || vCatName == 'schools'"  >
                                     <div class="review-title">
                                         <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
                                     </div>
@@ -449,6 +483,12 @@
         <footer id="footer" class="topmargin noborder" style="background-color: #F5F5F5;">          
 
             <div class="line nomargin"></div>
+
+            <div class="center">
+
+                <a target="_blank" href="/doctors">Doctors</a> | <a target="_blank" href="/hotels">Hotels</a> | <a target="_blank" href="/restaurants">Restaurants</a> | <a target="_blank" href="/schools">Schools</a> | <a target="_blank" href="/colleges">Colleges</a> | <a target="_blank" href="/companies">Companies</a> | <a target="_blank" href="/fitnesscenters">Fitness Centers</a>
+
+            </div>
  
             <div id="copyrights" class="" style="background-color: #FFF">
 
@@ -478,6 +518,7 @@
 
             el : '#topicsdetails',
             data : {
+                categorytype: "{!! $categorytype !!}",
                 id:"", 
                 inpId: "", 
                 topic: "",
@@ -507,35 +548,122 @@
                 vtype: "",
                 vspeciality: "",
                 vcity: "",
-                vcountry: "",
-                
+                vcountry: "", 
+                categorytypename: "",
 
             },
             mounted:function(){ 
+ 
 
-                axios.get('/t/default')
-                .then(response => {
+                if( this.categorytype == ""){
 
-                    if( response.data.length < 10){
+                    this.categorytype = 0;
 
-                        this.showLoadMore = 0;
+                    axios.get('/t/default')
+                        .then(response => {
 
-                    }else{
+                            if( response.data.length < 10){
 
-                        this.showLoadMore = 1;
+                                this.showLoadMore = 0;
 
+                            }else{
+
+                                this.showLoadMore = 1;
+
+                            }
+
+                            this.topics = response.data; 
+
+                        }); 
+
+                        axios.get('/categories/default')
+                        .then(response => {
+
+                            this.categories = response.data; 
+
+                        });
+
+                }else{
+
+                    $categorytype = this.categorytype;
+    
+                    if( $categorytype == 'colleges'){
+                        this.vPlaceholders = "Enter College or Institute name..";
+                        this.vSearchName = "Search Colleges";
+                        this.categorytypename = 'Colleges';
+                    }
+                    if( $categorytype == 'companies'){
+                        this.vPlaceholders = "Enter Company name..";
+                        this.vSearchName = "Search Companies";
+                        this.categorytypename = 'Companies';
+                    } 
+                    if( $categorytype == 'doctors'){
+                        this.vPlaceholders = "Enter Doctor or Hospital name";
+                        this.vSearchName = "Search Doctors / Hospitals";
+                        this.categorytypename = 'Doctors';
+                    }
+                    if( $categorytype == 'fitnesscenters'){
+                        this.vPlaceholders = "Enter Fitness Center name..";
+                        this.vSearchName = "Search Fitness Center";
+                        this.categorytypename = 'Fitness Centers'; 
+                    }
+                    if( $categorytype == 'hotels'){
+                        this.vPlaceholders = "Enter Hotel name..";
+                        this.vSearchName = "Search Hotels";
+                        this.categorytypename = 'Hotels'; 
+                    }
+                    if( $categorytype == 'Lawyers'){
+                        this.vPlaceholders = "Enter Lawyer name..";
+                        this.vSearchName = "Search Lawyers";
+                    }
+                    if( $categorytype == 'restaurants'){
+                        this.vPlaceholders = "Enter Restaurant name..";
+                        this.vSearchName = "Search Restaurants";
+                        this.categorytypename = 'Restaurants';
                     }
 
-                    this.topics = response.data; 
+                    if( $categorytype == 'schools'){
+                        this.vPlaceholders = "Enter School name..";
+                        this.vSearchName = "Search Schools";
+                        this.categorytypename = 'Schools'; 
+                    }
 
-                }); 
+                    this.vCatName = $categorytype; 
 
-                axios.get('/categories/default')
-                .then(response => {
+                        axios.get('/t/d/categories' ,{
 
-                    this.categories = response.data; 
+                            params: {
+ 
+                                type: $categorytype, 
 
-                }); 
+                                }
+
+                            })
+                        .then(response => {
+
+                            if( response.data.length < 10){
+
+                                    this.showLoadMoreCategory = 0;
+
+                                }else{
+
+                                    this.showLoadMoreCategory = 1;
+                                    
+                                }
+
+                            this.showspinner = false;
+
+                            this.vCatTopics = 1;
+
+                            this.vCatType = 0;
+
+                            this.topics = response.data
+
+                        });
+
+                }
+
+                 
 
             },
             methods:{

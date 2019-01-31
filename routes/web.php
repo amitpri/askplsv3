@@ -18,6 +18,14 @@ Route::get('/workspace/created', 'HomeController@workspacecreated');
 
 Route::get('/', 'TopicController@index');
 
+Route::get('/doctors', 'TopicController@doctors');
+Route::get('/hotels', 'TopicController@hotels');
+Route::get('/restaurants', 'TopicController@restaurants');
+Route::get('/schools', 'TopicController@schools');
+Route::get('/colleges', 'TopicController@colleges');
+Route::get('/companies', 'TopicController@companies');
+Route::get('/fitnesscenters', 'TopicController@fitnesscenters');
+
 Route::get('/about', 'IndexController@about');
 Route::get('/solutions', 'IndexController@solutions'); 
 Route::get('/why', 'IndexController@why');

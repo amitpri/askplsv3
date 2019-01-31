@@ -34,7 +34,86 @@ class TopicController extends Controller
 
         $categories = ShowCategory::where('status', '=' , 1)->get(['id','category']);
 
-        return view('topics',compact('categories'));
+        $categorytype = '';
+
+        return view('topics',compact('categories', 'categorytype'));
+   
+    }
+
+    public function doctors()
+    {
+
+        $categories = ShowCategory::where('status', '=' , 1)->get(['id','category']);
+
+        $categorytype = 'doctors';
+
+        return view('topics',compact('categories', 'categorytype'));
+   
+    }
+
+    public function hotels()
+    {
+
+        $categories = ShowCategory::where('status', '=' , 1)->get(['id','category']);
+
+        $categorytype = 'hotels';
+
+        return view('topics',compact('categories', 'categorytype'));
+   
+    }
+
+    public function restaurants()
+    {
+
+        $categories = ShowCategory::where('status', '=' , 1)->get(['id','category']);
+
+        $categorytype = 'restaurants';
+
+        return view('topics',compact('categories', 'categorytype')); 
+   
+    }
+
+    public function schools()
+    {
+
+        $categories = ShowCategory::where('status', '=' , 1)->get(['id','category']);
+
+        $categorytype = 'schools';
+
+        return view('topics',compact('categories', 'categorytype')); 
+   
+    }
+
+    public function colleges()
+    {
+
+        $categories = ShowCategory::where('status', '=' , 1)->get(['id','category']);
+
+        $categorytype = 'colleges';
+
+        return view('topics',compact('categories', 'categorytype')); 
+   
+    }
+
+    public function companies()
+    {
+
+        $categories = ShowCategory::where('status', '=' , 1)->get(['id','category']);
+
+        $categorytype = 'companies';
+
+        return view('topics',compact('categories', 'categorytype')); 
+   
+    }
+
+    public function fitnesscenters()
+    {
+
+        $categories = ShowCategory::where('status', '=' , 1)->get(['id','category']);
+
+        $categorytype = 'fitnesscenters';
+
+        return view('topics',compact('categories', 'categorytype')); 
    
     }
 
@@ -126,7 +205,7 @@ class TopicController extends Controller
 
         $query_option .= " AND 1 = 1"; 
 
-        if( $categorytype == 'Colleges'){
+        if( $categorytype == 'Colleges' || $categorytype == 'colleges'){
             
             $category_table = 'colleges';
 
@@ -140,7 +219,7 @@ class TopicController extends Controller
       
 
         }
-        if( $categorytype == 'Companies'){
+        if( $categorytype == 'Companies' || $categorytype == 'companies'){
 
              $category_table = 'companies';
 
@@ -152,7 +231,7 @@ class TopicController extends Controller
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
         }
-        if( $categorytype == 'Doctors'){
+        if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
 
              $category_table = 'doctors';
 
@@ -165,7 +244,7 @@ class TopicController extends Controller
                                             limit 10");
  
         }
-        if( $categorytype == 'Fitness Centers'){
+        if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
 
              $category_table = 'fitness_centers';
 
@@ -177,7 +256,7 @@ class TopicController extends Controller
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
         }
-        if( $categorytype == 'Hotels'){
+        if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
 
              $category_table = 'hotels';
 
@@ -189,7 +268,7 @@ class TopicController extends Controller
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
         }
-        if( $categorytype == 'Lawyers'){
+        if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
 
              $category_table = 'lawyers';
 
@@ -201,7 +280,7 @@ class TopicController extends Controller
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
         }
-        if( $categorytype == 'Restaurants'){
+        if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
 
              $category_table = 'restaurants';
 
@@ -214,7 +293,7 @@ class TopicController extends Controller
                                             limit 10");
         }
 
-        if( $categorytype == 'Schools'){ 
+        if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
 
              $category_table = 'schools';
 
