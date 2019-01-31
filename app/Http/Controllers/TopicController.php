@@ -1067,7 +1067,7 @@ class TopicController extends Controller
         $query_option .= " AND 1 = 1"; 
 
 
-        if( $categorytype == 'Colleges'){
+        if( $categorytype == 'Colleges'  || $categorytype == 'colleges'){
             
             $category_table = 'colleges';
 
@@ -1079,7 +1079,7 @@ class TopicController extends Controller
                                             limit 10 offset :offset", ['offset' => $row_count]);
 
         }
-        if( $categorytype == 'Companies'){
+        if( $categorytype == 'Companies'  || $categorytype == 'companies'){
 
              $category_table = 'companies';
 
@@ -1091,7 +1091,7 @@ class TopicController extends Controller
                                             ORDER BY a.`updated_at` DESC
                                             limit 10 offset :offset", ['offset' => $row_count]);
         }
-        if( $categorytype == 'Doctors'){
+        if( $categorytype == 'Doctors'  || $categorytype == 'doctors' ){
 
              $category_table = 'doctors';
 
@@ -1103,7 +1103,7 @@ class TopicController extends Controller
                                             ORDER BY a.`updated_at` DESC
                                             limit 10 offset :offset", ['offset' => $row_count]);
         }
-        if( $categorytype == 'Fitness Centers'){
+        if( $categorytype == 'Fitness Centers'  || $categorytype == 'fitnesscenters'){
 
              $category_table = 'fitness_centers';
 
@@ -1115,7 +1115,7 @@ class TopicController extends Controller
                                             ORDER BY a.`updated_at` DESC
                                             limit 10 offset :offset", ['offset' => $row_count]);
         }
-        if( $categorytype == 'Hotels'){
+        if( $categorytype == 'Hotels'  || $categorytype == 'hotels'){
 
              $category_table = 'hotels';
 
@@ -1127,7 +1127,7 @@ class TopicController extends Controller
                                             ORDER BY a.`updated_at` DESC
                                             limit 10 offset :offset", ['offset' => $row_count]);
         }
-        if( $categorytype == 'Lawyers'){
+        if( $categorytype == 'Lawyers'  || $categorytype == 'lawyers'){
 
              $category_table = 'lawyers';
 
@@ -1139,7 +1139,7 @@ class TopicController extends Controller
                                             ORDER BY a.`updated_at` DESC
                                             limit 10 offset :offset", ['offset' => $row_count]);
         }
-        if( $categorytype == 'Restaurants'){
+        if( $categorytype == 'Restaurants'  || $categorytype == 'restaurants'){
 
              $category_table = 'restaurants';
 
@@ -1152,7 +1152,7 @@ class TopicController extends Controller
                                             limit 10 offset :offset", ['offset' => $row_count]);
         }
 
-        if( $categorytype == 'Schools'){ 
+        if( $categorytype == 'Schools'  || $categorytype == 'schools'){ 
 
              $category_table = 'schools';
 
