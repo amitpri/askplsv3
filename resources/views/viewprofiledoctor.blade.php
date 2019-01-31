@@ -177,7 +177,7 @@
 
                     <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpQualification}}, &nbsp;  @{{inpExp}} yrs experience </p>
 
-                    <img v-if="profilepic"  :src="'/storage/' + profilepic" width="200">     
+                    <img v-if="profilepic"  :src="'/storage/' + profilepic" width="400">     
      
                     <div class="content-wrap clearfix" style="margin-top: -50px;">
 
