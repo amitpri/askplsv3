@@ -337,7 +337,7 @@ class TopicController extends Controller
 
         $query_option .= " AND 1 = 1"; 
 
-        if( $categorytype == 'Colleges'){
+        if( $categorytype == 'Colleges' || $categorytype == 'colleges'){
             
             $category_table = 'colleges';
 
@@ -351,7 +351,7 @@ class TopicController extends Controller
       
 
         }
-        if( $categorytype == 'Companies'){
+        if( $categorytype == 'Companies' || $categorytype == 'companies'){
 
              $category_table = 'companies';
 
@@ -363,7 +363,7 @@ class TopicController extends Controller
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
         }
-        if( $categorytype == 'Doctors'){
+        if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
 
              $category_table = 'doctors';
 
@@ -376,7 +376,7 @@ class TopicController extends Controller
                                             limit 10");
  
         }
-        if( $categorytype == 'Fitness Centers'){
+        if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
 
              $category_table = 'fitness_centers';
 
@@ -388,7 +388,7 @@ class TopicController extends Controller
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
         }
-        if( $categorytype == 'Hotels'){
+        if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
 
              $category_table = 'hotels';
 
@@ -400,7 +400,7 @@ class TopicController extends Controller
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
         }
-        if( $categorytype == 'Lawyers'){
+        if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
 
              $category_table = 'lawyers';
 
@@ -412,7 +412,7 @@ class TopicController extends Controller
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
         }
-        if( $categorytype == 'Restaurants'){
+        if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
 
              $category_table = 'restaurants';
 
@@ -425,7 +425,7 @@ class TopicController extends Controller
                                             limit 10");
         }
 
-        if( $categorytype == 'Schools'){ 
+        if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
 
              $category_table = 'schools';
 
@@ -586,53 +586,53 @@ class TopicController extends Controller
         $user_code = $url;
         $categorytype = $category;
 
-        if( $categorytype == 'Colleges'){
+        if( $categorytype == 'Colleges' || $categorytype == 'colleges'){
             
             $user = College::where('collegekey','=',$url)->first(['id','collegekey AS user_code']);
 
             $topicable = "App\College";
 
         }
-        if( $categorytype == 'Companies'){
+        if( $categorytype == 'Companies' || $categorytype == 'companies'){
 
             $user = Company::where('companykey','=',$url)->first(['id','companykey AS user_code']);
 
             $topicable = "App\Company";
 
         }
-        if( $categorytype == 'Doctors'){
+        if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
 
             $user = Doctor::where('doctorkey','=',$url)->first(['id','doctorkey AS user_code']);
 
             $topicable = "App\Doctor";
         }
-        if( $categorytype == 'Fitness Centers'){
+        if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
 
             $user = FitnessCenter::where('fitnesscenterkey','=',$url)->first(['id','fitnesscenterkey AS user_code']);
 
             $topicable = "App\FitnessCenter";
 
         }
-        if( $categorytype == 'Hotels'){
+        if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
 
             $user = Hotel::where('hotelkey','=',$url)->first(['id','hotelkey AS user_code']);
 
             $topicable = "App\Hotel";
         }
-        if( $categorytype == 'Lawyers'){
+        if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
 
             $user = Lawyer::where('lawyerkey','=',$url)->first(['id','lawyerkey AS user_code']);
 
             $topicable = "App\Lawyer";
         }
-        if( $categorytype == 'Restaurants'){
+        if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
 
             $user = Restaurant::where('restaurantkey','=',$url)->first(['id','restaurantkey AS user_code']);
 
             $topicable = "App\Restaurant";
         }
 
-        if( $categorytype == 'Schools'){ 
+        if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
 
             $user = School::where('schoolkey','=',$url)->first(['id','schoolkey AS user_code']);
 
@@ -669,47 +669,47 @@ class TopicController extends Controller
         $id = $request->id;  
         $categorytype = $request->categorytype;
 
-        if( $categorytype == 'Colleges'){
+        if( $categorytype == 'Colleges' || $categorytype == 'colleges'){
             
             $user = College::where('collegekey','=',$usercode)->where('id','=',$id)
                     ->first(['id','collegekey', 'name','type'  ,'address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic'  ]); 
 
         }
-        if( $categorytype == 'Companies'){
+        if( $categorytype == 'Companies' || $categorytype == 'companies'){
 
             $user = Company::where('companykey','=',$usercode)->where('id','=',$id)
                     ->first(['id','companykey', 'name','type'  ,'address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic' ]); 
 
         }
-        if( $categorytype == 'Doctors'){
+        if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
 
             $user = Doctor::where('doctorkey','=',$usercode)->where('id','=',$id)
                     ->first(['id','doctorkey', 'name' , 'speciality','gender','address','locality',  'city' , 'country' ,'website','links','details','qualification', 'exp' , 'profilepic' ]); 
         }
-        if( $categorytype == 'Fitness Centers'){
+        if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
 
             $user = FitnessCenter::where('fitnesscenterkey','=',$usercode)->where('id','=',$id)
                     ->first(['id','fitnesscenterkey', 'name','type'  ,'address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic' ]); 
 
         }
-        if( $categorytype == 'Hotels'){
+        if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
 
             $user = Hotel::where('hotelkey','=',$usercode)->where('id','=',$id)
                     ->first(['id','hotelkey', 'name' ,'type' ,'address','locality',  'city' , 'country'
                          ,'website','links','details'   , 'profilepic' , 'video']); 
         }
-        if( $categorytype == 'Lawyers'){
+        if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
 
             $user = Lawyer::where('lawyerkey','=',$usercode)->where('id','=',$id)
                     ->first(['id','lawyerkey', 'name','speciality', 'gender' ,'address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic' ]); 
         }
-        if( $categorytype == 'Restaurants'){
+        if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
 
             $user = Restaurant::where('restaurantkey','=',$usercode)->where('id','=',$id)
                     ->first(['id','restaurantkey', 'name','type','address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic' ]); 
         }
 
-        if( $categorytype == 'Schools'){ 
+        if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
 
             $user = School::where('schoolkey','=',$usercode)->where('id','=',$id)
                     ->first(['id','schoolkey', 'name','type','address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic' ]); 
@@ -728,7 +728,7 @@ class TopicController extends Controller
         $id = $request->id;  
         $categorytype = $request->categorytype;
 
-        if( $categorytype == 'Colleges'){
+        if( $categorytype == 'Colleges' || $categorytype == 'colleges'){
             
             $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
                                     , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at 
@@ -741,7 +741,7 @@ class TopicController extends Controller
                                         limit 10", ['id' => $id, 'user_code' => $usercode]);
 
         }
-        if( $categorytype == 'Companies'){
+        if( $categorytype == 'Companies' || $categorytype == 'companies'){
 
             $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
                                     , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at 
@@ -754,7 +754,7 @@ class TopicController extends Controller
                                         limit 10", ['id' => $id, 'user_code' => $usercode]);
 
         }
-        if( $categorytype == 'Doctors'){
+        if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
 
             $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
                                     , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at 
@@ -766,7 +766,7 @@ class TopicController extends Controller
                                         ORDER BY a.`updated_at` DESC
                                         limit 10", ['id' => $id, 'user_code' => $usercode]);
         }
-        if( $categorytype == 'Fitness Centers'){
+        if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
 
             $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
                                     , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at 
@@ -779,7 +779,7 @@ class TopicController extends Controller
                                         limit 10", ['id' => $id, 'user_code' => $usercode]);
 
         }
-        if( $categorytype == 'Hotels'){
+        if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
 
             $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
                                     , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at 
@@ -791,7 +791,7 @@ class TopicController extends Controller
                                         ORDER BY a.`updated_at` DESC
                                         limit 10", ['id' => $id, 'user_code' => $usercode]);
         }
-        if( $categorytype == 'Lawyers'){
+        if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
 
             $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
                                     , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at 
@@ -803,7 +803,7 @@ class TopicController extends Controller
                                         ORDER BY a.`updated_at` DESC
                                         limit 10", ['id' => $id, 'user_code' => $usercode]);
         }
-        if( $categorytype == 'Restaurants'){
+        if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
 
             $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
                                     , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at 
@@ -816,7 +816,7 @@ class TopicController extends Controller
                                         limit 10", ['id' => $id, 'user_code' => $usercode]);
         }
 
-        if( $categorytype == 'Schools'){ 
+        if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
 
             $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
                                     , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at 
@@ -856,7 +856,7 @@ class TopicController extends Controller
         $url = $request->url; 
         $categorytype = $request->categorytype;  
 
-        if( $categorytype == 'Colleges'){
+        if( $categorytype == 'Colleges' || $categorytype == 'colleges'){
             
             $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
                                 , a.`image`, a.`video`, b.`name`
@@ -868,7 +868,7 @@ class TopicController extends Controller
 
 
         }
-        if( $categorytype == 'Companies'){
+        if( $categorytype == 'Companies' || $categorytype == 'companies'){
 
             $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
                                 , a.`image`, a.`video`, b.`name`
@@ -879,7 +879,7 @@ class TopicController extends Controller
         
  
         }
-        if( $categorytype == 'Doctors'){
+        if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
 
             $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
                                 , a.`image`, a.`video`, b.`name`
@@ -890,7 +890,7 @@ class TopicController extends Controller
         
  
         }
-        if( $categorytype == 'Fitness Centers'){
+        if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
 
             $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
                                 , a.`image`, a.`video`, b.`name`
@@ -902,7 +902,7 @@ class TopicController extends Controller
  
 
         }
-        if( $categorytype == 'Hotels'){
+        if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
 
             $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
                                 , a.`image`, a.`video`, b.`name`
@@ -913,7 +913,7 @@ class TopicController extends Controller
         
  
         }
-        if( $categorytype == 'Lawyers'){
+        if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
 
             $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
                                 , a.`image`, a.`video`, b.`name`
@@ -923,7 +923,7 @@ class TopicController extends Controller
                                         AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
          
         }
-        if( $categorytype == 'Restaurants'){
+        if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
 
             $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
                                 , a.`image`, a.`video`, b.`name`
@@ -935,7 +935,7 @@ class TopicController extends Controller
  
         }
 
-        if( $categorytype == 'Schools'){ 
+        if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
 
             $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
                                 , a.`image`, a.`video`, b.`name`

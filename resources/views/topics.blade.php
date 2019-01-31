@@ -586,7 +586,7 @@
                 }else{
 
                     $categorytype = this.categorytype;
-    
+        
                     if( $categorytype == 'colleges'){
                         this.vPlaceholders = "Enter College or Institute name..";
                         this.vSearchName = "Search Colleges";
