@@ -9,15 +9,13 @@
     <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="/style.css" type="text/css" />
     <link rel="stylesheet" href="/css/dark.css" type="text/css" />
-
-    <!-- Home Demo Specific Stylesheet -->
+ 
     <link rel="stylesheet" href="/askpls.css" type="text/css" />
 
     <link rel="stylesheet" href="/css/font-icons.css" type="text/css" />
     <link rel="stylesheet" href="/css/animate.css" type="text/css" />
     <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css" />
-
-    <!-- Reader's Blog Demo Specific Fonts -->
+ 
     <link rel="stylesheet" href="/askplsfonts.css" type="text/css" />
 
     <link rel="stylesheet" href="/css/responsive.css" type="text/css" />

@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="/style.css" type="text/css" />
     <link rel="stylesheet" href="/css/dark.css" type="text/css" />
-
-    <!-- Home Demo Specific Stylesheet -->
+ 
     <link rel="stylesheet" href="/askpls.css" type="text/css" />
 
     <link rel="stylesheet" href="/css/font-icons.css" type="text/css" />
@@ -26,9 +25,8 @@
 
     <script src="/vue/vue.min.js"></script>
         <script src="/axios/axios.min.js"></script>
-        @include('analytics')
-    <!-- Document Title
-    ============================================= -->
+        @include('analytics') 
+
     <title>AskPls | {{ $name }} Reviews</title>
 
 </head>
@@ -194,11 +192,19 @@
                             <div class="col-md-12">
                                 
                                 <div id="widget-subscribe-form"  style="margin-bottom: 10px; "  v-for="topic in topics" v-cloak >
-                                    
-                                    <p>   Posted on @{{topic.created_at}} </p>
-                                     <p style="margin-top: -20px "><h4><a :href="'/t/d?url=' + topic.url + '&type=' + categorytype">@{{topic.topic_name}}</a></h4> </p>
+
+                                      <div class="row">
+                                            <div class="col-sm-10">
+                                                <p>Posted on @{{topic.created_at}} </p>
+                                                <p style="margin-top: -20px "><h4><a :href="'/t/d?url=' + topic.url + '&type=' + categorytype">@{{topic.topic_name}}</a></h4> </p> 
+                                            </div>
+                                        <div class="col-sm-2">
+                                         <!--   <a href="">Share</a> -->
+                                        </div>
+                                      </div>
+                                                                            
                                            
-                                </div>
+                                </div> 
                                    
                             </div> 
 
