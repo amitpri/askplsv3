@@ -172,7 +172,9 @@
                       <div class="media-body">
                         <h1 class="font-secondary nott mb-3" style="color: black; font-size: 42px;">@{{ inpName }}</h1>
                         <p style="font-weight: 300; opacity: .7; color: black;  ">@{{inpAddress}} </p>
-                    <p style="font-weight: 300; opacity: .7; color: black;  ">@{{inpLocality}} &nbsp; @{{inpCity}} &nbsp; @{{inpCountry}} </p>
+                        <p style="font-weight: 300; opacity: .7; color: black;  ">@{{inpLocality}} &nbsp; @{{inpCity}} &nbsp; @{{inpCountry}} </p>
+                        <p v-if="inpWebsite" style="font-weight: 600;   color: black;  "><a target="_blank" :href="inpWebsite">Company Website Link</a></p>
+                        <h4   >&nbsp;</h4>
                       </div>
                     </div>
  
@@ -284,6 +286,8 @@
 					topic : "", 
 					name: "",
                     showLoadMore : 0,
+                    inpAddress: "",
+                    inpWebsite : "",
 				},
 				mounted:function(){
 
