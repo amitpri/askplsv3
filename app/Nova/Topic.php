@@ -29,8 +29,8 @@ use OwenMelbz\RadioField\RadioButton;
 use Spatie\TagsField\Tags;
 use Waynestate\Nova\CKEditor; 
  
-use Media24si\NovaYoutubeField\Youtube;
-use R64\NovaImageCropper\ImageCropper;  
+use Media24si\NovaYoutubeField\Youtube; 
+use Laravel\Nova\Fields\Image;
 
 class Topic extends Resource
 { 
@@ -82,8 +82,8 @@ class Topic extends Resource
                         ],
                     ])->hideFromIndex(),
  
-
-                    ImageCropper::make('Image')->hideFromIndex()->hideFromDetail(),
+ 
+                    Image::make('Image')->disk('public')->hideFromIndex()->hideFromDetail(),
 
                     Youtube::make('Video')->hideFromIndex()->hideFromDetail(),
 
@@ -171,8 +171,8 @@ class Topic extends Resource
                         ['Format','FontSize','-','Maximize']
                     ],
                 ])->hideFromIndex(),
-
-                ImageCropper::make('Image'),
+ 
+                Image::make('Image')->disk('public')->hideFromIndex()->hideFromDetail(),
 
                 Youtube::make('Video'),
 
