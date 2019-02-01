@@ -70,7 +70,7 @@ class Lawyer extends Resource
                     Checkboxes::make('Speciality')->options([
                         'General' => 'General',
                         'Criminal' => 'Criminal',
-                    ])->withoutTypeCasting()->hideFromIndex(),
+                    ])->hideFromIndex(),
 
 
                     new Panel('Address Information', $this->addressFields()), 

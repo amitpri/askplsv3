@@ -404,7 +404,11 @@
 
                                         <ul class="entry-meta clearfix">
                                       
-                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setspeciality(topic.specialty)">@{{ topic.specialty }}</a>  </li>
+                                            <li> <i class="icon-user"></i>
+                                                    <a v-for="speciality1  in ( topic.speciality.split(',') )"   href="" @click="event.preventDefault();setspeciality( speciality1.replace(']','').replace('[',''))">
+                                                        @{{ speciality1.replace('[','').replace(']','') }}
+                                                    </a>  
+                                            </li>
                                             <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
                                             <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
                                         </ul>
@@ -881,7 +885,7 @@
                 },
                 setspeciality:function(speciality){ 
 
-                    this.speciality = speciality; 
+                    this.speciality = speciality.replace('/"/g',''); 
 
                     axios.get('/t/d/categories' ,{
 
