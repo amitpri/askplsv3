@@ -15,6 +15,7 @@
         "askpls/work": "*",
         "askpls/workspacesummary": "*",
         "chaseconey/nova-external-image": "^0.0.3",
+        "ctessier/nova-advanced-image-field": "^0.1.1",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "gregoriohc/laravel-nova-theme-responsive": "^0.6.1",
