@@ -323,8 +323,11 @@
 
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Companies' || vCatName == 'companies'"  >
 
-                                    <div class="media"> 
+                                    <div class="media" style="padding-top: 10px;"> 
+                                      
                                       <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
+                                      <img  v-if="!topic.profilepic" src="no-image.png"  width="100" class="mr-3"> 
+
                                       <div class="media-body">
                                         <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
                                         <ul class="entry-meta clearfix">
