@@ -18,7 +18,8 @@ use OwenMelbz\RadioField\RadioButton;
 use Waynestate\Nova\CKEditor; 
  
 use Media24si\NovaYoutubeField\Youtube;
-use Laravel\Nova\Fields\Image;
+//use Laravel\Nova\Fields\Image;
+use Ctessier\NovaAdvancedImageField\AdvancedImage;
 
 use Laravel\Nova\Panel;
 use Laravel\Nova\Fields\Place;
@@ -93,7 +94,8 @@ class School extends Resource
                         ],
                     ])->hideFromIndex(),
 
-                    Image::make('Image', 'profilepic')->disk('public'),
+                //    Image::make('Image', 'profilepic')->disk('public'),
+                    AdvancedImage::make('Image', 'profilepic')->disk('public')->croppable()->resize(600,600),
 
                     Youtube::make('Video')->hideFromIndex(),
 
@@ -156,7 +158,8 @@ class School extends Resource
                     ],
                 ])->hideFromIndex(),
 
-                Image::make('Image', 'profilepic')->disk('public'),
+            //    Image::make('Image', 'profilepic')->disk('public'),
+                AdvancedImage::make('Image', 'profilepic')->disk('public')->croppable()->resize(600,600),
 
                 Youtube::make('Video')->hideFromIndex(),
 

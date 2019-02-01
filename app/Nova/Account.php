@@ -11,7 +11,8 @@ use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Panel;
 use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\Country;
-use Laravel\Nova\Fields\Image;
+//use Laravel\Nova\Fields\Image;
+use Ctessier\NovaAdvancedImageField\AdvancedImage;
 use Laravel\Nova\Fields\Number;
 use Outhebox\NovaHiddenField\HiddenField;
 
@@ -73,7 +74,8 @@ class Account extends Resource
             
             new Panel('Personal Details', $this->personalFields()),  
 
-            Image::make('Photo','profile_photo')->disk('public'), 
+        //    Image::make('Photo','profile_photo')->disk('public'), 
+            AdvancedImage::make('Photo', 'profilepic')->disk('public')->croppable()->resize(600,600),
 
             new Panel('Social Details', $this->socialFields()),
 

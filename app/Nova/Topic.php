@@ -30,7 +30,7 @@ use Spatie\TagsField\Tags;
 use Waynestate\Nova\CKEditor; 
  
 use Media24si\NovaYoutubeField\Youtube; 
-use Laravel\Nova\Fields\Image;
+//use Laravel\Nova\Fields\Image;
 use Ctessier\NovaAdvancedImageField\AdvancedImage;
 
 class Topic extends Resource
@@ -175,7 +175,8 @@ class Topic extends Resource
                     ],
                 ])->hideFromIndex(),
  
-                Image::make('Image')->disk('public')->hideFromIndex()->hideFromDetail(),
+                //Image::make('Image')->disk('public')->hideFromIndex()->hideFromDetail(),
+                AdvancedImage::make('Image')->disk('public')->croppable()->resize(600,600),
 
                 Youtube::make('Video'),
 
