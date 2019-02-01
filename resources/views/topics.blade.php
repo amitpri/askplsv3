@@ -279,49 +279,51 @@
                             <div  class="row" v-for="topic in topics" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
                                  
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Colleges' || vCatName == 'colleges'"  >
-                                    <div class="review-title">
-                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> </h6></a></h4>
-                                    </div>
-                                    <div class="review-content"> 
-                                        <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100"> 
- 
-                                    </div>
-                                    <ul class="entry-meta clearfix">
-                                        <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type}}</a> </li>
-                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">@{{ topic.city}}</a>  </li>
-                                        <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">@{{ topic.country}}</a></li>
                                     
-                                    </ul>
+                                    <div class="media" style="padding-top: 10px;"> 
+                                      
+                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
+                                      <img  v-else src="no-image.png"  width="100" class="mr-3"> 
+
+                                      <div class="media-body" style="margin-left: 20px;">
+                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> </h6></a></h4> 
+                                        
+                                        <ul class="entry-meta clearfix">
+                                            <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type}}</a> </li>
+                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">@{{ topic.city}}</a>  </li>
+                                            <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">@{{ topic.country}}</a></li>
+                                        
+                                        </ul>
+                                      </div>
+                                    </div> 
+
                                 </div>
 
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Doctors' || vCatName == 'doctors'"  >
-                                    <div class="review-title">
-                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
-                                    </div>
-                                    <div class="review-content">  
-
-                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">  
                                     
- 
-                                    </div>
-                                    <div v-if="topic.profilepic"  class="" style=" ">  
-                                        <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.qualification}}  |  @{{ topic.exp}} yrs exp. </p>  
-
-                                    </div>
-                                    <div v-else class="" style="margin-top: -20px;">  
-                                        <p style="font-weight: 400; opacity: 0.8;   ">@{{ topic.qualification}}  |  @{{ topic.exp}} yrs exp. </p>  
-
-                                    </div>
-                                     <ul class="entry-meta clearfix">
+                                    <div class="media" style="padding-top: 10px;"> 
                                       
-                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setspeciality(topic.speciality)">@{{ topic.speciality }}</a>  </li>
-                                        <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)"> @{{ topic.locality }}</a></li>
-                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)"> @{{ topic.city }}</a></li> 
-                                    
-                                    </ul> 
-                                </div>
+                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
+                                      <img  v-else src="no-image.png"  width="100" class="mr-3"> 
 
-                                <div class="col-12 col-md-12" v-if="vCatName == 'Companies' || vCatName == 'companies'"  >
+                                      <div class="media-body" style="margin-left: 20px;">
+                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> </h6></a></h4> 
+
+                                        <p style="font-weight: 400; opacity: 0.8;   ">@{{ topic.qualification}}  |  @{{ topic.exp}} yrs exp. </p>  
+                                        
+                                        <ul class="entry-meta clearfix">
+                                          
+                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setspeciality(topic.speciality)">@{{ topic.speciality }}</a>  </li>
+                                            <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)"> @{{ topic.locality }}</a></li>
+                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)"> @{{ topic.city }}</a></li> 
+                                        
+                                        </ul>
+                                      </div>
+                                    </div>  
+                                      
+                                </div> 
+
+                                <div class="col-12 col-md-12" v-if="vCatName == 'Fitness Centers' || vCatName == 'fitnesscenters'"  >
 
                                     <div class="media" style="padding-top: 10px;"> 
                                       
@@ -329,143 +331,133 @@
                                       <img  v-else src="no-image.png"  width="100" class="mr-3"> 
 
                                       <div class="media-body" style="margin-left: 20px;">
-                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
+                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> </h6></a></h4> 
+
+                                        <p style="font-weight: 400; opacity: 0.8;   ">@{{ topic.qualification}}  |  @{{ topic.exp}} yrs exp. </p>  
+
+                                        <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.address}}    </p>  
+                                        
                                         <ul class="entry-meta clearfix">
                                       
-                                        <li v-if="topic.type"> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>   </li>
-                                        <li v-if="topic.city"><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li>
-                                        <li v-if="topic.country"> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcountry(topic.country)">@{{ topic.country }}</a> </li> 
-                                    
-                                    </ul> 
-                                      </div>
-                                    </div>  
-                                </div>
-
-                                <div class="col-12 col-md-12" v-if="vCatName == 'Fitness Centers' || vCatName == 'fitnesscenters'"  >
-                                    <div class="review-title">
-                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
+                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>   </li>
+                                            <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
+                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
+                                        
+                                        </ul> 
+                                      </div> 
+                                     
                                     </div>
-                                    <div class="review-content">  
-
-                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">  
-                                    
- 
-                                    </div>
-                                    <div v-if="topic.profilepic"  class="" style=" ">  
-                                        <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.address}}    </p>  
-
-                                    </div>
-                                    <div v-else class="" style="margin-top: -20px;">  
-                                        <p style="font-weight: 400; opacity: 0.8;   ">@{{ topic.address}}   </p>  
-
-                                    </div>
-                                     <ul class="entry-meta clearfix">
-                                      
-                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>   </li>
-                                        <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
-                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
-                                    
-                                    </ul> 
                                 </div>
 
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Hotels' || vCatName == 'hotels'"  >
-                                    <div class="review-title">
-                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
-                                    </div>
-                                    <div class="review-content">  
 
-                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">  
-                                    
- 
-                                    </div>  
-                                     <ul class="entry-meta clearfix">
+                                    <div class="media" style="padding-top: 10px;"> 
                                       
-                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>  </li>
-                                        <li v-if="topic.locality"><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
-                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
-                                    
-                                    </ul> 
+                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
+                                      <img  v-else src="no-image.png"  width="100" class="mr-3"> 
+
+                                      <div class="media-body" style="margin-left: 20px;">
+                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> </h6></a></h4> 
+
+                                        <p style="font-weight: 400; opacity: 0.8;   ">@{{ topic.qualification}}  |  @{{ topic.exp}} yrs exp. </p>  
+
+                                        <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.address}}    </p>  
+                                        
+                                        <ul class="entry-meta clearfix">
+                                      
+                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>  </li>
+                                            <li v-if="topic.locality"><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
+                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
+                                        
+                                        </ul> 
+                                      </div> 
+                                     
+                                    </div>
+
+                                     
                                 </div>
 
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Lawyers' || vCatName == 'lawyers'"  >
-                                    <div class="review-title">
-                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
-                                    </div>
-                                    <div class="review-content">  
 
-                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">  
-                                    
- 
-                                    </div>
-                                    <div v-if="topic.profilepic"  class="" style=" ">  
-                                        <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.address}}    </p>  
-
-                                    </div>
-                                    <div v-else class="" style="margin-top: -20px;">  
-                                        <p style="font-weight: 400; opacity: 0.8;   ">@{{ topic.address}}   </p>  
-
-                                    </div>
-                                     <ul class="entry-meta clearfix">
+                                     <div class="media" style="padding-top: 10px;"> 
                                       
-                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setspeciality(topic.specialty)">@{{ topic.specialty }}</a>  </li>
-                                        <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
-                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
-                                    
-                                    </ul> 
+                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
+                                      <img  v-else src="no-image.png"  width="100" class="mr-3"> 
+
+                                      <div class="media-body" style="margin-left: 20px;">
+                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> </h6></a></h4> 
+
+                                        <p style="font-weight: 400; opacity: 0.8;   ">@{{ topic.qualification}}  |  @{{ topic.exp}} yrs exp. </p>  
+
+                                        <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.address}}    </p>  
+                                        
+                                       <ul class="entry-meta clearfix">
+                                      
+                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setspeciality(topic.specialty)">@{{ topic.specialty }}</a>  </li>
+                                            <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
+                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
+                                        
+                                        </ul> 
+                                      </div> 
+                                     
+                                    </div>
+                                     
                                 </div>
 
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Restaurants' || vCatName == 'restaurants'"  >
-                                    <div class="review-title">
-                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
-                                    </div>
-                                    <div class="review-content">  
-
-                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">  
                                     
- 
-                                    </div>
-                                    <div v-if="topic.profilepic"  class="" style=" ">  
-                                        <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.address}}   </p>  
 
-                                    </div>
-                                    <div v-else class="" style="margin-top: -20px;">  
-                                        <p style="font-weight: 400; opacity: 0.8;   ">@{{ topic.address}}   </p>  
-
-                                    </div>
-                                     <ul class="entry-meta clearfix">
+                                    <div class="media" style="padding-top: 10px;"> 
                                       
-                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>   </li>
-                                        <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
-                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
-                                    
-                                    </ul> 
+                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
+                                      <img  v-else src="no-image.png"  width="100" class="mr-3"> 
+
+                                      <div class="media-body" style="margin-left: 20px;">
+                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> </h6></a></h4> 
+
+                                        <p style="font-weight: 400; opacity: 0.8;   ">@{{ topic.qualification}}  |  @{{ topic.exp}} yrs exp. </p>  
+
+                                        <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.address}}    </p>  
+                                        
+                                       <ul class="entry-meta clearfix">
+                                      
+                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>   </li>
+                                            <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
+                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
+                                        
+                                        </ul>  
+                                      </div> 
+                                     
+                                    </div>
+
+                                       
                                 </div>
 
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Schools' || vCatName == 'schools'"  >
-                                    <div class="review-title">
-                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
-                                    </div>
-                                    <div class="review-content">  
 
-                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">  
-                                    
- 
-                                    </div>
-                                    <div v-if="topic.profilepic"  class="" style=" ">  
-                                        <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.address}}    </p>  
-
-                                    </div>
-                                    <div v-else class="" style="margin-top: -20px;">  
-                                        <p style="font-weight: 400; opacity: 0.8;   ">@{{ topic.address}}   </p>  
-
-                                    </div>
-                                     <ul class="entry-meta clearfix">
+                                    <div class="media" style="padding-top: 10px;"> 
                                       
-                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>  </li>
-                                        <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
-                                        <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
-                                    
-                                    </ul> 
+                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
+                                      <img  v-else src="no-image.png"  width="100" class="mr-3"> 
+
+                                      <div class="media-body" style="margin-left: 20px;">
+                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}  <h6> </h6></a></h4> 
+
+                                        <p style="font-weight: 400; opacity: 0.8;   ">@{{ topic.qualification}}  |  @{{ topic.exp}} yrs exp. </p>  
+
+                                        <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.address}}    </p>  
+                                        
+                                       <ul class="entry-meta clearfix">
+                                      
+                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>  </li>
+                                            <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
+                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
+                                        
+                                        </ul>  
+                                      </div> 
+                                     
+                                    </div>  
+                                     
                                 </div>
                                 
                             </div> 
