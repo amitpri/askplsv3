@@ -47,7 +47,7 @@ class TopicCategory extends Resource
 
     public static $search = [
         
-        'user_id' ,'topic_name' , 'url' ,'category'
+        'user_id' ,'topic_name' , 'url' ,'topicable_type'
     ];
 
  
