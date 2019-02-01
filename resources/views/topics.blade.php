@@ -322,21 +322,20 @@
                                 </div>
 
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Companies' || vCatName == 'companies'"  >
-                                    <div class="review-title">
-                                        <h4><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
-                                    </div>
-                                    <div class="review-content">  
 
-                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">  
-                                    
-                                    </div> 
-                                     <ul class="entry-meta clearfix">
+                                    <div class="media"> 
+                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
+                                      <div class="media-body">
+                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
+                                        <ul class="entry-meta clearfix">
                                       
                                         <li v-if="topic.type"> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>   </li>
                                         <li v-if="topic.city"><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li>
                                         <li v-if="topic.country"> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcountry(topic.country)">@{{ topic.country }}</a> </li> 
                                     
                                     </ul> 
+                                      </div>
+                                    </div>  
                                 </div>
 
                                 <div class="col-12 col-md-12" v-if="vCatName == 'Fitness Centers' || vCatName == 'fitnesscenters'"  >
