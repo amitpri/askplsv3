@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lawyer extends Model
 {
+    protected $casts = [ 
+        'speciality' => 'array',
+    ];
+
     public function topiccategories()
     {
   

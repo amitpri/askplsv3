@@ -175,11 +175,26 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools()
     {
-        return [
+        $loggedintenant = Auth::user()->tenant; 
+        $loggedinemail= Auth::user()->email;
 
-      //  new \Askpls\Work\Work(),
+        if( $loggedinemail == "amitpri@gmail.com"){
 
-    ];
+            return [
+
+              //  new \Askpls\Work\Work(),
+                    new \PhpJunior\NovaLogViewer\Tool(),
+                    new \Christophrumpel\NovaNotifications\NovaNotifications(),
+
+            ];
+
+        }else{
+
+            return [
+ 
+
+            ];
+        }
     }
 
     /**

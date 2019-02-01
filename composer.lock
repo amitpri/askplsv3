@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "90cbe3da107e4c101534aca033c87dec",
+    "content-hash": "2002e3176b1ff8d220fe2ec5b0a63374",
     "packages": [
         {
             "name": "alexpgates/horizon-link",
@@ -156,6 +156,128 @@
                 "recaptcha"
             ],
             "time": "2018-08-27T02:16:31+00:00"
+        },
+        {
+            "name": "arcanedev/log-viewer",
+            "version": "4.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ARCANEDEV/LogViewer.git",
+                "reference": "bc5ff72393bbadbb10aca7d5862b0cc542d8d0df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ARCANEDEV/LogViewer/zipball/bc5ff72393bbadbb10aca7d5862b0cc542d8d0df",
+                "reference": "bc5ff72393bbadbb10aca7d5862b0cc542d8d0df",
+                "shasum": ""
+            },
+            "require": {
+                "arcanedev/support": "~4.4.0",
+                "php": ">=7.1.3",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "orchestra/testbench": "~3.7.0",
+                "phpunit/phpcov": "~5.0",
+                "phpunit/phpunit": "~7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Arcanedev\\LogViewer\\LogViewerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Arcanedev\\LogViewer\\": "src/"
+                },
+                "files": [
+                    "constants.php",
+                    "helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ARCANEDEV",
+                    "email": "arcanedev.maroc@gmail.com",
+                    "homepage": "https://github.com/arcanedev-maroc",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides a Log Viewer for Laravel 5",
+            "homepage": "https://github.com/ARCANEDEV/LogViewer",
+            "keywords": [
+                "arcanedev",
+                "arcanesoft",
+                "laravel",
+                "log",
+                "log viewer",
+                "log-viewer",
+                "logviewer"
+            ],
+            "time": "2018-12-04T09:25:29+00:00"
+        },
+        {
+            "name": "arcanedev/support",
+            "version": "4.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ARCANEDEV/Support.git",
+                "reference": "9f4d9947563c6bec10ea7fa7954129e012216af9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ARCANEDEV/Support/zipball/9f4d9947563c6bec10ea7fa7954129e012216af9",
+                "reference": "9f4d9947563c6bec10ea7fa7954129e012216af9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "~5.7.0",
+                "illuminate/support": "~5.7.0",
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.7.0",
+                "phpunit/phpcov": "~5.0",
+                "phpunit/phpunit": "~7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Arcanedev\\Support\\": "src/"
+                },
+                "files": [
+                    "constants.php",
+                    "helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ARCANEDEV",
+                    "email": "arcanedev.maroc@gmail.com",
+                    "homepage": "https://github.com/arcanedev-maroc"
+                }
+            ],
+            "description": "ARCANEDEV Support Helpers",
+            "homepage": "https://github.com/ARCANEDEV/Support",
+            "keywords": [
+                "arcanedev",
+                "arcanesoft",
+                "laravel",
+                "support"
+            ],
+            "time": "2018-09-04T17:19:43+00:00"
         },
         {
             "name": "askpls/work",
@@ -371,6 +493,53 @@
                 "nova"
             ],
             "time": "2018-10-10T02:16:52+00:00"
+        },
+        {
+            "name": "christophrumpel/nova-notifications",
+            "version": "1.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/christophrumpel/nova-notifications.git",
+                "reference": "7ad7e46968935e852185536be0bbbfaecc579125"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/christophrumpel/nova-notifications/zipball/7ad7e46968935e852185536be0bbbfaecc579125",
+                "reference": "7ad7e46968935e852185536be0bbbfaecc579125",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "~1.0",
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "~3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Christophrumpel\\NovaNotifications\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Christophrumpel\\NovaNotifications\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova tool for handling Laravel Notifications.",
+            "keywords": [
+                "laravel",
+                "notifications",
+                "nova"
+            ],
+            "time": "2018-12-04T15:46:45+00:00"
         },
         {
             "name": "ctessier/nova-advanced-image-field",
@@ -1115,16 +1284,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.80",
+            "version": "v0.83",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "cb86c0001e6b757753b6a2efed837e4b899bddb3"
+                "reference": "f443f4107d9ba001dad60d18cf1ec0cf0e7234f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/cb86c0001e6b757753b6a2efed837e4b899bddb3",
-                "reference": "cb86c0001e6b757753b6a2efed837e4b899bddb3",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/f443f4107d9ba001dad60d18cf1ec0cf0e7234f9",
+                "reference": "f443f4107d9ba001dad60d18cf1ec0cf0e7234f9",
                 "shasum": ""
             },
             "require": {
@@ -1148,7 +1317,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2019-01-07T00:22:56+00:00"
+            "time": "2019-01-30T22:06:40+00:00"
         },
         {
             "name": "google/auth",
@@ -1632,16 +1801,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.7.22",
+            "version": "v5.7.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "64a7749bd9e8df68addce1d01a54bcf606141f29"
+                "reference": "2ede55db4b8201ed0450fa7e7a4d7220aa29bc34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/64a7749bd9e8df68addce1d01a54bcf606141f29",
-                "reference": "64a7749bd9e8df68addce1d01a54bcf606141f29",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2ede55db4b8201ed0450fa7e7a4d7220aa29bc34",
+                "reference": "2ede55db4b8201ed0450fa7e7a4d7220aa29bc34",
                 "shasum": ""
             },
             "require": {
@@ -1774,7 +1943,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-01-22T15:08:35+00:00"
+            "time": "2019-01-29T22:13:46+00:00"
         },
         {
             "name": "laravel/nexmo-notification-channel",
@@ -2141,16 +2310,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.49",
+            "version": "1.0.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "a63cc83d8a931b271be45148fa39ba7156782ffd"
+                "reference": "dab4e7624efa543a943be978008f439c333f2249"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/a63cc83d8a931b271be45148fa39ba7156782ffd",
-                "reference": "a63cc83d8a931b271be45148fa39ba7156782ffd",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/dab4e7624efa543a943be978008f439c333f2249",
+                "reference": "dab4e7624efa543a943be978008f439c333f2249",
                 "shasum": ""
             },
             "require": {
@@ -2221,23 +2390,24 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2018-11-23T23:41:29+00:00"
+            "time": "2019-02-01T08:50:36+00:00"
         },
         {
             "name": "maatwebsite/excel",
-            "version": "3.1.4",
+            "version": "3.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "4f12069caa07c0b0e10cf369cd9cf2a6da1c6749"
+                "reference": "d5e51dca5ed845c1ce605a7a1d9882d5b57e270d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/4f12069caa07c0b0e10cf369cd9cf2a6da1c6749",
-                "reference": "4f12069caa07c0b0e10cf369cd9cf2a6da1c6749",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/d5e51dca5ed845c1ce605a7a1d9882d5b57e270d",
+                "reference": "d5e51dca5ed845c1ce605a7a1d9882d5b57e270d",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "illuminate/support": "5.5.* || 5.6.* || 5.7.*",
                 "php": "^7.0",
                 "phpoffice/phpspreadsheet": "^1.4"
@@ -2287,7 +2457,7 @@
                 "php",
                 "phpspreadsheet"
             ],
-            "time": "2019-01-21T13:31:13+00:00"
+            "time": "2019-01-30T19:01:33+00:00"
         },
         {
             "name": "maatwebsite/laravel-nova-excel",
@@ -3247,6 +3417,58 @@
             "time": "2016-01-26T13:27:02+00:00"
         },
         {
+            "name": "php-junior/nova-logs",
+            "version": "v1.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPJunior/nova-logs.git",
+                "reference": "e5bc157bbbe680ff6537c9a166a0d0629e4f4c73"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPJunior/nova-logs/zipball/e5bc157bbbe680ff6537c9a166a0d0629e4f4c73",
+                "reference": "e5bc157bbbe680ff6537c9a166a0d0629e4f4c73",
+                "shasum": ""
+            },
+            "require": {
+                "arcanedev/log-viewer": "*",
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.6",
+                "phpunit/phpunit": "7.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "PhpJunior\\NovaLogViewer\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PhpJunior\\NovaLogViewer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nyi Nyi Lwin",
+                    "email": "nyinyilwin1992@hotmail.com"
+                }
+            ],
+            "description": "Provides a Log Viewer for Laravel Nova",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2018-11-02T07:46:39+00:00"
+        },
+        {
             "name": "phpoffice/phpspreadsheet",
             "version": "1.6.0",
             "source": {
@@ -3342,16 +3564,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.13",
+            "version": "2.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "42603ce3f42a27f7e14e54feab95db7b680ad473"
+                "reference": "8ebfcadbf30524aeb75b2c446bc2519d5b321478"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/42603ce3f42a27f7e14e54feab95db7b680ad473",
-                "reference": "42603ce3f42a27f7e14e54feab95db7b680ad473",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/8ebfcadbf30524aeb75b2c446bc2519d5b321478",
+                "reference": "8ebfcadbf30524aeb75b2c446bc2519d5b321478",
                 "shasum": ""
             },
             "require": {
@@ -3430,7 +3652,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2018-12-16T17:45:25+00:00"
+            "time": "2019-01-27T19:37:29+00:00"
         },
         {
             "name": "predis/predis",
@@ -4166,16 +4388,16 @@
         },
         {
             "name": "sixlive/nova-text-copy-field",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sixlive/nova-text-copy-field.git",
-                "reference": "9e7c4d08a183f6fb4882642e5484ce548a68b472"
+                "reference": "d7b27fddb321cdf6e0497aef5580be65983a7d38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sixlive/nova-text-copy-field/zipball/9e7c4d08a183f6fb4882642e5484ce548a68b472",
-                "reference": "9e7c4d08a183f6fb4882642e5484ce548a68b472",
+                "url": "https://api.github.com/repos/sixlive/nova-text-copy-field/zipball/d7b27fddb321cdf6e0497aef5580be65983a7d38",
+                "reference": "d7b27fddb321cdf6e0497aef5580be65983a7d38",
                 "shasum": ""
             },
             "require": {
@@ -4213,7 +4435,7 @@
                 "laravel",
                 "nova"
             ],
-            "time": "2019-01-21T15:39:30+00:00"
+            "time": "2019-01-30T17:41:45+00:00"
         },
         {
             "name": "sparclex/nova-import-card",
@@ -5733,20 +5955,21 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v2.5.2",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "cfd5dc225767ca154853752abc93aeec040fcf36"
+                "reference": "2a7dcf7e3e02dc5e701004e51a6f304b713107d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/cfd5dc225767ca154853752abc93aeec040fcf36",
-                "reference": "cfd5dc225767ca154853752abc93aeec040fcf36",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/2a7dcf7e3e02dc5e701004e51a6f304b713107d5",
+                "reference": "2a7dcf7e3e02dc5e701004e51a6f304b713107d5",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9"
+                "php": ">=5.3.9",
+                "symfony/polyfill-ctype": "^1.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.8.35 || ^5.0"
@@ -5754,7 +5977,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -5779,7 +6002,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2018-10-30T17:29:25+00:00"
+            "time": "2019-01-29T11:11:52+00:00"
         },
         {
             "name": "waynestate/nova-ckeditor4-field",
@@ -6917,16 +7140,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.2",
+            "version": "7.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "7c89093bd00f7d5ddf0ab81dee04f801416b4944"
+                "reference": "2cb759721e53bc05f56487f628c6b9fbb6c18746"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7c89093bd00f7d5ddf0ab81dee04f801416b4944",
-                "reference": "7c89093bd00f7d5ddf0ab81dee04f801416b4944",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2cb759721e53bc05f56487f628c6b9fbb6c18746",
+                "reference": "2cb759721e53bc05f56487f628c6b9fbb6c18746",
                 "shasum": ""
             },
             "require": {
@@ -6997,7 +7220,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-01-15T08:19:08+00:00"
+            "time": "2019-02-01T05:24:07+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -7166,28 +7389,31 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "4.0.1",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "febd209a219cea7b56ad799b30ebbea34b71eb8f"
+                "reference": "6fda8ce1974b62b14935adc02a9ed38252eca656"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/febd209a219cea7b56ad799b30ebbea34b71eb8f",
-                "reference": "febd209a219cea7b56ad799b30ebbea34b71eb8f",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/6fda8ce1974b62b14935adc02a9ed38252eca656",
+                "reference": "6fda8ce1974b62b14935adc02a9ed38252eca656",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^7.4"
+                "phpunit/phpunit": "^7.5"
+            },
+            "suggest": {
+                "ext-posix": "*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -7212,7 +7438,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2018-11-25T09:31:21+00:00"
+            "time": "2019-02-01T05:27:49+00:00"
         },
         {
             "name": "sebastian/exporter",

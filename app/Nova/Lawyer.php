@@ -27,6 +27,8 @@ use Laravel\Nova\Fields\Country;
 
 use Laravel\Nova\Fields\MorphMany;
 
+use Silvanite\NovaFieldCheckboxes\Checkboxes;
+
 class Lawyer extends Resource
 {
     public static $group = '2.Categories';
@@ -59,10 +61,17 @@ class Lawyer extends Resource
 
                     Text::make('Lawyer Name','name')->hideFromIndex()->onlyOnForms()->hideWhenCreating(), 
 
-                    RadioButton::make('Speciality')
-                    ->options([ 
+      //              RadioButton::make('Speciality')
+       //             ->options([ 
+        //                'General' => 'General',
+        //                'Criminal' => 'Criminal' ])->hideFromIndex(), 
+
+
+                    Checkboxes::make('Speciality')->options([
                         'General' => 'General',
-                        'Criminal' => 'Criminal' ]), 
+                        'Criminal' => 'Criminal',
+                    ])->withoutTypeCasting()->hideFromIndex(),
+
 
                     new Panel('Address Information', $this->addressFields()), 
 
@@ -124,10 +133,15 @@ class Lawyer extends Resource
                           'readonly' => true
                     ]]), 
 
+            //    RadioButton::make('Speciality')
+            //    ->options([ 
+             //       'General' => 'General',
+             //       'Criminal' => 'Criminal' ]), 
+
                 RadioButton::make('Speciality')
-                ->options([ 
-                    'General' => 'General',
-                    'Criminal' => 'Criminal' ]), 
+                    ->options([ 
+                        'General' => 'General',
+                        'Criminal' => 'Criminal' ])->hideFromIndex(), 
 
                 new Panel('Address Information', $this->addressFields()), 
 

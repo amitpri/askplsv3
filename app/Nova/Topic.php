@@ -33,6 +33,8 @@ use Media24si\NovaYoutubeField\Youtube;
 //use Laravel\Nova\Fields\Image;
 use Ctessier\NovaAdvancedImageField\AdvancedImage;
 
+use Silvanite\NovaFieldCheckboxes\Checkboxes;
+
 class Topic extends Resource
 { 
 
@@ -57,6 +59,11 @@ class Topic extends Resource
 
             return [
                     ID::make()->sortable(), 
+
+                    Checkboxes::make('Permissions')->options([
+                        'viewNova' => 'Access Admin UI',
+                        'manageUsers' => 'Manage Users',
+                    ])->withoutTypeCasting(),
 
                     DateTime::make('Created at')->format('DD MMM YYYY, LT')->sortable()->hideFromDetail(),
 

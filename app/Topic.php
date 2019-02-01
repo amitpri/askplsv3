@@ -14,8 +14,11 @@ class Topic extends Model
     use  Notifiable; 
 
     protected $casts = [
-        'displayuptil' => 'datetime'
+        'displayuptil' => 'datetime',
+        'permissions' => 'array',
     ];
+
+
 
     public function group()
     {
