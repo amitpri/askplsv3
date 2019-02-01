@@ -171,12 +171,9 @@
                              
                         </div>
 
-
                     </form>  
 
                    <div class="row clearfix" style="margin-top:30px; "  >
-
-                    
 
                         <div class="col-md-2">
 
@@ -239,13 +236,12 @@
 
                                     <p ><b>Search criteria <a href="" @click="clearfilter">Clear All</a> :</b></p>
                                     <br>
-                                @endempty
-
-                                <ul><li style="list-style: none;">&nbsp;</li>
+                                @endempty 
 
                                     @if(empty($categorytype))
-                                  
 
+                                    <ul><li style="list-style: none;">&nbsp;</li>
+                                  
                                         <li v-if="vCatTopics" style="list-style: none;"> <b>Category :</b> @{{ vCatName}}   </li>
                                         <li v-if="vlocality" style="list-style: none;"><b> Locality :</b> @{{ vlocality}} 
                                             <a href="" @click="event.preventDefault();clear('locality')">clear</a></li>
@@ -257,23 +253,32 @@
                                             <a href=""  @click="event.preventDefault();clear('type')">clear</a></li>
                                         <li v-if="vspeciality" style="list-style: none;"> <b>Speciality :</b> @{{ vspeciality}} 
                                             <a href=""  @click="event.preventDefault();clear('speciality')">clear</a></li>
+                                        </ul>
                                     @else
-                                    <div >
-                                        <h4 class="center" >Showing @{{ categorytypename }}</h4>
-                                        <li v-if="vlocality" style="list-style: none;"><b> Locality :</b> @{{ vlocality}} 
-                                            <a href="" @click="event.preventDefault();clear('locality')">clear</a></li>
-                                        <li v-if="vcity" style="list-style: none;"><b> City :</b> @{{ vcity}} 
-                                            <a href=""  @click="event.preventDefault();clear('city')">clear</a></li>
-                                        <li v-if="vcountry" style="list-style: none;"> <b>Country :</b> @{{ vcountry}} 
-                                            <a href=""  @click="event.preventDefault();clear('country')">clear</a></li>
-                                        <li v-if="vtype" style="list-style: none;"><b> Type :</b> @{{ vtype}} 
-                                            <a href=""  @click="event.preventDefault();clear('type')">clear</a></li>
-                                        <li v-if="vspeciality" style="list-style: none;"> <b>Speciality :</b> @{{ vspeciality}} 
-                                            <a href=""  @click="event.preventDefault();clear('speciality')">clear</a></li>
+                                    <div style="margin-left: 100px;" >
+                                        
+                                        <ul>
+                                            <h4 class="center" >Displaying @{{ categorytypename }}</h4> 
+                                            <li v-if="vlocality" style="list-style: none;padding-left: 20px;"><b> Locality :</b> @{{ vlocality}} 
+                                                <a href="" @click="event.preventDefault();clear('locality')">clear</a>
+                                            </li>
+                                            <li v-if="vcity" style="list-style: none;padding-left: 20px;"><b> City :</b> @{{ vcity}} 
+                                                <a href=""  @click="event.preventDefault();clear('city')">clear</a>
+                                            </li>
+                                            <li v-if="vcountry" style="list-style: none;padding-left: 20px;"> <b>Country :</b> @{{ vcountry}} 
+                                                <a href=""  @click="event.preventDefault();clear('country')">clear</a>
+                                            </li>
+                                            <li v-if="vtype" style="list-style: none;padding-left: 20px;;"><b> Type :</b> @{{ vtype}} 
+                                                <a href=""  @click="event.preventDefault();clear('type')">clear</a>
+                                            </li>
+                                            <li v-if="vspeciality" style="list-style: none;padding-left: 20px;"> <b>Speciality :</b> @{{ vspeciality}} 
+                                                <a href=""  @click="event.preventDefault();clear('speciality')">clear</a>
+                                            </li>
+                                            </ul>
 
                                     </div>
                                     @endif
-                                </ul>
+                                
                             </div>
 
                             <div  class="row" v-for="topic in topics" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
@@ -461,7 +466,7 @@
                                         
                                       </div>
                                     </div> 
-                                       
+
                                      
                                 </div>
                                 
