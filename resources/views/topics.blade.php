@@ -326,9 +326,9 @@
                                     <div class="media" style="padding-top: 10px;"> 
                                       
                                       <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
-                                      <img  v-if="!topic.profilepic" src="no-image.png"  width="100" class="mr-3"> 
+                                      <img  v-else src="no-image.png"  width="100" class="mr-3"> 
 
-                                      <div class="media-body">
+                                      <div class="media-body" style="margin-left: 20px;">
                                         <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
                                         <ul class="entry-meta clearfix">
                                       
