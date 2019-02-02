@@ -114,9 +114,9 @@ class Doctor extends Resource
      
 
                     })->hideWhenUpdating(),
-     
+
+                    Text::make('Admin URL','admin_url')->hideFromIndex(),     
                     
- 
                 ];
 
         }else{
