@@ -165,15 +165,19 @@
             <div class="container">
     			<section  class="  center" > 
 
-                    <div class="media">
-                      <img v-if="profilepic"  :src="'/storage/' + profilepic" width="200">
-                      <div class="media-body">
-                        <h1 class="font-secondary nott mb-3" style="color: black; font-size: 42px;">@{{ inpName }}</h1>
-                        <p style="font-weight: 300; opacity: .7; color: black;  ">@{{inpAddress}} </p>
-                        <p style="font-weight: 300; opacity: .7; color: black;  ">@{{inpLocality}} &nbsp; @{{inpCity}} &nbsp; @{{inpCountry}} </p>
-                        <p v-if="inpWebsite" style="font-weight: 600;   color: black;  "><a target="_blank" :href="inpWebsite">Company Website Link</a></p>
-                        <h4   >&nbsp;</h4>
-                      </div>
+                    <div class="row media">
+                        <div class="col-md-4">
+                            <img v-if="profilepic"  :src="'/storage/' + profilepic" width="200">
+                        </div>
+                        <div class="col-md-8">
+                          <div class=" media-body">
+                            <h1 class="font-secondary nott mb-3" style="color: black; font-size: 42px;">@{{ inpName }}</h1>
+                            <p style="font-weight: 300; opacity: .7; color: black;  ">@{{inpAddress}} </p>
+                            <p style="font-weight: 300; opacity: .7; color: black;  ">@{{inpLocality}} &nbsp; @{{inpCity}} &nbsp; @{{inpCountry}} </p>
+                            <p v-if="inpWebsite" style="font-weight: 600;   color: black;  "><a target="_blank" :href="inpWebsite">Company Website Link</a></p>
+                            <h4   >&nbsp;</h4>
+                          </div>
+                          </div>
                     </div>
  
 
