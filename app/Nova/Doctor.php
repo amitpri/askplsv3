@@ -68,7 +68,8 @@ class Doctor extends Resource
                     RadioButton::make('Speciality')
                     ->options([ 
                         'General Physician' => 'General Physician',
-                        'Ortho' => 'Ortho' ])->sortable(), 
+                        'Dentist' => 'Dentist' ,
+                    ])->sortable(), 
 
                     Text::make('Qualification')->hideFromIndex(),
 
@@ -138,7 +139,7 @@ class Doctor extends Resource
                 RadioButton::make('Speciality')
                     ->options([ 
                         'General Physician' => 'General Physician',
-                        'Ortho' => 'Ortho' ])->sortable(), 
+                        'Dentist' => 'Dentist' , ])->sortable(), 
 
                 Text::make('Qualification')->hideFromIndex(),
 
