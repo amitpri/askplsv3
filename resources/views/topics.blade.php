@@ -148,8 +148,11 @@
                     <form id="widget-subscribe-form"  target="#"  class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
                         <div class="input-group divcenter" v-if="vCatType > 0" >
 
-                            <input   type="text" id="workspace" class="form-control form-control-lg not-dark" placeholder="Search Topics..." style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchquery"  @keyup="filteredtopics" >
-                            <a @click="filteredtopics"  href="" class="button " style="border-radius: 3px;">Search Topics</a>  
+                            <input   type="text" id="workspace" class="form-control form-control-lg not-dark" placeholder="Enter Topics..." style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchquery"  @keyup="filteredtopics" >
+
+                            <div class="col-md-4 col-lg-3">
+                                <a @click="filteredtopics"  href="" class="button   btn-block" style="border-radius: 3px;">Search Topics</a>  
+                            </div>
                              
                         </div>
 
@@ -158,7 +161,11 @@
                             <input   type="search" id="address-input" class="form-control form-control-lg not-dark" placeholder="Enter City..." style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;" v-model="citylist"  @keyup="filteredcities" >
 
                             <input   type="text" id="workspace" class="form-control form-control-lg not-dark" :placeholder="vPlaceholders" style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;" v-model="searchcategoryname"  @keyup="filteredcategoryname" >
-                            <a @click="filteredtopics"  href="" class="button " style="border-radius: 3px;">@{{ vSearchName}}</a>  
+
+                            <div class="col-md-4 col-lg-3">
+
+                                <a @click="filteredtopics"  href="" class="button btn-block" style="border-radius: 3px;">@{{ vSearchName}}</a>  
+                            </div>
                              
                         </div>
 

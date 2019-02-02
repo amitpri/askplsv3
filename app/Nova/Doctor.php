@@ -69,6 +69,10 @@ class Doctor extends Resource
                     ->options([ 
                         'General Physician' => 'General Physician',
                         'Dentist' => 'Dentist' ,
+                        'Gynecologist/Obstetrician' => 'Gynecologist/Obstetrician',
+                        'Ayurveda' => 'Ayurveda' ,
+                        'Dermatologist' => 'Dermatologist',
+                        'Ear-Nose-Throat (ENT) Specialist' => 'Ear-Nose-Throat (ENT) Specialist' ,
                     ])->sortable(), 
 
                     Text::make('Qualification')->hideFromIndex(),
