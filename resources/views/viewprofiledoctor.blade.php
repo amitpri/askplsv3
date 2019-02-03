@@ -199,7 +199,7 @@
 
                                       <div class="row">
                                             <div class="col-sm-10">
-                                                <p>Posted on @{{topic.created_at}} </p>
+                                                <p>Posted on @{{topic.created_at}} <span v-if="topic.user_name"> by <a target="_blank" :href="'/p/' + topic.user_code">@{{topic.user_name}}</a></span></p> 
                                                 <p style="margin-top: -20px "><h4><a :href="'/t/d?url=' + topic.url + '&type=' + categorytype">@{{topic.topic_name}}</a></h4> </p> 
                                             </div>
                                         <div class="col-sm-2">

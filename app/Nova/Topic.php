@@ -60,11 +60,6 @@ class Topic extends Resource
             return [
                     ID::make()->sortable(), 
 
-                    Checkboxes::make('Permissions')->options([
-                        'viewNova' => 'Access Admin UI',
-                        'manageUsers' => 'Manage Users',
-                    ])->withoutTypeCasting(),
-
                     DateTime::make('Created at')->format('DD MMM YYYY, LT')->sortable()->hideFromDetail(),
 
                     Text::make('User', 'user_id')->sortable(),
