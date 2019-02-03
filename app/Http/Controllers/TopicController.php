@@ -128,6 +128,17 @@ class TopicController extends Controller
    
     }
 
+    public function lawyers()
+    {
+
+        $categories = ShowCategory::where('status', '=' , 1)->get(['id','category']);
+
+        $categorytype = 'lawyers';
+
+        return view('topics',compact('categories', 'categorytype')); 
+   
+    }
+
     public function fitnesscenters()
     {
 

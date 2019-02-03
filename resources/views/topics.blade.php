@@ -501,7 +501,7 @@
 
             <div class="center">
 
-                <a target="_blank" href="/doctors">Doctors</a> | <a target="_blank" href="/hotels">Hotels</a> | <a target="_blank" href="/restaurants">Restaurants</a> | <a target="_blank" href="/schools">Schools</a> | <a target="_blank" href="/colleges">Colleges</a> | <a target="_blank" href="/companies">Companies</a> | <a target="_blank" href="/fitnesscenters">Fitness Centers</a>
+                <a target="_blank" href="/companies">Companies</a> | <a target="_blank" href="/doctors">Doctors</a> | <a target="_blank" href="/hotels">Hotels</a> | <a target="_blank" href="/restaurants">Restaurants</a> | <a target="_blank" href="/schools">Schools</a> | <a target="_blank" href="/colleges">Colleges</a> |  <a target="_blank" href="/lawyers">Lawyers</a> |  <a target="_blank" href="/fitnesscenters">Fitness Centers</a>
 
             </div>
  
@@ -627,9 +627,10 @@
                         this.vSearchName = "Search Hotels";
                         this.categorytypename = 'Hotels'; 
                     }
-                    if( $categorytype == 'Lawyers'){
+                    if( $categorytype == 'lawyers'){
                         this.vPlaceholders = "Enter Lawyer name..";
                         this.vSearchName = "Search Lawyers";
+                        this.categorytypename = 'Lawyers';
                     }
                     if( $categorytype == 'restaurants'){
                         this.vPlaceholders = "Enter Restaurant name..";

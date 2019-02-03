@@ -24,6 +24,7 @@ Route::get('/restaurants', 'TopicController@restaurants');
 Route::get('/schools', 'TopicController@schools');
 Route::get('/colleges', 'TopicController@colleges');
 Route::get('/companies', 'TopicController@companies');
+Route::get('/lawyers', 'TopicController@lawyers');
 Route::get('/fitnesscenters', 'TopicController@fitnesscenters');
 
 Route::get('/about', 'IndexController@about');
