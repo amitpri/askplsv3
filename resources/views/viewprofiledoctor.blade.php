@@ -163,58 +163,32 @@
 		<!-- Content
 		============================================= -->
             <div class="container">
-    			<section  class="  center" > 
 
-                    <div class="row media">
-                        <div v-if="profilepic"  class="col-md-4">
-                            <img :src="'/storage/' + profilepic" width="200">
+                    <div class="heading-block nobottomborder center">
+                        <div v-if="profilepic"   >
+                             <img :src="'/storage/' + profilepic" width="200">  
+                            <!--         <img src="https://askpls.com/storage/c62iwRejgSDKXde0NnGuOCcFDXiT3ftvEgbjxAGq.png" width="200"> -->
                         </div>
-                        <div class="col-md-8">
-                          <div class=" media-body">
-                            <h1 class="font-secondary nott mb-3" style="color: black; font-size: 42px;">@{{ inpName }}</h1>
-                            <p style="font-weight: 300; opacity: .7; color: black;  ">@{{inpAddress}} </p>
-                            <p style="font-weight: 300; opacity: .7; color: black;  ">@{{inpLocality}} &nbsp; @{{inpCity}} &nbsp; @{{inpCountry}} </p>
-                            <p v-if="inpWebsite" style="font-weight: 600;   color: black;  "><a target="_blank" :href="inpWebsite">Company Website Link</a></p>
-                            <h4   >&nbsp;</h4>
-                          </div>
-                          </div>
-                    </div>
- 
+                        <br>
+                        <h1>@{{ inpName }} </h1>
+                        <span>@{{inpAddress}}</span>
+                        <span>@{{inpLocality}} &nbsp; @{{inpCity}} &nbsp; @{{inpCountry}}</span>
+                        <span><p v-if="inpWebsite" style="font-weight: 600;   color: black;  "><a target="_blank" :href="inpWebsite"> Website Link</a></p></span>
 
-                    <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpSpeciality}} </p>
-                    <p v-if="categorytype == 'Hotels'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpType}} </p>
-                    <p v-if="categorytype == 'Restaurants'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpType}} </p>
-
-                    <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpQualification}}, &nbsp;  @{{inpExp}} yrs experience </p>
-
-                         
-     
-                    <div class="content-wrap clearfix" style="margin-top: -50px;">
-
-                        <div class="row clearfix" >
-                            <h4 style="float:left;" >Available topics for review</h4> 
-                            <div class="col-md-12">
-                                
-                                <div id="widget-subscribe-form"  style="margin-bottom: 10px; "  v-for="topic in topics" v-cloak >
-
-                                      <div class="row">
-                                            <div class="col-sm-10">
-                                                <p>Posted on @{{topic.created_at}} <span v-if="topic.user_name"> by <a target="_blank" :href="'/p/' + topic.user_code">@{{topic.user_name}}</a></span></p> 
-                                                <p style="margin-top: -20px "><h4><a :href="'/t/d?url=' + topic.url + '&type=' + categorytype">@{{topic.topic_name}}</a></h4> </p> 
-                                            </div>
-                                        <div class="col-sm-2">
-                                         <!--   <a href="">Share</a> -->
-                                        </div>
-                                      </div>
-                                                                            
-                                           
-                                </div> 
-                                   
-                            </div> 
-
-                        </div>
+                        <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpSpeciality}} </p>
+                        <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpQualification}}, &nbsp;  @{{inpExp}} yrs experience </p>
+                        <p v-if="categorytype == 'Hotels'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpType}} </p>
+                        <p v-if="categorytype == 'Restaurants'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpType}} </p>
 
                     </div> 
+
+                    <div class="promo promo-border bottommargin" v-for="topic in topics" v-cloak>
+                        <h3><a :href="'/t/d?url=' + topic.url + '&type=' + categorytype">@{{topic.topic_name}}</a></h3>
+                        <span><p>Posted on @{{topic.created_at}} <span v-if="topic.user_name"> by <a target="_blank" :href="'/p/' + topic.user_code">@{{topic.user_name}}</a></span></p>  </span>
+                        <a :href="'/t/d?url=' + topic.url + '&type=' + categorytype" class="button button-xlarge button-rounded">Comments</a>
+                    </div>
+
+    			<section  class="  center" >  
 
                     <div  v-if="showLoadMore > 0"  class="center"><button class="btn btn-primary" @click="moretopics">Load More</button></div>
 
