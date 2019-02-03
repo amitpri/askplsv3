@@ -14,6 +14,7 @@ class PostCategoryReview extends Mailable
     public $url;
     public $inptopicname;
     public $name; 
+    public $topic_type; 
 
     public function __construct($url, $inptopicname, $name, $topic_type)
     {
