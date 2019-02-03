@@ -166,8 +166,8 @@
     			<section  class="  center" > 
 
                     <div class="row media">
-                        <div class="col-md-4">
-                            <img v-if="profilepic"  :src="'/storage/' + profilepic" width="200">
+                        <div v-if="profilepic"  class="col-md-4">
+                            <img :src="'/storage/' + profilepic" width="200">
                         </div>
                         <div class="col-md-8">
                           <div class=" media-body">
