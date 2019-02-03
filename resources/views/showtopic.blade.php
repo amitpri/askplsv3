@@ -207,7 +207,7 @@
 		                            <div id="widget-subscribe-form"  style="margin-bottom: 10px; "  v-for="feedback in feedbacks" v-cloak >
 		    						    
 	                                    <p>Posted on @{{ feedback.created_at }} </p>
-	                                     <p>@{{ feedback.review }} </p>
+	                                     <p><b style="font-size:16px;">@{{ feedback.review }}</b> </p>
 		                                       
 		                            </div>
 									   
