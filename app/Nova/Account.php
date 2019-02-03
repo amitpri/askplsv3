@@ -75,7 +75,7 @@ class Account extends Resource
             new Panel('Personal Details', $this->personalFields()),  
 
         //    Image::make('Photo','profile_photo')->disk('public'), 
-            AdvancedImage::make('Photo', 'profilepic')->disk('public')->croppable()->resize(600,600),
+            AdvancedImage::make('Photo', 'profile_photo')->disk('public')->croppable()->resize(600,600),
 
             new Panel('Social Details', $this->socialFields()),
 
