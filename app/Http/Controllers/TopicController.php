@@ -1013,13 +1013,22 @@ class TopicController extends Controller
         $inptopicname = $request->topicname;
         $inpreview = $request->review; 
 
-        $topic = ShowTopicCategory::where('id','=',$inptopicid)->where('topic_name','=',$inptopicname)->first(['id','user_id', 'url' , 'comments']);
+        $topic = ShowTopicCategory::where('id','=',$inptopicid)->where('topic_name','=',$inptopicname)->first(['id','user_id', 'url' , 'comments', 'topicable_type']);
 
         if(isset($topic)){
 
             $topiccomments = $topic->comments; 
             $userid = $topic->user_id;
             $url = $topic->url;
+            $topicable_type = $topic->topicable_type;
+
+            if( $topicable_type == 'App\Doctor') { $topic_type = 'Doctors';}
+            if( $topicable_type == 'App\Hotel') { $topic_type = 'hotels';}
+            if( $topicable_type == 'App\Company') { $topic_type = 'Companies';}
+            if( $topicable_type == 'App\School') { $topic_type = 'Schools';}
+            if( $topicable_type == 'App\College') { $topic_type = 'Colleges';}
+            if( $topicable_type == 'App\Restaurant') { $topic_type = 'Restaurants';}
+            if( $topicable_type == 'App\FitnessCenter') { $topic_type = 'FitnessCenters';} 
 
             $postfeedback = ShowReview::create(
                 [   
@@ -1040,7 +1049,7 @@ class TopicController extends Controller
             $name = $userdetails->name;
      
             
-            \Mail::to($emailid)->queue(new PostCategoryReview($url,$inptopicname,$name));
+            \Mail::to($emailid)->queue(new PostCategoryReview($url,$inptopicname,$name,$topic_type));
         
         }else{
 
