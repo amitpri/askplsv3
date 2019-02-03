@@ -62,6 +62,12 @@ class TopicCategory extends Resource
             return [
                     ID::make()->sortable(), 
 
+                    RadioButton::make('Anonymous', 'anonymous')
+                    ->options([ 
+                        '0' => 'No',
+                        '1' => 'Yes',                    
+                    ])->default('1')->hideFromIndex(), 
+
                     MorphTo::make('Topicable')->types([
                         Doctor::class,
                         Hotel::class,

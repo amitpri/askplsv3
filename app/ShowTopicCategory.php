@@ -11,7 +11,7 @@ class ShowTopicCategory extends Model
 
     protected $fillable = [
 
-        'user_id', 'topicable_type' , 'topicable_id' , 'topic_name', 'type', 'url', 'status' 
+        'user_id', 'topicable_type' , 'topicable_id' , 'topic_name', 'type', 'url', 'status' , 'anonymous'
     ];
 
     public function user()

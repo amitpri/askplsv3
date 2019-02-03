@@ -656,6 +656,7 @@ class TopicController extends Controller
                     'topic_name' => "What is your review!",  
                     'type' => 'private',
                     'url' => $url,  
+                    'anonymous' => 0,
                     'status' => 1,                     
                 ]);
 
