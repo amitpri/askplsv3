@@ -1013,7 +1013,7 @@ class TopicController extends Controller
         $inptopicname = $request->topicname;
         $inpreview = $request->review; 
 
-        $topic = ShowTopicCategory::where('id','=',$inptopicid)->where('topic_name','=',$inptopicname)->first(['id','user_id', 'url' , 'comments', 'topicable_type']);
+        $topic = ShowTopicCategory::where('id','=',$inptopicid)->where('topic_name','=',$inptopicname)->first(['id','user_id', 'url' , 'comments', 'topicable_type']); 
 
         if(isset($topic)){
 
@@ -1028,7 +1028,7 @@ class TopicController extends Controller
             if( $topicable_type == 'App\School') { $topic_type = 'Schools';}
             if( $topicable_type == 'App\College') { $topic_type = 'Colleges';}
             if( $topicable_type == 'App\Restaurant') { $topic_type = 'Restaurants';}
-            if( $topicable_type == 'App\FitnessCenter') { $topic_type = 'FitnessCenters';} 
+            if( $topicable_type == 'App\FitnessCenter') { $topic_type = 'FitnessCenters';}  
 
             $postfeedback = ShowReview::create(
                 [   
