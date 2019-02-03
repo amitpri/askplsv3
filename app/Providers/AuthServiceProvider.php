@@ -27,6 +27,7 @@ use App\Hotel;
 use App\Lawyer;
 use App\Restaurant;
 use App\School;
+use App\Track;
 
 use App\Policies\ProfilePolicy;
 use App\Policies\GroupPolicy;
@@ -54,6 +55,7 @@ use App\Policies\HotelPolicy;
 use App\Policies\LawyerPolicy;
 use App\Policies\RestaurantPolicy;
 use App\Policies\SchoolPolicy;
+use App\Policies\TrackPolicy;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -93,6 +95,8 @@ class AuthServiceProvider extends ServiceProvider
         Lawyer::class => LawyerPolicy::class,
         Restaurant::class => RestaurantPolicy::class,
         School::class => SchoolPolicy::class,
+        Track::class => TrackPolicy::class,
+
 
         
     ];

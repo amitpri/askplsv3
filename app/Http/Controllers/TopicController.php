@@ -10,6 +10,7 @@ use App\Feedback;
 use App\Category;
 use App\ShowCategory;
 use App\City;
+use App\Track;
 
 use App\ShowTopicCategory;
 use App\ShowReview;
@@ -29,12 +30,34 @@ use Illuminate\Support\Facades\Redis;
 
 class TopicController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
 
         $categories = ShowCategory::where('status', '=' , 1)->get(['id','category']);
 
         $categorytype = '';
+
+        $userid = "1";
+        $user_name ="";
+        $user_email ="";
+        $ipaddress = $request->getClientIp();
+        $page ="topics";
+        $url ="";
+        $type ="";
+        $referrer ="";
+
+
+        $track = Track::create(
+                [   
+                    'user_id' => $userid,
+                    'user_name' => $user_name,
+                    'user_email' => $user_email,
+                    'ipaddress' => $ipaddress,   
+                    'page' => $page,
+                    'url' => $url,
+                    'type' => $type,
+                    'referrer' => $referrer,                             
+                ]);
 
         return view('topics',compact('categories', 'categorytype'));
    

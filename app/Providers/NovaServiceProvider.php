@@ -38,6 +38,7 @@ use App\Nova\Hotel;
 use App\Nova\Doctor;
 use App\Nova\Lawyer;
 use App\Nova\TopicCategory;
+use App\Nova\Track;
 
 use App\Nova\School;
 use App\Nova\College;
@@ -79,6 +80,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     Lawyer::class,
                     Restaurant::class,
                     School::class,
+                    Track::class,
  
                 ]);
      
