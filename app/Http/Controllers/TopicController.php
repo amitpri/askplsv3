@@ -41,12 +41,11 @@ class TopicController extends Controller
         $user_name ="";
         $user_email ="";
         $ipaddress = $request->getClientIp();
-        $page ="topics";
-        $url ="";
+        $page ="index";
+        $url_code ="";
         $type ="";
         $referrer ="";
-
-
+ 
         $track = Track::create(
                 [   
                     'user_id' => $userid,
@@ -54,9 +53,9 @@ class TopicController extends Controller
                     'user_email' => $user_email,
                     'ipaddress' => $ipaddress,   
                     'page' => $page,
-                    'url' => $url,
+                    'url' => $url_code,
                     'type' => $type,
-                    'referrer' => $referrer,                             
+                    'referrer' => $referrer,                              
                 ]);
 
         return view('topics',compact('categories', 'categorytype'));
@@ -604,10 +603,34 @@ class TopicController extends Controller
         return $topics;
     }
 
-    public function categoryurl($category, $url){
+    public function categoryurl(Request $request,$category, $url ){
 
         $user_code = $url;
         $categorytype = $category;
+
+
+        $userid = "1";
+        $user_name ="";
+        $user_email ="";
+        $ipaddress = $request->getClientIp();
+        $page ="list topic";
+        $url_code = $url;
+        $type = $categorytype;
+        $referrer ="";
+
+
+        $track = Track::create(
+                [   
+                    'user_id' => $userid,
+                    'user_name' => $user_name,
+                    'user_email' => $user_email,
+                    'ipaddress' => $ipaddress,   
+                    'page' => $page,
+                    'url' => $url_code,
+                    'type' => $type,
+                    'referrer' => $referrer,                             
+                ]);
+
 
         if( $categorytype == 'Colleges' || $categorytype == 'colleges'){
             
@@ -889,6 +912,31 @@ class TopicController extends Controller
         
         $url = $request->url;
         $categorytype = $request->type;
+
+
+        $userid = "1";
+        $user_name ="";
+        $user_email ="";
+        $ipaddress = $request->getClientIp();
+        $page ="show topic";
+        $url_code = $url;
+        $type = $categorytype;
+        $referrer ="";
+
+
+        $track = Track::create(
+                [   
+                    'user_id' => $userid,
+                    'user_name' => $user_name,
+                    'user_email' => $user_email,
+                    'ipaddress' => $ipaddress,   
+                    'page' => $page,
+                    'url' => $url_code,
+                    'type' => $type,
+                    'referrer' => $referrer,                             
+                ]);
+
+
 
         $topic = ShowTopicCategory::where('url','=',$url)->where('status','=',1)->first(['id','url' , 'topic_name' , 'topicable_type']);  
         
