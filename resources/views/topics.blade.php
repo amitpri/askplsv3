@@ -161,7 +161,7 @@
 
                             <input   type="text" id="workspace" class="form-control form-control-lg not-dark" :placeholder="vPlaceholders" style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;" v-model="searchcategoryname"  @keyup="filteredcategoryname" >
 
-                            <div class="col-md-4 col-lg-3">
+                            <div class="col-lg-4 col-xl-4">
 
                                 <a @click="filteredtopics"  href="" class="button btn-block" style="border-radius: 3px;">@{{ vSearchName}}</a>  
                             </div>
