@@ -114,7 +114,7 @@
                                 <ul> 
                                     <li><a href="/t"><div>Home</div></a></li> 
                                     <li><a href="/about"><div>About AskPls</div></a></li> 
-                                    <li><a href="/support"><div>Support</div></a></li> 
+                                    <li><a href="/support"><div>Support1</div></a></li> 
                                 </ul>
                             </nav><!-- #primary-menu end -->
                         </div>
