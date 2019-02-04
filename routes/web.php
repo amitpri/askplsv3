@@ -4,7 +4,10 @@ Auth::routes(['verify' => true]);
 
 Route::get('/toconfirm', 'IndexController@toconfirm');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function () {
+    return redirect('/portal');
+});
+
 Route::get('/cities/get', 'IndexController@citiesget');
 Route::get('/categories/gettopics', 'TopicController@gettopics');
 
