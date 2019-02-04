@@ -56,11 +56,35 @@ class IndexController extends Controller
 
     }  
 
-    public function faqs()
+    public function support()
     {
  
 
-    	return view('faqs');
+    	return view('support');
+
+    }  
+
+    public function supporttopics()
+    {
+ 
+
+        return view('supporttopics');
+
+    }  
+
+    public function supportreviews()
+    {
+ 
+
+        return view('supportreviews');
+
+    }  
+
+    public function supportlogin()
+    {
+ 
+
+        return view('supportlogin');
 
     }  
 
