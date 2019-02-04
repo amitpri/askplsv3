@@ -159,6 +159,7 @@
 					<p style="font-weight: 300; opacity: .7; color: black;  ">
 							Review topic for <a :href="'/c/' +  categorytype + '/' + topic.user_code">@{{ topic.name }}</a>  </p> 
 							<span>Posted on @{{ topic.created_at }} <span v-if="topic.user_name"> by <a target="_blank" :href="'/p/' + topic.user_code">@{{topic.user_name}}</a></span></span>
+					<p>&nbsp;</p>
 	 				
 	 				<p  style="color: black; font-size: 18px;    "><span v-html="topic.details"> </span></p>
 
