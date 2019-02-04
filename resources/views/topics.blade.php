@@ -1077,7 +1077,7 @@
                         this.vSearchName = "Search Colleges";
                     }
                     if(this.vCatName == 'Companies'){
-                        this.vPlaceholders = "Enter Company name...";
+                        this.vPlaceholders = "Companies..";
                         this.vSearchName = "Search Companies";
                     } 
                     if(this.vCatName == 'Doctors'){
