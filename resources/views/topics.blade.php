@@ -602,43 +602,43 @@
                     $categorytype = this.categorytype;
         
                     if( $categorytype == 'colleges'){
-                        this.vPlaceholders = "Enter College or Institute name..";
+                        this.vPlaceholders = "Colleges / Institutes...";
                         this.vSearchName = "Search Colleges";
                         this.categorytypename = 'Colleges';
                     }
                     if( $categorytype == 'companies'){
-                        this.vPlaceholders = "Enter Company name..";
+                        this.vPlaceholders = "Companies..";
                         this.vSearchName = "Search Companies";
                         this.categorytypename = 'Companies';
                     } 
                     if( $categorytype == 'doctors'){
-                        this.vPlaceholders = "Enter Doctor or Hospital name";
+                        this.vPlaceholders = "Doctors / Hospitals...";
                         this.vSearchName = "Search Doctors / Hospitals";
                         this.categorytypename = 'Doctors';
                     }
                     if( $categorytype == 'fitnesscenters'){
-                        this.vPlaceholders = "Enter Fitness Center name..";
+                        this.vPlaceholders = "Fitness Centers...";
                         this.vSearchName = "Search Fitness Center";
                         this.categorytypename = 'Fitness Centers'; 
                     }
                     if( $categorytype == 'hotels'){
-                        this.vPlaceholders = "Enter Hotel name..";
+                        this.vPlaceholders = "Hotels...";
                         this.vSearchName = "Search Hotels";
                         this.categorytypename = 'Hotels'; 
                     }
                     if( $categorytype == 'lawyers'){
-                        this.vPlaceholders = "Enter Lawyer name..";
+                        this.vPlaceholders = "Lawyers...";
                         this.vSearchName = "Search Lawyers";
                         this.categorytypename = 'Lawyers';
                     }
                     if( $categorytype == 'restaurants'){
-                        this.vPlaceholders = "Enter Restaurant name..";
+                        this.vPlaceholders = "Restaurants...";
                         this.vSearchName = "Search Restaurants";
                         this.categorytypename = 'Restaurants';
                     }
 
                     if( $categorytype == 'schools'){
-                        this.vPlaceholders = "Enter School name..";
+                        this.vPlaceholders = "Schools...";
                         this.vSearchName = "Search Schools";
                         this.categorytypename = 'Schools'; 
                     }
@@ -1073,36 +1073,36 @@
 
                     
                     if(this.vCatName == 'Colleges'){
-                        this.vPlaceholders = "Enter College or Institute name..";
+                        this.vPlaceholders = "Colleges / Institutes...";
                         this.vSearchName = "Search Colleges";
                     }
                     if(this.vCatName == 'Companies'){
-                        this.vPlaceholders = "Enter Company name..";
+                        this.vPlaceholders = "Enter Company name...";
                         this.vSearchName = "Search Companies";
                     } 
                     if(this.vCatName == 'Doctors'){
-                        this.vPlaceholders = "Enter Doctor or Hospital name";
+                        this.vPlaceholders = "Doctors / Hospitals...";
                         this.vSearchName = "Search Doctors";
                     }
                     if(this.vCatName == 'Fitness Centers'){
-                        this.vPlaceholders = "Enter Fitness Center name..";
+                        this.vPlaceholders = "Fitness Centers...";
                         this.vSearchName = "Search Fitness Center";
                     }
                     if(this.vCatName == 'Hotels'){
-                        this.vPlaceholders = "Enter Hotel name..";
+                        this.vPlaceholders = "Hotels...";
                         this.vSearchName = "Search Hotels";
                     }
                     if(this.vCatName == 'Lawyers'){
-                        this.vPlaceholders = "Enter Lawyer name..";
+                        this.vPlaceholders = "Lawyers...";
                         this.vSearchName = "Search Lawyers";
                     }
                     if(this.vCatName == 'Restaurants'){
-                        this.vPlaceholders = "Enter Restaurant name..";
+                        this.vPlaceholders = "Restaurants...";
                         this.vSearchName = "Search Restaurants";
                     }
 
                     if(this.vCatName == 'Schools'){
-                        this.vPlaceholders = "Enter School name..";
+                        this.vPlaceholders = "School...";
                         this.vSearchName = "Search Schools";
                     }
 
