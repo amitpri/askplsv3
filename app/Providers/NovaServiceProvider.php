@@ -44,6 +44,7 @@ use App\Nova\School;
 use App\Nova\College;
 use App\Nova\Restaurant;
 use App\Nova\FitnessCenter;
+use App\Nova\Membership;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -68,6 +69,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     Job::class,
                     Account::class,
                     Setting::class,
+                    Membership::class,
                     Tenant::class,
                     TenantUser::class, 
                     ContactForm::class,
@@ -81,6 +83,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     Restaurant::class,
                     School::class,
                     Track::class,
+
  
                 ]);
      
