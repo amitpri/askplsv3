@@ -188,7 +188,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-7 col-md-8" style="margin-top: -100px;">
+                            <div class="col-lg-7 col-md-8" >
                                 <div id="section-pricing" class="page-section nopadding nomargin">
 
                                     <div id="pricing-switch" class="pricing row align-items-end bottommargin-lg clearfix">
