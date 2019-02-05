@@ -45,7 +45,7 @@ class Membership extends Resource
         return [
             ID::make()->sortable()->sortable(), 
 
-            Text::make('URL')->withMeta(['extraAttributes' => [
+            Text::make('user_code')->withMeta(['extraAttributes' => [
                           'readonly' => true
                     ]]),
 
