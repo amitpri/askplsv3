@@ -25,8 +25,7 @@
     <script src="/axios/axios.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.15.4"></script>
-
-    <link rel="stylesheet" href="css/colors.php?color=FE9603" type="text/css" /> <!-- Theme Color -->
+ 
     <link rel="stylesheet" href="seo/css/fonts.css" type="text/css" />
     <link rel="stylesheet" href="seo/seo.css" type="text/css" />
 
@@ -197,8 +196,7 @@
                                         <div class="col-md-6">
 
                                             <div class="pricing-box">
-                                                <div class="pricing-title">
-                                                    <img class="mb-2 nobg noradius" src="seo/images/icons/man.svg" alt="Pricing Icon" width="50">
+                                                <div class="pricing-title"> 
                                                     <h3>Free</h3>
                                                 </div> 
                                                 <div class="pricing-features border-bottom-0">
@@ -218,8 +216,7 @@
                                         <div class="col-md-6">
 
                                             <div class="pricing-box">
-                                                <div class="pricing-title">
-                                                    <img class="mb-2 nobg noradius" src="seo/images/icons/group.svg" alt="Pricing Icon" width="60">
+                                                <div class="pricing-title"> 
                                                     <h3>Paid Plan</h3>  
                                                 </div>
                                                 <div class="pricing-price">
