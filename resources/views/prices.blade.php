@@ -224,7 +224,7 @@
                                                 </div>
                                                 <div class="pricing-price">
                                                     <div class="pts-switch-content-left"><span class="price-unit">&dollar;</span>10<span class="price-tenure">Per Month per user</span></div>
-                                                    <div class="pts-switch-content-right"><span class="price-unit">&dollar;</span>75<span class="price-tenure">Per Year</span></div>
+                                                    <div class="pts-switch-content-right"><span class="price-unit">&dollar;</span>75<span class="price-tenure">Per Year per user</span></div>
                                                 </div>
                                                 <div class="pricing-features border-bottom-0">
                                                     <ul>
