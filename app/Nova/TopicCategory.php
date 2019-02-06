@@ -24,7 +24,7 @@ use Outhebox\NovaHiddenField\HiddenField;
 use OwenMelbz\RadioField\RadioButton;
  
 use Laravel\Nova\Fields\Trix;
-   
+use Sixlive\TextCopy\TextCopy;
 
 use App\Nova\Hotel;
 use App\Nova\Doctor;
@@ -101,13 +101,48 @@ class TopicCategory extends Resource
                     ])->sortable()->default('1')->hideFromIndex(), 
 
                     HiddenField::make( 'url')->default(mt_rand(100000000, 999999999))->hideFromIndex()->hideFromDetail()->hideWhenUpdating(),
+
+                    TextCopy::make('Public URL' ,function(){
+ 
+                        if($this->topicable_type == 'App\Company'){
+
+                                return 'https://askpls.com/t/d?type=companies&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\Doctor'){
+
+                                return 'https://askpls.com/t/d?type=doctors&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\School'){
+
+                                return 'https://askpls.com/t/d?type=schools&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\College'){
+
+                                return 'https://askpls.com/t/d?type=colleges&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\Restaurant'){
+
+                                return 'https://askpls.com/t/d?type=restaurants&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\Hotel'){
+
+                                return 'https://askpls.com/t/d?type=hotels&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\Lawyer'){
+
+                                return 'https://askpls.com/t/d?type=lawyers&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\FitnessCenter'){
+
+                                return 'https://askpls.com/t/d?type=fitnesscenters&url=' . $this->url;
+                        } 
+
+                    })->hideWhenUpdating(),
  
                 ];
 
         }else{
-
-            if( $loggedintenant == 0 ){
-
+ 
                 return [
                     ID::make()->sortable()->hideFromIndex(), 
 
@@ -140,8 +175,7 @@ class TopicCategory extends Resource
                         ]]),  
 
                     Trix::make('Details'), 
-
-                     
+                   
 
                     RadioButton::make('Active', 'status')
                     ->options([ 
@@ -150,18 +184,46 @@ class TopicCategory extends Resource
                     ])->sortable()->default('1')->hideFromIndex(), 
 
                     HiddenField::make( 'url')->default(mt_rand(100000000, 999999999))->hideFromIndex()->hideFromDetail()->hideWhenUpdating(),
+
+                    TextCopy::make('Public URL' ,function(){
+ 
+                        if($this->topicable_type == 'App\Company'){
+
+                                return 'https://askpls.com/t/d?type=companies&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\Doctor'){
+
+                                return 'https://askpls.com/t/d?type=doctors&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\School'){
+
+                                return 'https://askpls.com/t/d?type=schools&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\College'){
+
+                                return 'https://askpls.com/t/d?type=colleges&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\Restaurant'){
+
+                                return 'https://askpls.com/t/d?type=restaurants&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\Hotel'){
+
+                                return 'https://askpls.com/t/d?type=hotels&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\Lawyer'){
+
+                                return 'https://askpls.com/t/d?type=lawyers&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\FitnessCenter'){
+
+                                return 'https://askpls.com/t/d?type=fitnesscenters&url=' . $this->url;
+                        } 
+
+                    })->hideWhenUpdating(),
           
    
-                ];
-            }else{
-
-                return [
-                    ID::make()->sortable()->hideFromIndex(), 
-
-                      
-                ];
-
-            }
+                ]; 
         }
 
         

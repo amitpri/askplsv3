@@ -34,6 +34,8 @@ use App\Nova\CollegeMember;
 use App\Nova\RestaurantMember;
 use App\Nova\FitnessCenterMember;
  
+
+use Sixlive\TextCopy\TextCopy; 
 use Laravel\Nova\Fields\MorphTo;
 
 class TopicCategoryMembers extends Resource
@@ -107,6 +109,14 @@ class TopicCategoryMembers extends Resource
                     ])->sortable()->default('1')->hideFromIndex(), 
 
                     HiddenField::make( 'url')->default(mt_rand(100000000, 999999999))->hideFromIndex()->hideFromDetail()->hideWhenUpdating(),
+
+                    TextCopy::make('Public URL' ,function(){
+ 
+
+                        return 'https://askpls.com/p/' . $this->url;
+ 
+
+                    })->hideWhenUpdating(),
  
                 ];
 
@@ -154,6 +164,13 @@ class TopicCategoryMembers extends Resource
                     ])->sortable()->default('1')->hideFromIndex(), 
 
                     HiddenField::make( 'url')->default(mt_rand(100000000, 999999999))->hideFromIndex()->hideFromDetail()->hideWhenUpdating(),
+
+                    TextCopy::make('Public URL' ,function(){
+ 
+
+                            return 'https://askpls.com/p/' . $this->url;
+ 
+                    })->hideWhenUpdating(),
           
    
                 ];
