@@ -47,6 +47,9 @@ class TopicCategoryMembersPolicy
     public function update(User $user, TopicCategoryMembers $topiccategorymembers)
     {
         $loggedinid = Auth::user()->id;
+        $paid = Auth::user()->paid;
+        $topicable_id = Auth::user()->topicable_id;
+        $topicable_type = Auth::user()->topicable_type;
 
         if ( $user->email == 'amitpri@gmail.com' ) {
 
@@ -54,7 +57,7 @@ class TopicCategoryMembersPolicy
         }else
         {
 
-            if ( $user->user_id == $loggedinid ) {
+            if ( $paid == 1 ) {
 
                 return 1 === 1;
 
@@ -68,6 +71,9 @@ class TopicCategoryMembersPolicy
     public function delete(User $user, TopicCategoryMembers $topiccategorymembers)
     {
         $loggedinid = Auth::user()->id;
+        $paid = Auth::user()->paid;
+        $topicable_id = Auth::user()->topicable_id;
+        $topicable_type = Auth::user()->topicable_type;
 
         if ( $user->email == 'amitpri@gmail.com' ) {
 
@@ -75,7 +81,7 @@ class TopicCategoryMembersPolicy
         }else
         {
 
-            if ( $user->user_id == $loggedinid ) {
+            if ( $paid == 1 ) {
 
                 return 1 === 1;
 

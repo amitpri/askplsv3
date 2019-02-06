@@ -86,8 +86,14 @@ Route::get('/st/d/showdetails', 'TopicController@showdoctordetails');
 Route::get('/st/d/messages', 'TopicController@messagesdoctor');
 Route::get('/st/d/postreview', 'TopicController@postreviewdoctor'); 
 
+Route::get('/st/pd/showdetails', 'TopicController@showmemberdetails');  
+Route::get('/st/pd/postreview', 'TopicController@postreviewmember'); 
+
 Route::get('/t/d', 'TopicController@showdoctortopic');
 Route::get('/t/d/categories', 'TopicController@topicscategoriesdoctor');
+
+Route::get('/t/p', 'TopicController@showmembertopic');
+Route::get('/t/p/categories', 'TopicController@topicscategoriesmember');
 
 Route::get('/t/{url}', 'TopicController@show');
 Route::get('/st/d/getmore', 'TopicController@getmoredoctor'); 

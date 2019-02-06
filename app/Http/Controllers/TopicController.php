@@ -13,7 +13,9 @@ use App\City;
 use App\Track;
 
 use App\ShowTopicCategory;
+use App\ShowTopicMemberCategory;
 use App\ShowReview;
+use App\ShowReviewMember;
 use App\Doctor;
 use App\Lawyer;
 use App\Company;
@@ -24,7 +26,7 @@ use App\Restaurant;
 use App\FitnessCenter;
 
 use App\Mail\PostCategoryReview;
-
+use App\Mail\PostCategoryMemberReview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
@@ -1099,6 +1101,148 @@ class TopicController extends Controller
         return $topics;
     }
 
+    public function showmemberdetails(Request $request)
+    {
+ 
+        $url = $request->url; 
+        $categorytype = $request->categorytype;  
+
+        if( $categorytype == 'Colleges' || $categorytype == 'colleges'){
+            
+            $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`collegekey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
+                                        FROM `topic_category_members` a ,  `colleges` b , `users` c
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = c.`id`
+                                        AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
+        
+
+
+        }
+        if( $categorytype == 'Companies' || $categorytype == 'companies'){
+
+            $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`companykey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
+                                        FROM `topic_category_members` a ,  `companies` b , `users` c
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = c.`id`
+                                        AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
+        
+ 
+        }
+        if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
+
+            $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`doctorkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
+                                        FROM `topic_category_members` a ,  `doctors` b , `users` c
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = c.`id`
+                                        AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
+        
+ 
+        }
+        if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
+
+            $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`fitnesscenterkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
+                                        FROM `topic_category_members` a ,  `fitnesscenters` b , `users` c
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = c.`id`
+                                        AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
+        
+ 
+
+        }
+        if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
+
+            $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`hotelkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
+                                        FROM `topic_category_members` a ,  `hotels` b , `users` c
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = c.`id`
+                                        AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
+        
+ 
+        }
+        if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
+
+            $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`lawyerkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
+                                        FROM `topic_category_members` a ,  `lawyers` b , `users` c
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = c.`id`
+                                        AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
+         
+        }
+        if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
+
+            $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`restaurantkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
+                                        FROM `topic_category_members` a ,  `restaurants` b , `users` c
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = c.`id`
+                                        AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
+        
+ 
+        }
+
+        if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
+
+            $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`schoolkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
+                                        FROM `topic_category_members` a ,  `schools` b , `users` c
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = c.`id`
+                                        AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
+        
+ 
+
+         }   
+
+
+            foreach ($topics as $topic) {
+            
+                $id = $topic->id;
+                $url = $topic->url;
+                $user_id = $topic->user_id;
+                $topic_name = $topic->topic_name;
+                $details = $topic->details;
+                $username = $topic->name;
+                $created_at = $topic->created_at; 
+                $user_code = $topic->user_code;
+
+                
+            }
+
+        
+     
+        return $topics;
+    }
+
     public function messagesdoctor(Request $request)
     {
         $inpid = $request->id; 
@@ -1134,6 +1278,7 @@ class TopicController extends Controller
             if( $topicable_type == 'App\School') { $topic_type = 'Schools';}
             if( $topicable_type == 'App\College') { $topic_type = 'Colleges';}
             if( $topicable_type == 'App\Restaurant') { $topic_type = 'Restaurants';}
+            if( $topicable_type == 'App\Lawyer') { $topic_type = 'Lawyers';}
             if( $topicable_type == 'App\FitnessCenter') { $topic_type = 'FitnessCenters';}  
 
             $postfeedback = ShowReview::create(
@@ -1156,6 +1301,61 @@ class TopicController extends Controller
      
             
             \Mail::to($emailid)->queue(new PostCategoryReview($url,$inptopicname,$name,$topic_type));
+        
+        }else{
+
+            $topiccomments = 0; 
+        }
+ 
+        return $postfeedback;
+   
+    }
+
+    public function postreviewmember(Request $request)
+    {   
+
+        $inptopicid = $request->topicid;
+        $inptopicname = $request->topicname;
+        $inpreview = $request->review; 
+
+        $topic = ShowTopicMemberCategory::where('id','=',$inptopicid)->where('topic_name','=',$inptopicname)->first(['id','user_id', 'url' , 'comments', 'topicable_type']); 
+
+        if(isset($topic)){
+
+            $topiccomments = $topic->comments; 
+            $userid = $topic->user_id;
+            $url = $topic->url;
+            $topicable_type = $topic->topicable_type;
+
+            if( $topicable_type == 'App\DoctorMember') { $topic_type = 'Doctors';}
+            if( $topicable_type == 'App\HotelMember') { $topic_type = 'hotels';}
+            if( $topicable_type == 'App\CompanyMember') { $topic_type = 'Companies';}
+            if( $topicable_type == 'App\SchoolMember') { $topic_type = 'Schools';}
+            if( $topicable_type == 'App\CollegeMember') { $topic_type = 'Colleges';}
+            if( $topicable_type == 'App\RestaurantMember') { $topic_type = 'Restaurants';}
+            if( $topicable_type == 'App\LawyerMember') { $topic_type = 'Lawyers';}
+            if( $topicable_type == 'App\FitnessCenterMember') { $topic_type = 'FitnessCenters';}  
+
+            $postfeedback = ShowReviewMember::create(
+                [   
+                    'user_id' => $userid,
+                    'topic_categories_id' => $inptopicid,
+                    'topic_name' => $inptopicname,
+                    'review' => $inpreview,
+                //    'published' => 1,
+                //    'status' => 1,                                 
+                ]); 
+
+            $topicupdate = ShowTopicMemberCategory::where('id', $inptopicid)->where('topic_name','=',$inptopicname)
+                        ->update(['comments' => $topiccomments + 1]);
+
+            $userdetails = User::where('id','=',$userid)->first(['id','email','name']);
+
+            $emailid = $userdetails->email;
+            $name = $userdetails->name;
+     
+            
+            \Mail::to($emailid)->queue(new PostCategoryMemberReview($url,$inptopicname,$name,$topic_type));
         
         }else{
 
@@ -1312,4 +1512,43 @@ class TopicController extends Controller
         return $topics;
    
     } 
+
+
+    public function showmembertopic(Request $request)
+    {    
+        
+        $url = $request->url;
+        $categorytype = $request->type;
+
+        $userid = "1";
+        $user_name ="";
+        $user_email ="";
+        $ipaddress = $request->getClientIp();
+        $page ="show member topic";
+        $url_code = $url;
+        $type = $categorytype;
+        $referrer ="";
+
+
+        $track = Track::create(
+                [   
+                    'user_id' => $userid,
+                    'user_name' => $user_name,
+                    'user_email' => $user_email,
+                    'ipaddress' => $ipaddress,   
+                    'page' => $page,
+                    'url' => $url_code,
+                    'type' => $type,
+                    'referrer' => $referrer,                             
+                ]);
+
+
+
+        $topic = ShowTopicMemberCategory::where('url','=',$url)->where('status','=',1)->first(['id','url' , 'topic_name' , 'topicable_type']);  
+        
+        $id = $topic->id;
+        $topic_name = $topic->topic_name; 
+       
+        return view('showtopicmember',compact('url','id' ,'topic_name', 'categorytype'));
+    }
 }

@@ -112,9 +112,38 @@ class TopicCategoryMembers extends Resource
 
                     TextCopy::make('Public URL' ,function(){
  
+                        if($this->topicable_type == 'App\Company'){
 
-                        return 'https://askpls.com/p/' . $this->url;
- 
+                                return 'https://askpls.com/t/p?type=companies&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\Doctor'){
+
+                                return 'https://askpls.com/t/p?type=doctors&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\School'){
+
+                                return 'https://askpls.com/t/p?type=schools&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\College'){
+
+                                return 'https://askpls.com/t/p?type=colleges&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\Restaurant'){
+
+                                return 'https://askpls.com/t/p?type=restaurants&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\Hotel'){
+
+                                return 'https://askpls.com/t/p?type=hotels&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\Lawyer'){
+
+                                return 'https://askpls.com/t/p?type=lawyers&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\FitnessCenter'){
+
+                                return 'https://askpls.com/t/p?type=fitnesscenters&url=' . $this->url;
+                        } 
 
                     })->hideWhenUpdating(),
  
@@ -167,9 +196,39 @@ class TopicCategoryMembers extends Resource
 
                     TextCopy::make('Public URL' ,function(){
  
+                        if($this->topicable_type == 'App\CompanyMember'){
 
-                            return 'https://askpls.com/p/' . $this->url;
- 
+                                return 'https://askpls.com/t/p?type=companies&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\DoctorMember'){
+
+                                return 'https://askpls.com/t/p?type=doctors&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\SchoolMember'){
+
+                                return 'https://askpls.com/t/p?type=schools&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\CollegeMember'){
+
+                                return 'https://askpls.com/t/p?type=colleges&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\RestaurantMember'){
+
+                                return 'https://askpls.com/t/p?type=restaurants&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\HotelMember'){
+
+                                return 'https://askpls.com/t/p?type=hotels&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\LawyerMember'){
+
+                                return 'https://askpls.com/t/p?type=lawyers&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\FitnessCenterMember'){
+
+                                return 'https://askpls.com/t/p?type=fitnesscenters&url=' . $this->url;
+                        } 
+
                     })->hideWhenUpdating(),
           
    
