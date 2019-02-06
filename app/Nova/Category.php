@@ -23,6 +23,11 @@ class Category extends Resource
 
     public static $model = 'App\Category';
 
+    public static function availableForNavigation(Request $request)
+    {
+        return false;
+    }
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *

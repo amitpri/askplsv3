@@ -9,21 +9,18 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
 use Outhebox\NovaHiddenField\HiddenField;
 use OwenMelbz\RadioField\RadioButton;
+use Laravel\Nova\Fields\MorphTo;
 
 use Laravel\Nova\Resource as NovaResource;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Membership extends Resource
 {
-    /**
-     * The model the resource corresponds to.
-     *
-     * @var string
-     */
+     
 
     public static $group = "4.Super Admin";
 
-    public static $model = 'App\\Account';  
+    public static $model = 'App\\Membership';  
 
     public static $title = 'name';
  
@@ -31,19 +28,23 @@ class Membership extends Resource
 
         'id', 'name', 'email', 
     ];
- 
-
-    public static function indexQuery(NovaRequest $request, $query)
-    {
-
-     //   return $query->where('id', $request->user()->id);
-
-    }
+  
 
     public function fields(Request $request)
     {
         return [
             ID::make()->sortable()->sortable(), 
+
+            MorphTo::make('Topicable')->types([
+                        Doctor::class,
+                        Hotel::class,
+                        Company::class,
+                        Lawyer::class,
+                        School::class,
+                        College::class,
+                        Restaurant::class,
+                        FitnessCenter::class,
+                    ])->searchable(),
 
             Text::make('user_code')->withMeta(['extraAttributes' => [
                           'readonly' => true

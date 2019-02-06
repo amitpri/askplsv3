@@ -25,6 +25,7 @@ use App\Nova\Member;
 use App\Nova\Payment;
 use App\Nova\Setting;
 use App\Nova\Company; 
+use App\Nova\CompanyMember; 
 use App\Nova\Feedback; 
 use App\Nova\User;
 use App\Nova\TopicLog;
@@ -35,9 +36,13 @@ use App\Nova\TenantUser;
 use App\Nova\Category;
 use App\Nova\ContactForm;
 use App\Nova\Hotel;
+use App\Nova\HotelMember;
 use App\Nova\Doctor;
+use App\Nova\DoctorMember;
 use App\Nova\Lawyer;
+use App\Nova\LawyerMember;
 use App\Nova\TopicCategory;
+use App\Nova\TopicCategoryMembers;
 use App\Nova\Track;
 
 use App\Nova\School;
@@ -45,6 +50,11 @@ use App\Nova\College;
 use App\Nova\Restaurant;
 use App\Nova\FitnessCenter;
 use App\Nova\Membership;
+use App\Nova\SchoolMember;
+use App\Nova\CollegeMember;
+use App\Nova\RestaurantMember;
+use App\Nova\FitnessCenterMember;
+use App\Nova\MembershipMember;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -60,9 +70,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     Group::class,
                     GroupProfile::class,
                     DataImport::class,
+                    TopicCategoryMembers::class,
                     Topic::class,  
-                    Review::class,
-                    Template::class, 
+                    Review::class, 
                     Category::class,
                     TopicLog::class,
                     TopicMail::class,
@@ -75,14 +85,23 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     ContactForm::class,
                     TopicCategory::class,
                     College::class,
+                    CollegeMember::class,
                     Company::class,
+                    CompanyMember::class,
                     Doctor::class,
+                    DoctorMember::class,
                     FitnessCenter::class,
+                    FitnessCenterMember::class,
                     Hotel::class,
+                    HotelMember::class,
                     Lawyer::class,
+                    LawyerMember::class,
                     Restaurant::class,
+                    RestaurantMember::class,
                     School::class,
+                    SchoolMember::class, 
                     Track::class,
+                    Template::class,
 
  
                 ]);

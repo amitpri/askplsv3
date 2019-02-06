@@ -6,16 +6,12 @@ use Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
-class Doctor extends Model
+class LawyerMember extends Model
 {
-    public function topiccategories()
-    {
-  
-
-    	return $this->morphMany('App\TopicCategory', 'topicable');
-
-    }
-
+ 
+    protected $table = 'lawyers';
+ 
+ 
     protected static function boot()
     {
         parent::boot();
@@ -25,11 +21,16 @@ class Doctor extends Model
 
             $loggedinid = Auth::user()->id;
             $loggedinemail = Auth::user()->email;
+            $loggedintopicable_id = Auth::user()->topicable_id;
+            $loggedintopicable_type = Auth::user()->topicable_type;
 
-            if( $loggedinemail != 'amitpri@gmail.com' ){
+            if( $loggedintopicable_type == 'App\Lawyer' ){
                 
-                $builder->where('id', '=', $loggedinid);
+                $builder->where('id', '=', $loggedintopicable_id);
 
+            }else{
+
+                $builder->where('id', '=', -1);
             }
             
 

@@ -28,6 +28,8 @@ use App\Lawyer;
 use App\Restaurant;
 use App\School;
 use App\Track;
+use App\Membership;
+use App\TopicCategoryMembers;
 
 use App\Policies\ProfilePolicy;
 use App\Policies\GroupPolicy;
@@ -46,7 +48,6 @@ use App\Policies\TenantUserPolicy;
 use App\Policies\CategoryPolicy;
 use App\Policies\TemplatePolicy;
 use App\Policies\ContactFormPolicy;
-
 use App\Policies\CollegePolicy;
 use App\Policies\CompanyPolicy;
 use App\Policies\DoctorPolicy;
@@ -56,6 +57,9 @@ use App\Policies\LawyerPolicy;
 use App\Policies\RestaurantPolicy;
 use App\Policies\SchoolPolicy;
 use App\Policies\TrackPolicy;
+
+use App\Policies\MembershipPolicy;
+use App\Policies\TopicCategoryMembersPolicy;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -96,6 +100,9 @@ class AuthServiceProvider extends ServiceProvider
         Restaurant::class => RestaurantPolicy::class,
         School::class => SchoolPolicy::class,
         Track::class => TrackPolicy::class,
+
+        Membership::class => MembershipPolicy::class,
+        TopicCategoryMembers::class => TopicCategoryMembersPolicy::class,
 
 
         
