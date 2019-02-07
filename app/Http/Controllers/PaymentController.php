@@ -64,15 +64,15 @@ class PaymentController extends Controller
         $checkSum = "";
         $paramList = array();
         // Create an array having all required parameters for creating checksum.
-        $paramList["MID"] = 'Websit5739737375544';
+        $paramList["MID"] = 'NnrdcW67942208094119';
         $paramList["ORDER_ID"] = $order_id;
         $paramList["CUST_ID"] = $order_id;
         $paramList["INDUSTRY_TYPE_ID"] = 'Retail';
         $paramList["CHANNEL_ID"] = 'WEB';
         $paramList["TXN_AMOUNT"] = $amount;
-        $paramList["WEBSITE"] = 'WEBSTAGING';
+        $paramList["WEBSITE"] = 'DEFAULT';
         $paramList["CALLBACK_URL"] = url( '/paytm-callback' );
-        $paytm_merchant_key = '31Q9BhP79JVip77';
+        $paytm_merchant_key = '!za3TDCS5p7_ANbP';
         //Here checksum string will return by getChecksumFromArray() function.
         $checkSum = getChecksumFromArray( $paramList, $paytm_merchant_key );
         return array(
@@ -365,9 +365,9 @@ class PaymentController extends Controller
      * Config Paytm Settings from config_paytm.php file of paytm kit
      */
     function getConfigPaytmSettings() {
-        define('PAYTM_ENVIRONMENT', 'TEST'); // PROD
-        define('PAYTM_MERCHANT_KEY', 'Sh_UST3VH&6iaUY5'); //Change this constant's value with Merchant key downloaded from portal
-        define('PAYTM_MERCHANT_MID', 'lspHEn14737765497640'); //Change this constant's value with MID (Merchant ID) received from Paytm
+        define('PAYTM_ENVIRONMENT', 'PROD'); // PROD
+        define('PAYTM_MERCHANT_KEY', '!za3TDCS5p7_ANbP'); //Change this constant's value with Merchant key downloaded from portal
+        define('PAYTM_MERCHANT_MID', 'NnrdcW67942208094119'); //Change this constant's value with MID (Merchant ID) received from Paytm
         define('PAYTM_MERCHANT_WEBSITE', 'DEFAULT'); //Change this constant's value with Website name received from Paytm
         $PAYTM_STATUS_QUERY_NEW_URL='https://securegw-stage.paytm.in/merchant-status/getTxnStatus';
         $PAYTM_TXN_URL='https://securegw-stage.paytm.in/theia/processTransaction';
