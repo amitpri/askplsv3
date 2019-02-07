@@ -159,6 +159,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     new \Tightenco\NovaGoogleAnalytics\PageViewsMetric,
                     new \Tightenco\NovaGoogleAnalytics\VisitorsMetric,
                     new \Tightenco\NovaGoogleAnalytics\MostVisitedPagesCard,
+
+
                     
                     
                     ];
@@ -210,13 +212,17 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     new \PhpJunior\NovaLogViewer\Tool(),
                     new \Christophrumpel\NovaNotifications\NovaNotifications(),
                     new \Dniccum\CustomEmailSender\CustomEmailSender(),
+                    new \Askpls\Payments\Payments(),
+
+               //     \ChrisWare\NovaBreadcrumbs\NovaBreadcrumbs::make(),
 
             ];
 
         }else{
 
             return [
- 
+              
+          //    \ChrisWare\NovaBreadcrumbs\NovaBreadcrumbs::make(),
 
             ];
         }

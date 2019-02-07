@@ -41,7 +41,8 @@
         "spatie/laravel-analytics": "^3.6",
         "spatie/nova-tags-field": "^1.1",
         "tightenco/nova-google-analytics": "^0.1.4",
-        "waynestate/nova-ckeditor4-field": "^0.1.4"
+        "waynestate/nova-ckeditor4-field": "^0.1.4",
+        "askpls/payments": "*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
@@ -95,6 +96,14 @@
         {
             "type": "path",
             "url": "./nova-components/Workspacesummary"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/Payments"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/Payments"
         }
     ],
     "minimum-stability": "dev",

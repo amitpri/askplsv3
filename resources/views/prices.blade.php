@@ -231,8 +231,8 @@
                                                     </ul>
                                                 </div>
                                                 <div class="pricing-action">
-                                                    <div class="pts-switch-content-left"><a href="/registerplanmonthly" class="button button-large button-rounded btn-block capitalize m-0 ls0 button">Get Started</a></div>
-                                                    <div class="pts-switch-content-right"><a href="/registerplanyearly" class="button button-large button-rounded btn-block capitalize m-0 ls0">Get Started</a></div>
+                                                    <div class="pts-switch-content-left"><a href="/portal/payments" class="button button-large button-rounded btn-block capitalize m-0 ls0 button">Get Started</a></div>
+                                                    <div class="pts-switch-content-right"><a href="/portal/payments" class="button button-large button-rounded btn-block capitalize m-0 ls0">Get Started</a></div>
                                                 </div>
                                             </div>
 

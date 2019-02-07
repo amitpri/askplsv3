@@ -13,7 +13,9 @@
         "build-work": "cd nova-components/Work && npm run dev",
         "build-work-prod": "cd nova-components/Work && npm run prod",
         "build-workspacesummary": "cd nova-components/Workspacesummary && npm run dev",
-        "build-workspacesummary-prod": "cd nova-components/Workspacesummary && npm run prod"
+        "build-workspacesummary-prod": "cd nova-components/Workspacesummary && npm run prod",
+        "build-payments": "cd nova-components/Payments && npm run dev",
+        "build-payments-prod": "cd nova-components/Payments && npm run prod"
     },
     "devDependencies": {
         "axios": "^0.18",
