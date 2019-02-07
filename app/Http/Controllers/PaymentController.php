@@ -48,11 +48,11 @@ class PaymentController extends Controller
         $order = new Order();
         $order->order_id = $order_id;
         $order->status = 'pending';
-        $order->price = ( $request->price ) ? $request->price : '';
+        $order->price = ( $request->price ) ? $request->price : '100';
         $order->transaction_id = '';
         $order->save();
         $data_for_request = $this->handlePaytmRequest( $order_id, $order->price );
-        $paytm_txn_url = 'https://securegw-stage.paytm.in/theia/processTransaction';
+        $paytm_txn_url = 'https://securegw.paytm.in/theia/processTransaction';
         $paramList = $data_for_request['paramList'];
         $checkSum = $data_for_request['checkSum'];
         return view( 'paytm-merchant-form', compact( 'paytm_txn_url', 'paramList', 'checkSum' ) );

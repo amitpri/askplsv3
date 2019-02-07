@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72c2788f3eb11c3f23681509edfcbad8",
+    "content-hash": "30aa38074dc431e091a22256d937ab0d",
     "packages": [
         {
             "name": "alexpgates/horizon-link",
@@ -97,58 +97,6 @@
             "description": "Algolia Search API Client for PHP",
             "homepage": "https://github.com/algolia/algoliasearch-client-php",
             "time": "2018-06-19T05:59:53+00:00"
-        },
-        {
-            "name": "anandsiddharth/laravel-paytm-wallet",
-            "version": "v1.0.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/anandsiddharth/laravel-paytm-wallet.git",
-                "reference": "72c29671440ee9ef7d69a7bb5f97659e04f4d619"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/anandsiddharth/laravel-paytm-wallet/zipball/72c29671440ee9ef7d69a7bb5f97659e04f4d619",
-                "reference": "72c29671440ee9ef7d69a7bb5f97659e04f4d619",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "~5.0",
-                "illuminate/support": "~5.0",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Anand\\LaravelPaytmWallet\\PaytmWalletServiceProvider"
-                    ],
-                    "aliases": {
-                        "PaytmWallet": "Anand\\LaravelPaytmWallet\\Facades\\PaytmWallet"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Anand\\LaravelPaytmWallet\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anand Siddharth",
-                    "email": "anandsiddharth21@gmail.com"
-                }
-            ],
-            "description": "Integrate paytm wallet easily with this package. This package uses official Paytm PHP SDK's",
-            "keywords": [
-                "laravel",
-                "paytm wallet"
-            ],
-            "time": "2019-01-25T09:33:05+00:00"
         },
         {
             "name": "anhskohbo/no-captcha",
@@ -674,16 +622,16 @@
         },
         {
             "name": "dniccum/custom-email-sender",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dniccum/nova-custom-email-sender.git",
-                "reference": "7d9e0be998b1727f579915c8d045c24bf5b77d23"
+                "reference": "eed5e7ebacd23ff75e05ca5c755b33ecc8c384e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dniccum/nova-custom-email-sender/zipball/7d9e0be998b1727f579915c8d045c24bf5b77d23",
-                "reference": "7d9e0be998b1727f579915c8d045c24bf5b77d23",
+                "url": "https://api.github.com/repos/dniccum/nova-custom-email-sender/zipball/eed5e7ebacd23ff75e05ca5c755b33ecc8c384e9",
+                "reference": "eed5e7ebacd23ff75e05ca5c755b33ecc8c384e9",
                 "shasum": ""
             },
             "require": {
@@ -723,7 +671,7 @@
                 "nova",
                 "tool"
             ],
-            "time": "2019-02-03T15:13:12+00:00"
+            "time": "2019-02-07T15:21:27+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -3094,16 +3042,16 @@
         },
         {
             "name": "nexmo/client",
-            "version": "1.6.1",
+            "version": "1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Nexmo/nexmo-php.git",
-                "reference": "3dc03ca1dab726a23b757110897740e54304fc65"
+                "reference": "2f79f67f24225ea627ee14578e98c96276cdd4c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Nexmo/nexmo-php/zipball/3dc03ca1dab726a23b757110897740e54304fc65",
-                "reference": "3dc03ca1dab726a23b757110897740e54304fc65",
+                "url": "https://api.github.com/repos/Nexmo/nexmo-php/zipball/2f79f67f24225ea627ee14578e98c96276cdd4c5",
+                "reference": "2f79f67f24225ea627ee14578e98c96276cdd4c5",
                 "shasum": ""
             },
             "require": {
@@ -3138,7 +3086,7 @@
                 }
             ],
             "description": "PHP Client for using Nexmo's API.",
-            "time": "2019-01-02T09:06:47+00:00"
+            "time": "2019-02-07T11:14:34+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -7282,16 +7230,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.3",
+            "version": "7.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2cb759721e53bc05f56487f628c6b9fbb6c18746"
+                "reference": "2896657da5fb237bc316bdfc18c2650efeee0dc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2cb759721e53bc05f56487f628c6b9fbb6c18746",
-                "reference": "2cb759721e53bc05f56487f628c6b9fbb6c18746",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2896657da5fb237bc316bdfc18c2650efeee0dc0",
+                "reference": "2896657da5fb237bc316bdfc18c2650efeee0dc0",
                 "shasum": ""
             },
             "require": {
@@ -7362,7 +7310,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-02-01T05:24:07+00:00"
+            "time": "2019-02-07T14:15:04+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
