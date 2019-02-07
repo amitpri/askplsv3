@@ -48,7 +48,7 @@ class PaymentController extends Controller
         $order = new Order();
         $order->order_id = $order_id;
         $order->status = 'pending';
-        $order->price = ( $request->price ) ? $request->price : '100';
+        $order->price = ( $request->price ) ? $request->price : '10';
         $order->transaction_id = '';
         $order->save();
         $data_for_request = $this->handlePaytmRequest( $order_id, $order->price );
