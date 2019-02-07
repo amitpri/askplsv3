@@ -53,9 +53,9 @@ return [
     'model' => [
         'class' => \App\User::class,
         'email' => 'email',
-        'name' => null,
-        'first_name' => 'first_name',
-        'last_name' => 'last_name',
+        'name' => 'name',
+        'first_name' => null,
+        'last_name' => null,
     ],
 
     /*
