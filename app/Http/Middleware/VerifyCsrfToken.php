@@ -21,7 +21,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'http://127.0.0.1:8000/paytm-callback',
         'http://127.0.0.1:8000/orders',
-        'http://askpls.com/paytm-callback',
-        'http://askpls.com/orders'
+        'https://askpls.com/paytm-callback',
+        'https://askpls.com/orders'
     ];
 }
