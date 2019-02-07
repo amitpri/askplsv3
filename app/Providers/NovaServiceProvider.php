@@ -209,6 +209,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
               //  new \Askpls\Work\Work(),
                     new \PhpJunior\NovaLogViewer\Tool(),
                     new \Christophrumpel\NovaNotifications\NovaNotifications(),
+                    new \Dniccum\CustomEmailSender\CustomEmailSender(),
 
             ];
 
