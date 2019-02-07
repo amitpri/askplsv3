@@ -103,4 +103,4 @@ Route::get('/st/d/getmore', 'TopicController@getmoredoctor');
 Route::post('/orders', 'PaymentController@store');
 Route::post('/payyearly', 'Askpls\Payments\Http\Controllers\PaymentController@payyearly');
 
-Route::post('/paytm-callback', 'Askpls\Payments\Http\Controllers\PaymentController@paytmCallback');
+Route::post('/paytm-callback', 'PaymentController@paytmCallback');
