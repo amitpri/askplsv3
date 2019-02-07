@@ -1,10 +1,10 @@
 <?php
 
-namespace Askpls\Payments\Http\Controllers;
+namespace App\Http\Controllers;
 use App\Order;
 use Illuminate\Http\Request;
 
-class PaymentController
+class PaymentController extends Controller
 {
      
     public function paymonthly()

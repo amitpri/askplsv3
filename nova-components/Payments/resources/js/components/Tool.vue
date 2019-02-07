@@ -10,9 +10,13 @@
                 Please click on the button below to make payments
             </h1>
 
-            <p><button @click="paymonthly" class="btn btn-default btn-primary">Pay ( Monthly )</button></p> <br>
+             <form method="post" action="/orders">
 
-            <p><button @click="payyearly" class="btn btn-default btn-primary">Pay ( Yearly )</button></p> 
+                <p><button class="btn btn-default btn-primary">Pay ( Monthly )</button></p> <br>
+
+                <p><button class="btn btn-default btn-primary">Pay ( Yearly )</button></p> 
+
+            </form>
  
         </card>
     </div>

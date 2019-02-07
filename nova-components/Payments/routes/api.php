@@ -28,6 +28,7 @@ Route::post('/',function(Request $request){
 });
 
 
-
-Route::post('/paymonthly', 'Askpls\Payments\Http\Controllers\PaymentController@paymonthly');
+Route::post('/paymonthly', 'Askpls\Payments\Http\Controllers\PaymentController@store');
 Route::post('/payyearly', 'Askpls\Payments\Http\Controllers\PaymentController@payyearly');
+
+Route::post('/paytm-callback', 'Askpls\Payments\Http\Controllers\PaymentController@paytmCallback');

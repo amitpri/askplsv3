@@ -169,7 +169,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n", ""]);
 
 // exports
 
@@ -652,6 +652,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -704,28 +708,20 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("p", [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-default btn-primary",
-                on: { click: _vm.paymonthly }
-              },
-              [_vm._v("Pay ( Monthly )")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("p", [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-default btn-primary",
-                on: { click: _vm.payyearly }
-              },
-              [_vm._v("Pay ( Yearly )")]
-            )
+          _c("form", { attrs: { method: "post", action: "/orders" } }, [
+            _c("p", [
+              _c("button", { staticClass: "btn btn-default btn-primary" }, [
+                _vm._v("Pay ( Monthly )")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("p", [
+              _c("button", { staticClass: "btn btn-default btn-primary" }, [
+                _vm._v("Pay ( Yearly )")
+              ])
+            ])
           ])
         ]
       )

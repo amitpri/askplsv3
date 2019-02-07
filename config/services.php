@@ -39,5 +39,13 @@ return [
             'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300),
         ],
     ],
+    'paytm-wallet' => [
+    'env' => 'production', // values : (local | production)
+    'merchant_id' => 'NnrdcW67942208094119',
+    'merchant_key' => '!za3TDCS5p7_ANbP',
+    'merchant_website' => 'DEFAULT',
+    'channel' => 'YOUR_CHANNEL',
+    'industry_type' => 'Retail',
+],
 
 ];
