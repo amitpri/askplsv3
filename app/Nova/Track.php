@@ -39,7 +39,7 @@ class Track extends Resource
 
                     ID::make()->sortable(),   
 
-                    Text::make('Created At')->format('DD MMM YYYY')->sortable(),
+                    DateTime::make('Created At')->sortable(),
 
                     Text::make('User Id','user_id')->sortable(),    
 
