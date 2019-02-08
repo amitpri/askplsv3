@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Auth;
 use App\Order;
 use Illuminate\Http\Request;
 
@@ -10,33 +12,19 @@ class PaymentController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-    }
-    public function paymonthly()
-    {
-
-        $name = "";
-        $email = "";
-        $order_id = "1234";
-        $price  = "";
-        $user_id = 1;
-
-        $order = Order::create(
-                [   
-                    'user_id' => $user_id,
-                    'name' => $name,
-                    'email' => $email,
-                    'order_id' => $order_id,   
-                    'price' => $price,                            
-                ]);
-  
-
-    }
-    public function payyearly()
-    {
- 
-        dd(1);   
-
     } 
+
+    public function paymentdefault()
+    {
+
+        $user_id = Auth::user()->id;
+
+        $orders = Order::where('user_id', '=' , "$user_id")->get(['id','user_id','order_id','status','name','email','price','currency','plan' , 'created_at']);
+
+        return $orders;
+    
+    }
+
     public function create()
     {
         return view( 'checkout' );
@@ -47,15 +35,40 @@ class PaymentController extends Controller
         $order_id = uniqid();
         $order = new Order();
         $order->order_id = $order_id;
-        $order->status = 'pending';
-        $order->price = ( $request->price ) ? $request->price : '10';
+        $order->status = 'pending'; 
+
+        $order->user_id = Auth::user()->id; 
+        $order->name = Auth::user()->name;
+        $order->email = Auth::user()->email;
+        $order->phone = Auth::user()->phone;
+        $order->currency = 'Rs.';
+        $order->city = Auth::user()->city; 
+
+        if( $request->type == 'monthly') {
+
+            //    $request->price = '700';
+            $request->price = '10';
+
+        }elseif( $request->type == 'yearly' ){
+
+            $request->price = '5000';
+
+        }else{
+
+            $request->price = '700';
+        }
+
+
+        $order->plan = $request->type;
+
+        $order->price = ( $request->price ) ? $request->price : '700';
         $order->transaction_id = '';
         $order->save();
         $data_for_request = $this->handlePaytmRequest( $order_id, $order->price );
         $paytm_txn_url = 'https://securegw.paytm.in/theia/processTransaction';
         $paramList = $data_for_request['paramList'];
         $checkSum = $data_for_request['checkSum'];
-        return view( 'paytm-merchant-form', compact( 'paytm_txn_url', 'paramList', 'checkSum' ) );
+   //     return view( 'paytm-merchant-form', compact( 'paytm_txn_url', 'paramList', 'checkSum' ) );
     }
     public function handlePaytmRequest( $order_id, $amount ) {
         // Load all functions of encdec_paytm.php and config-paytm.php

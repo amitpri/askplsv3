@@ -169,7 +169,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n", ""]);
 
 // exports
 
@@ -656,10 +656,45 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+
+            id: "",
+            inpId: "",
+            payment: "",
+            payments: []
+
+        };
+    },
     mounted: function mounted() {
-        //
+        var _this = this;
+
+        axios.get('/payment/default').then(function (response) {
+
+            _this.payments = response.data;
+        });
     },
 
     methods: {
@@ -710,18 +745,62 @@ var render = function() {
           _vm._v(" "),
           _c("form", { attrs: { method: "post", action: "/orders" } }, [
             _c("p", [
-              _c("button", { staticClass: "btn btn-default btn-primary" }, [
-                _vm._v("Pay ( Monthly )")
-              ])
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-default btn-primary",
+                  attrs: { name: "type", value: "monthly" }
+                },
+                [_vm._v("Pay ( Monthly Plan ) - 700Rs ")]
+              )
             ]),
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),
             _c("p", [
-              _c("button", { staticClass: "btn btn-default btn-primary" }, [
-                _vm._v("Pay ( Yearly )")
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-default btn-primary",
+                  attrs: { name: "type", value: "yearly" }
+                },
+                [_vm._v("Pay ( Yearly Plan ) - 5000Rs ")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("br")
+          ]),
+          _vm._v(" "),
+          _c("table", { staticClass: "table w-full" }, [
+            _c("thead", [
+              _c("tr", [
+                _c("th", { staticClass: "text-left" }, [_vm._v("Order Id")]),
+                _vm._v(" "),
+                _c("th", { staticClass: "text-left" }, [_vm._v("Amount")]),
+                _vm._v(" "),
+                _c("th", { staticClass: "text-left" }, [_vm._v("Status")]),
+                _vm._v(" "),
+                _c("th", { staticClass: "text-left" }, [_vm._v("Payment Date")])
               ])
-            ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.payments, function(payment) {
+                return _c("tr", [
+                  _c("td", [_vm._v(_vm._s(payment.order_id))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(_vm._s(payment.price) + _vm._s(payment.currency))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(payment.status))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(payment.created_at))])
+                ])
+              }),
+              0
+            )
           ])
         ]
       )

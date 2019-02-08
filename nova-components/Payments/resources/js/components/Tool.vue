@@ -12,11 +12,31 @@
 
              <form method="post" action="/orders">
 
-                <p><button class="btn btn-default btn-primary">Pay ( Monthly )</button></p> <br>
+                <p><button name="type" value="monthly" class="btn btn-default btn-primary">Pay ( Monthly Plan ) - 700Rs </button></p> <br>
 
-                <p><button class="btn btn-default btn-primary">Pay ( Yearly )</button></p> 
+                <p><button name="type" value="yearly" class="btn btn-default btn-primary">Pay ( Yearly Plan ) - 5000Rs </button></p> 
+
+                <br>
 
             </form>
+            <table  class="table w-full">
+                <thead>
+                    <tr>
+                        <th class="text-left">Order Id</th>
+                        <th class="text-left">Amount</th> 
+                        <th class="text-left">Status</th> 
+                        <th class="text-left">Payment Date</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="payment in payments" >
+                        <td>{{ payment.order_id }}</td>
+                        <td>{{ payment.price }}{{ payment.currency }}</td>  
+                        <td>{{ payment.status }}</td>  
+                        <td>{{ payment.created_at }}</td>  
+                    </tr>
+                </tbody>
+            </table>
  
         </card>
     </div>
@@ -24,8 +44,23 @@
 
 <script>
 export default {
+    data: () => {
+            return {
+
+                id:"", 
+                inpId: "", 
+                payment: "",
+                payments: [],
+
+                } 
+            },
     mounted() {
-        //
+        axios.get('/payment/default')
+                    .then(response => {
+
+                        this.payments = response.data;
+
+                    }); 
     },
     methods: {
 

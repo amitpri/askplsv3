@@ -9,5 +9,9 @@
 </head>
 <body>
 <h1>Thank for placing your order</h1>
+<h1>Redirecting.....</h1>
+<script type="text/javascript">
+		header('Location: https://askpls.com/portal/payments');
+    </script>	
 </body>
 </html>

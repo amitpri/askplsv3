@@ -222,7 +222,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 
             return [
               
-          //    \ChrisWare\NovaBreadcrumbs\NovaBreadcrumbs::make(),
+                  new \Askpls\Payments\Payments(),
 
             ];
         }
