@@ -29,7 +29,7 @@ class PaymentController extends Controller
     {
 
          return redirect('/portal/resources/orders');
- 
+
     
     }
 
@@ -411,7 +411,9 @@ class PaymentController extends Controller
             $order->transaction_id = $transaction_id;
             $order->save();
             $status = $order->status;
-            return view( 'order-complete', compact( 'order', 'status' ) );
+            
+             return redirect('/portal/resources/orders');
+             
         } else if( 'TXN_FAILURE' === $request['STATUS'] ){
             return view( 'payment-failed' );
         }

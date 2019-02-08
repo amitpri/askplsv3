@@ -35,8 +35,8 @@
 </head>
 <body class="stretched side-push-panel">
 	<div id="payment">
-		<h1>Thank for placing your order</h1>
-		<h1>Redirecting.....</h1>
+		<h2>Thank for placing your order</h2>
+		<h2>Redirecting.....</h2>
 	</div>
 
     <div id="gotoTop" class="icon-angle-up"></div> 
