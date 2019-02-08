@@ -42,7 +42,9 @@ class Track extends Resource
     {
         return [ 
 
-                    ID::make()->sortable(), 
+                    ID::make()->sortable(),   
+
+                    Text::make('Date','created_at')->sortable(),
 
                     Text::make('User Id','user_id')->sortable(),    
 
@@ -58,7 +60,7 @@ class Track extends Resource
 
                     Text::make('Type','type')->sortable(),    
 
-                    Text::make('Referrer','referrer')->sortable(),   
+                    Text::make('Referrer','referrer')->sortable(), 
 
                     
                 ];
