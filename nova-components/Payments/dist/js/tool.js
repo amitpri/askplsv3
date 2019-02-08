@@ -169,7 +169,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n", ""]);
 
 // exports
 
@@ -676,6 +676,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -776,6 +778,8 @@ var render = function() {
               _c("tr", [
                 _c("th", { staticClass: "text-left" }, [_vm._v("Order Id")]),
                 _vm._v(" "),
+                _c("th", { staticClass: "text-left" }, [_vm._v("Plan")]),
+                _vm._v(" "),
                 _c("th", { staticClass: "text-left" }, [_vm._v("Amount")]),
                 _vm._v(" "),
                 _c("th", { staticClass: "text-left" }, [_vm._v("Status")]),
@@ -789,6 +793,8 @@ var render = function() {
               _vm._l(_vm.payments, function(payment) {
                 return _c("tr", [
                   _c("td", [_vm._v(_vm._s(payment.order_id))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(payment.plan))]),
                   _vm._v(" "),
                   _c("td", [
                     _vm._v(_vm._s(payment.price) + _vm._s(payment.currency))

@@ -23,6 +23,7 @@
                 <thead>
                     <tr>
                         <th class="text-left">Order Id</th>
+                        <th class="text-left">Plan</th>
                         <th class="text-left">Amount</th> 
                         <th class="text-left">Status</th> 
                         <th class="text-left">Payment Date</th> 
@@ -31,6 +32,7 @@
                 <tbody>
                     <tr v-for="payment in payments" >
                         <td>{{ payment.order_id }}</td>
+                        <td>{{ payment.plan }}</td>
                         <td>{{ payment.price }}{{ payment.currency }}</td>  
                         <td>{{ payment.status }}</td>  
                         <td>{{ payment.created_at }}</td>  
