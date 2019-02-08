@@ -19,7 +19,7 @@ class PaymentController extends Controller
 
         $user_id = Auth::user()->id;
 
-        $orders = Order::where('user_id', '=' , "$user_id")->get(['id','user_id','order_id','status','name','email','price','currency','plan' , 'created_at']);
+        $orders = Order::where('user_id', '=' , "$user_id")->orderBy('updated_at','desc')->get(['id','user_id','order_id','status','name','email','price','currency','plan' , 'created_at']);
 
         return $orders;
     
@@ -73,7 +73,7 @@ class PaymentController extends Controller
         $order->transaction_id = '';
         $order->save();
         $data_for_request = $this->handlePaytmRequest( $order_id, $order->price );
-        $paytm_txn_url = 'https://securegw-stage.paytm.in/theia/processTransaction';
+        $paytm_txn_url = 'https://securegw.paytm.in/theia/processTransaction';
         $paramList = $data_for_request['paramList'];
         $checkSum = $data_for_request['checkSum'];
         return view( 'paytm-merchant-form', compact( 'paytm_txn_url', 'paramList', 'checkSum' ) );
@@ -85,7 +85,7 @@ class PaymentController extends Controller
         $checkSum = "";
         $paramList = array();
         // Create an array having all required parameters for creating checksum.
-        $paramList["MID"] = 'lspHEn14737765497640';
+        $paramList["MID"] = 'NnrdcW67942208094119';
         $paramList["ORDER_ID"] = $order_id;
         $paramList["CUST_ID"] = $order_id;
         $paramList["INDUSTRY_TYPE_ID"] = 'Retail';
@@ -93,7 +93,7 @@ class PaymentController extends Controller
         $paramList["TXN_AMOUNT"] = $amount;
         $paramList["WEBSITE"] = 'DEFAULT';
         $paramList["CALLBACK_URL"] = url( '/paytm-callback' );
-        $paytm_merchant_key = 'Sh_UST3VH&6iaUY5';
+        $paytm_merchant_key = '!za3TDCS5p7_ANbP';
         //Here checksum string will return by getChecksumFromArray() function.
         $checkSum = getChecksumFromArray( $paramList, $paytm_merchant_key );
         return array(
@@ -386,7 +386,7 @@ class PaymentController extends Controller
      * Config Paytm Settings from config_paytm.php file of paytm kit
      */
     function getConfigPaytmSettings() {
-        define('PAYTM_ENVIRONMENT', 'TEST'); // PROD
+        define('PAYTM_ENVIRONMENT', 'PROD'); // PROD
         define('PAYTM_MERCHANT_KEY', '!za3TDCS5p7_ANbP'); //Change this constant's value with Merchant key downloaded from portal
         define('PAYTM_MERCHANT_MID', 'NnrdcW67942208094119'); //Change this constant's value with MID (Merchant ID) received from Paytm
         define('PAYTM_MERCHANT_WEBSITE', 'DEFAULT'); //Change this constant's value with Website name received from Paytm
@@ -412,7 +412,7 @@ class PaymentController extends Controller
             $order->save();
             $status = $order->status;
 
-             return redirect('/portal/payments?payment=complete');
+            return redirect('/portal/payments');
              
         } else if( 'TXN_FAILURE' === $request['STATUS'] ){
             return view( 'payment-failed' );
