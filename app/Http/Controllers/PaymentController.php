@@ -412,7 +412,7 @@ class PaymentController extends Controller
             $order->save();
             $status = $order->status;
             
-             return redirect('/portal/resources/orders');
+             return redirect('/portal/payments');
              
         } else if( 'TXN_FAILURE' === $request['STATUS'] ){
             return view( 'payment-failed' );
