@@ -389,7 +389,8 @@ class PaymentController extends Controller
             $order->status = 'complete';
             $order->transaction_id = $transaction_id;
             $order->save();
-            return view( 'order-complete', compact( 'order', 'status' ) );
+            $status = $order->status;
+            return view( 'orde;-complete', compact( 'order', 'status' ) );
         } else if( 'TXN_FAILURE' === $request['STATUS'] ){
             return view( 'payment-failed' );
         }
