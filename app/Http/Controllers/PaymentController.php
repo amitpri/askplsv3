@@ -68,7 +68,7 @@ class PaymentController extends Controller
         $paytm_txn_url = 'https://securegw.paytm.in/theia/processTransaction';
         $paramList = $data_for_request['paramList'];
         $checkSum = $data_for_request['checkSum'];
-   //     return view( 'paytm-merchant-form', compact( 'paytm_txn_url', 'paramList', 'checkSum' ) );
+        return view( 'paytm-merchant-form', compact( 'paytm_txn_url', 'paramList', 'checkSum' ) );
     }
     public function handlePaytmRequest( $order_id, $amount ) {
         // Load all functions of encdec_paytm.php and config-paytm.php
