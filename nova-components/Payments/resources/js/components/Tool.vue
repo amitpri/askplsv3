@@ -1,8 +1,7 @@
 <template>
     <div>
         <heading class="mb-6">Payments</heading>
-
-        
+ 
 
         <card class="flex flex-col items-center justify-center" style="min-height: 300px"> 
 
