@@ -25,6 +25,14 @@ class PaymentController extends Controller
     
     }
 
+    public function paymentredirect()
+    {
+
+         return redirect('/portal/resources/orders');
+ 
+    
+    }
+
     public function create()
     {
         return view( 'checkout' );
