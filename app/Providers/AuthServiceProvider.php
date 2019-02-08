@@ -30,6 +30,7 @@ use App\School;
 use App\Track;
 use App\Membership;
 use App\TopicCategoryMembers;
+use App\Order;
 
 use App\Policies\ProfilePolicy;
 use App\Policies\GroupPolicy;
@@ -57,6 +58,7 @@ use App\Policies\LawyerPolicy;
 use App\Policies\RestaurantPolicy;
 use App\Policies\SchoolPolicy;
 use App\Policies\TrackPolicy;
+use App\Policies\OrderPolicy;
 
 use App\Policies\MembershipPolicy;
 use App\Policies\TopicCategoryMembersPolicy;
@@ -103,6 +105,8 @@ class AuthServiceProvider extends ServiceProvider
 
         Membership::class => MembershipPolicy::class,
         TopicCategoryMembers::class => TopicCategoryMembersPolicy::class,
+
+        Order::class => OrderPolicy::class,
 
 
         

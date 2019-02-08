@@ -44,6 +44,7 @@ use App\Nova\LawyerMember;
 use App\Nova\TopicCategory;
 use App\Nova\TopicCategoryMembers;
 use App\Nova\Track;
+use App\Nova\Order;
 
 use App\Nova\School;
 use App\Nova\College;
@@ -102,6 +103,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     SchoolMember::class, 
                     Track::class,
                     Template::class,
+                    Order::class,
 
  
                 ]);
