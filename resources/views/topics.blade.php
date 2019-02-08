@@ -151,7 +151,7 @@
                             <input   type="text" id="workspace" class="form-control form-control-lg not-dark" placeholder="Enter Topics..." style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchquery"  @keyup="filteredtopics" >
 
                             <div class="col-md-4 col-lg-3">
-                                <a @click="filteredtopics"  href="" class="button   btn-block" style="border-radius: 3px;">Search Topics</a>  
+                                <a @click="event.preventDefault();filteredtopics"  href="" class="button   btn-block" style="border-radius: 3px;">Search Topics</a>  
                             </div>
                              
                         </div>
@@ -164,7 +164,7 @@
 
                             <div class="col-lg-4 col-xl-4">
 
-                                <a @click="filteredtopics"  href="" class="button btn-block" style="border-radius: 3px;">@{{ vSearchName}}</a>  
+                                <a @click="event.preventDefault();filteredtopics"  href="" class="button btn-block" style="border-radius: 3px;">@{{ vSearchName}}</a>  
                             </div>
                              
                         </div>
@@ -194,10 +194,10 @@
 
                               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="nav flex-column"> 
-                                    <a @click="clearfilter" v-if="vCat1 > 0" href="" style="margin-bottom: 20px;">Clear Filters</a> 
+                                    <a @click="event.preventDefault();clearfilter" v-if="vCat1 > 0" href="" style="margin-bottom: 20px;">Clear Filters</a> 
 
                                   <li class="nav-item" v-for="category in categories">
-                                    <a @click="categorysearch(category)" class="nav-link" href="#">@{{ category.category}}</a>
+                                    <a @click="event.preventDefault();categorysearch(category)" class="nav-link" href="#">@{{ category.category}}</a>
                                   </li> 
                                    
                                 </ul>
@@ -227,7 +227,7 @@
                                     <ul class="entry-meta clearfix">
                                     <li><i class="icon-calendar3"></i> @{{ topic.created_at }}</li>
                                     <li><a href="#" :href="'/p/' + topic.user_code"><i class="icon-user"></i> @{{ topic.name }}</a></li>
-                                    <li><i class="icon-folder-open"></i> <a @click="categorytopicsearch(topic)"   href="#">@{{ topic.category }}</a> </li>
+                                    <li><i class="icon-folder-open"></i> <a @click="event.preventDefault();categorytopicsearch(topic)"   href="#">@{{ topic.category }}</a> </li>
                                     <li v-if="topic.comments > 0"><a :href="'/t/' + topic.url"><i class="icon-comments"></i> @{{ topic.comments }} Reviews</a></li> 
                                 </ul>
                                 </div>
@@ -241,7 +241,7 @@
 
                                 @empty($categorytype)
 
-                                    <p ><b>Search criteria <a href="" @click="clearfilter">Clear All</a> :</b></p>
+                                    <p ><b>Search criteria <a href="" @click="event.preventDefault();clearfilter">Clear All</a> :</b></p>
                                     <br>
                                 @endempty 
 
@@ -490,9 +490,9 @@
 
             </div>
 
-            <div v-if="vCatTopics == 0"><div   v-if="showLoadMore > 0"  class="center"><button class="btn btn-primary" @click="morerows">Load More Topics</button></div></div>
+            <div v-if="vCatTopics == 0"><div   v-if="showLoadMore > 0"  class="center"><button class="btn btn-primary" @click="event.preventDefault();morerows">Load More Topics</button></div></div>
 
-            <div v-if="vCatTopics > 0"><div   v-if="showLoadMoreCategory > 0"  class="center"><button class="btn btn-primary" @click="morerowscategory(vtype,vspeciality,vlocality,vcity,vcountry)">Load More</button></div></div>
+            <div v-if="vCatTopics > 0"><div   v-if="showLoadMoreCategory > 0"  class="center"><button class="btn btn-primary" @click="event.preventDefault();morerowscategory(vtype,vspeciality,vlocality,vcity,vcountry)">Load More</button></div></div>
 
         </section> 
         <footer id="footer" class="topmargin noborder" style="background-color: #F5F5F5;">          
