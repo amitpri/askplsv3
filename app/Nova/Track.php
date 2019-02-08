@@ -3,7 +3,8 @@
 namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text; 
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\DateTime; 
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -31,20 +32,14 @@ class Track extends Resource
     public static $search = [
         'id',
     ];
-
-    /**
-     * Get the fields displayed by the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
+ 
     public function fields(Request $request)
     {
         return [ 
 
                     ID::make()->sortable(),   
 
-                    Text::make('Date','created_at')->sortable(),
+                    Text::make('Created At')->sortable(),
 
                     Text::make('User Id','user_id')->sortable(),    
 
