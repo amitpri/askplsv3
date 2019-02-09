@@ -173,7 +173,7 @@
 
                            <div v-for="city in cities">
                                <li style=" list-style: none;">  
-                                <a href="#" @click="event.preventDefault();setcity(city)">@{{city.name}}&nbsp;  </a></li> 
+                                <a href="#" @click="event.preventDefault();setcity(city)" v-cloak>@{{city.name}}&nbsp;  </a></li> 
                            </div>
                              
                         </div>
