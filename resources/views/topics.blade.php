@@ -1061,6 +1061,7 @@
                 },
                 categorysearch:function(row){ 
 
+
                     var rowcategory = this.categories.indexOf(row);
 
                     this.showspinner = true;
@@ -1075,7 +1076,8 @@
 
                     this.vCatId = this.inpcategoryid;
 
-                    
+                    window.history.pushState('obj', this.vCatName,this.vCatName);
+
                     if(this.vCatName == 'Colleges'){
                         this.vPlaceholders = "Colleges / Institutes...";
                         this.vSearchName = "Search Colleges";
@@ -1279,6 +1281,7 @@
 
                     this.showspinner = true;
 
+                    window.history.pushState('obj', '','/');
 
                     axios.get('/st/filtered' ,{
 
