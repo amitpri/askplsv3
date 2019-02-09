@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Auth;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use OwenMelbz\RadioField\RadioButton;
@@ -25,7 +26,16 @@ class Category extends Resource
 
     public static function availableForNavigation(Request $request)
     {
-        return false;
+        $loggedinemail= Auth::user()->email; 
+
+        if( $loggedinemail == "amitpri@gmail.com"){
+
+            return true;
+            
+        }else{
+
+            return false;
+        }
     }
 
     /**
