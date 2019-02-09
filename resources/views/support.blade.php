@@ -170,17 +170,13 @@
                             @foreach ($faqs as $faq)
 
                                 <h3 id="faq1-{{ $faq->id}}"><strong>Q.</strong> {{ $faq->question}}</h3>
-                                <p>{{ $faq->answer}}</p>
+                                <p>{!! $faq->answer!!}</p>
 
                             @endforeach
 
-                               
-
+                
                             <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
-
-                             
-
-                             
+ 
 
                         </div>
 
@@ -195,10 +191,11 @@
 
                                 <h4>Help Topics</h4>
                                 <ul>
-                                    <li><a href="/support"><div>General</div></a></li>
-                                    <li><a href="/support/topics"><div>Topics</div></a></li>
-                                    <li><a href="/support/reviews"><div>Reviews</div></a></li>
-                                    <li><a href="/support/login"><div>Login / Register</div></a></li>
+                                    @foreach ($faqcategories as $faqcategory)
+
+                                        <li><a href="#"><div>{{$faqcategory->category}}</div></a></li>
+
+                                    @endforeach 
                                      
                                 </ul>
                                 <br>

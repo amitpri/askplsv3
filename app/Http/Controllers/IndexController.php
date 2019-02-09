@@ -10,8 +10,11 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
+use Illuminate\Support\Facades\DB;
+
 use App\City;
 use App\Faq;
+use App\FaqCategory;
 
 use App\Mail\MailContactForm;
 
@@ -59,10 +62,15 @@ class IndexController extends Controller
 
     public function support()
     {
+        
+        $faqcategories = FaqCategory::get(['id','category']);
 
-        $faqs = FAQ::get(['id','question','answer']);
+        $faqs = DB::select("SELECT  a.`id`, a.`question` , a.`answer` , b.`category`
+                                            FROM `faqs` a , `faq_categories` b
+                                            WHERE  a.`category` = b.`id`
+                                            AND b.`category` = 'General'");
 
-    	return view('support', compact('faqs'));
+    	return view('support', compact('faqs','faqcategories'));
 
     }  
 

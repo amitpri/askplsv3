@@ -47,7 +47,7 @@ use App\Nova\Track;
 use App\Nova\Order;
 use App\Nova\City;
 use App\Nova\Faq;
-
+use App\Nova\FaqCategory;
 use App\Nova\School;
 use App\Nova\College;
 use App\Nova\Restaurant;
@@ -108,6 +108,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     Order::class,
                     City::class,
                     Faq::class,
+                    FaqCategory::class,
 
  
                 ]);
