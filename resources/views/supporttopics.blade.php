@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="/css/colors.php?color=1c85e8" type="text/css" />
     @include('analytics') 
 
-    <title>AskPls | Anonymous Review System</title>
+    <title>AskPls | Anonymous Review System | Support Topics</title>
 
 </head>
 
@@ -156,7 +156,7 @@
                             </div>
 
                             <ul class="iconlist faqlist">
-                                <li><i class="icon-caret-right"></i><strong><a href="#" data-scrollto="#faq-1">What is AskPls?</a></strong></li>
+                                <li><i class="icon-caret-right"></i><strong><a href="#" data-scrollto="#faq-1">What is the flow of Topic Creation?</a></strong></li>
                                 <li><i class="icon-caret-right"></i><strong><a href="#" data-scrollto="#faq-2">What is a Topic and how to create one?</a></strong></li>
                                 <li><i class="icon-caret-right"></i><strong><a href="#" data-scrollto="#faq-3">What is a Anonymous Review?</a></strong></li>
                                 <li><i class="icon-caret-right"></i><strong><a href="#" data-scrollto="#faq-4">What are Public and Private Topics?</a></strong></li>
@@ -167,7 +167,7 @@
                             <div class="divider"><i class="icon-circle"></i></div>
 
                             <h3 id="faq-1"><strong>Q.</strong> What is AskPls?</h3>
-                            <p>AskPls helps you getting genuine reviews from people you know or from general public who sees your question posted. AskPls makes sure identity of the reviewer is never captured and hence allowing them to write a genuine review of any of your question</p>
+                            <p>Topic Creation is a very simple step and it is published right away at the AskPls Portal.</p>
 
                             <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
 
