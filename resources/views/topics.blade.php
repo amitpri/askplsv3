@@ -156,7 +156,7 @@
                             <input   type="text" id="workspace" class="form-control form-control-lg not-dark" placeholder="Enter Topics..." style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchquery"  @keyup="filteredtopics" >
 
                             <div class="col-md-4 col-lg-3">
-                                <a @click="event.preventDefault();filteredtopics"  href="" class="button   btn-block" style="border-radius: 3px;">Search Topics</a>  
+                                <a @click="filteredtopics"  href="" class="button   btn-block" style="border-radius: 3px;">Search Topics</a>  
                             </div>
                              
                         </div>
@@ -536,8 +536,7 @@
     <script src="../../js/jquery.js"></script>
     <script src="../../js/plugins.js"></script> 
     <script src="../../js/functions.js"></script>
-
-    <script src="{{ asset('js/topics.vue') }}"></script>
+ 
 
     <script>
     
@@ -724,8 +723,10 @@
             },
             methods:{
 
-                filteredtopics:function(){
+                filteredtopics:function(event){
 
+
+                    event.preventDefault();
                     this.showspinner = true;
 
                     if( this.vCat1 == 1){
@@ -1101,7 +1102,7 @@
 
                     var rowcategory = this.categories.indexOf(row);
 
-                    this.showspinner = true;
+                    this.showspinner = true; 
 
                     this.vCat1 = 1; 
 
