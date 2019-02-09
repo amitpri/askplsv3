@@ -155,44 +155,26 @@
                                 <h3>Some of your Questions:</h3>
                             </div>
 
-                            <ul class="iconlist faqlist">
-                                <li><i class="icon-caret-right"></i><strong><a href="#" data-scrollto="#faq-1">What is AskPls?</a></strong></li>
-                                <li><i class="icon-caret-right"></i><strong><a href="#" data-scrollto="#faq-2">What is a Topic and how to create one?</a></strong></li>
-                                <li><i class="icon-caret-right"></i><strong><a href="#" data-scrollto="#faq-3">What is a Anonymous Review?</a></strong></li>
-                                <li><i class="icon-caret-right"></i><strong><a href="#" data-scrollto="#faq-4">What are Public and Private Topics?</a></strong></li>
-                                <li><i class="icon-caret-right"></i><strong><a href="#" data-scrollto="#faq-5">Pricing?</a></strong></li>
-                                <li><i class="icon-caret-right"></i><strong><a href="#" data-scrollto="#faq-6">How to Track Reviews?</a></strong></li> 
+                            <ul class="iconlist faqlist"> 
+
+                                @foreach ($faqs as $faq)
+
+                                    <li><i class="icon-caret-right"></i><strong><a href="#" data-scrollto="#faq1-{{ $faq->id}}">{{ $faq->question}}</a></strong></li>
+
+                                @endforeach
+
                             </ul>
 
                             <div class="divider"><i class="icon-circle"></i></div>
 
-                            <h3 id="faq-1"><strong>Q.</strong> What is AskPls?</h3>
-                            <p>AskPls helps you getting genuine reviews from people you know or from general public who sees your question posted. AskPls makes sure identity of the reviewer is never captured and hence allowing them to write a genuine review of any of your question</p>
+                            @foreach ($faqs as $faq)
 
-                            <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
+                                <h3 id="faq1-{{ $faq->id}}"><strong>Q.</strong> {{ $faq->question}}</h3>
+                                <p>{{ $faq->answer}}</p>
 
-                            <h3 id="faq-2"><strong>Q.</strong> What is a Topic and how to create one?</h3>
-                            <p>Topic is the question which you will ask your friends and circle for review. You can register to the AskPls Portal and create one Topic. Give a name of the topic that will be displayed as title and provide other details like description, provide image link and youtube videos. Once a topic is created, you will be shared a link which you can share at your social platforms like Facebook, Twitter, Linkedin, Whatsapp etc.</p>
+                            @endforeach
 
-                            <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
-
-                            <h3 id="faq-3"><strong>Q.</strong> What is a Anonymous Review?</h3>
-                            <p>Anonymous review is where identity of a reviewer is never captured even if he / she is logged in to the portal. You have to click on the Topic link and then enter your genuine review about the question asked.</p>
-
-                            <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
-
-                            <h3 id="faq-4"><strong>Q.</strong> What are Public and Private Topics?</h3>
-                            <p>Public topics are the ones which allows you use the link and share with your circle outside the AskPls. It also allows you to post the topic on the AskPls portal and is searchable by general public and can be reviewed by anyone. Private topics are generally used by organization where they can configure the profiles and groups within the organizations and topics are shared for review only to specified set of people and groups.</p> 
-
-                            <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
-
-                            <h3 id="faq-5"><strong>Q.</strong> Pricing?</h3>
-                            <p>Public based reviews are completely free of cost. However Private topics which can be shared to specific profiles and groups of the organization comes with a cost. Please contact us for the price.</p>
-
-                            <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
-
-                            <h3 id="faq-6"><strong>Q.</strong> How to Track Reviews?</h3>
-                            <p>Once you post a topic, you will start getting the reviews depending upon how well you market your links and how easily it is searchable on the AskPls portal. You can view all the reviews by logging into your account and check under review menu. You can even export the reviews in excel to analyze later.</p>
+                               
 
                             <div class="divider divider-right"><a href="#" data-scrollto="#faqs-list"><i class="icon-chevron-up"></i></a></div>
 

@@ -46,6 +46,7 @@ use App\Nova\TopicCategoryMembers;
 use App\Nova\Track;
 use App\Nova\Order;
 use App\Nova\City;
+use App\Nova\Faq;
 
 use App\Nova\School;
 use App\Nova\College;
@@ -106,6 +107,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     Template::class,
                     Order::class,
                     City::class,
+                    Faq::class,
 
  
                 ]);

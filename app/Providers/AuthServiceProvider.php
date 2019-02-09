@@ -32,6 +32,7 @@ use App\Membership;
 use App\TopicCategoryMembers;
 use App\Order;
 use App\City;
+use App\Faq;
 
 use App\Policies\ProfilePolicy;
 use App\Policies\GroupPolicy;
@@ -61,6 +62,7 @@ use App\Policies\SchoolPolicy;
 use App\Policies\TrackPolicy;
 use App\Policies\OrderPolicy;
 use App\Policies\CityPolicy;
+use App\Policies\FaqPolicy;
 
 use App\Policies\MembershipPolicy;
 use App\Policies\TopicCategoryMembersPolicy;
@@ -110,6 +112,7 @@ class AuthServiceProvider extends ServiceProvider
 
         Order::class => OrderPolicy::class,
         City::class => CityPolicy::class,
+        Faq::class => FaqPolicy::class,
 
 
         

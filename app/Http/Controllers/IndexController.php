@@ -11,6 +11,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 use App\City;
+use App\Faq;
 
 use App\Mail\MailContactForm;
 
@@ -58,9 +59,10 @@ class IndexController extends Controller
 
     public function support()
     {
- 
 
-    	return view('support');
+        $faqs = FAQ::get(['id','question','answer']);
+
+    	return view('support', compact('faqs'));
 
     }  
 
