@@ -1102,6 +1102,10 @@
 
                     var rowcategory = this.categories.indexOf(row);
 
+                    
+                    this.citylist = "";
+                    this.cities = [];
+
                     this.showspinner = true; 
 
                     this.vCat1 = 1; 
