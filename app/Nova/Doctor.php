@@ -120,7 +120,13 @@ class Doctor extends Resource
 
                     })->hideWhenUpdating(),
 
-                    Text::make('Admin URL','admin_url')->hideFromIndex(),     
+                    Text::make('Admin URL','admin_url')->hideFromIndex(),   
+
+                    RadioButton::make('Top')
+                    ->options([ 
+                        '0' => 'No',
+                        '1' => 'Yes',
+                    ])->sortable()->default('0'),   
                     
                 ];
 

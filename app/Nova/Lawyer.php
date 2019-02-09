@@ -113,6 +113,12 @@ class Lawyer extends Resource
 
                     })->hideWhenUpdating(),
 
+                    RadioButton::make('Top')
+                    ->options([ 
+                        '0' => 'No',
+                        '1' => 'Yes',
+                    ])->sortable()->default('0'), 
+
                     
  
                 ];

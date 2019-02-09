@@ -104,6 +104,12 @@ class Restaurant extends Resource
                          return 'https://askpls.com/c/Restaurants/' . $this->restaurantkey;
      
                     })->hideWhenUpdating(), 
+
+                    RadioButton::make('Top')
+                    ->options([ 
+                        '0' => 'No',
+                        '1' => 'Yes',
+                    ])->sortable()->default('0'), 
  
                 ];
 

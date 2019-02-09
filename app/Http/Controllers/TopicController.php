@@ -266,7 +266,7 @@ class TopicController extends Controller
                                             FROM `colleges` a   
                                             WHERE a.`status` = 1  " .
                                             $query_option . "
-                                            ORDER BY  a.`profilepic` DESC, a.`updated_at` DESC
+                                            ORDER BY a.`top` DESC, a.`profilepic` DESC, a.`updated_at` DESC
                                             limit 10");
 
       
@@ -281,7 +281,7 @@ class TopicController extends Controller
                                             FROM `companies` a 
                                             WHERE  a.`status` = 1   " .
                                             $query_option . "
-                                            ORDER BY a.`profilepic` DESC, a.`updated_at` DESC
+                                            ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
                                             limit 10");
         }
         if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
@@ -293,7 +293,7 @@ class TopicController extends Controller
                                             FROM `doctors` a 
                                             WHERE  a.`status` = 1  " .
                                             $query_option . "
-                                            ORDER BY a.`profilepic` DESC, a.`updated_at` DESC
+                                            ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
                                             limit 10");
  
         }
@@ -306,7 +306,7 @@ class TopicController extends Controller
                                             FROM `fitness_centers` a 
                                             WHERE  a.`status` = 1   " .
                                             $query_option . "
-                                            ORDER BY a.`profilepic` DESC, a.`updated_at` DESC
+                                            ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
                                             limit 10");
         }
         if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
@@ -318,7 +318,7 @@ class TopicController extends Controller
                                             FROM `hotels` a 
                                             WHERE  a.`status` = 1   " .
                                             $query_option . "
-                                            ORDER BY a.`profilepic` DESC, a.`updated_at` DESC
+                                            ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
                                             limit 10");
         }
         if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
@@ -330,7 +330,7 @@ class TopicController extends Controller
                                             FROM `lawyers` a 
                                             WHERE  a.`status` = 1   " .
                                             $query_option . "
-                                            ORDER BY a.`profilepic` DESC, a.`updated_at` DESC
+                                            ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
                                             limit 10");
         }
         if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
@@ -342,7 +342,7 @@ class TopicController extends Controller
                                             FROM `restaurants` a 
                                             WHERE  a.`status` = 1   " .
                                             $query_option . "
-                                            ORDER BY a.`profilepic` DESC, a.`updated_at` DESC
+                                            ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
                                             limit 10");
         }
 
@@ -355,7 +355,7 @@ class TopicController extends Controller
                                             FROM `schools` a 
                                             WHERE  a.`status` = 1   " .
                                             $query_option . "
-                                            ORDER BY a.`profilepic` DESC, a.`updated_at` DESC
+                                            ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
                                             limit 10");
 
          }
