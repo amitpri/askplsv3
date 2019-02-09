@@ -73,6 +73,8 @@ class Category extends Resource
                         '1' => 'Yes',
                     ])->sortable()->default('1'),
 
+            Text::make('Order')->sortable(),
+
             HasMany::make('Templates'),
 
             HasMany::make('Topics'),
