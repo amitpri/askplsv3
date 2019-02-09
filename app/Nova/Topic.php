@@ -323,7 +323,7 @@ class Topic extends Resource
     {
         return [
 
-            new EmailTopicGroup, 
+     //       new EmailTopicGroup, 
         ];
     }
 }
