@@ -35,7 +35,7 @@ class TopicController extends Controller
     public function index(Request $request)
     {
 
-        $categories = ShowCategory::where('status', '=' , 1)->get(['id','category']);
+        $categories = ShowCategory::orderBy('category','asc')->get(['id','category','status']);
 
         $categorytype = '';
 

@@ -196,9 +196,14 @@
                                 <ul class="nav flex-column"> 
                                     <a @click="clearfilter" v-if="vCat1 > 0" href="" style="margin-bottom: 20px;">Clear Filters</a> 
 
-                                  <li class="nav-item" v-for="category in categories">
-                                    <a @click="categorysearch(category)" class="nav-link" href="#">@{{ category.category}}</a>
-                                  </li> 
+                               @foreach ($categories as $category)
+ 
+                                   <li class="nav-item" >
+                                    <a @click="categorysearch({{ $category}})" class="nav-link" href="#">{{ $category->category}}</a>
+                                  </li>  
+
+                                @endforeach  
+ 
                                    
                                 </ul>
                               </div>
@@ -589,14 +594,7 @@
 
                             this.topics = response.data; 
 
-                        }); 
-
-                        axios.get('/categories/default')
-                        .then(response => {
-
-                            this.categories = response.data; 
-
-                        });
+                        });  
 
                 }else{
 
@@ -1056,7 +1054,7 @@
 
                         });
                 },
-                categorysearch:function(row){
+                categorysearch:function(row){ 
 
                     var rowcategory = this.categories.indexOf(row);
 
@@ -1064,11 +1062,11 @@
 
                     this.vCat1 = 1; 
 
-                    this.inpcategoryid = this.categories[rowcategory].id;
+                    this.inpcategoryid = row["id"];
 
-                    this.vCatName = this.categories[rowcategory].category; 
+                    this.vCatName = row["category"]; 
 
-                    this.vCatType = this.categories[rowcategory].status; 
+                    this.vCatType = row["status"]; 
 
                     this.vCatId = this.inpcategoryid;
 
