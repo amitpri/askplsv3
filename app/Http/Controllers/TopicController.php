@@ -60,7 +60,9 @@ class TopicController extends Controller
                     'referrer' => $referrer,                              
                 ]);
 
-        return view('topics',compact('categories', 'categorytype'));
+        $searchcategoryid = '';
+
+        return view('topics',compact('categories', 'categorytype', 'searchcategoryid'));
    
     }
 
@@ -71,7 +73,9 @@ class TopicController extends Controller
 
         $categorytype = 'doctors';
 
-        return view('topics',compact('categories', 'categorytype'));
+        $searchcategoryid = '';
+
+        return view('topics',compact('categories', 'categorytype', 'searchcategoryid'));
    
     }
 
@@ -82,7 +86,9 @@ class TopicController extends Controller
 
         $categorytype = 'hotels';
 
-        return view('topics',compact('categories', 'categorytype'));
+        $searchcategoryid = '';
+
+        return view('topics',compact('categories', 'categorytype', 'searchcategoryid'));
    
     }
 
@@ -93,7 +99,9 @@ class TopicController extends Controller
 
         $categorytype = 'restaurants';
 
-        return view('topics',compact('categories', 'categorytype')); 
+        $searchcategoryid = '';
+
+        return view('topics',compact('categories', 'categorytype', 'searchcategoryid'));
    
     }
 
@@ -104,7 +112,9 @@ class TopicController extends Controller
 
         $categorytype = 'schools';
 
-        return view('topics',compact('categories', 'categorytype')); 
+        $searchcategoryid = '';
+
+        return view('topics',compact('categories', 'categorytype', 'searchcategoryid')); 
    
     }
 
@@ -115,7 +125,9 @@ class TopicController extends Controller
 
         $categorytype = 'colleges';
 
-        return view('topics',compact('categories', 'categorytype')); 
+        $searchcategoryid = '';
+
+        return view('topics',compact('categories', 'categorytype', 'searchcategoryid'));
    
     }
 
@@ -126,7 +138,9 @@ class TopicController extends Controller
 
         $categorytype = 'companies';
 
-        return view('topics',compact('categories', 'categorytype')); 
+        $searchcategoryid = '';
+
+        return view('topics',compact('categories', 'categorytype', 'searchcategoryid'));
    
     }
 
@@ -137,7 +151,9 @@ class TopicController extends Controller
 
         $categorytype = 'lawyers';
 
-        return view('topics',compact('categories', 'categorytype')); 
+        $searchcategoryid = '';
+
+        return view('topics',compact('categories', 'categorytype', 'searchcategoryid'));
    
     }
 
@@ -148,7 +164,9 @@ class TopicController extends Controller
 
         $categorytype = 'fitnesscenters';
 
-        return view('topics',compact('categories', 'categorytype')); 
+        $searchcategoryid = '';
+
+        return view('topics',compact('categories', 'categorytype', 'searchcategoryid'));
    
     }
 
@@ -614,6 +632,38 @@ class TopicController extends Controller
 
 
         return $topics;
+    }
+
+    public function category(Request $request, $category ){
+
+        $categorytype = $category; 
+
+        $categories = ShowCategory::where('category','=',$categorytype)->orderBy('category','asc')->first(['id','category','status']);
+
+        $searchcategoryid = $categories['id']; 
+        $userid = "1";
+        $user_name ="";
+        $user_email ="";
+        $ipaddress = $request->getClientIp();
+        $page ="index";
+        $url_code ="";
+        $type ="";
+        $referrer ="";
+ 
+        $track = Track::create(
+                [   
+                    'user_id' => $userid,
+                    'user_name' => $user_name,
+                    'user_email' => $user_email,
+                    'ipaddress' => $ipaddress,   
+                    'page' => $page,
+                    'url' => $url_code,
+                    'type' => $type,
+                    'referrer' => $referrer,                              
+                ]);
+
+        return view('topics',compact('categories', 'categorytype' , 'searchcategoryid'));
+  
     }
 
     public function categoryurl(Request $request,$category, $url ){

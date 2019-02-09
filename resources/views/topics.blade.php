@@ -6,18 +6,18 @@
     <meta name="author" content="AskPls" />
 
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Playfair+Display:700,700i,900" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="style.css" type="text/css" />  
-    <link rel="stylesheet" href="askpls.css" type="text/css" />
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/style.css" type="text/css" />  
+    <link rel="stylesheet" href="/askpls.css" type="text/css" />
 
-    <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
-    <link rel="stylesheet" href="css/animate.css" type="text/css" /> 
+    <link rel="stylesheet" href="/css/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="/css/animate.css" type="text/css" /> 
  
-    <link rel="stylesheet" href="askplsfonts.css" type="text/css" />
+    <link rel="stylesheet" href="/askplsfonts.css" type="text/css" />
 
-    <link rel="stylesheet" href="css/responsive.css" type="text/css" />
+    <link rel="stylesheet" href="/css/responsive.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/colors.php?color=1c85e8" type="text/css" />
+    <link rel="stylesheet" href="/css/colors.php?color=1c85e8" type="text/css" />
 
     <script src="/vue/vue.min.js"></script>
     <script src="/axios/axios.min.js"></script>
@@ -102,8 +102,8 @@
 
                         <div class="col-lg-2 col-12 d-flex align-self-center"> 
                             <div id="logo">
-                                <a href="/" class="standard-logo"><img src="images/logo.png" alt="AskPls"></a>
-                                <a href="/" class="retina-logo"><img src="images/logo@2x.png" alt="AskPls"></a>
+                                <a href="/" class="standard-logo"><img src="/images/logo.png" alt="AskPls"></a>
+                                <a href="/" class="retina-logo"><img src="/images/logo@2x.png" alt="AskPls"></a>
                             </div> 
 
                         </div>
@@ -544,6 +544,7 @@
             el : '#topicsdetails',
             data : {
                 categorytype: "{!! $categorytype !!}",
+                searchcategoryid: "{!! $searchcategoryid !!}" ,
                 id:"", 
                 inpId: "", 
                 topic: "",
@@ -604,52 +605,54 @@
                 }else{
 
                     $categorytype = this.categorytype;
+
+                    if( $categorytype == 'colleges' ||  $categorytype == 'companies' || $categorytype == 'doctors' || $categorytype == 'fitnesscenters' || $categorytype == 'hotels' || $categorytype == 'lawyers' || $categorytype == 'schools') {
         
-                    if( $categorytype == 'colleges'){
-                        this.vPlaceholders = "Colleges / Institutes...";
-                        this.vSearchName = "Search Colleges";
-                        this.categorytypename = 'Colleges';
-                    }
-                    if( $categorytype == 'companies'){
-                        this.vPlaceholders = "Companies..";
-                        this.vSearchName = "Search Companies";
-                        this.categorytypename = 'Companies';
-                    } 
-                    if( $categorytype == 'doctors'){
-                        this.vPlaceholders = "Doctors / Hospitals...";
-                        this.vSearchName = "Search Doctors / Hospitals";
-                        this.categorytypename = 'Doctors';
-                    }
-                    if( $categorytype == 'fitnesscenters'){
-                        this.vPlaceholders = "Fitness Centers...";
-                        this.vSearchName = "Search Fitness Center";
-                        this.categorytypename = 'Fitness Centers'; 
-                    }
-                    if( $categorytype == 'hotels'){
-                        this.vPlaceholders = "Hotels...";
-                        this.vSearchName = "Search Hotels";
-                        this.categorytypename = 'Hotels'; 
-                    }
-                    if( $categorytype == 'lawyers'){
-                        this.vPlaceholders = "Lawyers...";
-                        this.vSearchName = "Search Lawyers";
-                        this.categorytypename = 'Lawyers';
-                    }
-                    if( $categorytype == 'restaurants'){
-                        this.vPlaceholders = "Restaurants...";
-                        this.vSearchName = "Search Restaurants";
-                        this.categorytypename = 'Restaurants';
-                    }
+                            if( $categorytype == 'colleges'){
+                                this.vPlaceholders = "Colleges / Institutes...";
+                                this.vSearchName = "Search Colleges";
+                                this.categorytypename = 'Colleges';
+                            }
+                            if( $categorytype == 'companies'){
+                                this.vPlaceholders = "Companies..";
+                                this.vSearchName = "Search Companies";
+                                this.categorytypename = 'Companies';
+                            } 
+                            if( $categorytype == 'doctors'){
+                                this.vPlaceholders = "Doctors / Hospitals...";
+                                this.vSearchName = "Search Doctors / Hospitals";
+                                this.categorytypename = 'Doctors';
+                            }
+                            if( $categorytype == 'fitnesscenters'){
+                                this.vPlaceholders = "Fitness Centers...";
+                                this.vSearchName = "Search Fitness Center";
+                                this.categorytypename = 'Fitness Centers'; 
+                            }
+                            if( $categorytype == 'hotels'){
+                                this.vPlaceholders = "Hotels...";
+                                this.vSearchName = "Search Hotels";
+                                this.categorytypename = 'Hotels'; 
+                            }
+                            if( $categorytype == 'lawyers'){
+                                this.vPlaceholders = "Lawyers...";
+                                this.vSearchName = "Search Lawyers";
+                                this.categorytypename = 'Lawyers';
+                            }
+                            if( $categorytype == 'restaurants'){
+                                this.vPlaceholders = "Restaurants...";
+                                this.vSearchName = "Search Restaurants";
+                                this.categorytypename = 'Restaurants';
+                            }
 
-                    if( $categorytype == 'schools'){
-                        this.vPlaceholders = "Schools...";
-                        this.vSearchName = "Search Schools";
-                        this.categorytypename = 'Schools'; 
-                    }
+                            if( $categorytype == 'schools'){
+                                this.vPlaceholders = "Schools...";
+                                this.vSearchName = "Search Schools";
+                                this.categorytypename = 'Schools'; 
+                            }
 
-                    this.vCatName = $categorytype; 
+                            this.vCatName = $categorytype; 
 
-                        axios.get('/t/d/categories' ,{
+                                axios.get('/t/d/categories' ,{
 
                             params: {
  
@@ -679,6 +682,38 @@
                             this.topics = response.data
 
                         });
+                    }else{
+
+                        axios.get('/t/categories' ,{
+
+                            params: {
+
+                                categoryid : this.searchcategoryid, 
+
+                                }
+
+                            })
+                        .then(response => {
+
+                            if( response.data.length < 10){
+
+                                    this.showLoadMore = 0;
+
+                                }else{
+
+                                    this.showLoadMore = 1;
+                                    
+                                }
+
+                            this.showspinner = false;
+
+                            this.vCatTopics = 0;
+
+                            this.topics = response.data
+
+                        });
+
+                    }
 
                 }
 
@@ -1076,7 +1111,7 @@
 
                     this.vCatId = this.inpcategoryid;
 
-                    $newurl = this.vCatName;
+                    $newurl = '/cat/' + this.vCatName;
 
                     window.history.pushState('obj', this.vCatName, $newurl.toLowerCase());
 
