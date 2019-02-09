@@ -26,7 +26,7 @@
             <!-- Sidebar -->
             <div class="min-h-screen flex-none pt-header min-h-screen w-sidebar bg-grad-sidebar px-6" style="background-image: linear-gradient(0deg, white 0%, white 100%);">
                 <a href="../    ">
-                    <div class="absolute pin-t pin-l pin-r bg-white flex items-center w-sidebar h-header px-6 text-black">
+                    <div class="absolute pin-t pin-l pin-r bg-white flex items-center w-sidebar h-header px-6 text-black" style="max-height: 100px;">
                        @include('nova::partials.logo')
                     </div>
                 </a>
