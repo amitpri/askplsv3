@@ -23,6 +23,11 @@
     <script src="/axios/axios.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.15.4"></script>
+    <style>
+        [v-cloak] {
+          display: none;
+        }
+    </style>
 
     @include('analytics')
  
