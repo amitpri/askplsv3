@@ -1076,7 +1076,9 @@
 
                     this.vCatId = this.inpcategoryid;
 
-                    window.history.pushState('obj', this.vCatName,this.vCatName);
+                    $newurl = this.vCatName;
+
+                    window.history.pushState('obj', this.vCatName, $newurl.toLowerCase());
 
                     if(this.vCatName == 'Colleges'){
                         this.vPlaceholders = "Colleges / Institutes...";
