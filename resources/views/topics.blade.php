@@ -31,7 +31,7 @@
 
     @include('analytics')
  
-    <title>AskPls | Anonymous Review System</title>
+    <title>AskPls | Anonymous Review Platform</title>
 
 </head>
 
@@ -536,6 +536,8 @@
     <script src="../../js/jquery.js"></script>
     <script src="../../js/plugins.js"></script> 
     <script src="../../js/functions.js"></script>
+
+    <script src="{{ asset('js/topics.vue') }}"></script>
 
     <script>
     
@@ -1111,7 +1113,7 @@
 
                     this.vCatId = this.inpcategoryid;
 
-                    $newurl = '/cat/' + this.vCatName;
+                    $newurl = '/category/' + this.vCatName;
 
                     window.history.pushState('obj', this.vCatName, $newurl.toLowerCase());
 

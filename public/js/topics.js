@@ -1,10 +1,10 @@
- 
+ <script>
 const topicsdetails = new Vue({
 
-    el : '#topicsdetails',
+    el : '#topicsdetails', 
     data : {
-        categorytype: "{{ $categorytype }}",
-        searchcategoryid: "{{  $searchcategoryid }}" ,
+        categorytype: "{!! json_encode($categorytype) !!}",
+        searchcategoryid: "{!!  json_encode($searchcategoryid) !!}" ,
         id:"", 
         inpId: "", 
         topic: "",
@@ -913,4 +913,5 @@ const topicsdetails = new Vue({
 
 })
 
+</script>
  

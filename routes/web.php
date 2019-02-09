@@ -106,4 +106,4 @@ Route::get('/payment/default', 'PaymentController@paymentdefault');
 Route::get('/payment/redirect', 'PaymentController@paymentredirect'); 
 
 
-Route::get('/cat/{category}','TopicController@category'); 
+Route::get('/categry/{category}','TopicController@category'); 
