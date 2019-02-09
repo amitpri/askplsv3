@@ -1318,6 +1318,8 @@
                     this.vCat1 = 0;
                     this.vCatTopics = 0;
                     this.vCatType = 1;
+                    this.citylist = "";
+                    this.cities = [];
 
                     this.showspinner = true;
 
