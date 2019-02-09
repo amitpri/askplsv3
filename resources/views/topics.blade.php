@@ -169,7 +169,7 @@
 
                             <div class="col-lg-4 col-xl-4">
 
-                                <a @click="event.preventDefault();filteredtopics"  href="" class="button btn-block" style="border-radius: 3px;">@{{ vSearchName}}</a>  
+                                <a @click="event.preventDefault();filteredtopics"  href="" class="button btn-block" style="border-radius: 3px;" v-cloak>@{{ vSearchName}}</a>  
                             </div>
                              
                         </div>
@@ -199,7 +199,7 @@
 
                               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="nav flex-column"> 
-                                    <a @click="clearfilter" v-if="vCat1 > 0" href="" style="margin-bottom: 20px;">Clear Filters</a> 
+                                    <a @click="clearfilter" v-if="vCat1 > 0" href="" style="margin-bottom: 20px;" v-cloak>Clear Filters</a> 
 
                                @foreach ($categories as $category)
  
@@ -259,16 +259,16 @@
 
                                     <ul><li style="list-style: none;">&nbsp;</li>
                                   
-                                        <li v-if="vCatTopics" style="list-style: none;"> <b>Category :</b> @{{ vCatName}}   </li>
-                                        <li v-if="vlocality" style="list-style: none;"><b> Locality :</b> @{{ vlocality}} 
+                                        <li v-if="vCatTopics" style="list-style: none;" v-cloak> <b>Category :</b> @{{ vCatName}}   </li>
+                                        <li v-if="vlocality" style="list-style: none;" v-cloak><b> Locality :</b> @{{ vlocality}} 
                                             <a href="" @click="event.preventDefault();clear('locality')">clear</a></li>
-                                        <li v-if="vcity" style="list-style: none;"><b> City :</b> @{{ vcity}} 
+                                        <li v-if="vcity" style="list-style: none;" v-cloak><b> City :</b> @{{ vcity}} 
                                             <a href=""  @click="event.preventDefault();clear('city')">clear</a></li>
-                                        <li v-if="vcountry" style="list-style: none;"> <b>Country :</b> @{{ vcountry}} 
+                                        <li v-if="vcountry" style="list-style: none;" v-cloak> <b>Country :</b> @{{ vcountry}} 
                                             <a href=""  @click="event.preventDefault();clear('country')">clear</a></li>
-                                        <li v-if="vtype" style="list-style: none;"><b> Type :</b> @{{ vtype}} 
+                                        <li v-if="vtype" style="list-style: none;" v-cloak><b> Type :</b> @{{ vtype}} 
                                             <a href=""  @click="event.preventDefault();clear('type')">clear</a></li>
-                                        <li v-if="vspeciality" style="list-style: none;"> <b>Speciality :</b> @{{ vspeciality}} 
+                                        <li v-if="vspeciality" style="list-style: none;" v-cloak> <b>Speciality :</b> @{{ vspeciality}} 
                                             <a href=""  @click="event.preventDefault();clear('speciality')">clear</a></li>
                                         </ul>
                                     @else
