@@ -47,7 +47,7 @@ class Image extends Resource
                     return 'https://askpls.com/storage/' . $this->image;
                       
                     })->hideWhenUpdating(),
-            AdvancedImage::make('Image')->disk('public')->croppable()->resize(600,600),
+            AdvancedImage::make('Image')->disk('public')->croppable()->resize(1200,1200),
         ];
     }
 
