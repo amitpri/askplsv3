@@ -22,6 +22,8 @@
     <script src="/vue/vue.min.js"></script>
     <script src="/axios/axios.min.js"></script>
 
+    <meta name="google-site-verification" content="Egyom1onwFofLzu_ksa-hQECAvqCv86w4hIDLB7t-6Y" />
+
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.15.4"></script>
     <style>
         [v-cloak] {
