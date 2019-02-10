@@ -5,7 +5,7 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Ctessier\NovaAdvancedImageField\AdvancedImage;
-
+use Sixlive\TextCopy\TextCopy;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -41,7 +41,12 @@ class Image extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Name')->sortable(),
+            Text::make('Name')->sortable(), 
+            TextCopy::make('Link' ,function(){
+ 
+                    return 'https://askpls.com/storage/' . $this->image;
+                      
+                    })->hideWhenUpdating(),
             AdvancedImage::make('Image')->disk('public')->croppable()->resize(600,600),
         ];
     }
