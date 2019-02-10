@@ -60,44 +60,37 @@ class IndexController extends Controller
 
     }  
 
-    public function support()
+    public function support(Request $request)
     {
-        
+
         $faqcategories = FaqCategory::get(['id','category']);
 
-        $faqs = DB::select("SELECT  a.`id`, a.`question` , a.`answer` , b.`category`
+        $category = $request->category ? $request->category : "";
+
+
+        if( $category == ""){
+
+            $faqs = DB::select("SELECT  a.`id`, a.`question` , a.`answer` , b.`category`
                                             FROM `faqs` a , `faq_categories` b
                                             WHERE  a.`category` = b.`id`
                                             AND b.`category` = 'General'");
+
+        }else{
+
+            $faqs = DB::select('SELECT  a.`id`, a.`question` , a.`answer` , b.`category`
+                                            FROM `faqs` a , `faq_categories` b
+                                            WHERE  a.`category` = b.`id`
+                                            AND b.`category` = "' . $category . '"');
+        }
+
+ 
+       
 
     	return view('support', compact('faqs','faqcategories'));
 
     }  
 
-    public function supporttopics()
-    {
- 
-
-        return view('supporttopics');
-
-    }  
-
-    public function supportreviews()
-    {
- 
-
-        return view('supportreviews');
-
-    }  
-
-    public function supportlogin()
-    {
- 
-
-        return view('supportlogin');
-
-    }  
-
+    
     public function contact()
     {
  

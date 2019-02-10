@@ -38,10 +38,7 @@ Route::get('/prices', 'IndexController@prices');
 Route::get('/contact', 'IndexController@contact'); 
 Route::get('/contactform', 'IndexController@contactform'); 
 
-Route::get('/support', 'IndexController@support'); 
-Route::get('/support/topics', 'IndexController@supporttopics'); 
-Route::get('/support/reviews', 'IndexController@supportreviews'); 
-Route::get('/support/login', 'IndexController@supportlogin'); 
+Route::get('/support', 'IndexController@support');  
 
 
 Route::get('/review/default', 'ReviewController@default');

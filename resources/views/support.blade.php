@@ -193,7 +193,7 @@
                                 <ul>
                                     @foreach ($faqcategories as $faqcategory)
 
-                                        <li><a href="#"><div>{{$faqcategory->category}}</div></a></li>
+                                        <li><a href="/support?category={{$faqcategory->category}}"><div>{{$faqcategory->category}}</div></a></li>
 
                                     @endforeach 
                                      
