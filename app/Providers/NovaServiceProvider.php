@@ -58,6 +58,7 @@ use App\Nova\CollegeMember;
 use App\Nova\RestaurantMember;
 use App\Nova\FitnessCenterMember;
 use App\Nova\MembershipMember;
+use App\Nova\Image;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -109,6 +110,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     City::class,
                     Faq::class,
                     FaqCategory::class,
+                    Image::class,
 
  
                 ]);
