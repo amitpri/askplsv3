@@ -171,7 +171,7 @@
 
                             <div class="col-lg-4 col-xl-4">
 
-                                <a @click="event.preventDefault();filteredtopics"  href="" class="button btn-block" style="border-radius: 3px;" v-cloak>@{{ vSearchName}}</a>  
+                                <a @click="filteredcategoryname"  href="" class="button btn-block" style="border-radius: 3px;" v-cloak>@{{ vSearchName}}</a>  
                             </div>
                              
                         </div>
@@ -1066,7 +1066,9 @@
                 },
                 filteredcategoryname:function(){
  
-
+                    event.preventDefault();
+                    this.showspinner = true;
+                    
                     axios.get('/t/d/categories' ,{
 
                             params: {
