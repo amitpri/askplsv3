@@ -143,6 +143,8 @@ class Topic extends Resource
 
                     })->hideWhenUpdating(),
 
+                    HasMany::make('Review'),
+
                      
                 ];
 

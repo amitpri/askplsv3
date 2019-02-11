@@ -8,6 +8,7 @@ use App\GroupProfile;
 use App\DataImport;
 use App\Topic;    
 use App\Review;
+use App\ReviewMember;
 use App\TopicLog;
 use App\TopicMail;
 use App\Job;
@@ -42,6 +43,7 @@ use App\Policies\GroupProfilePolicy;
 use App\Policies\DataImportPolicy;
 use App\Policies\TopicPolicy;  
 use App\Policies\ReviewPolicy;
+use App\Policies\ReviewMemberPolicy;
 use App\Policies\TopicLogPolicy;
 use App\Policies\TopicMailPolicy;
 use App\Policies\PendingJobsPolicy;
@@ -88,6 +90,7 @@ class AuthServiceProvider extends ServiceProvider
         DataImport::class => DataImportPolicy::class,
         Topic::class => TopicPolicy::class, 
         Review::class => ReviewPolicy::class,
+        ReviewMember::class => ReviewMemberPolicy::class,
         TopicLog::class => TopicLogPolicy::class,
         TopicMail::class => TopicMailPolicy::class,
         Job::class => PendingJobsPolicy::class,

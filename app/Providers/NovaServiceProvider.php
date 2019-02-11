@@ -19,6 +19,7 @@ use App\Nova\GroupProfile;
 use App\Nova\DataImport;
 use App\Nova\Topic;
 use App\Nova\Review;
+use App\Nova\ReviewMember;
 use App\Nova\Template;
 use App\Nova\Account; 
 use App\Nova\Member;
@@ -77,6 +78,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     TopicCategoryMembers::class,
                     Topic::class,  
                     Review::class, 
+                    ReviewMember::class,
                     Category::class,
                     TopicLog::class,
                     TopicMail::class,

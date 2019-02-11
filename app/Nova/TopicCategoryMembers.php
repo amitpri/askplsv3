@@ -146,6 +146,8 @@ class TopicCategoryMembers extends Resource
                         } 
 
                     })->hideWhenUpdating(),
+
+                    HasMany::make('ReviewMember'),
  
                 ];
 
@@ -230,6 +232,8 @@ class TopicCategoryMembers extends Resource
                         } 
 
                     })->hideWhenUpdating(),
+                    
+                    HasMany::make('ReviewMember'),
           
    
                 ];

@@ -11,10 +11,10 @@ class TopicCategoryMembers extends Model
     
     protected $table = 'topic_category_members';
 
-    public function review()
+    public function reviewmember()
     {
 
-        return $this->hasMany('App\Review');
+        return $this->hasMany('App\ReviewMember' , 'topic_categories_id');
 
     }
 
