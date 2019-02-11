@@ -36,6 +36,7 @@ use App\City;
 use App\Faq;
 use App\FaqCategory;
 use App\Image;
+use App\MemberProfile;
 
 use App\Policies\ProfilePolicy;
 use App\Policies\GroupPolicy;
@@ -71,6 +72,7 @@ use App\Policies\FaqCategoryPolicy;
 use App\Policies\MembershipPolicy;
 use App\Policies\TopicCategoryMembersPolicy;
 use App\Policies\ImagePolicy;
+use App\Policies\MemberProfilePolicy;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -102,7 +104,6 @@ class AuthServiceProvider extends ServiceProvider
         Category::class => CategoryPolicy::class,
         Template::class => TemplatePolicy::class,
         ContactForm::class => ContactFormPolicy::class,
-
         College::class => CollegePolicy::class,
         Company::class => CompanyPolicy::class,
         Doctor::class => DoctorPolicy::class,
@@ -112,18 +113,14 @@ class AuthServiceProvider extends ServiceProvider
         Restaurant::class => RestaurantPolicy::class,
         School::class => SchoolPolicy::class,
         Track::class => TrackPolicy::class,
-
         Membership::class => MembershipPolicy::class,
         TopicCategoryMembers::class => TopicCategoryMembersPolicy::class,
-
         Order::class => OrderPolicy::class,
         City::class => CityPolicy::class,
         Faq::class => FaqPolicy::class,
         FaqCategory::class => FaqCategoryPolicy::class,
-
         Image::class => ImagePolicy::class,
-
-
+        MemberProfile::class => MemberProfilePolicy::class,
         
     ];
 
