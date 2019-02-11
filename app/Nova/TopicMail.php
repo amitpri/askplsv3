@@ -16,6 +16,8 @@ class TopicMail extends Resource
     
     public static $group = '0.Admin - Tasks';
 
+    public static $displayInNavigation = false;
+
     public static $model = 'App\TopicMail';
 
     public static function label() {

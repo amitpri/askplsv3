@@ -18,6 +18,8 @@ class DataImport extends Resource
      */
     public static $group = "0.Admin - Setup";
 
+    public static $displayInNavigation = false;
+
     public static $model = 'App\DataImport';
 
     public static function label() {

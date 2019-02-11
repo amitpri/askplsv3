@@ -10,6 +10,8 @@ class TenantUser extends Resource
 {
     public static $group = "0.Admin - Tasks";
 
+    public static $displayInNavigation = false;
+
     public static function label() {
 
         return 'Tenant Users';

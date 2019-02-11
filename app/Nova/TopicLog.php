@@ -18,6 +18,8 @@ class TopicLog extends Resource
 
     public static $model = 'App\TopicLog';
 
+    public static $displayInNavigation = false;
+
     public static function label() {
 
         return 'Topic Logs';

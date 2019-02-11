@@ -27,6 +27,8 @@ class Group extends Resource
 
     public static $group = '0.Admin - Setup';
 
+    public static $displayInNavigation = false;
+
     public static $model = 'App\Group';
 
     /**
