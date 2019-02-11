@@ -10,7 +10,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Order extends Resource
 {
-    public static $group = "3.Admin";
+    public static $group = "Admin - Tasks";
     public static $model = 'App\Order';
 
  
