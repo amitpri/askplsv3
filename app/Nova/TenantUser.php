@@ -8,7 +8,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class TenantUser extends Resource
 {
-    public static $group = "4.Super Admin";
+    public static $group = "3.Admin";
 
     public static function label() {
 

@@ -10,11 +10,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Track extends Resource
 {
-    /**
-     * The model the resource corresponds to.
-     *
-     * @var string
-     */
+    public static $group = '3.Admin';
     public static $model = 'App\Track';
 
     /**
