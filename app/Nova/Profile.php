@@ -23,7 +23,7 @@ class Profile extends Resource
      *
      * @var string
      */
-    public static $group = 'Admin - Setup';
+    public static $group = '0.Admin - Setup';
 
     public static $model = 'App\Profile';
 

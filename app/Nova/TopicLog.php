@@ -14,7 +14,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 class TopicLog extends Resource
 {
      
-    public static $group = 'Admin - Tasks';
+    public static $group = '0.Admin - Tasks';
 
     public static $model = 'App\TopicLog';
 
