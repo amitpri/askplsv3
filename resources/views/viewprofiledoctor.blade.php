@@ -173,7 +173,10 @@
                         <h1>@{{ inpName }} </h1>
                         <span>@{{inpAddress}}</span>
                         <span>@{{inpLocality}} &nbsp; @{{inpCity}} &nbsp; @{{inpCountry}}</span>
-                        <span><p v-if="inpWebsite" style="font-weight: 600;   color: black;  "><a target="_blank" :href="inpWebsite"> Website Link</a></p></span>
+                        <span><p v-if="inpWebsite" style="font-weight: 600;   color: black;  "><a target="_blank" :href="inpWebsite"> Website Link</a></p></span> 
+                        
+                        <iframe v-if="video" width="640" height="360" class="embed-responsive-item" 
+                            :src="'https://www.youtube.com/embed/' + video" ></iframe>  
 
                         <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpSpeciality}} </p>
                         <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpQualification}}, &nbsp;  @{{inpExp}} yrs experience </p>
@@ -256,6 +259,7 @@
                     inpQualification: "",
                     inpExp : "",
                     profilepic : "",
+                    video: "",
 					inpTopic: "",
 					inpDetail: "", 
 					inpCreated_at: "",
@@ -301,6 +305,7 @@
                         this.inpQualification = response.data.qualification;
                         this.inpExp = response.data.exp;
                         this.profilepic = response.data.profilepic; 
+                        this.video = response.data.video;
 						
 
 					});

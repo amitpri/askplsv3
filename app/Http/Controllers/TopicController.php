@@ -783,47 +783,47 @@ class TopicController extends Controller
         if( $categorytype == 'Colleges' || $categorytype == 'colleges'){
             
             $user = College::where('collegekey','=',$usercode)->where('id','=',$id)
-                    ->first(['id','collegekey', 'name','type'  ,'address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic'  ]); 
+                    ->first(['id','collegekey', 'name','type'  ,'address','locality' , 'city' , 'country'  , 'video' , 'website','links','details'  , 'profilepic'  ]); 
 
         }
         if( $categorytype == 'Companies' || $categorytype == 'companies'){
 
             $user = Company::where('companykey','=',$usercode)->where('id','=',$id)
-                    ->first(['id','companykey', 'name','type'  ,'address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic' ]); 
+                    ->first(['id','companykey', 'name','type'  ,'address','locality' , 'city' , 'country'  ,'video' ,'website','links','details'  , 'profilepic' ]); 
 
         }
         if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
 
             $user = Doctor::where('doctorkey','=',$usercode)->where('id','=',$id)
-                    ->first(['id','doctorkey', 'name' , 'speciality','gender','address','locality',  'city' , 'country' ,'website','links','details','qualification', 'exp' , 'profilepic' ]); 
+                    ->first(['id','doctorkey', 'name' , 'speciality','gender','address','locality',  'city' , 'country' ,'video' ,'website','links','details','qualification', 'exp' , 'profilepic' ]); 
         }
         if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
 
             $user = FitnessCenter::where('fitnesscenterkey','=',$usercode)->where('id','=',$id)
-                    ->first(['id','fitnesscenterkey', 'name','type'  ,'address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic' ]); 
+                    ->first(['id','fitnesscenterkey', 'name','type'  ,'address','locality' , 'city' , 'country'  ,'video' ,'website','links','details'  , 'profilepic' ]); 
 
         }
         if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
 
             $user = Hotel::where('hotelkey','=',$usercode)->where('id','=',$id)
                     ->first(['id','hotelkey', 'name' ,'type' ,'address','locality',  'city' , 'country'
-                         ,'website','links','details'   , 'profilepic' , 'video']); 
+                         ,'video' ,'website','links','details'   , 'profilepic' , 'video']); 
         }
         if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
 
             $user = Lawyer::where('lawyerkey','=',$usercode)->where('id','=',$id)
-                    ->first(['id','lawyerkey', 'name','speciality', 'gender' ,'address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic' ]); 
+                    ->first(['id','lawyerkey', 'name','speciality', 'gender' ,'address','locality' , 'city' , 'country'  ,'video' ,'website','links','details'  , 'profilepic' ]); 
         }
         if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
 
             $user = Restaurant::where('restaurantkey','=',$usercode)->where('id','=',$id)
-                    ->first(['id','restaurantkey', 'name','type','address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic' ]); 
+                    ->first(['id','restaurantkey', 'name','type','address','locality' , 'city' , 'country'  ,'video' ,'website','links','details'  , 'profilepic' ]); 
         }
 
         if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
 
             $user = School::where('schoolkey','=',$usercode)->where('id','=',$id)
-                    ->first(['id','schoolkey', 'name','type','address','locality' , 'city' , 'country'  ,'website','links','details'  , 'profilepic' ]); 
+                    ->first(['id','schoolkey', 'name','type','address','locality' , 'city' , 'country'  ,'video' ,'website','links','details'  , 'profilepic' ]); 
 
          }  
 
