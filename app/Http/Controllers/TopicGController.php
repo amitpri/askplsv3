@@ -85,7 +85,7 @@ class TopicGController extends Controller
          				->where('topics.frontdisplay',1)
          				->orderBy('topics.updated_at','desc')
          				->select(DB::raw('DATE_FORMAT(topics.created_at, "%Y-%m-%d") as created_at'), 'topics.id', 'topics.url', 'topics.user_id', 'topics.topic_name', 'topics.details', 'topics.video', 'topics.image', 'topics.comments', 'users.user_code' , 'categories.category', 'categories.id AS category_id', 'users.name')
-         				->paginate(4); 
+         				->simplePaginate(5); 
          		 
          return view('topicsG',compact('categories', 'categorytype', 'searchcategoryid', 'topics'));
    

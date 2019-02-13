@@ -233,7 +233,11 @@
                                     </div>  
 
                             @endforeach
+                            <br>
 
+                            <div class="center">
+                               {{ $topics->links() }}
+                            </div>
 
                         </div> 
  
@@ -243,7 +247,8 @@
                 </div>
 
             </div> 
- 
+            
+
 
         </section> 
         <footer id="footer" class="topmargin noborder" style="background-color: #F5F5F5;">          
