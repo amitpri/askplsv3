@@ -208,13 +208,19 @@
                                          
                                         <div class="col-12 col-md-12"  >
                                             <div class="review-title">
-                                                <h4><a target="_blank" :href="'/t/' + topic.url" style="">{{ $topic->topic_name }}</a></h4>
+                                                <h4><a target="_blank" href="/t/{{ $topic->url}}" style="">{{ $topic->topic_name }}</a></h4>
                                             </div>
                                             <div class="review-content"> 
-                                                <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">
-                                                <img  v-if="topic.video" :src="'https://img.youtube.com/vi/' + topic.video + '/default.jpg'">
+                                                @isset($topic->profilepic)
+                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
+                                                @endisset
 
-                                                <p  v-html="topic.details"></p>
+                                                 @isset($topic->video)
+                                                    <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
+                                                @endisset 
+                                               
+                                                <p>{!!html_entity_decode($topic->details)!!}</p>
+
                                             </div>
                                             <ul class="entry-meta clearfix">
                                             <li><i class="icon-calendar3"></i> {{ $topic->created_at }}</li>
