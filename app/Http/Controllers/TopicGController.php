@@ -137,13 +137,6 @@ class TopicGController extends Controller
             
             $category_table = 'colleges';
 
-            $topics = DB::select("SELECT  a.`id`,a.`collegekey` as url , a.`name` , a.`type`,  a.`address`,  a.`locality` , a.`city` ,a.`state`,a.`country` ,  a.`profilepic` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
-                                            FROM `colleges` a   
-                                            WHERE a.`status` = 1  " .
-                                            $query_option . "
-                                            ORDER BY a.`top` DESC, a.`profilepic` DESC, a.`updated_at` DESC
-                                            limit 10");
-
             $topics = DB::table('colleges')
          				->where('status',1) 
          				->orderBy('top','desc')
@@ -160,15 +153,19 @@ class TopicGController extends Controller
         }
         if( $categorytype == 'Companies' || $categorytype == 'companies'){
 
-             $category_table = 'companies';
+             $category_table = 'companies'; 
+             
+            $topics = DB::table('companies')
+         				->where('status',1) 
+         				->orderBy('top','desc')
+         				->orderBy('profilepic','desc')
+         				->orderBy('updated_at','desc')
+         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'companykey AS url', 'name', 'type', 
+         				 'locality', 'city', 'state', 'country' , 'website', 'links',  'profilepic' , 'video')
+         				->simplePaginate(10); 
 
-             $topics = DB::select("SELECT  a.`id`,a.`companykey` as url , a.`name` , a.`type`,   a.`locality` ,
-                              a.`city` ,a.`state`,a.`country` , a.`website`,  a.`links`,  a.`profilepic`, a.`video`,  DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
-                                            FROM `companies` a 
-                                            WHERE  a.`status` = 1   " .
-                                            $query_option . "
-                                            ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
-                                            limit 10");
+         	$topics->withPath("?type=$categorytype");
+
         }
         if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
 
@@ -181,6 +178,17 @@ class TopicGController extends Controller
                                             $query_option . "
                                             ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
                                             limit 10");
+
+             $topics = DB::table('colleges')
+         				->where('status',1) 
+         				->orderBy('top','desc')
+         				->orderBy('profilepic','desc')
+         				->orderBy('updated_at','desc')
+         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'collegekey AS url', 'name', 'type', 
+         					'address', 'locality', 'city', 'state', 'country' , 'profilepic')
+         				->simplePaginate(10); 
+
+         	$topics->withPath("?type=$categorytype");
  
         }
         if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
@@ -194,6 +202,17 @@ class TopicGController extends Controller
                                             $query_option . "
                                             ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
                                             limit 10");
+
+             $topics = DB::table('colleges')
+         				->where('status',1) 
+         				->orderBy('top','desc')
+         				->orderBy('profilepic','desc')
+         				->orderBy('updated_at','desc')
+         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'collegekey AS url', 'name', 'type', 
+         					'address', 'locality', 'city', 'state', 'country' , 'profilepic')
+         				->simplePaginate(10); 
+
+         	$topics->withPath("?type=$categorytype");
         }
         if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
 
@@ -206,6 +225,17 @@ class TopicGController extends Controller
                                             $query_option . "
                                             ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
                                             limit 10");
+
+             $topics = DB::table('colleges')
+         				->where('status',1) 
+         				->orderBy('top','desc')
+         				->orderBy('profilepic','desc')
+         				->orderBy('updated_at','desc')
+         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'collegekey AS url', 'name', 'type', 
+         					'address', 'locality', 'city', 'state', 'country' , 'profilepic')
+         				->simplePaginate(10); 
+
+         	$topics->withPath("?type=$categorytype");
         }
         if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
 
@@ -218,6 +248,17 @@ class TopicGController extends Controller
                                             $query_option . "
                                             ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
                                             limit 10");
+
+             $topics = DB::table('colleges')
+         				->where('status',1) 
+         				->orderBy('top','desc')
+         				->orderBy('profilepic','desc')
+         				->orderBy('updated_at','desc')
+         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'collegekey AS url', 'name', 'type', 
+         					'address', 'locality', 'city', 'state', 'country' , 'profilepic')
+         				->simplePaginate(10); 
+
+         	$topics->withPath("?type=$categorytype");
         }
         if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
 
@@ -230,6 +271,17 @@ class TopicGController extends Controller
                                             $query_option . "
                                             ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
                                             limit 10");
+
+             $topics = DB::table('colleges')
+         				->where('status',1) 
+         				->orderBy('top','desc')
+         				->orderBy('profilepic','desc')
+         				->orderBy('updated_at','desc')
+         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'collegekey AS url', 'name', 'type', 
+         					'address', 'locality', 'city', 'state', 'country' , 'profilepic')
+         				->simplePaginate(10); 
+
+         	$topics->withPath("?type=$categorytype");
         }
 
         if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
@@ -243,6 +295,17 @@ class TopicGController extends Controller
                                             $query_option . "
                                             ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
                                             limit 10");
+
+            $topics = DB::table('colleges')
+         				->where('status',1) 
+         				->orderBy('top','desc')
+         				->orderBy('profilepic','desc')
+         				->orderBy('updated_at','desc')
+         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'collegekey AS url', 'name', 'type', 
+         					'address', 'locality', 'city', 'state', 'country' , 'profilepic')
+         				->simplePaginate(10); 
+
+         	$topics->withPath("?type=$categorytype");
 
          }
 
