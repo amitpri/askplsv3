@@ -247,10 +247,7 @@
 
                                                 @isset($topic->video)
                                                         <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
-                                                @endisset 
-                                                   
-                                                <p>{!!html_entity_decode($topic->details)!!}</p>
- 
+                                                @endisset  
 
                                               <div class="media-body" style="margin-left: 20px;">
                                                 <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
