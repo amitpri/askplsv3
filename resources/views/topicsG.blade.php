@@ -186,7 +186,7 @@
                                     @if($category->status < 1 )
                                         <a href="/g/c?type={{ $category->category}}" class="nav-link" href="#">{{ $category->category}}</a>
                                     @else
-                                        <a href="/g/c2?id={{ $category->id}}" class="nav-link" href="#">{{ $category->category}}</a>
+                                        <a href="/g/cp?id={{ $category->id}}" class="nav-link" href="#">{{ $category->category}}</a>
                                     @endif
                                   </li>  
 
