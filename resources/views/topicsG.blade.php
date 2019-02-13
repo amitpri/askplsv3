@@ -17,19 +17,11 @@
 
     <link rel="stylesheet" href="/css/responsive.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/css/colors.php?color=1c85e8" type="text/css" />
-
-    <script src="/vue/vue.min.js"></script>
-    <script src="/axios/axios.min.js"></script>
+    <link rel="stylesheet" href="/css/colors.php?color=1c85e8" type="text/css" /> 
 
     <meta name="google-site-verification" content="Egyom1onwFofLzu_ksa-hQECAvqCv86w4hIDLB7t-6Y" />
-
-    <script src="https://cdn.jsdelivr.net/npm/places.js@1.15.4"></script>
-    <style>
-        [v-cloak] {
-          display: none;
-        }
-    </style>
+ 
+ 
 
     @include('analytics')
  
@@ -155,11 +147,9 @@
                     <form id="widget-subscribe-form"  target="#"  class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
                         <div class="input-group divcenter" v-if="vCatType > 0" >
 
-                            <input   type="text" id="workspace" class="form-control form-control-lg not-dark" placeholder="Enter Topics..." style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchquery"  @keyup="filteredtopics" >
+                            <input type="text" id="workspace" class="form-control form-control-lg not-dark search-input" placeholder="Enter Topics..." style="border: 0; box-shadow: none; overflow: hidden;"  >
 
-                            <div class="col-md-4 col-lg-3">
-                                <a @click="filteredtopics"  href="" class="button   btn-block" style="border-radius: 3px;">Search Topics</a>  
-                            </div>
+                        
                              
                         </div> 
 
@@ -561,6 +551,46 @@
     <script src="../../js/jquery.js"></script>
     <script src="../../js/plugins.js"></script> 
     <script src="../../js/functions.js"></script>
+
+    <script src="./typeahead.bundle.js"></script>
+
+    <script>
+        jQuery(document).ready(function($) {
+            
+            var engine = new Bloodhound({
+                remote: {
+                    url: '/st/filtered?topics=%QUERY%',
+                    wildcard: '%QUERY%'
+                },
+                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace
+            });
+
+            $(".search-input").typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+            }, {
+                source: engine.ttAdapter(),
+
+                displayKey: "topic_name",
+
+                name: 'usersList',
+            
+                templates: {
+                    empty: [
+                        '<div class="list-group search-results-dropdown" style="margin-top:-20px;"><div class="list-group-item">No City Found</div></div>'
+                    ],
+                    header: [
+                        '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
+                    ],
+                    suggestion: function (data) {
+                        return '<label class="list-group-item">' +  data.topic_name  + '</label>'                       
+              }
+                }
+            });
+        });
+    </script>
  
 
    
