@@ -22,7 +22,7 @@
     <meta name="google-site-verification" content="Egyom1onwFofLzu_ksa-hQECAvqCv86w4hIDLB7t-6Y" />
  
     <style>
-      .tt-query {
+    .tt-query {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
