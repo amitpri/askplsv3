@@ -153,6 +153,8 @@ class TopicGController extends Controller
          					'address', 'locality', 'city', 'state', 'country' , 'profilepic')
          				->simplePaginate(10); 
 
+         				dd($topics);
+
          	$topics->withPath("?type=$categorytype");
 
       
