@@ -167,9 +167,7 @@
 
                    <div class="row clearfix" style="margin-top:30px; "  >
 
-                        <div class="col-md-2">
-
-                            @empty($categorytype)
+                        <div class="col-md-2"> 
  
                             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                        
@@ -184,7 +182,7 @@
                                @foreach ($categories as $category)
  
                                    <li class="nav-item" >
-                                    <a @click="categorysearch({{ $category}})" class="nav-link" href="#">{{ $category->category}}</a>
+                                    <a href="/g/category?type={{ $category->category}}" class="nav-link" href="#">{{ $category->category}}</a>
                                   </li>  
 
                                 @endforeach  
@@ -192,54 +190,90 @@
                                    
                                 </ul>
                               </div>
-                            </nav> 
-
-                            @endempty 
+                            </nav>  
                                  
                         </div> 
 
-                        <div class="col-lg-10 " > 
+                        @if( $categorytype == '')
+
+                            <div class="col-lg-10 " > 
 
 
-                            @foreach ($topics as $topic)
-  
+                                @foreach ($topics as $topic)
+      
 
-                                    <div  class="row" v-for="topic in topics" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
-                                         
-                                        <div class="col-12 col-md-12"  >
-                                            <div class="review-title">
-                                                <h4><a target="_blank" href="/t/{{ $topic->url}}" style="">{{ $topic->topic_name }}</a></h4>
+                                        <div  class="row"  style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
+                                             
+                                            <div class="col-12 col-md-12"  >
+                                                <div class="review-title">
+                                                    <h4><a target="_blank" href="/t/{{ $topic->url}}" style="">{{ $topic->topic_name }}</a></h4>
+                                                </div>
+                                                <div class="review-content"> 
+                                                    @isset($topic->profilepic)
+                                                        <img  src="/storage/{{ $topic->profilepic }}"  width="100">
+                                                    @endisset
+
+                                                     @isset($topic->video)
+                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
+                                                    @endisset 
+                                                   
+                                                    <p>{!!html_entity_decode($topic->details)!!}</p>
+
+                                                </div>
+                                                <ul class="entry-meta clearfix">
+                                                <li><i class="icon-calendar3"></i> {{ $topic->created_at }}</li>
+                                                <li><a href="#" :href="'/p/' + topic.user_code"><i class="icon-user"></i> {{ $topic->name }}</a></li>
+                                                <li><i class="icon-folder-open"></i> <a @click="categorytopicsearch(topic)"   href="#">{{ $topic->category }}</a> </li>
+                                                <li v-if="topic.comments > 0"><a :href="'/t/' + topic.url"><i class="icon-comments"></i> {{ $topic->comments }} Reviews</a></li> 
+                                            </ul>
                                             </div>
-                                            <div class="review-content"> 
-                                                @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
-                                                @endisset
+                                            
+                                        </div>  
 
-                                                 @isset($topic->video)
-                                                    <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
-                                                @endisset 
-                                               
-                                                <p>{!!html_entity_decode($topic->details)!!}</p>
+                                @endforeach
 
-                                            </div>
-                                            <ul class="entry-meta clearfix">
-                                            <li><i class="icon-calendar3"></i> {{ $topic->created_at }}</li>
-                                            <li><a href="#" :href="'/p/' + topic.user_code"><i class="icon-user"></i> {{ $topic->name }}</a></li>
-                                            <li><i class="icon-folder-open"></i> <a @click="categorytopicsearch(topic)"   href="#">{{ $topic->category }}</a> </li>
-                                            <li v-if="topic.comments > 0"><a :href="'/t/' + topic.url"><i class="icon-comments"></i> {{ $topic->comments }} Reviews</a></li> 
-                                        </ul>
-                                        </div>
+
+                                <br>
+
+                                <div class="center">
+                                   {{ $topics->links() }}
+                                </div>
+
+                            </div> 
+
+                        @elseif ( $categorytype == 'colleges' )
+ 
+
+                            <div class="col-lg-10 " > 
+
+                                @foreach ($topics as $topic)
+
+                                <div  class="row"  style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
+
+                                    <div class="media" style="padding-top: 10px;"> 
+                                      
+                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
+                                      <img  v-else src="/no-image.png"  width="100" class="mr-3"> 
+
+                                      <div class="media-body" style="margin-left: 20px;">
+                                        <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
+                                        <ul class="entry-meta clearfix">
+                                            <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.type)">{{ $topic->type}}</a> </li>
+                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">{{ $topic->city}}</a>  </li>
+                                            <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">{{ $topic->country}}</a></li>
                                         
+                                        </ul>
+                                      </div>
                                     </div>  
 
-                            @endforeach
-                            <br>
+                                </div>
 
-                            <div class="center">
-                               {{ $topics->links() }}
-                            </div>
+                                @endforeach
+                                    
+                                </div>
 
-                        </div> 
+
+                        @endif
  
 
                     </div>
