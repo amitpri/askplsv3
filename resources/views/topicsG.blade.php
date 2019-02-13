@@ -211,7 +211,7 @@
                                                         <img  src="/storage/{{ $topic->profilepic }}"  width="100">
                                                     @endisset
 
-                                                     @isset($topic->video)
+                                                    @isset($topic->video)
                                                         <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
                                                     @endisset 
                                                    
@@ -238,9 +238,19 @@
                                         <div  class="row"  style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
 
                                             <div class="media" style="padding-top: 10px;"> 
-                                              
-                                              <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
-                                              <img  v-else src="/no-image.png"  width="100" class="mr-3"> 
+
+                                                @isset($topic->profilepic)
+                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
+                                                @else
+                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
+                                                @endisset 
+
+                                                @isset($topic->video)
+                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
+                                                @endisset 
+                                                   
+                                                <p>{!!html_entity_decode($topic->details)!!}</p>
+ 
 
                                               <div class="media-body" style="margin-left: 20px;">
                                                 <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
