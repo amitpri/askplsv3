@@ -185,23 +185,15 @@ class TopicGController extends Controller
         }
         if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
 
-             $category_table = 'fitness_centers';
+             $category_table = 'fitness_centers'; 
 
-             $topics = DB::select("SELECT  a.`id`,a.`fitnesscenterkey` as url , a.`name` , a.`type`,  a.`address`,  a.`locality` ,
-                              a.`city` ,a.`state`,a.`country` ,a.`website`,  a.`links`,  a.`profilepic`, a.`video`, DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
-                                            FROM `fitness_centers` a 
-                                            WHERE  a.`status` = 1   " .
-                                            $query_option . "
-                                            ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
-                                            limit 10");
-
-             $topics = DB::table('colleges')
+             $topics = DB::table('fitness_centers')
          				->where('status',1) 
          				->orderBy('top','desc')
          				->orderBy('profilepic','desc')
          				->orderBy('updated_at','desc')
-         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'collegekey AS url', 'name', 'type', 
-         					'address', 'locality', 'city', 'state', 'country' , 'profilepic')
+         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'fitnesscenterkey AS url', 'name', 'type', 
+         					'address', 'locality', 'city', 'state', 'country' , 'website', 'links',  'profilepic' , 'video')
          				->simplePaginate(10); 
 
          	$topics->withPath("?type=$categorytype");

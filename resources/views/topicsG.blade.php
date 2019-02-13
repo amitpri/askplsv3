@@ -331,6 +331,42 @@
 
                                     @endforeach
 
+
+                            @elseif ( $categorytype == 'fitness_centers' )
+     
+                                    @foreach ($topics as $topic)
+
+                                        <div  class="row"  style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
+
+                                            <div class="media" style="padding-top: 10px;"> 
+
+                                                @isset($topic->profilepic)
+                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
+                                                @else
+                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
+                                                @endisset 
+
+                                                @isset($topic->video)
+                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
+                                                @endisset   
+
+                                              <div class="media-body" style="margin-left: 20px;">
+                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
+                                                <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
+                                                
+                                                <ul class="entry-meta clearfix">
+                                                    <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.type)">{{ $topic->type}}</a> </li>
+                                                    <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">{{ $topic->locality}}</a>  </li>
+                                                    <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">{{ $topic->city}}</a></li>
+                                                
+                                                </ul>
+                                              </div>
+                                            </div>  
+
+                                        </div>
+
+                                    @endforeach        
+
                                 @endif 
 
 
