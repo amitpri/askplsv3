@@ -425,8 +425,8 @@
                                                 <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
                                                 
                                                 <ul class="entry-meta clearfix">
-                                                    <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.speciality)">{{ $topic->type}}</a> </li>
-                                                    <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.locality, v)">{{ $topic->locality}}</a>  </li>
+                                                    <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.speciality)">{{ $topic->speciality}}</a> </li>
+                                                    <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.locality)">{{ $topic->locality}}</a>  </li>
                                                     <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.city)">{{ $topic->city}}</a></li>
                                                 
                                                 </ul>
