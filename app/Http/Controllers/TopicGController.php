@@ -200,69 +200,45 @@ class TopicGController extends Controller
         }
         if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
 
-             $category_table = 'hotels';
+             $category_table = 'hotels'; 
 
-             $topics = DB::select("SELECT  a.`id`,a.`hotelkey` as url , a.`name` , a.`type`,  a.`address`,  a.`locality` ,
-                              a.`city` ,a.`state`,a.`country`,a.`website`,  a.`links`,  a.`profilepic`, a.`video` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
-                                            FROM `hotels` a 
-                                            WHERE  a.`status` = 1   " .
-                                            $query_option . "
-                                            ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
-                                            limit 10");
-
-             $topics = DB::table('colleges')
+             $topics = DB::table('hotels')
          				->where('status',1) 
          				->orderBy('top','desc')
          				->orderBy('profilepic','desc')
          				->orderBy('updated_at','desc')
-         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'collegekey AS url', 'name', 'type', 
-         					'address', 'locality', 'city', 'state', 'country' , 'profilepic')
+         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'hotelkey AS url', 'name', 'type', 
+         					'address', 'locality', 'city', 'state', 'country'  , 'website', 'links',  'profilepic' , 'video')
          				->simplePaginate(10); 
 
          	$topics->withPath("?type=$categorytype");
         }
         if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
 
-             $category_table = 'lawyers';
+             $category_table = 'lawyers'; 
 
-             $topics = DB::select("SELECT  a.`id`,a.`lawyerkey` as url , a.`name` , a.`speciality`,  a.`gender`, a.`address` ,  a.`locality` ,
-                              a.`city` ,a.`state`,a.`country`,a.`website`,  a.`links`,  a.`profilepic`, a.`video`  , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
-                                            FROM `lawyers` a 
-                                            WHERE  a.`status` = 1   " .
-                                            $query_option . "
-                                            ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
-                                            limit 10");
-
-             $topics = DB::table('colleges')
+             $topics = DB::table('lawyers')
          				->where('status',1) 
          				->orderBy('top','desc')
          				->orderBy('profilepic','desc')
          				->orderBy('updated_at','desc')
-         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'collegekey AS url', 'name', 'type', 
-         					'address', 'locality', 'city', 'state', 'country' , 'profilepic')
+         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'lawyerkey AS url', 'name', 'speciality', 'gender' ,
+         					'address', 'locality', 'city', 'state', 'country'  , 'website', 'links',  'profilepic' , 'video')
          				->simplePaginate(10); 
 
          	$topics->withPath("?type=$categorytype");
         }
         if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
 
-             $category_table = 'restaurants';
+             $category_table = 'restaurants'; 
 
-             $topics = DB::select("SELECT  a.`id`,a.`restaurantkey` as url , a.`name` , a.`type`,  a.`address`,  a.`locality` ,
-                              a.`city` ,a.`state`,a.`country` ,a.`website`,  a.`links`,  a.`profilepic`, a.`video`, DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
-                                            FROM `restaurants` a 
-                                            WHERE  a.`status` = 1   " .
-                                            $query_option . "
-                                            ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
-                                            limit 10");
-
-             $topics = DB::table('colleges')
+             $topics = DB::table('restaurants')
          				->where('status',1) 
          				->orderBy('top','desc')
          				->orderBy('profilepic','desc')
          				->orderBy('updated_at','desc')
-         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'collegekey AS url', 'name', 'type', 
-         					'address', 'locality', 'city', 'state', 'country' , 'profilepic')
+         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'restaurantkey AS url', 'name', 'type', 
+         					'address', 'locality', 'city', 'state', 'country'  , 'website', 'links',  'profilepic' , 'video')
          				->simplePaginate(10); 
 
          	$topics->withPath("?type=$categorytype");
@@ -270,23 +246,15 @@ class TopicGController extends Controller
 
         if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
 
-             $category_table = 'schools';
+             $category_table = 'schools'; 
 
-            $topics = DB::select("SELECT  a.`id`,a.`schoolkey` as url , a.`name` , a.`type`,  a.`address`,  a.`locality` ,
-                              a.`city` ,a.`state`,a.`country` ,a.`website`,  a.`links`,  a.`profilepic`, a.`video`, DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at  
-                                            FROM `schools` a 
-                                            WHERE  a.`status` = 1   " .
-                                            $query_option . "
-                                            ORDER BY a.`top` DESC,a.`profilepic` DESC, a.`updated_at` DESC
-                                            limit 10");
-
-            $topics = DB::table('colleges')
+            $topics = DB::table('schools')
          				->where('status',1) 
          				->orderBy('top','desc')
          				->orderBy('profilepic','desc')
          				->orderBy('updated_at','desc')
-         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'collegekey AS url', 'name', 'type', 
-         					'address', 'locality', 'city', 'state', 'country' , 'profilepic')
+         				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'schoolkey AS url', 'name', 'type', 
+         					'address', 'locality', 'city', 'state', 'country'  , 'website', 'links',  'profilepic' , 'video')
          				->simplePaginate(10); 
 
          	$topics->withPath("?type=$categorytype");
