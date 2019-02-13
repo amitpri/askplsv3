@@ -62,6 +62,8 @@ class TopicGController extends Controller
                 ]);
 
         $searchcategoryid = '';
+        $users = DB::table('users')->paginate(2);
+ 
 
          $topics = DB::select("SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name`, a.`video` ,a.`image` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at, a.`comments`
                                     FROM `topics` a ,  `users` b,  `categories` c 
@@ -74,7 +76,18 @@ class TopicGController extends Controller
                                             ORDER BY a.`updated_at` DESC
                                             limit 10");
 
-        return view('topicsG',compact('categories', 'categorytype', 'searchcategoryid', 'topics'));
+         $topics = DB::table('topics')
+         				->join('users','topics.user_id','=','users.id')
+         				->join('categories','topics.category_id','=','categories.id')
+         				->where('topics.type','public')
+         				->where('topics.sitedisplay',1)
+         				->where('topics.status',1)
+         				->where('topics.frontdisplay',1)
+         				->orderBy('topics.updated_at','desc')
+         				->select(DB::raw('DATE_FORMAT(topics.created_at, "%Y-%m-%d") as created_at'), 'topics.id', 'topics.url', 'topics.user_id', 'topics.topic_name', 'topics.details', 'topics.video', 'topics.image', 'topics.comments', 'users.user_code' , 'categories.category', 'categories.id AS category_id', 'users.name')
+         				->paginate(4); 
+         		 
+         return view('topicsG',compact('categories', 'categorytype', 'searchcategoryid', 'topics'));
    
     }
 }
