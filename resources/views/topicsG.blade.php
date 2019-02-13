@@ -647,7 +647,18 @@
                         '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
                     ],
                     suggestion: function (data) {
-                        return '<label class="list-group-item">' +  data.topic_name  + '</label>'                       
+                        return `
+                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                                    <div class="d-flex w-100 justify-content-between">
+                                      <h5 class="mb-1"> ` + data.topic_name + `</h5>
+                                      <small>3 days ago</small>
+                                    </div>
+                                    <p class="mb-1"> `  +  data.details  +`</p>
+                                    <small>Donec id elit non mi porta.</small>
+                                  </a>
+                                  <br>
+
+                                 `                     
               }
                 }
             });
