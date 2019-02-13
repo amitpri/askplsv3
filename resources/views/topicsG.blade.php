@@ -264,7 +264,7 @@
 
                                     @endforeach
                                          
-                            @elseif ( $categorytype == 'colleges' )
+                            @elseif ( $categorytype == 'companies' )
      
                                     @foreach ($topics as $topic)
 
