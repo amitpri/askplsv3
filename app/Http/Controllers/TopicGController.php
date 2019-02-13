@@ -151,7 +151,9 @@ class TopicGController extends Controller
          				->orderBy('updated_at','desc')
          				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'collegekey AS url', 'name', 'type', 
          					'address', 'locality', 'city', 'state', 'country' , 'profilepic')
-         				->simplePaginate(5); 
+         				->simplePaginate(10); 
+
+         	$topics->withPath("?type=$categorytype");
 
       
 
