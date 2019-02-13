@@ -194,13 +194,11 @@
                                  
                         </div> 
 
-                        @if( $categorytype == '')
+                        <div class="col-lg-10 " > 
 
-                            <div class="col-lg-10 " > 
+                            @if( $categorytype == '')
 
-
-                                @foreach ($topics as $topic)
-      
+                                    @foreach ($topics as $topic)          
 
                                         <div  class="row"  style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
                                              
@@ -230,57 +228,47 @@
                                             
                                         </div>  
 
-                                @endforeach
+                                    @endforeach
+     
+
+                            @elseif ( $categorytype == 'colleges' )
+     
+                                    @foreach ($topics as $topic)
+
+                                        <div  class="row"  style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
+
+                                            <div class="media" style="padding-top: 10px;"> 
+                                              
+                                              <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
+                                              <img  v-else src="/no-image.png"  width="100" class="mr-3"> 
+
+                                              <div class="media-body" style="margin-left: 20px;">
+                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
+                                                <ul class="entry-meta clearfix">
+                                                    <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.type)">{{ $topic->type}}</a> </li>
+                                                    <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">{{ $topic->city}}</a>  </li>
+                                                    <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">{{ $topic->country}}</a></li>
+                                                
+                                                </ul>
+                                              </div>
+                                            </div>  
+
+                                        </div>
+
+                                    @endforeach
+                                         
+                            @endif 
+
+                                    <div  class="row" style="float: right;"> {{ $topics->links() }}</div>
 
 
-                                <br>
-
-                                <div class="center">
-                                   {{ $topics->links() }}
-                                </div>
-
-                            </div> 
-
-                        @elseif ( $categorytype == 'colleges' )
- 
-
-                            <div class="col-lg-10 " > 
-
-                                @foreach ($topics as $topic)
-
-                                <div  class="row"  style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
-
-                                    <div class="media" style="padding-top: 10px;"> 
-                                      
-                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
-                                      <img  v-else src="/no-image.png"  width="100" class="mr-3"> 
-
-                                      <div class="media-body" style="margin-left: 20px;">
-                                        <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
-                                        <ul class="entry-meta clearfix">
-                                            <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.type)">{{ $topic->type}}</a> </li>
-                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">{{ $topic->city}}</a>  </li>
-                                            <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">{{ $topic->country}}</a></li>
-                                        
-                                        </ul>
-                                      </div>
-                                    </div>  
-
-                                </div>
-
-                                @endforeach
-                                    
-                                </div>
-
-
-                        @endif
- 
+                        </div>
 
                     </div>
 
-                </div>
+                </div> 
 
-            </div> 
+            </div>
             
 
 
