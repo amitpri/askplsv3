@@ -252,8 +252,9 @@ class TopicGController extends Controller
 
         $categorytype = $category_table;
  
- 
-        return view('topicsG',compact( 'categorytype', 'categories',   'topics'));
+ 		$categoryid = 0;
+ 		
+        return view('topicsG',compact( 'categoryid', 'categorytype', 'categories',   'topics'));
    
     }
     public function category2($id,Request $request)
