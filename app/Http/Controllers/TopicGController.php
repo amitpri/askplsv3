@@ -76,7 +76,7 @@ class TopicGController extends Controller
 
         $searchtype = 0;
          		 
-         return view('topicsG',compact( 'searchtype', 'categoryid', 'categorytype', 'categories',   'topics'));
+         return view('topicsG',compact('categoryname', 'searchtype', 'categoryid', 'categorytype', 'categories',   'topics'));
    
     }
 
@@ -127,6 +127,7 @@ class TopicGController extends Controller
         if( $categorytype == 'Colleges' || $categorytype == 'colleges'){
             
             $category_table = 'colleges';
+            $categoryname = "Colleges";
 
             $topics = DB::table('colleges')
          				->where('status',1) 
@@ -147,6 +148,7 @@ class TopicGController extends Controller
         if( $categorytype == 'Companies' || $categorytype == 'companies'){
 
              $category_table = 'companies'; 
+             $categoryname = "Companies";
 
             $topics = DB::table('companies')
          				->where('status',1) 
@@ -165,6 +167,7 @@ class TopicGController extends Controller
         if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
 
              $category_table = 'doctors'; 
+             $categoryname = "Doctors";
 
              $topics = DB::table('doctors')
          				->where('status',1) 
@@ -183,6 +186,7 @@ class TopicGController extends Controller
         if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
 
              $category_table = 'fitness_centers'; 
+             $categoryname = "Fitness Centers";
 
              $topics = DB::table('fitness_centers')
          				->where('status',1) 
@@ -200,6 +204,7 @@ class TopicGController extends Controller
         if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
 
              $category_table = 'hotels'; 
+             $categoryname = "Hotels";
 
              $topics = DB::table('hotels')
          				->where('status',1) 
@@ -217,6 +222,7 @@ class TopicGController extends Controller
         if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
 
              $category_table = 'lawyers'; 
+             $categoryname = "Lawyers";
 
              $topics = DB::table('lawyers')
          				->where('status',1) 
@@ -234,6 +240,7 @@ class TopicGController extends Controller
         if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
 
              $category_table = 'restaurants'; 
+             $categoryname = "Restaurants";
 
              $topics = DB::table('restaurants')
          				->where('status',1) 
@@ -252,6 +259,7 @@ class TopicGController extends Controller
         if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
 
              $category_table = 'schools'; 
+             $categoryname = "Schools";
 
             $topics = DB::table('schools')
          				->where('status',1) 
@@ -272,7 +280,7 @@ class TopicGController extends Controller
  
  		$categoryid = 0;
 
-        return view('topicsG',compact( 'searchtype','categoryid', 'categorytype', 'categories',   'topics'));
+        return view('topicsG',compact( 'categoryname','searchtype','categoryid', 'categorytype', 'categories',   'topics'));
    
     }
     public function category2($id,Request $request)
@@ -300,7 +308,7 @@ class TopicGController extends Controller
  
  		$searchtype = 0;
 
-        return view('topicsG',compact('searchtype', 'categoryid', 'categorytype', 'categories',   'topics'));
+        return view('topicsG',compact('categoryname','searchtype', 'categoryid', 'categorytype', 'categories',   'topics'));
    
     }
 }

@@ -221,7 +221,7 @@
 
                                 <input id="searchcity"   type="search" id="address-input" class="form-control form-control-lg not-dark search-input-city" placeholder="Enter City..." style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;"   onchange="onChangeCity(this)">
 
-                                <input name="category"   type="text" id="workspace" class="form-control form-control-lg not-dark search-input-category"  placeholder="Enter Doctor" style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;"    >
+                                <input id="searchcategory" name="category"   type="text" id="workspace" class="form-control form-control-lg not-dark search-input-category"  placeholder="Enter {{$categoryname}}" style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;"    disabled>
   
                             </div>
                         </form>
@@ -775,6 +775,15 @@
     function onChangeCity() { 
 
       var selectedcity = document.getElementById("searchcity").value; 
+
+      if(selectedcity != ""){
+
+        document.getElementById("searchcategory").disabled = false;
+      }
+      if(selectedcity == ""){
+
+        document.getElementById("searchcategory").disabled = true;
+      }
 
       var enginecategory = new Bloodhound({
                 remote: {
