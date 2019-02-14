@@ -203,16 +203,32 @@
             <div class="content-wrap clearfix">
 
                 <div class="container">
-                    <form id="widget-subscribe-form"  target="#"  class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
-                        <div class="input-group divcenter" v-if="vCatType > 0" >
+                     @if($searchtype == 0) 
 
-                            <input type="text" id="workspace" class="form-control form-control-lg not-dark search-input" placeholder="Enter Topics..." style="border: 0; box-shadow: none; overflow: hidden;"  >
- 
- 
-                             
-                        </div> 
+                        <form id="widget-subscribe-form"  target="#"  class="nobottommargin col-md-9 offset-md-2" 
+                            style="margin-top:-60px; " >
+                            <div class="input-group divcenter"   >
 
-                    </form>  
+                                <input type="text" id="workspace" class="form-control form-control-lg not-dark search-input" placeholder="Enter Topics..." style="border: 0; box-shadow: none; overflow: hidden;"  >
+
+                            </div> 
+                        </form>  
+
+                    @elseif($searchtype == 1)
+
+                        <form id="widget-subscribe-form"  target="/asas" method="get"  class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
+                            <div class="input-group divcenter" v >
+
+                                <input id="searchcity"   type="search" id="address-input" class="form-control form-control-lg not-dark search-input-city" placeholder="Enter City..." style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;"   onchange="onChangeCity(this)">
+
+                                <input name="category"   type="text" id="workspace" class="form-control form-control-lg not-dark search-input-category"  placeholder="Enter Doctor" style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;"    >
+  
+                            </div>
+                        </form>
+
+                    @else
+
+                    @endif
 
                    <div class="row clearfix" style="margin-top:30px; "  >
 
@@ -617,7 +633,7 @@
     <script src="https://askpls.com/typeahead.bundle.js"></script>
 
     <script>
-        jQuery(document).ready(function($) {
+        jQuery(document).ready(function($) { 
             
             var engine = new Bloodhound({
                 remote: {
@@ -627,6 +643,17 @@
                 datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace
             });
+
+            var enginecity = new Bloodhound({
+                remote: {
+                    url: '/cities/get?city=%QUERY%',
+                    wildcard: '%QUERY%'
+                },
+                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace
+            });
+
+            
 
             $(".search-input").typeahead({
                 hint: true,
@@ -700,11 +727,104 @@
               }
                 }
             });
+
+            $(".search-input-city").typeahead({
+                hint: true,
+                highlight: false,
+                minLength: 1
+            }, {
+                source: enginecity.ttAdapter(),
+
+                displayKey: "name",
+
+                name: 'usersList',
+            
+                templates: {
+                    empty: [
+                        '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
+                    ],
+                    header: [
+                        '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
+                    ],
+                    suggestion: function (data) {
+                        
+                        v0 = data.name;
+
+                        return `
+                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+                                    <div class="d-flex w-100 justify-content-between">
+                                      <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
+                                      
+                                    </div>  
+                                    
+                                  </a>
+                                  <br>
+                                  <br>
+
+                                 `                     
+              }
+                }
+            }); 
         });
+ 
+
     </script>
  
 
-   
+   <script>
+    function onChangeCity() { 
+
+      var selectedcity = document.getElementById("searchcity").value; 
+
+      var enginecategory = new Bloodhound({
+                remote: {
+                    url: '/t/d/categories?categoryid={{ $categoryid}}&type={{ $categorytype}}&city=' + selectedcity + '&search=%QUERY%',
+                    wildcard: '%QUERY%'
+                },
+                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace
+            });
+
+          $(".search-input-category").typeahead({
+                    hint: true,
+                    highlight: false,
+                    minLength: 1
+                }, {
+                    source: enginecategory.ttAdapter(),
+
+                    displayKey: "name",
+
+                    name: 'usersList',
+                
+                    templates: {
+                        empty: [
+                            '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
+                        ],
+                        header: [
+                            '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
+                        ],
+                        suggestion: function (data) {
+                            
+                            v0 = data.name;  
+
+                            return `
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+                                        <div class="d-flex w-100 justify-content-between">
+                                          <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
+                                          
+                                        </div>  
+                                        
+                                      </a>
+                                      <br>
+                                      <br>
+
+                                     `                     
+                        }
+                    }
+                });
+       
+    }
+    </script>
 
 </body>
 </html>

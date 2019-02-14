@@ -73,8 +73,10 @@ class TopicGController extends Controller
          				->orderBy('topics.updated_at','desc')
          				->select(DB::raw('DATE_FORMAT(topics.created_at, "%Y-%m-%d") as created_at'), 'topics.id', 'topics.url', 'topics.user_id', 'topics.topic_name', 'topics.details', 'topics.video', 'topics.image', 'topics.comments', 'users.user_code' , 'categories.category', 'categories.id AS category_id', 'users.name')
          				->simplePaginate(20); 
+
+        $searchtype = 0;
          		 
-         return view('topicsG',compact('categoryid', 'categorytype', 'categories',   'topics'));
+         return view('topicsG',compact( 'searchtype', 'categoryid', 'categorytype', 'categories',   'topics'));
    
     }
 
@@ -137,6 +139,8 @@ class TopicGController extends Controller
 
   //       	$topics->withPath("?type=$categorytype");
 
+         	$searchtype = 1;
+
       
 
         }
@@ -155,6 +159,8 @@ class TopicGController extends Controller
 
   //       	$topics->withPath("?type=$categorytype");
 
+         	$searchtype = 1;
+
         }
         if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
 
@@ -170,6 +176,8 @@ class TopicGController extends Controller
          				->simplePaginate(20); 
 
       //   	$topics->withPath("?type=$categorytype");
+
+         	$searchtype = 1;
  
         }
         if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
@@ -186,6 +194,8 @@ class TopicGController extends Controller
          				->simplePaginate(20); 
 
     //     	$topics->withPath("?type=$categorytype");
+
+         	$searchtype = 1;
         }
         if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
 
@@ -201,6 +211,8 @@ class TopicGController extends Controller
          				->simplePaginate(20); 
 
     //     	$topics->withPath("?type=$categorytype");
+
+         	$searchtype = 1;
         }
         if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
 
@@ -216,6 +228,8 @@ class TopicGController extends Controller
          				->simplePaginate(20); 
 
    //      	$topics->withPath("?type=$categorytype");
+
+         	$searchtype = 1;
         }
         if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
 
@@ -231,6 +245,8 @@ class TopicGController extends Controller
          				->simplePaginate(20); 
 
      //    	$topics->withPath("?type=$categorytype");
+
+         	$searchtype = 1;
         }
 
         if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
@@ -248,13 +264,15 @@ class TopicGController extends Controller
 
 //         	$topics->withPath("?type=$categorytype");
 
+         	$searchtype = 1;
+
          }
 
         $categorytype = $category_table;
  
  		$categoryid = 0;
- 		
-        return view('topicsG',compact( 'categoryid', 'categorytype', 'categories',   'topics'));
+
+        return view('topicsG',compact( 'searchtype','categoryid', 'categorytype', 'categories',   'topics'));
    
     }
     public function category2($id,Request $request)
@@ -280,8 +298,9 @@ class TopicGController extends Controller
          				->select(DB::raw('DATE_FORMAT(topics.created_at, "%Y-%m-%d") as created_at'), 'topics.id', 'topics.url', 'topics.user_id', 'topics.topic_name', 'topics.details', 'topics.video', 'topics.image', 'topics.comments', 'users.user_code' , 'categories.category', 'categories.id AS category_id', 'users.name')
          				->simplePaginate(5); 
  
- 
-        return view('topicsG',compact( 'categoryid', 'categorytype', 'categories',   'topics'));
+ 		$searchtype = 0;
+
+        return view('topicsG',compact('searchtype', 'categoryid', 'categorytype', 'categories',   'topics'));
    
     }
 }
