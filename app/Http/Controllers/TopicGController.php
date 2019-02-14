@@ -79,12 +79,14 @@ class TopicGController extends Controller
     }
 
 
-    public function category(Request $request)
+    public function category($type,Request $request)
     {
  
         $categories = ShowCategory::orderBy('order','asc')->get(['id','category','status']);
 
-        $categorytype = $request->type;
+        //$categorytype = $request->type;
+
+        $categorytype = $type;
 
         $query_option = "";
 
@@ -254,12 +256,14 @@ class TopicGController extends Controller
         return view('topicsG',compact( 'categorytype', 'categories',   'topics'));
    
     }
-    public function category2(Request $request)
+    public function category2($id,Request $request)
     {
  
         $categories = ShowCategory::orderBy('order','asc')->get(['id','category','status']);
 
-        $categoryid = $request->id;
+       // $categoryid = $request->id;
+
+        $categoryid = $id;
 
         $categorytype = '';
  

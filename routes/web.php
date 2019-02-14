@@ -83,5 +83,5 @@ Route::get('/category/{category}','TopicController@category');
 
 
 Route::get('/g', 'TopicGController@index');
-Route::get('/g/c', 'TopicGController@category');
-Route::get('/g/cp', 'TopicGController@category2');
+Route::get('/g/c/{type}', 'TopicGController@category');
+Route::get('/g/cp/{id}', 'TopicGController@category2');

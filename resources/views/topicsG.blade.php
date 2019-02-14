@@ -229,16 +229,19 @@
 
                               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="nav flex-column"> 
-                                    <a @click="clearfilter" v-if="vCat1 > 0" href="" style="margin-bottom: 20px;" v-cloak>Clear Filters</a> 
+
+                                    @if( $categorytype != '')
+                                    <a  href="/g" style="margin-bottom: 20px;">Clear Filters</a> 
+                                    @endif
 
                                @foreach ($categories as $category)
  
                                    <li class="nav-item" >
 
                                     @if($category->status < 1 )
-                                        <a href="/g/c?type={{ $category->category}}" class="nav-link"  >{{ $category->category}}</a>
+                                        <a href="/g/c/{{ $category->category}}" class="nav-link"  >{{ $category->category}}</a>
                                     @else
-                                        <a href="/g/cp?id={{ $category->id}}" class="nav-link" >{{ $category->category}}</a>
+                                        <a href="/g/cp/{{ $category->id}}" class="nav-link" >{{ $category->category}}</a>
                                     @endif
                                   </li>  
 
