@@ -207,10 +207,7 @@
                         <div class="input-group divcenter" v-if="vCatType > 0" >
 
                             <input type="text" id="workspace" class="form-control form-control-lg not-dark search-input" placeholder="Enter Topics..." style="border: 0; box-shadow: none; overflow: hidden;"  >
-
-                            <div class="col-md-4 col-lg-3">
-                                <a @click="filteredtopics"  href="" class="button   btn-block" style="border-radius: 3px;">Search Topics</a>  
-                            </div>
+ 
  
                              
                         </div> 
