@@ -614,7 +614,7 @@
     <script src="../../js/plugins.js"></script> 
     <script src="../../js/functions.js"></script>
 
-    <script src="./typeahead.bundle.js"></script>
+    <script src="typeahead.bundle.js"></script>
 
     <script>
         jQuery(document).ready(function($) {
