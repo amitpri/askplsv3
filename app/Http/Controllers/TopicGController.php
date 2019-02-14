@@ -75,6 +75,7 @@ class TopicGController extends Controller
          				->simplePaginate(20); 
 
         $searchtype = 0;
+        $categoryname = "";
          		 
          return view('topicsG',compact('categoryname', 'searchtype', 'categoryid', 'categorytype', 'categories',   'topics'));
    
@@ -307,6 +308,7 @@ class TopicGController extends Controller
          				->simplePaginate(5); 
  
  		$searchtype = 0;
+ 		$categoryname = "";
 
         return view('topicsG',compact('categoryname','searchtype', 'categoryid', 'categorytype', 'categories',   'topics'));
    
