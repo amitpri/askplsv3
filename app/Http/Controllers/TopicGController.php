@@ -135,7 +135,7 @@ class TopicGController extends Controller
          					'address', 'locality', 'city', 'state', 'country' , 'profilepic')
          				->simplePaginate(10); 
 
-         	$topics->withPath("?type=$categorytype");
+  //       	$topics->withPath("?type=$categorytype");
 
       
 
@@ -153,7 +153,7 @@ class TopicGController extends Controller
          				 'locality', 'city', 'state', 'country' , 'website', 'links',  'profilepic' , 'video')
          				->simplePaginate(10); 
 
-         	$topics->withPath("?type=$categorytype");
+  //       	$topics->withPath("?type=$categorytype");
 
         }
         if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
@@ -169,7 +169,7 @@ class TopicGController extends Controller
          					'gender', 'locality', 'city', 'state', 'country' , 'qualification' , 'exp' ,'profilepic')
          				->simplePaginate(10); 
 
-         	$topics->withPath("?type=$categorytype");
+      //   	$topics->withPath("?type=$categorytype");
  
         }
         if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
@@ -185,7 +185,7 @@ class TopicGController extends Controller
          					'address', 'locality', 'city', 'state', 'country' , 'website', 'links',  'profilepic' , 'video')
          				->simplePaginate(10); 
 
-         	$topics->withPath("?type=$categorytype");
+    //     	$topics->withPath("?type=$categorytype");
         }
         if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
 
@@ -200,7 +200,7 @@ class TopicGController extends Controller
          					'address', 'locality', 'city', 'state', 'country'  , 'website', 'links',  'profilepic' , 'video')
          				->simplePaginate(10); 
 
-         	$topics->withPath("?type=$categorytype");
+    //     	$topics->withPath("?type=$categorytype");
         }
         if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
 
@@ -215,7 +215,7 @@ class TopicGController extends Controller
          					'address', 'locality', 'city', 'state', 'country'  , 'website', 'links',  'profilepic' , 'video')
          				->simplePaginate(10); 
 
-         	$topics->withPath("?type=$categorytype");
+   //      	$topics->withPath("?type=$categorytype");
         }
         if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
 
@@ -230,7 +230,7 @@ class TopicGController extends Controller
          					'address', 'locality', 'city', 'state', 'country'  , 'website', 'links',  'profilepic' , 'video')
          				->simplePaginate(10); 
 
-         	$topics->withPath("?type=$categorytype");
+     //    	$topics->withPath("?type=$categorytype");
         }
 
         if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
@@ -246,7 +246,7 @@ class TopicGController extends Controller
          					'address', 'locality', 'city', 'state', 'country'  , 'website', 'links',  'profilepic' , 'video')
          				->simplePaginate(10); 
 
-         	$topics->withPath("?type=$categorytype");
+//         	$topics->withPath("?type=$categorytype");
 
          }
 
