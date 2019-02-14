@@ -236,9 +236,9 @@
                                    <li class="nav-item" >
 
                                     @if($category->status < 1 )
-                                        <a href="/g/c?type={{ $category->category}}" class="nav-link" href="#">{{ $category->category}}</a>
+                                        <a href="/g/c?type={{ $category->category}}" class="nav-link"  >{{ $category->category}}</a>
                                     @else
-                                        <a href="/g/cp?id={{ $category->id}}" class="nav-link" href="#">{{ $category->category}}</a>
+                                        <a href="/g/cp?id={{ $category->id}}" class="nav-link" >{{ $category->category}}</a>
                                     @endif
                                   </li>  
 
@@ -278,7 +278,7 @@
                                                 <ul class="entry-meta clearfix">
                                                 <li><i class="icon-calendar3"></i> {{ $topic->created_at }}</li>
                                                 <li><a href="#" :href="'/p/' + topic.user_code"><i class="icon-user"></i> {{ $topic->name }}</a></li>
-                                                <li><i class="icon-folder-open"></i> <a @click="categorytopicsearch(topic)"   href="#">{{ $topic->category }}</a> </li>
+                                                <li><i class="icon-folder-open"></i> <a   href="#">{{ $topic->category }}</a> </li>
                                                 <li v-if="topic.comments > 0"><a :href="'/t/' + topic.url"><i class="icon-comments"></i> {{ $topic->comments }} Reviews</a></li> 
                                             </ul>
                                             </div>
@@ -309,7 +309,7 @@
                                               <div class="media-body" style="margin-left: 20px;">
                                                 <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
                                                 <ul class="entry-meta clearfix">
-                                                    <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.type)">{{ $topic->type}}</a> </li>
+                                                    <li><i class="icon-calendar3"></i><a href=""  >{{ $topic->type}}</a> </li>
                                                     <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">{{ $topic->city}}</a>  </li>
                                                     <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">{{ $topic->country}}</a></li>
                                                 
@@ -630,7 +630,7 @@
 
             $(".search-input").typeahead({
                 hint: true,
-                highlight: false,
+                highlight: true,
                 minLength: 1
             }, {
                 source: engine.ttAdapter(),
@@ -651,10 +651,10 @@
                                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
                                     <div class="d-flex w-100 justify-content-between">
                                       <h5 class="mb-1"> ` + data.topic_name + `</h5>
-                                      <small>3 days ago</small>
+                                      <small>` + data.name + `</small>
                                     </div>
-                                    <p class="mb-1"> `  +  data.details  +`</p>
-                                    <small>Donec id elit non mi porta.</small>
+                                    <p class="mb-1"> `  +  data.created_at  +`</p>
+                                    <small>` +  data.category  +  `|` +  `data.comments` +`</small>
                                   </a>
                                   <br>
 
