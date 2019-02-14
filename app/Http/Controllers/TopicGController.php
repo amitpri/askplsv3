@@ -72,7 +72,7 @@ class TopicGController extends Controller
          				->where('topics.frontdisplay',1)
          				->orderBy('topics.updated_at','desc')
          				->select(DB::raw('DATE_FORMAT(topics.created_at, "%Y-%m-%d") as created_at'), 'topics.id', 'topics.url', 'topics.user_id', 'topics.topic_name', 'topics.details', 'topics.video', 'topics.image', 'topics.comments', 'users.user_code' , 'categories.category', 'categories.id AS category_id', 'users.name')
-         				->simplePaginate(5); 
+         				->simplePaginate(20); 
          		 
          return view('topicsG',compact( 'categorytype', 'categories',   'topics'));
    
@@ -133,7 +133,7 @@ class TopicGController extends Controller
          				->orderBy('updated_at','desc')
          				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'collegekey AS url', 'name', 'type', 
          					'address', 'locality', 'city', 'state', 'country' , 'profilepic')
-         				->simplePaginate(10); 
+         				->simplePaginate(20); 
 
   //       	$topics->withPath("?type=$categorytype");
 
@@ -151,7 +151,7 @@ class TopicGController extends Controller
          				->orderBy('updated_at','desc')
          				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'companykey AS url', 'name', 'type', 
          				 'locality', 'city', 'state', 'country' , 'website', 'links',  'profilepic' , 'video')
-         				->simplePaginate(10); 
+         				->simplePaginate(20); 
 
   //       	$topics->withPath("?type=$categorytype");
 
@@ -167,7 +167,7 @@ class TopicGController extends Controller
          				->orderBy('updated_at','desc')
          				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'doctorkey AS url', 'name', 'speciality', 
          					'gender', 'locality', 'city', 'state', 'country' , 'qualification' , 'exp' ,'profilepic')
-         				->simplePaginate(10); 
+         				->simplePaginate(20); 
 
       //   	$topics->withPath("?type=$categorytype");
  
@@ -183,7 +183,7 @@ class TopicGController extends Controller
          				->orderBy('updated_at','desc')
          				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'fitnesscenterkey AS url', 'name', 'type', 
          					'address', 'locality', 'city', 'state', 'country' , 'website', 'links',  'profilepic' , 'video')
-         				->simplePaginate(10); 
+         				->simplePaginate(20); 
 
     //     	$topics->withPath("?type=$categorytype");
         }
@@ -198,7 +198,7 @@ class TopicGController extends Controller
          				->orderBy('updated_at','desc')
          				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'hotelkey AS url', 'name', 'type', 
          					'address', 'locality', 'city', 'state', 'country'  , 'website', 'links',  'profilepic' , 'video')
-         				->simplePaginate(10); 
+         				->simplePaginate(20); 
 
     //     	$topics->withPath("?type=$categorytype");
         }
@@ -213,7 +213,7 @@ class TopicGController extends Controller
          				->orderBy('updated_at','desc')
          				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'lawyerkey AS url', 'name', 'speciality', 'gender' ,
          					'address', 'locality', 'city', 'state', 'country'  , 'website', 'links',  'profilepic' , 'video')
-         				->simplePaginate(10); 
+         				->simplePaginate(20); 
 
    //      	$topics->withPath("?type=$categorytype");
         }
@@ -228,7 +228,7 @@ class TopicGController extends Controller
          				->orderBy('updated_at','desc')
          				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'restaurantkey AS url', 'name', 'type', 
          					'address', 'locality', 'city', 'state', 'country'  , 'website', 'links',  'profilepic' , 'video')
-         				->simplePaginate(10); 
+         				->simplePaginate(20); 
 
      //    	$topics->withPath("?type=$categorytype");
         }
@@ -244,7 +244,7 @@ class TopicGController extends Controller
          				->orderBy('updated_at','desc')
          				->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_at'), 'id', 'schoolkey AS url', 'name', 'type', 
          					'address', 'locality', 'city', 'state', 'country'  , 'website', 'links',  'profilepic' , 'video')
-         				->simplePaginate(10); 
+         				->simplePaginate(20); 
 
 //         	$topics->withPath("?type=$categorytype");
 
