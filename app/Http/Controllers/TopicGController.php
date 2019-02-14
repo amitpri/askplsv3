@@ -61,7 +61,7 @@ class TopicGController extends Controller
                     'referrer' => $referrer,                              
                 ]);
 
-        $searchcategoryid = ''; 
+        $categoryid = '0'; 
 
          $topics = DB::table('topics')
          				->join('users','topics.user_id','=','users.id')
@@ -74,7 +74,7 @@ class TopicGController extends Controller
          				->select(DB::raw('DATE_FORMAT(topics.created_at, "%Y-%m-%d") as created_at'), 'topics.id', 'topics.url', 'topics.user_id', 'topics.topic_name', 'topics.details', 'topics.video', 'topics.image', 'topics.comments', 'users.user_code' , 'categories.category', 'categories.id AS category_id', 'users.name')
          				->simplePaginate(20); 
          		 
-         return view('topicsG',compact( 'categorytype', 'categories',   'topics'));
+         return view('topicsG',compact('categoryid', 'categorytype', 'categories',   'topics'));
    
     }
 
@@ -280,7 +280,7 @@ class TopicGController extends Controller
          				->simplePaginate(5); 
  
  
-        return view('topicsG',compact( 'categorytype', 'categories',   'topics'));
+        return view('topicsG',compact( 'categoryid', 'categorytype', 'categories',   'topics'));
    
     }
 }

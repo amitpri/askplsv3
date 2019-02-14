@@ -614,14 +614,14 @@
     <script src="../../js/plugins.js"></script> 
     <script src="../../js/functions.js"></script>
 
-    <script src="typeahead.bundle.js"></script>
+    <script src="https://askpls.com/typeahead.bundle.js"></script>
 
     <script>
         jQuery(document).ready(function($) {
             
             var engine = new Bloodhound({
                 remote: {
-                    url: '/st/filtered?topics=%QUERY%',
+                    url: '/st/filtered?categoryid={{ $categoryid}}&topics=%QUERY%',
                     wildcard: '%QUERY%'
                 },
                 datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
