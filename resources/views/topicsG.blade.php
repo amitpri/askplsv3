@@ -650,12 +650,36 @@
                         '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
                     ],
                     suggestion: function (data) {
-
-                        alert(data.topic_name);
+ 
                         v1 = data.created_at;
                         v2 = data.name;
                         v3 = data.category;
                         v4 = data.comments;
+
+                        if( data.created_at == null){
+                             v1 = "";
+                        }else{
+                            v1 = " | " + v1;
+                        }
+
+                        if( data.name == null){
+                             v2 = "";
+                        }else{
+                            v2 = " | " + v2;
+
+                        }
+                        if( data.category == null){
+                             v3 = "";
+                        }else{
+                            v3 = " | " + v3;
+
+                        }
+                        if( (data.comments == null) || (data.comments == 0)){
+                            v4 = "";
+                        }else{
+                            v4 = " | " + v4 + " Reviews";
+
+                        }
 
                         return `
                                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
@@ -663,7 +687,7 @@
                                       <h5 class="mb-1"> ` + data.topic_name + `</h5>
                                       
                                     </div>  
-                                    <small>` + v1 + v2  +  v3  +  `|` +  v4 +`</small>
+                                    <small>` + v1 + v2  +  v3  +   v4 +`</small>
                                   </a>
                                   <br>
                                   <br>
