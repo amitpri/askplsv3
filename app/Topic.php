@@ -17,12 +17,7 @@ class Topic extends Model
         'displayuptil' => 'datetime',
         'permissions' => 'array',
     ];
-
-    public function getCreatedAtAttribute($value){
-
-        return date('d-M-Y',strtotime($value));
-    }
-
+ 
 
     public function group()
     {
