@@ -651,10 +651,17 @@
                     ],
                     suggestion: function (data) {
  
+                        v0 = data.topic_name;
                         v1 = data.created_at;
                         v2 = data.name;
                         v3 = data.category;
                         v4 = data.comments;
+
+                        if( data.topic_name == null){
+                             v0 = "";
+                        }else{
+                            v0 =   v0  ;
+                        }
 
                         if( data.created_at == null){
                              v1 = "";
@@ -684,10 +691,10 @@
                         return `
                                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
                                     <div class="d-flex w-100 justify-content-between">
-                                      <h5 class="mb-1"> ` + data.topic_name + `</h5>
+                                      <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
                                       
                                     </div>  
-                                    <small>` + v1 + v2  +  v3  +   v4 +`</small>
+                                    <small class="text-secondary">` + v1 + v2  +  v3  +   v4 +`</small>
                                   </a>
                                   <br>
                                   <br>
