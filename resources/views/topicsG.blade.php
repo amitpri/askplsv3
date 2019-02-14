@@ -817,7 +817,7 @@
                             v0 = data.name;  
 
                             return `
-                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+                                    <a href="/c/{{ $categorytype}}/` +  data.url + `" class="list-group-item list-group-item-action flex-column align-items-start ">
                                         <div class="d-flex w-100 justify-content-between">
                                           <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
                                           
