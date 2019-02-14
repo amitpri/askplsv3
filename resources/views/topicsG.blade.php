@@ -633,7 +633,7 @@
 
             $(".search-input").typeahead({
                 hint: true,
-                highlight: true,
+                highlight: false,
                 minLength: 1
             }, {
                 source: engine.ttAdapter(),
@@ -644,21 +644,28 @@
             
                 templates: {
                     empty: [
-                        '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No City Found</div></div>'
+                        '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
                     ],
                     header: [
                         '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
                     ],
                     suggestion: function (data) {
+
+                        alert(data.topic_name);
+                        v1 = data.created_at;
+                        v2 = data.name;
+                        v3 = data.category;
+                        v4 = data.comments;
+
                         return `
-                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
                                     <div class="d-flex w-100 justify-content-between">
                                       <h5 class="mb-1"> ` + data.topic_name + `</h5>
-                                      <small>` + data.name + `</small>
-                                    </div>
-                                    <p class="mb-1"> `  +  data.created_at  +`</p>
-                                    <small>` +  data.category  +  `|` +  `data.comments` +`</small>
+                                      
+                                    </div>  
+                                    <small>` + v1 + v2  +  v3  +  `|` +  v4 +`</small>
                                   </a>
+                                  <br>
                                   <br>
 
                                  `                     
