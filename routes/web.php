@@ -59,7 +59,7 @@ Route::get('/st/{id}', 'ShowtopicsController@show');
 Route::get('/p/details', 'ShowtopicsController@viewprofiledetails');
 Route::get('/p/showtopics', 'ShowtopicsController@viewprofileshowtopics');
 Route::get('/p/getmore', 'ShowtopicsController@getmoretopics');
-Route::get('/p/{user_code}/{name}', 'ShowtopicsController@viewprofile');
+
 Route::get('/c/{category}/{url}/{name}', 'TopicController@categoryurl');
 Route::get('/p/d/details', 'TopicController@viewprofiledoctordetails');
 Route::get('/p/d/showtopics', 'TopicController@viewprofileshowtopicsdoctor');
@@ -80,7 +80,7 @@ Route::get('/payment/default', 'PaymentController@paymentdefault');
 Route::get('/payment/redirect', 'PaymentController@paymentredirect'); 
 Route::get('/category/{category}','TopicController@category'); 
 
-
+Route::get('/p/{user_code}/{name}', 'ShowtopicsController@viewprofile');
 
 Route::get('/g', 'TopicGController@index');
 Route::get('/g/{type}', 'TopicGController@category'); 
