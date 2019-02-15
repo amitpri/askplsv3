@@ -162,7 +162,7 @@ class TopicGController extends Controller
 
   //       	$topics->withPath("?type=$categorytype");
 
-         	$searchtype = 1;
+         	$searchtype = 2;
 
         }
         if( $categorytype == 'Doctors' || $categorytype == 'doctors'){

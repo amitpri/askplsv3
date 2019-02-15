@@ -216,12 +216,24 @@
 
                     @elseif($searchtype == 1)
 
-                        <form id="widget-subscribe-form"  target="/asas" method="get"  class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
+                        <form id="widget-subscribe-form"  target="#" method="get"  class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
                             <div class="input-group divcenter" v >
 
                                 <input id="searchcity"   type="search" id="address-input" class="form-control form-control-lg not-dark search-input-city" placeholder="Enter City..." style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;"   onchange="onChangeCity(this)">
 
                                 <input id="searchcategory" name="category"   type="text" id="workspace" class="form-control form-control-lg not-dark search-input-category"  placeholder="Enter {{$categoryname}}" style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;"    disabled>
+  
+                            </div>
+                        </form>
+
+                    @elseif($searchtype == 2)
+
+                        <form id="widget-subscribe-form"  target="#" method="get"  class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
+                            <div class="input-group divcenter" v >
+
+                                <input id="searchcity"   type="search" id="address-input" class="form-control form-control-lg not-dark search-input-city" placeholder="Enter City..." style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;"   onchange="onChangeCity2(this)">
+
+                                <input id="searchcategory2" name="category"   type="text" id="workspace" class="form-control form-control-lg not-dark search-input-category2"  placeholder="Enter {{$categoryname}}" style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;"    >
   
                             </div>
                         </form>
@@ -850,6 +862,148 @@
                 });
        
     }
+
+    function onChangeCity2() { 
+
+      var selectedcity2 = document.getElementById("searchcity").value; 
+
+
+      var enginecategory_city2 = new Bloodhound({
+                remote: {
+                    url: '/t/d/categories?categoryid={{ $categoryid}}&type={{ $categorytype}}&city=' + selectedcity2 + '&search=%QUERY%',
+                    wildcard: '%QUERY%'
+                },
+                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace
+            });
+
+          $(".search-input-category2").typeahead({
+                    hint: true,
+                    highlight: false,
+                    minLength: 1
+                }, {
+                    source: enginecategory_city2.ttAdapter(),
+
+                    displayKey: "name",
+
+                    name: 'usersList',
+                
+                    templates: {
+                        empty: [
+                            '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
+                        ],
+                        header: [
+                            '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
+                        ],
+                        suggestion: function (data) {
+
+                        v0 = data.name;  
+                        v1 = data.locality;
+                        v2 = data.profilepic; 
+ 
+
+                        if( data.locality == null){
+                             v1 = "";
+                        } 
+
+                        if( data.profilepic == null){
+                             v2 = "<img src='/no-image.png'  width='40' class='mr-3'>";
+                        }else{
+                            v2 = "<img src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
+
+                        }
+                       
+
+                            return `
+                                    <a href="/c/{{ $categorytype}}/` +  data.url + `" class="list-group-item list-group-item-action flex-column align-items-start ">
+                                        <div class="d-flex w-100 justify-content-between">
+                                          <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
+                                          
+                                        </div>  
+                                         ` + v2 +`
+                                        <small class="text-secondary">` + v1 +`</small>
+                                        
+                                      </a>
+                                      <br>
+                                      <br>
+
+                                     `                     
+                        }
+                    }
+                });
+       
+    }
+    </script>
+
+    <script>
+    jQuery(document).ready(function($) {  
+
+
+      var enginecategory2 = new Bloodhound({
+                remote: {
+                    url: '/t/d/categories?categoryid={{ $categoryid}}&type={{ $categorytype}}&search=%QUERY%',
+                    wildcard: '%QUERY%'
+                },
+                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace
+            });
+
+          $(".search-input-category2").typeahead({
+                    hint: true,
+                    highlight: false,
+                    minLength: 1
+                }, {
+                    source: enginecategory2.ttAdapter(),
+
+                    displayKey: "name",
+
+                    name: 'usersList',
+                
+                    templates: {
+                        empty: [
+                            '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
+                        ],
+                        header: [
+                            '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
+                        ],
+                        suggestion: function (data) {
+
+                        v0 = data.name;  
+                        v1 = data.locality;
+                        v2 = data.profilepic; 
+ 
+
+                        if( data.locality == null){
+                             v1 = "";
+                        } 
+
+                        if( data.profilepic == null){
+                             v2 = "<img src='/no-image.png'  width='40' class='mr-3'>";
+                        }else{
+                            v2 = "<img src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
+
+                        }
+                       
+
+                            return `
+                                    <a href="/c/{{ $categorytype}}/` +  data.url + `" class="list-group-item list-group-item-action flex-column align-items-start ">
+                                        <div class="d-flex w-100 justify-content-between">
+                                          <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
+                                          
+                                        </div>  
+                                         ` + v2 +`
+                                        <small class="text-secondary">` + v1 +`</small>
+                                        
+                                      </a>
+                                      <br>
+                                      <br>
+
+                                     `                     
+                        }
+                    }
+                });
+       
+    })
     </script>
 
 </body>
