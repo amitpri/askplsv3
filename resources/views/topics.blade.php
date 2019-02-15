@@ -228,7 +228,7 @@
                                  
                                 <div class="col-12 col-md-12"  >
                                     <div class="review-title">
-                                        <h4><a target="_blank" :href="'/t/' + topic.url" style="">@{{ topic.topic_name }}</a></h4>
+                                        <h4><a target="_blank" :href="'/t/' + topic.url + '/' +topic.topic_name.replace(/ /g,'_')" style="">@{{ topic.topic_name }}</a></h4>
                                     </div>
                                     <div class="review-content"> 
                                         <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">
@@ -330,7 +330,7 @@
                                       <img  v-else src="/no-image.png"  width="100" class="mr-3 img-fluid"> 
 
                                       <div class="media-body" style="margin-left: 20px;">
-                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
+                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 
 
                                         <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.qualification}}  |  @{{ topic.exp}} yrs exp. </p>  
 
@@ -353,7 +353,7 @@
                                       <img  v-else src="/no-image.png"  width="100" class="mr-3 img-fluid rounded"> 
 
                                       <div class="media-body" style="margin-left: 20px;">
-                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
+                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 
                                         <ul class="entry-meta clearfix">
                                       
                                             <li v-if="topic.type"> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>   </li>
@@ -373,7 +373,7 @@
                                       <img  v-else src="/no-image.png"  width="100" class="mr-3"> 
 
                                       <div class="media-body" style="margin-left: 20px;">
-                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
+                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 
                                         <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.address}}    </p>  
 
                                         <ul class="entry-meta clearfix">
@@ -396,7 +396,7 @@
                                       <img  v-else src="/no-image.png"  width="100" class="mr-3"> 
 
                                       <div class="media-body" style="margin-left: 20px;">
-                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
+                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 
                                         <ul class="entry-meta clearfix">
                                       
                                             <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>  </li>
@@ -417,7 +417,7 @@
                                       <img  v-else src="/no-image.png"  width="100" class="mr-3"> 
 
                                       <div class="media-body" style="margin-left: 20px;">
-                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
+                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 
 
                                         <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.address}}    </p>  
 
@@ -448,7 +448,7 @@
                                       <img  v-else src="/no-image.png"  width="100" class="mr-3"> 
 
                                       <div class="media-body" style="margin-left: 20px;">
-                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
+                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 
 
                                         <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.address}}   </p>   
 
@@ -475,7 +475,7 @@
                                       <img  v-else src="/no-image.png"  width="100" class="mr-3"> 
 
                                       <div class="media-body" style="margin-left: 20px;">
-                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url" style="">@{{ topic.name }}</a></h4> 
+                                        <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 
 
                                         <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.address}}   </p>   
 
