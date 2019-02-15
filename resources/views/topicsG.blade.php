@@ -409,9 +409,9 @@
                                                     <li><i class="icon-calendar3"></i>{{ $topic->speciality}} </li>
                                                     @endisset
                                                     @isset($topic->locality)
-                                                        <li> <i class="icon-user"></i>{{ $topic->locality}}</li>
+                                                        <li> <i class="icon-group"></i>{{ $topic->locality}}</li>
                                                     @endisset 
-                                                    <li><i class="icon-group"></i> {{ $topic->city}}</li>
+                                                    <li><i class="icon-building"></i> {{ $topic->city}}</li>
                                                 
                                                 </ul>
                                               </div>
@@ -449,10 +449,10 @@
                                                         <li><i class="icon-calendar3"></i> {{ $topic->type}} </li>
                                                     @endisset
                                                     @isset($topic->locality)
-                                                        <li> <i class="icon-user"></i> {{ $topic->locality}}  </li>
+                                                        <li> <i class="icon-group"></i> {{ $topic->locality}}  </li>
                                                     @endisset
                                                     @isset($topic->city)
-                                                        <li><i class="icon-group"></i>  {{ $topic->city}} </li>
+                                                        <li><i class="icon-building"></i>  {{ $topic->city}} </li>
                                                     @endisset
                                                 </ul>
                                               </div>
@@ -489,10 +489,10 @@
                                                         <li><i class="icon-calendar3"></i> {{ $topic->type}}  </li>
                                                     @endisset 
                                                     @isset($topic->locality)
-                                                        <li> <i class="icon-user"></i> {{ $topic->locality}}  </li>
+                                                        <li> <i class="icon-group"></i> {{ $topic->locality}}  </li>
                                                     @endisset 
                                                     @isset($topic->city)
-                                                        <li><i class="icon-group"></i> {{ $topic->city}}</li>
+                                                        <li><i class="icon-building"></i> {{ $topic->city}}</li>
                                                     @endisset 
                                                 
                                                 </ul>
@@ -530,10 +530,10 @@
                                                         <li><i class="icon-calendar3"></i> {{ $topic->speciality}}  </li>
                                                     @endisset 
                                                     @isset($topic->locality)
-                                                        <li> <i class="icon-user"></i>  {{ $topic->locality}}  </li>
+                                                        <li> <i class="icon-group"></i>  {{ $topic->locality}}  </li>
                                                     @endisset 
                                                     @isset($topic->city) 
-                                                        <li><i class="icon-group"></i>   {{ $topic->city}} </li>
+                                                        <li><i class="icon-building"></i>   {{ $topic->city}} </li>
                                                     @endisset 
                                                 
                                                 </ul>
@@ -571,10 +571,10 @@
                                                         <li><i class="icon-calendar3"></i> {{ $topic->type}} </li>
                                                     @endisset 
                                                     @isset($topic->locality)
-                                                        <li> <i class="icon-user"></i>{{ $topic->locality}}  </li>
+                                                        <li> <i class="icon-group"></i>{{ $topic->locality}}  </li>
                                                     @endisset 
                                                     @isset($topic->city)
-                                                        <li><i class="icon-group"></i> {{ $topic->city}} </li> 
+                                                        <li><i class="icon-building"></i> {{ $topic->city}} </li> 
                                                     @endisset 
                                                 
                                                 </ul>
@@ -608,10 +608,10 @@
                                                         <li><i class="icon-calendar3"></i> {{ $topic->type}} </li>
                                                     @endisset 
                                                     @isset($topic->locality)
-                                                        <li> <i class="icon-user"></i> {{ $topic->locality}}   </li>
+                                                        <li> <i class="icon-group"></i> {{ $topic->locality}}   </li>
                                                     @endisset 
                                                     @isset($topic->city)
-                                                        <li><i class="icon-group"></i> {{ $topic->city}} </li>
+                                                        <li><i class="icon-building"></i> {{ $topic->city}} </li>
                                                     @endisset 
                                                      
                                                 
