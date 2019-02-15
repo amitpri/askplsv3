@@ -286,7 +286,7 @@
                                              
                                             <div class="col-12 col-md-12"  >
                                                 <div class="review-title">
-                                                    <h4><a target="_blank" href="/t/{{ $topic->url}}" style="">{{ $topic->topic_name }}</a></h4>
+                                                    <h4><a target="_blank" href="/t/{{ $topic->url}}/{{ str_replace(' ','_',$topic->topic_name)}}" style="">{{ $topic->topic_name }}</a></h4>
                                                 </div>
                                                 <div class="review-content"> 
                                                     @isset($topic->profilepic)
@@ -336,7 +336,7 @@
                                                 @endisset  
 
                                               <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
+                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
                                                 <ul class="entry-meta clearfix">
                                                     <li><i class="icon-calendar3"></i> {{ $topic->type}} </li>
                                                     <li> <i class="icon-user"></i>{{ $topic->city}}  </li> 
@@ -368,7 +368,7 @@
                                                 @endisset   
 
                                               <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
+                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
                                                 <ul class="entry-meta clearfix"> 
 
                                                     @isset($topic->city)
@@ -402,7 +402,7 @@
                                                 @endisset   
 
                                               <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
+                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
                                                 <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->qualification}}  |  {{ $topic->exp}} yrs exp. </p>  
                                                 <ul class="entry-meta clearfix">
                                                     @isset($topic->speciality)
@@ -441,7 +441,7 @@
                                                 @endisset   
 
                                               <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
+                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
                                                 <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
                                                 
                                                 <ul class="entry-meta clearfix">
@@ -481,7 +481,7 @@
                                                 @endisset   
 
                                               <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
+                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
                                                 <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
                                                 
                                                 <ul class="entry-meta clearfix">
@@ -522,7 +522,7 @@
                                                 @endisset   
 
                                               <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
+                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
                                                 <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
                                                 
                                                 <ul class="entry-meta clearfix">
@@ -563,7 +563,7 @@
                                                 @endisset   
 
                                               <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
+                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
                                                 <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
                                                 
                                                 <ul class="entry-meta clearfix">
@@ -604,7 +604,7 @@
                                                 @endisset   
 
                                               <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
+                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
                                                 <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
                                                 
                                                 <ul class="entry-meta clearfix"> 
@@ -630,9 +630,7 @@
                                    @endif 
 
 
-
                                     <div  class="row" style="float: right;"> {{ $topics->links() }}</div>
-
 
                         </div>
 

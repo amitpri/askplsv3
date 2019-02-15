@@ -715,7 +715,7 @@ class TopicController extends Controller
 
             $topicable = "App\Doctor";
         }
-        if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
+        if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters' || $categorytype == 'fitness_centers'){
 
             $user = FitnessCenter::where('fitnesscenterkey','=',$url)->first(['id','fitnesscenterkey AS user_code', 'name']);
 
@@ -797,7 +797,7 @@ class TopicController extends Controller
             $user = Doctor::where('doctorkey','=',$usercode)->where('id','=',$id)
                     ->first(['id','doctorkey', 'name' , 'speciality','gender','address','locality',  'city' , 'country' ,'video' ,'website','links','details','qualification', 'exp' , 'profilepic' ]); 
         }
-        if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
+        if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters' || $categorytype == 'fitness_centers'){
 
             $user = FitnessCenter::where('fitnesscenterkey','=',$usercode)->where('id','=',$id)
                     ->first(['id','fitnesscenterkey', 'name','type'  ,'address','locality' , 'city' , 'country'  ,'video' ,'website','links','details'  , 'profilepic' ]); 
