@@ -158,7 +158,7 @@
 		 		<section  class="  center" v-for="topic in topics">
 					<h1 class="font-secondary nott mb-3" style="color: black; font-size: 36px;    ">@{{ topic.topic_name }}</h1>
 					<p style="font-weight: 300; opacity: .7; color: black;  ">
-							Review topic for <a :href="'/c/' +  categorytype + '/' + topic.profilekey + '/' + topic.name">@{{ topic.name }}</a>  </p> 
+							Review topic for <a :href="'/c/' +  categorytype + '/' + topic.profilekey + '/' + topic.name.replace(/ /g,'_')">@{{ topic.name }}</a>  </p> 
 							<span>Posted on @{{ topic.created_at }} <span v-if="topic.user_name"> by <a target="_blank" :href="'/p/' + topic.user_code">@{{topic.user_name}}</a></span></span>
 					<p>&nbsp;</p>
 	 				
