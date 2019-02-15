@@ -1170,7 +1170,7 @@ class TopicController extends Controller
             
             $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
                                 , a.`image`, a.`video`, b.`name`
-                                    , b.`collegekey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    , b.`collegekey`  AS category_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
                                     (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
                                     (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
                                         FROM `topic_category_members` a ,  `colleges` b , `users` c
@@ -1185,7 +1185,7 @@ class TopicController extends Controller
 
             $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
                                 , a.`image`, a.`video`, b.`name`
-                                    , b.`companykey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    , b.`companykey`  AS category_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
                                     (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
                                     (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
                                         FROM `topic_category_members` a ,  `companies` b , `users` c
@@ -1199,7 +1199,7 @@ class TopicController extends Controller
 
             $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
                                 , a.`image`, a.`video`, b.`name`
-                                    , b.`doctorkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    , b.`doctorkey`  AS category_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
                                     (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
                                     (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
                                         FROM `topic_category_members` a ,  `doctors` b , `users` c
@@ -1213,7 +1213,7 @@ class TopicController extends Controller
 
             $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
                                 , a.`image`, a.`video`, b.`name`
-                                    , b.`fitnesscenterkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    , b.`fitnesscenterkey`  AS category_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
                                     (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
                                     (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
                                         FROM `topic_category_members` a ,  `fitnesscenters` b , `users` c
@@ -1228,7 +1228,7 @@ class TopicController extends Controller
 
             $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
                                 , a.`image`, a.`video`, b.`name`
-                                    , b.`hotelkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    , b.`hotelkey`  AS category_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
                                     (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
                                     (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
                                         FROM `topic_category_members` a ,  `hotels` b , `users` c
@@ -1242,7 +1242,7 @@ class TopicController extends Controller
 
             $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
                                 , a.`image`, a.`video`, b.`name`
-                                    , b.`lawyerkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    , b.`lawyerkey`  AS category_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
                                     (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
                                     (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
                                         FROM `topic_category_members` a ,  `lawyers` b , `users` c
@@ -1255,7 +1255,7 @@ class TopicController extends Controller
 
             $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
                                 , a.`image`, a.`video`, b.`name`
-                                    , b.`restaurantkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    , b.`restaurantkey`  AS category_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
                                     (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
                                     (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
                                         FROM `topic_category_members` a ,  `restaurants` b , `users` c
@@ -1270,7 +1270,7 @@ class TopicController extends Controller
 
             $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
                                 , a.`image`, a.`video`, b.`name`
-                                    , b.`schoolkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    , b.`schoolkey`  AS category_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
                                     (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
                                     (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
                                         FROM `topic_category_members` a ,  `schools` b , `users` c
