@@ -826,7 +826,7 @@
                         if( data.profilepic == null){
                              v2 = "<img src='/no-image.png'  width='40' class='mr-3'>";
                         }else{
-                            v2 = "<img src='/ " + data.profilepic + "'  width='40' class='mr-3'>";
+                            v2 = "<img src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
 
                         }
                        
