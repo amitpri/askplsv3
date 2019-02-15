@@ -302,7 +302,7 @@
                                                 </div>
                                                 <ul class="entry-meta clearfix">
                                                 <li><i class="icon-calendar3"></i> {{ $topic->created_at }}</li>
-                                                <li><a href="#" :href="'/p/' + topic.user_code"><i class="icon-user"></i> {{ $topic->name }}</a></li>
+                                                <li><a  target="_blank"  href="/p/{{ $topic->user_code }}"><i class="icon-user"></i> {{ $topic->name }}</a></li>
                                                 <li><i class="icon-folder-open"></i>  {{ $topic->category }} </li>
 
                                                 @if($topic->comments > 0)
