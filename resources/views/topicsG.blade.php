@@ -219,7 +219,7 @@
                         <form id="widget-subscribe-form"  target="/asas" method="get"  class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
                             <div class="input-group divcenter" v >
 
-                                <input id="searchcity"   type="search" id="address-input" class="form-control form-control-lg not-dark search-input-city" placeholder="Enter City..." style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;"   onchange="onChangeCity(this)">
+                                <input id="searchcity"   type="search" id="address-input" class="form-control form-control-lg not-dark search-input-city" placeholder="Enter City..." style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;"   oninput="onChangeCity(this)">
 
                                 <input id="searchcategory" name="category"   type="text" id="workspace" class="form-control form-control-lg not-dark search-input-category"  placeholder="Enter {{$categoryname}}" style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;"    disabled>
   
