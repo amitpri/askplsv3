@@ -250,7 +250,7 @@
                                     </div>
                                     <ul class="entry-meta clearfix">
                                     <li><i class="icon-calendar3"></i> @{{ topic.created_at }}</li>
-                                    <li><a href="#" :href="'/p/' + topic.user_code"><i class="icon-user"></i> @{{ topic.name }}</a></li>
+                                    <li><a target="_blank" href="#" :href="'/p/' + topic.user_code + '/' + topic.name"><i class="icon-user"></i> @{{ topic.name }}</a></li>
                                     <li><i class="icon-folder-open"></i> <a @click="categorytopicsearch(topic)"   href="#">@{{ topic.category }}</a> </li>
                                     <li v-if="topic.comments > 0"><a :href="'/t/' + topic.url"><i class="icon-comments"></i> @{{ topic.comments }} Reviews</a></li> 
                                 </ul>
