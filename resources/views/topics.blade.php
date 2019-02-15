@@ -219,9 +219,21 @@
                             @endempty 
                                  
                         </div> 
-
                     
                         <div class="col-lg-10 " v-if="vCatTopics == 0">
+
+                            <div class="container clearfix"  v-cloak>
+
+                                <div v-show="topmessage" class="clearfix center divcenter" style="max-width: 800px;">
+                                    <div class="emphasis-title">
+                                        <h4 class="font-secondary" style="color: black; font-size: 36px; font-weight: 900; text-shadow: 0 7px 10px rgba(0,0,0,0.07), 0 4px 4px rgba(0,0,0,0.2);">Private Anonymous Reviews Platform </h4>
+                                        <p style="font-weight: 300; opacity: .7; color: black; text-shadow: 0 -4px 20px rgba(0, 0, 0, .25);">Get genuine anonymous Feedback from your team and improve your productivity</p>
+                                    </div> 
+                                  
+                                </div>
+
+                            </div>
+                            <br>
                             <div v-show="showspinner" class="text-center"><img src="/ajax_loader.gif"></div>
 
                             <div  class="row" v-for="topic in topics" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
@@ -580,6 +592,7 @@
                 vcity: "",
                 vcountry: "", 
                 categorytypename: "",
+                topmessage: true,
 
             },
             mounted:function(){ 
@@ -1106,6 +1119,8 @@
 
 
                     var rowcategory = this.categories.indexOf(row);
+
+                    this.topmessage = false;
 
                     
                     this.citylist = "";
