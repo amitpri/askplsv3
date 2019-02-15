@@ -264,9 +264,9 @@
                                    <li class="nav-item" >
 
                                     @if($category->status < 1 )
-                                        <a href="/g/c/{{ $category->category}}" class="nav-link"  >{{ $category->category}}</a>
+                                        <a href="/g/{{ $category->category}}" class="nav-link"  >{{ $category->category}}</a>
                                     @else
-                                        <a href="/g/cp/{{ $category->id}}" class="nav-link" >{{ $category->category}}</a>
+                                        <a href="/g/{{ $category->id}}" class="nav-link" >{{ $category->category}}</a>
                                     @endif
                                   </li>  
 
