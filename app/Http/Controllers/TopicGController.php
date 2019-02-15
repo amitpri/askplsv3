@@ -220,7 +220,7 @@ class TopicGController extends Controller
 
          	$searchtype = 1;
          }else{
-         	$categoryid = $type;
+         	$categoryname = $type;
          	$categorytype = '';
 
          	$topics = DB::table('topics')
@@ -230,7 +230,7 @@ class TopicGController extends Controller
          				->where('topics.sitedisplay',1)
          				->where('topics.status',1)
          				->where('topics.frontdisplay',1)
-         				->where('categories.id',$categoryid)
+         				->where('categories.category',$categoryname)
          				->orderBy('topics.updated_at','desc')
          				->select(DB::raw('DATE_FORMAT(topics.created_at, "%Y-%m-%d") as created_at'), 'topics.id', 'topics.url', 'topics.user_id', 'topics.topic_name', 'topics.details', 'topics.video', 'topics.image', 'topics.comments', 'users.user_code' , 'categories.category', 'categories.id AS category_id', 'users.name')
          				->simplePaginate(5); 
@@ -242,34 +242,5 @@ class TopicGController extends Controller
 
         return view('topicsG',compact( 'categoryname','searchtype','categoryid', 'categorytype', 'categories',   'topics'));
    
-    }
-    public function category2($id,Request $request)
-    {
- 
-        $categories = ShowCategory::orderBy('order','asc')->get(['id','category','status']);
-
-       // $categoryid = $request->id;
-
-        $categoryid = $id;
-
-        $categorytype = '';
- 
-        $topics = DB::table('topics')
-         				->join('users','topics.user_id','=','users.id')
-         				->join('categories','topics.category_id','=','categories.id')
-         				->where('topics.type','public')
-         				->where('topics.sitedisplay',1)
-         				->where('topics.status',1)
-         				->where('topics.frontdisplay',1)
-         				->where('categories.id',$categoryid)
-         				->orderBy('topics.updated_at','desc')
-         				->select(DB::raw('DATE_FORMAT(topics.created_at, "%Y-%m-%d") as created_at'), 'topics.id', 'topics.url', 'topics.user_id', 'topics.topic_name', 'topics.details', 'topics.video', 'topics.image', 'topics.comments', 'users.user_code' , 'categories.category', 'categories.id AS category_id', 'users.name')
-         				->simplePaginate(5); 
- 
- 		$searchtype = 0;
- 		$categoryname = "";
-
-        return view('topicsG',compact('categoryname','searchtype', 'categoryid', 'categorytype', 'categories',   'topics'));
-   
-    }
+    } 
 }

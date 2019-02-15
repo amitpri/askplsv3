@@ -262,12 +262,9 @@
                                @foreach ($categories as $category)
  
                                    <li class="nav-item" >
-
-                                    @if($category->status < 1 )
+ 
                                         <a href="/g/{{ $category->category}}" class="nav-link"  >{{ $category->category}}</a>
-                                    @else
-                                        <a href="/g/{{ $category->id}}" class="nav-link" >{{ $category->category}}</a>
-                                    @endif
+                                   
                                   </li>  
 
                                 @endforeach  
@@ -306,8 +303,12 @@
                                                 <ul class="entry-meta clearfix">
                                                 <li><i class="icon-calendar3"></i> {{ $topic->created_at }}</li>
                                                 <li><a href="#" :href="'/p/' + topic.user_code"><i class="icon-user"></i> {{ $topic->name }}</a></li>
-                                                <li><i class="icon-folder-open"></i> <a   href="#">{{ $topic->category }}</a> </li>
-                                                <li v-if="topic.comments > 0"><a :href="'/t/' + topic.url"><i class="icon-comments"></i> {{ $topic->comments }} Reviews</a></li> 
+                                                <li><i class="icon-folder-open"></i>  {{ $topic->category }} </li>
+
+                                                @if($topic->comments > 0)
+                                                    <li><i class="icon-comments"></i> {{ $topic->comments }} Reviews</li> 
+                                                @endif
+
                                             </ul>
                                             </div>
                                             
@@ -337,9 +338,8 @@
                                               <div class="media-body" style="margin-left: 20px;">
                                                 <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
                                                 <ul class="entry-meta clearfix">
-                                                    <li><i class="icon-calendar3"></i><a href=""  >{{ $topic->type}}</a> </li>
-                                                    <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">{{ $topic->city}}</a>  </li>
-                                                    <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">{{ $topic->country}}</a></li>
+                                                    <li><i class="icon-calendar3"></i> {{ $topic->type}} </li>
+                                                    <li> <i class="icon-user"></i>{{ $topic->city}}  </li> 
                                                 
                                                 </ul>
                                               </div>
@@ -369,11 +369,12 @@
 
                                               <div class="media-body" style="margin-left: 20px;">
                                                 <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
-                                                <ul class="entry-meta clearfix">
-                                                    <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.type)">{{ $topic->type}}</a> </li>
-                                                    <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">{{ $topic->city}}</a>  </li>
-                                                    <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">{{ $topic->country}}</a></li>
-                                                
+                                                <ul class="entry-meta clearfix"> 
+
+                                                    @isset($topic->city)
+                                                    <li> <i class="icon-user"></i> {{ $topic->city}}  </li> 
+                                                    @endisset
+
                                                 </ul>
                                               </div>
                                             </div>  
@@ -404,9 +405,13 @@
                                                 <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
                                                 <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->qualification}}  |  {{ $topic->exp}} yrs exp. </p>  
                                                 <ul class="entry-meta clearfix">
-                                                    <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.type)">{{ $topic->speciality}}</a> </li>
-                                                    <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">{{ $topic->locality}}</a>  </li>
-                                                    <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">{{ $topic->city}}</a></li>
+                                                    @isset($topic->speciality)
+                                                    <li><i class="icon-calendar3"></i>{{ $topic->speciality}} </li>
+                                                    @endisset
+                                                    @isset($topic->locality)
+                                                        <li> <i class="icon-user"></i>{{ $topic->locality}}</li>
+                                                    @endisset 
+                                                    <li><i class="icon-group"></i> {{ $topic->city}}</li>
                                                 
                                                 </ul>
                                               </div>
@@ -440,10 +445,15 @@
                                                 <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
                                                 
                                                 <ul class="entry-meta clearfix">
-                                                    <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.type)">{{ $topic->type}}</a> </li>
-                                                    <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">{{ $topic->locality}}</a>  </li>
-                                                    <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">{{ $topic->city}}</a></li>
-                                                
+                                                    @isset($topic->type)
+                                                        <li><i class="icon-calendar3"></i> {{ $topic->type}} </li>
+                                                    @endisset
+                                                    @isset($topic->locality)
+                                                        <li> <i class="icon-user"></i> {{ $topic->locality}}  </li>
+                                                    @endisset
+                                                    @isset($topic->city)
+                                                        <li><i class="icon-group"></i>  {{ $topic->city}} </li>
+                                                    @endisset
                                                 </ul>
                                               </div>
                                             </div>  
@@ -475,9 +485,15 @@
                                                 <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
                                                 
                                                 <ul class="entry-meta clearfix">
-                                                    <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.type)">{{ $topic->type}}</a> </li>
-                                                    <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">{{ $topic->locality}}</a>  </li>
-                                                    <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">{{ $topic->city}}</a></li>
+                                                    @isset($topic->type)
+                                                        <li><i class="icon-calendar3"></i> {{ $topic->type}}  </li>
+                                                    @endisset 
+                                                    @isset($topic->locality)
+                                                        <li> <i class="icon-user"></i> {{ $topic->locality}}  </li>
+                                                    @endisset 
+                                                    @isset($topic->city)
+                                                        <li><i class="icon-group"></i> {{ $topic->city}}</li>
+                                                    @endisset 
                                                 
                                                 </ul>
                                               </div>
@@ -510,9 +526,15 @@
                                                 <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
                                                 
                                                 <ul class="entry-meta clearfix">
-                                                    <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.speciality)">{{ $topic->speciality}}</a> </li>
-                                                    <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.locality)">{{ $topic->locality}}</a>  </li>
-                                                    <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.city)">{{ $topic->city}}</a></li>
+                                                    @isset($topic->speciality)
+                                                        <li><i class="icon-calendar3"></i> {{ $topic->speciality}}  </li>
+                                                    @endisset 
+                                                    @isset($topic->locality)
+                                                        <li> <i class="icon-user"></i>  {{ $topic->locality}}  </li>
+                                                    @endisset 
+                                                    @isset($topic->city) 
+                                                        <li><i class="icon-group"></i>   {{ $topic->city}} </li>
+                                                    @endisset 
                                                 
                                                 </ul>
                                               </div>
@@ -545,9 +567,15 @@
                                                 <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
                                                 
                                                 <ul class="entry-meta clearfix">
-                                                    <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.type)">{{ $topic->type}}</a> </li>
-                                                    <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">{{ $topic->locality}}</a>  </li>
-                                                    <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">{{ $topic->city}}</a></li>
+                                                    @isset($topic->type) 
+                                                        <li><i class="icon-calendar3"></i> {{ $topic->type}} </li>
+                                                    @endisset 
+                                                    @isset($topic->locality)
+                                                        <li> <i class="icon-user"></i>{{ $topic->locality}}  </li>
+                                                    @endisset 
+                                                    @isset($topic->city)
+                                                        <li><i class="icon-group"></i> {{ $topic->city}} </li> 
+                                                    @endisset 
                                                 
                                                 </ul>
                                               </div>
@@ -579,10 +607,17 @@
                                                 <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}" style="">{{ $topic->name }}</a></h4> 
                                                 <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
                                                 
-                                                <ul class="entry-meta clearfix">
-                                                    <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.type)">{{ $topic->type}}</a> </li>
-                                                    <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">{{ $topic->locality}}</a>  </li>
-                                                    <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">{{ $topic->city}}</a></li>
+                                                <ul class="entry-meta clearfix"> 
+                                                    @isset($topic->type)
+                                                        <li><i class="icon-calendar3"></i> {{ $topic->type}} </li>
+                                                    @endisset 
+                                                    @isset($topic->locality)
+                                                        <li> <i class="icon-user"></i> {{ $topic->locality}}   </li>
+                                                    @endisset 
+                                                    @isset($topic->city)
+                                                        <li><i class="icon-group"></i> {{ $topic->city}} </li>
+                                                    @endisset 
+                                                     
                                                 
                                                 </ul>
                                               </div>
