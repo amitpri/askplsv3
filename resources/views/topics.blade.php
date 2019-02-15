@@ -240,7 +240,7 @@
                                  
                                 <div class="col-12 col-md-12"  >
                                     <div class="review-title">
-                                        <h4><a target="_blank" :href="'/t/' + topic.url + '/' +topic.topic_name.replace(/ /g,'_')" style="">@{{ topic.topic_name }}</a></h4>
+                                        <h4><a target="_blank" :href="'/t/' + topic.url + '/' + topic.topic_name.replace(/ /g,'_')" style="">@{{ topic.topic_name }}</a></h4>
                                     </div>
                                     <div class="review-content"> 
                                         <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">
@@ -250,7 +250,7 @@
                                     </div>
                                     <ul class="entry-meta clearfix">
                                     <li><i class="icon-calendar3"></i> @{{ topic.created_at }}</li>
-                                    <li><a target="_blank" href="#" :href="'/p/' + topic.user_code + '/' + topic.name"><i class="icon-user"></i> @{{ topic.name }}</a></li>
+                                    <li><a target="_blank" href="#" :href="'/p/' + topic.user_code + '/' + topic.name.replace(/ /g,'_')"><i class="icon-user"></i> @{{ topic.name }}</a></li>
                                     <li><i class="icon-folder-open"></i> <a @click="categorytopicsearch(topic)"   href="#">@{{ topic.category }}</a> </li>
                                     <li v-if="topic.comments > 0"><a :href="'/t/' + topic.url"><i class="icon-comments"></i> @{{ topic.comments }} Reviews</a></li> 
                                 </ul>
