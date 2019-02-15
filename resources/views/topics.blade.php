@@ -325,8 +325,7 @@
                                         <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url  + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 
                                         <ul class="entry-meta clearfix">
                                             <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type}}</a> </li>
-                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">@{{ topic.city}}</a>  </li>
-                                            <li><i class="icon-group"></i> <a href="" @click="event.preventDefault();setcountry(topic.country)">@{{ topic.country}}</a></li>
+                                            <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city, v)">@{{ topic.city}}</a>  </li> 
                                         
                                         </ul>
                                       </div>
@@ -367,10 +366,8 @@
                                       <div class="media-body" style="margin-left: 20px;">
                                         <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 
                                         <ul class="entry-meta clearfix">
-                                      
-                                            <li v-if="topic.type"> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>   </li>
-                                            <li v-if="topic.city"><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li>
-                                            <li v-if="topic.country"> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcountry(topic.country)">@{{ topic.country }}</a> </li> 
+                                       
+                                            <li v-if="topic.city"><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
                                         
                                         </ul> 
                                       </div>
@@ -494,7 +491,9 @@
                                         <ul class="entry-meta clearfix">
                                       
                                             <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();settype(topic.type)">@{{ topic.type }}</a>  </li>
-                                            <li><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
+
+                                            <li v-if="topic.locality"><i class="icon-calendar3"></i><a href="" @click="event.preventDefault();setlocality(topic.locality)">@{{ topic.locality }}</a> </li>
+
                                             <li> <i class="icon-user"></i><a href="" @click="event.preventDefault();setcity2(topic.city)">@{{ topic.city }}</a> </li> 
                                         
                                         </ul> 
