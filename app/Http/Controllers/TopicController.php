@@ -297,7 +297,7 @@ class TopicController extends Controller
                                             limit 10");
  
         }
-        if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
+        if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters' || $categorytype == 'fitness_centers'){
 
              $category_table = 'fitness_centers';
 
