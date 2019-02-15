@@ -227,7 +227,7 @@
                                 <div v-show="topmessage" class="clearfix center divcenter" style="max-width: 800px;">
                                     <div class="emphasis-title">
                                         <h4 class="font-secondary" style="color: black; font-size: 36px; font-weight: 900; text-shadow: 0 7px 10px rgba(0,0,0,0.07), 0 4px 4px rgba(0,0,0,0.2);">Private Anonymous Reviews Platform </h4>
-                                        <p style="font-weight: 300; opacity: .7; color: black; text-shadow: 0 -4px 20px rgba(0, 0, 0, .25);">Get genuine anonymous Feedback from people you care and improve</p>
+                                        <p style="font-weight: 300; opacity: .7; color: black; text-shadow: 0 -4px 20px rgba(0, 0, 0, .25);">Get genuine Anonymous Feedback from people you care</p>
                                     </div> 
                                   
                                 </div>
