@@ -813,8 +813,23 @@
                             '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
                         ],
                         suggestion: function (data) {
-                            
-                            v0 = data.name;  
+
+                        v0 = data.name;  
+                        v1 = data.locality;
+                        v2 = data.profilepic; 
+ 
+
+                        if( data.locality == null){
+                             v1 = "";
+                        } 
+
+                        if( data.profilepic == null){
+                             v2 = "<img src='/no-image.png'  width='40' class='mr-3'>";
+                        }else{
+                            v2 = "<img src='/ " + data.profilepic + "no-image.png'  width='40' class='mr-3'>";
+
+                        }
+                       
 
                             return `
                                     <a href="/c/{{ $categorytype}}/` +  data.url + `" class="list-group-item list-group-item-action flex-column align-items-start ">
@@ -822,6 +837,8 @@
                                           <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
                                           
                                         </div>  
+                                         ` + v2 +`
+                                        <small class="text-secondary">` + v1 +`</small>
                                         
                                       </a>
                                       <br>
