@@ -597,11 +597,7 @@
                                                     <img  src="/storage/{{ $topic->profilepic }}"  width="100">
                                                 @else
                                                     <img src="/no-image.png"  width="100" class="mr-3"> 
-                                                @endisset 
-
-                                                @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
-                                                @endisset   
+                                                @endisset  
 
                                               <div class="media-body" style="margin-left: 20px;">
                                                 <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
