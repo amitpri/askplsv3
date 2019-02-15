@@ -722,6 +722,9 @@
                         v3 = data.category;
                         v4 = data.comments;
 
+
+                        url = data.url + '/' + data.topic_name.replace(/ /g,'_'); 
+
                         if( data.topic_name == null){
                              v0 = "";
                         }else{
@@ -754,7 +757,7 @@
                         }
 
                         return `
-                                <a href="/t/` +  data.url + `/`+ data.topic_name `" class="list-group-item list-group-item-action flex-column align-items-start ">
+                                <a href="/t/` +   url + `" class="list-group-item list-group-item-action flex-column align-items-start ">
                                     <div class="d-flex w-100 justify-content-between">
                                       <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
                                       
