@@ -172,6 +172,7 @@
                         <br>
                         <h1>@{{ inpName }} </h1>
                         <span>@{{inpAddress}}</span>
+                        <span>@{{inpDetails}}</span>
                         <span>@{{inpLocality}} &nbsp; @{{inpCity}} &nbsp; @{{inpCountry}}</span>
                         <span><p v-if="inpWebsite" style="font-weight: 600;   color: black;  "><a target="_blank" :href="inpWebsite"> Website Link</a></p></span> 
                         
@@ -275,6 +276,7 @@
 					name: "",
                     showLoadMore : 0,
                     inpAddress: "",
+                    inpDetails: "",
                     inpWebsite : "",
 				},
 				mounted:function(){
@@ -296,6 +298,7 @@
                         this.inpType = response.data.type;
                         this.inpGender = response.data.gender;
                         this.inpAddress = response.data.address;
+                        this.inpDetails = response.data.details;
                         this.inpLocality = response.data.locality; 
                         this.inpCity = response.data.city;
                         this.inpCountry = response.data.country;
