@@ -79,6 +79,11 @@ class Doctor extends Resource
 
                     Number::make('Exp')->min(0)->max(100)->step(1)->hideFromIndex(), 
 
+                    Text::make('Phone1'),
+                    Text::make('Phone2'),
+                    Text::make('Email1'),
+                    Text::make('Email2'),
+
                     new Panel('Address Information', $this->addressFields()), 
 
                     Text::make('Website')->hideFromIndex(), 
@@ -155,6 +160,11 @@ class Doctor extends Resource
 
                 Number::make('Exp ( in Yrs)', 'exp')->min(0)->max(100)->step(1)->hideFromIndex(), 
  
+
+                Text::make('Phone1')->onlyOnDetail(),
+                Text::make('Phone2')->onlyOnDetail(),
+                Text::make('Email1')->onlyOnDetail(),
+                Text::make('Email2')->onlyOnDetail(),
 
                 new Panel('Address Information', $this->addressFields()), 
 

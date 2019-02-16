@@ -64,7 +64,12 @@ class Restaurant extends Resource
                     RadioButton::make('Type')
                     ->options([ 
                         'North Indian' => 'North Indian', 
-                        'South Indian' => 'South Indian', ]), 
+                        'South Indian' => 'South Indian', ]),
+
+                    Text::make('Phone1'),
+                    Text::make('Phone2'),
+                    Text::make('Email1'),
+                    Text::make('Email2'), 
 
                     new Panel('Address Information', $this->addressFields()), 
 
@@ -132,6 +137,12 @@ class Restaurant extends Resource
                 ->options([ 
                     'North Indian' => 'North Indian', 
                     'South Indian' => 'South Indian', ]), 
+
+
+                Text::make('Phone1')->onlyOnDetail(),
+                Text::make('Phone2')->onlyOnDetail(),
+                Text::make('Email1')->onlyOnDetail(),
+                Text::make('Email2')->onlyOnDetail(),
 
                 new Panel('Address Information', $this->addressFields()), 
 

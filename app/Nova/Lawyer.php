@@ -72,6 +72,10 @@ class Lawyer extends Resource
                         'Criminal' => 'Criminal',
                     ])->hideFromIndex(),
 
+                    Text::make('Phone1'),
+                    Text::make('Phone2'),
+                    Text::make('Email1'),
+                    Text::make('Email2'),
 
                     new Panel('Address Information', $this->addressFields()), 
 
@@ -148,6 +152,11 @@ class Lawyer extends Resource
                     ->options([ 
                         'General' => 'General',
                         'Criminal' => 'Criminal' ])->hideFromIndex(), 
+
+                Text::make('Phone1')->onlyOnDetail(),
+                Text::make('Phone2')->onlyOnDetail(),
+                Text::make('Email1')->onlyOnDetail(),
+                Text::make('Email2')->onlyOnDetail(),
 
                 new Panel('Address Information', $this->addressFields()), 
 

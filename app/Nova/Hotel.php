@@ -64,6 +64,11 @@ class Hotel extends Resource
                         'Hotel' => 'Hotel',
                         'Resort' => 'Resort',  ]),
 
+                    Text::make('Phone1'),
+                    Text::make('Phone2'),
+                    Text::make('Email1'),
+                    Text::make('Email2'),
+
                     new Panel('Address Information', $this->addressFields()), 
 
                     Text::make('Website')->hideFromIndex(), 
@@ -134,6 +139,11 @@ class Hotel extends Resource
                     'Hotel' => 'Hotel',
                     'Resort' => 'Resort', 
                 ]), 
+
+                Text::make('Phone1')->onlyOnDetail(),
+                Text::make('Phone2')->onlyOnDetail(),
+                Text::make('Email1')->onlyOnDetail(),
+                Text::make('Email2')->onlyOnDetail(),
 
                 new Panel('Address Information', $this->addressFields()), 
 
