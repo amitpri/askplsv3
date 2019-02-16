@@ -149,10 +149,10 @@ class School extends Resource
                     'CBSE' => 'CBSE',
                     'ICSE' => 'ICSE' ]), 
 
-                Text::make('Phone1')->onlyOnDetail(),
-                Text::make('Phone2')->onlyOnDetail(),
-                Text::make('Email1')->onlyOnDetail(),
-                Text::make('Email2')->onlyOnDetail(),
+                Text::make('Phone1')->onlyOnForms(),
+                Text::make('Phone2')->onlyOnForms(),
+                Text::make('Email1')->onlyOnForms(),
+                Text::make('Email2')->onlyOnForms(),
 
                 new Panel('Address Information', $this->addressFields()), 
 
