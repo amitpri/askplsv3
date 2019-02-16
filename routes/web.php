@@ -84,3 +84,13 @@ Route::get('/p/{user_code}/{name}', 'ShowtopicsController@viewprofile');
 
 Route::get('/g', 'TopicGController@index');
 Route::get('/g/{type}', 'TopicGController@category'); 
+
+
+Route::get('/a/{id}', 'CategoryController@colleges'); 
+Route::get('/b/{id}', 'CategoryController@companies'); 
+Route::get('/d/{id}', 'CategoryController@doctors'); 
+Route::get('/f/{id}', 'CategoryController@fitnesscenters'); 
+Route::get('/h/{id}', 'CategoryController@hotels'); 
+Route::get('/l/{id}', 'CategoryController@lawyers'); 
+Route::get('/r/{id}', 'CategoryController@restaurants'); 
+Route::get('/s/{id}', 'CategoryController@schools'); 

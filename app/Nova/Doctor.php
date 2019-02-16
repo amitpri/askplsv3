@@ -120,7 +120,7 @@ class Doctor extends Resource
                     TextCopy::make('Public URL' ,function(){
      
 
-                        return 'https://askpls.com/c/Doctors/' . $this->doctorkey;
+                        return 'https://askpls.com/d/' . $this->doctorkey;
      
 
                     })->hideWhenUpdating(),
@@ -202,7 +202,7 @@ class Doctor extends Resource
                 TextCopy::make('Public URL' ,function(){
  
 
-                    return 'https://askpls.com/c/Doctors/' . $this->doctorkey;
+                    return 'https://askpls.com/d/' . $this->doctorkey;
  
 
                 })->hideWhenUpdating(),

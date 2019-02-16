@@ -111,7 +111,7 @@ class FitnessCenter extends Resource
           
                     TextCopy::make('Public URL' ,function(){
 
-                         return 'https://askpls.com/c/FitnessCenters/' . $this->fitnesscenterkey;
+                         return 'https://askpls.com/f/' . $this->fitnesscenterkey;
      
                     })->hideWhenUpdating(), 
 
@@ -185,7 +185,7 @@ class FitnessCenter extends Resource
       
                 TextCopy::make('Public URL' ,function(){
 
-                     return 'https://askpls.com/c/FitnessCenters/' . $this->fitnesscenterkey;
+                     return 'https://askpls.com/f/' . $this->fitnesscenterkey;
  
                 })->hideWhenUpdating(), 
  

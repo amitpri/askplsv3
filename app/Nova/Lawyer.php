@@ -112,7 +112,7 @@ class Lawyer extends Resource
           
                     TextCopy::make('Public URL' ,function(){
 
-                         return 'https://askpls.com/c/Lawyers/' . $this->lawyerkey;
+                         return 'https://askpls.com/l/' . $this->lawyerkey;
      
 
                     })->hideWhenUpdating(),
@@ -193,7 +193,7 @@ class Lawyer extends Resource
       
                 TextCopy::make('Public URL' ,function(){
 
-                     return 'https://askpls.com/c/Lawyers/' . $this->lawyerkey;
+                     return 'https://askpls.com/l/' . $this->lawyerkey;
  
 
                 })->hideWhenUpdating(),
