@@ -172,12 +172,13 @@
                         <br>
                         <h1>@{{ inpName }} </h1>
                         <span>@{{inpAddress}}</span>
-                        <span>@{{inpDetails}}</span>
                         <span>@{{inpLocality}} &nbsp; @{{inpCity}} &nbsp; @{{inpCountry}}</span>
                         <span><p v-if="inpWebsite" style="font-weight: 600;   color: black;  "><a target="_blank" :href="inpWebsite"> Website Link</a></p></span> 
                         
                         <iframe v-if="video" width="640" height="360" class="embed-responsive-item" 
                             :src="'https://www.youtube.com/embed/' + video" ></iframe>  
+
+                        <span><p  v-html="inpDetails"></p></span>
 
                         <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpSpeciality}} </p>
                         <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpQualification}}, &nbsp;  @{{inpExp}} yrs experience </p>
