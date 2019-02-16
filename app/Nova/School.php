@@ -72,7 +72,7 @@ class School extends Resource
                     RadioButton::make('Type')
                     ->options([ 
                         'CBSE' => 'CBSE',
-                        'ICSE' => 'ICSE' ]), 
+                        'ICSE' => 'ICSE' ])->hideFromIndex(), 
 
                     Text::make('Phone1'),
                     Text::make('Phone2'),
@@ -100,7 +100,7 @@ class School extends Resource
                     ])->hideFromIndex(),
 
                 //    Image::make('Image', 'profilepic')->disk('public'),
-                    AdvancedImage::make('Image', 'profilepic')->disk('public')->croppable()->resize(600,600),
+                    AdvancedImage::make('Image', 'profilepic')->disk('public')->croppable()->resize(600,600)->hideFromIndex(),
 
                     Youtube::make('Video')->hideFromIndex(),
 
@@ -123,7 +123,7 @@ class School extends Resource
                     ->options([ 
                         '0' => 'No',
                         '1' => 'Yes',
-                    ])->sortable()->default('0'), 
+                    ])->sortable()->default('0')->hideFromIndex(), 
 
  
                 ];
