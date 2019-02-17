@@ -859,6 +859,7 @@
                         suggestion: function (data) {
 
                         v0 = data.name;  
+                        v0_changed = v0.replace(/ /g,'_');
                         v1 = data.locality;
                         v2 = data.profilepic; 
  
@@ -876,7 +877,7 @@
                        
 
                             return `
-                                    <a href="/c/{{ $categorytype}}/` +  data.url + `" class="list-group-item list-group-item-action flex-column align-items-start ">
+                                    <a href="/c/{{ $categorytype}}/` +  data.url + `/` + v0_changed + `" class="list-group-item list-group-item-action flex-column align-items-start ">
                                         <div class="d-flex w-100 justify-content-between">
                                           <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
                                           
@@ -930,6 +931,7 @@
                         suggestion: function (data) {
 
                         v0 = data.name;  
+                        v0_changed = v0.replace(/ /g,'_');
                         v1 = data.locality;
                         v2 = data.profilepic; 
  
@@ -948,7 +950,7 @@
                        
 
                             return `
-                                    <a href="/c/{{ $categorytype}}/` +  data.url + `" class="list-group-item list-group-item-action flex-column align-items-start ">
+                                    <a href="/c/{{ $categorytype}}/` +  data.url + `/` + v0_changed + `" class="list-group-item list-group-item-action flex-column align-items-start ">
                                         <div class="d-flex w-100 justify-content-between">
                                           <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
                                           
@@ -1002,6 +1004,8 @@
                         suggestion: function (data) {
 
                         v0 = data.name;  
+                        v0_changed = v0.replace(/ /g,'_');
+
                         v1 = data.locality;
                         v2 = data.profilepic; 
  
@@ -1019,7 +1023,7 @@
                        
 
                             return `
-                                    <a href="/c/{{ $categorytype}}/` +  data.url + `" class="list-group-item list-group-item-action flex-column align-items-start ">
+                                    <a href="/c/{{ $categorytype}}/` +  data.url + `/` + v0_changed + `" class="list-group-item list-group-item-action flex-column align-items-start ">
                                         <div class="d-flex w-100 justify-content-between">
                                           <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
                                           
