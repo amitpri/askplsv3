@@ -199,7 +199,23 @@
 
 
     			</section><!-- #content end -->
+
+                <br>
+
+                <section  class="  center"  >  
+
+                    <div class="card text-center"> 
+                      <div class="card-body"> 
+                        <p class="card-text">Looking for creating your own topic and get anonymous comments??</p>
+                        <a href="/portal/resources/topics" class="btn btn-primary btn-sm">Click Here</a>
+                      </div> 
+                    </div>
+
+                </section>
+
             </div>
+
+
 
  		</div>
 
