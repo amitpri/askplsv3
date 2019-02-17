@@ -189,7 +189,7 @@
 
                     <div class="promo promo-border" v-for="topic in topics" v-cloak>
                         <h3><a :href="'/t/d?url=' + topic.url + '&type=' + categorytype">@{{topic.topic_name}}</a></h3>
-                        <span><p>Posted on @{{topic.created_at}} <span v-if="topic.user_name"> by <a target="_blank" :href="'/p/' + topic.user_code">@{{topic.user_name}}</a></span></p>  </span>
+                        <span><p>Posted on @{{topic.created_at}} <span v-if="topic.user_name"> by <a target="_blank" :href="'/p/' + topic.user_code + '/' + topic.user_name ">@{{topic.user_name}}</a></span></p>  </span>
                         <a :href="'/t/d?url=' + topic.url + '&type=' + categorytype" class="button button-small button-rounded">Comments</a>
                     </div>
 
