@@ -86,7 +86,7 @@ class IndexController extends Controller
  
        
 
-    	return view('support', compact('faqs','faqcategories'));
+    	return view('support', compact('faqs','faqcategories' , 'category'));
 
     }  
 
