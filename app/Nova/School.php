@@ -21,6 +21,8 @@ use Media24si\NovaYoutubeField\Youtube;
 //use Laravel\Nova\Fields\Image;
 use Ctessier\NovaAdvancedImageField\AdvancedImage;
 
+use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
+
 use Laravel\Nova\Panel;
 use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\Country;
@@ -245,6 +247,21 @@ class School extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        
+
+        if( $loggedinemail == "amitpri@gmail.com"){
+
+            return [
+
+                new DownloadExcel,
+                
+            ];
+
+        }else{
+
+            return [
+
+            ];
+        }
     }
 }
