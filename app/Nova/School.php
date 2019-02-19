@@ -248,13 +248,14 @@ class School extends Resource
     public function actions(Request $request)
     {
         
+        $loggedinemail= Auth::user()->email;
 
         if( $loggedinemail == "amitpri@gmail.com"){
 
             return [
 
                 new DownloadExcel,
-                
+
             ];
 
         }else{
