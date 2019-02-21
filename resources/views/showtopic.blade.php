@@ -166,17 +166,14 @@
 						<p style="font-weight: 300; opacity: .7; color: black;  ">Posted by 
 								<a target="_blank" href="/p/{{ $topic->user_code }}/{{ $topic->name }}">{{ $topic->name }}</a> on {{ $topic->created_at }} </p> 
 
+							 
 						@if(isset($topic->instagram))	 
 
-						<div class="container clearfix" style="max-width: 800px;">  
-								  
-                            <div class="embed-responsive embed-responsive-4by3"  >
-                            	<div class="embed-responsive-item">
-					   				<blockquote class='instagram-media' data-instgrm-permalink='{{ $topic->instagram }}' data-instgrm-version='9'> </blockquote>
-					   			</div>
-							</div>             
-	                            
-						</div> 
+							<div class="container clearfix" style="max-width: 800px;">  
+
+								<blockquote class="instagram-media" data-instgrm-permalink="{{ $topic->instagram }}" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style="   display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> </div></blockquote>  
+
+							</div>
 
 						@endif
 							
