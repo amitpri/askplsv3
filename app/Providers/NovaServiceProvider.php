@@ -68,6 +68,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function resources()
       { 
             $loggedinemail = Auth::user()->email;
+            $loggedinrole = Auth::user()->role;
  
 
                 Nova::resources([
@@ -161,8 +162,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 
         $loggedintenant = Auth::user()->tenant; 
         $loggedinemail= Auth::user()->email;
+        $loggedinrole = Auth::user()->role;
 
-        if( $loggedinemail == "amitpri@gmail.com"){
+        if( $loggedinrole == "super"){
 
                 return [  
           //          new \Askpls\Workspacesummary\Workspacesummary(),
@@ -218,7 +220,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         $loggedintenant = Auth::user()->tenant; 
         $loggedinemail= Auth::user()->email;
 
-        if( $loggedinemail == "amitpri@gmail.com"){
+        if( $loggedinrole == "super"){
 
             return [
 

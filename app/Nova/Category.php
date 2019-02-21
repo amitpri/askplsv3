@@ -27,8 +27,9 @@ class Category extends Resource
     public static function availableForNavigation(Request $request)
     {
         $loggedinemail= Auth::user()->email; 
+        $loggedinrole = Auth::user()->role;
 
-        if( $loggedinemail == "amitpri@gmail.com"){
+        if( $loggedinrole == "super"){
 
             return true;
             

@@ -55,8 +55,9 @@ class Topic extends Resource
         $loggedintenant = Auth::user()->tenant; 
         $loggedinemail= Auth::user()->email;
         $loggedinpaid = Auth::user()->paid;
+        $loggedinrole = Auth::user()->role;
 
-        if( $loggedinemail == "amitpri@gmail.com"){
+        if( $loggedinrole == "super"){
 
             return [
                     ID::make()->sortable(), 

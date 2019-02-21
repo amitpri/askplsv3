@@ -48,8 +48,9 @@ class Review extends Resource
 
         $loggedintenant = Auth::user()->tenant; 
         $loggedinemail= Auth::user()->email;
+        $loggedinrole = Auth::user()->role;
 
-        if( $loggedinemail == "amitpri@gmail.com"){
+        if( $loggedinrole == "super"){
 
             return [
                 ID::make()->sortable(), 

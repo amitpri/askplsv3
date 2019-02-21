@@ -38,7 +38,9 @@ class Setting extends Resource
     public function fields(Request $request)
     {
         $loggedinemail= Auth::user()->email;
-        if( $loggedinemail == "amitpri@gmail.com"){
+        $loggedinrole = Auth::user()->role;
+        
+        if( $loggedinrole == "super"){
 
            return [
 
