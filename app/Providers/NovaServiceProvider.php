@@ -219,6 +219,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         $loggedintenant = Auth::user()->tenant; 
         $loggedinemail= Auth::user()->email;
+        $loggedinrole = Auth::user()->role;
 
         if( $loggedinrole == "super"){
 
