@@ -17,7 +17,7 @@
         "askpls/workspacesummary": "*",
         "chaseconey/nova-external-image": "^0.0.3",
         "christophrumpel/nova-notifications": "^1.0",
-        "ctessier/nova-advanced-image-field": "^0.1.1", 
+        "ctessier/nova-advanced-image-field": "^0.1.1",
         "dniccum/custom-email-sender": "^1.0",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",

@@ -542,13 +542,23 @@ class TopicController extends Controller
 
     public function show($url)
     {
- 
-         $topic = ShowTopic::where('url','=',$url)->where('type','=','public')->first(['id','url' , 'topic_name']); 
+  
+        $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`user_code`,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at, a.`instagram`
+                                        FROM `topics` a ,  `users` b 
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = b.`id`
+                                        AND a.`type` = 'public' ", ['url' => $url]); 
+     
+   
+
+        $topic = ShowTopic::where('url','=',$url)->where('type','=','public')->first(['id','url' , 'topic_name']); 
         
         $id = $topic->id;
         $topic_name = $topic->topic_name;
        
-        return view('showtopic',compact('url','id' ,'topic_name'));
+        return view('showtopic',compact('topics', 'url','id' ,'topic_name'));
    
     } 
 

@@ -24,6 +24,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/colors.php?color=1c85e8" type="text/css" />
 
+    <script async src="https://www.instagram.com/embed.js"></script>
+
     <script src="/vue/vue.min.js"></script>
         <script src="/axios/axios.min.js"></script>
         @include('analytics')
@@ -154,36 +156,70 @@
 
 		<!-- Page Title
 		============================================= -->
-
-		<div id="feedback" style=" margin-top:40px;     ">
+ 
+		<divstyle=" margin-top:40px;     ">
 			<div class="container">
-		 		<section  class="  center" v-for="topic in topics">
-					<h1 class="font-secondary nott mb-3" style="color: black; font-size: 36px;    ">@{{ topic.topic_name }}</h1>
-					<p style="font-weight: 300; opacity: .7; color: black;  ">Posted by <a target="_blank" :href="'/p/' + topic.user_code + '/' + topic.name ">@{{ topic.name }}</a> on @{{ topic.created_at }} </p> 
-	 				
-	 				<p  style="color: black; font-size: 18px;    "><span v-html="topic.details"> </span></p>
 
-					<img v-if="topic.image" :src="'/storage/' + topic.image" max-width="400">
-	 
+				@foreach ($topics as $topic)
+			 		<section  class="  center"  >
+						<h1 class="font-secondary nott mb-3" style="color: black; font-size: 36px;">{{ $topic->topic_name }}</h1>
+						<p style="font-weight: 300; opacity: .7; color: black;  ">Posted by 
+								<a target="_blank" href="/p/{{ $topic->user_code }}/{{ $topic->name }}">{{ $topic->name }}</a> on {{ $topic->created_at }} </p> 
 
-					<iframe v-if="topic.video" width="640" height="360" class="embed-responsive-item" 
-					  		:src="'https://www.youtube.com/embed/' + topic.video" ></iframe> 
-	 
-					<div class="container clearfix"> 
-						<div class="clearfix center divcenter" style="max-width: 800px; margin-top:40px;">
-							<div id="widget-subscribe-form">
-	                            <div class="  divcenter">
-	                                <textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="5" cols="30" v-model="inpReview" style="border: none;" placeholder="Enter Anonymous Review"></textarea>   
-	                                <button @click="savefeedback" type="submit" class="button " style="border-radius: 3px;">Submit Review</button>                   
-	                            </div>
-	                        </div>
-	                    </div>
-	 
-					</div> 
-				</section><!-- #page-title end -->
- 			</div
-		 -->
-			<section>
+						@if(isset($topic->instagram))	 
+
+						<div class="container clearfix"> 
+							<div class="clearfix center divcenter" style="max-width: 800px; margin-top:40px;">
+								<div class="  divcenter">   
+		                            <div class="embed-responsive embed-responsive-4by3"  >
+							   			<blockquote class='instagram-media' data-instgrm-permalink='{{ $topic->instagram }}' data-instgrm-version='9'> </blockquote>
+									</div>             
+	                            </div> 
+		                    </div> 
+						</div> 
+
+						@endif
+							
+						@if(isset($topic->details))	 
+		 				
+		 					<p  style="color: black; font-size: 18px;">{{  $topic->details }} </span></p>
+
+		 				@endif
+
+		 				@if(isset($topic->image))
+ 
+							<img src="/storage/{{ $topic->image }}" max-width="400">
+		 				
+		 				@endif
+
+		 				@if(isset($topic->video))
+ 
+							<iframe  width="640" height="360" class="embed-responsive-item" 
+						  		src="https://www.youtube.com/embed/{{ topic.video }}" ></iframe> 
+		 				
+		 				@endif
+
+						
+					</section> 
+				@endforeach
+
+ 			</div>
+
+ 			<div id="feedback">
+ 				
+ 				<div class="container clearfix"> 
+					<div class="clearfix center divcenter" style="max-width: 800px; margin-top:40px;">
+						<div id="widget-subscribe-form">
+                            <div class="  divcenter">
+                                <textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="5" cols="30" v-model="inpReview" style="border: none;" placeholder="Enter Anonymous Review"></textarea>   
+                                <button @click="savefeedback" type="submit" class="button " style="border-radius: 3px;">Submit Review</button>                   
+                            </div>
+                        </div>
+                    </div>
+ 
+				</div> 
+
+				<section   >
 
 				<div class="content-wrap clearfix">
 
@@ -214,23 +250,18 @@
 								</div> 
 
 							</div>
-
 							
 						</div>
 						
-
-
 					</div>
 
 						<div  v-if="showLoadMore > 0" class="center" v-cloak ><button class="btn btn-primary"  @click="moremessages">Load More</button></div>
 
 				</div>
-
-				
-
-	            
-
+	
 			</section><!-- #content end -->
+ 			</div>
+			
 
  		</div>
 
@@ -295,21 +326,7 @@
 					showLoadMore : 0,
 				},
 				mounted:function(){
-
-					axios.get('/st/showdetails',{
-					params: {
-
-				      	url: this.inpUrl, 
-				      	 
-				    	}
-
-					})
-					.then(response => {
-
-						this.topics = response.data
-						
-
-					});
+ 
 
 					axios.get('/st/messages',{
 						params: {

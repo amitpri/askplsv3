@@ -91,6 +91,8 @@ class Topic extends Resource
 
                     AdvancedImage::make('Image')->disk('public')->croppable()->resize(600,600),
 
+                    Text::make('Instagram')->sortable(),
+
                     Youtube::make('Video')->hideFromIndex()->hideFromDetail(),
 
                     RadioButton::make('Type')
@@ -191,6 +193,8 @@ class Topic extends Resource
      
                     //Image::make('Image')->disk('public')->hideFromIndex()->hideFromDetail(),
                     AdvancedImage::make('Image')->disk('public')->croppable()->resize(600,600),
+
+                    Text::make('Instagram')->sortable(),
 
                     Youtube::make('Video'), 
 
