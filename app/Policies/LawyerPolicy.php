@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Policies;
-
+use Auth;
 use App\User;
 use App\Lawyer;
 

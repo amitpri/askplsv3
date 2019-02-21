@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use Auth;   
 use App\User;
 use App\City;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -28,7 +29,7 @@ class CityPolicy
  
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else

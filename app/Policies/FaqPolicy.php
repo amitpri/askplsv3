@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use Auth;
 use App\User;
 use App\Faq;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -19,7 +20,7 @@ class FaqPolicy
     {
   
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+     if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -37,7 +38,7 @@ if ( $loggedinrole == 'super' ) {
  
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -51,7 +52,7 @@ if ( $loggedinrole == 'super' ) {
     public function update(User $user, Faq $faq)
     {
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -66,7 +67,7 @@ if ( $loggedinrole == 'super' ) {
     public function delete(User $user, Faq $faq)
     {
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Policies;
-
+use Auth;
 use App\User;
 use App\FitnessCenter;
 use Illuminate\Auth\Access\HandlesAuthorization;

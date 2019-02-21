@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use Auth;
 use App\User;
 use App\ContactForm;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -24,7 +25,8 @@ class ContactFormPolicy
     {
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -71,7 +73,8 @@ if ( $loggedinrole == 'super' ) {
     { 
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
