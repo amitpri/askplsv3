@@ -24,7 +24,8 @@ class TenantPolicy
     {
         $loggedinid = Auth::user()->id;
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -63,7 +64,8 @@ class TenantPolicy
     {
         $loggedinid = Auth::user()->id;
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -91,7 +93,8 @@ class TenantPolicy
     {
         $loggedinid = Auth::user()->id;
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -135,7 +138,7 @@ class TenantPolicy
     public function viewAny(User $user)
     {
 
-        return $user->email == 'amitpri@gmail.com'; 
+        return $user->role == 'super'; 
 
     }  
  

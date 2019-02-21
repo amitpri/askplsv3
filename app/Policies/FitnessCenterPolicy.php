@@ -27,7 +27,8 @@ class FitnessCenterPolicy
     {
  
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -40,7 +41,8 @@ class FitnessCenterPolicy
  
     public function update(User $user, FitnessCenter $fitnesscenter)
     {
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -54,7 +56,8 @@ class FitnessCenterPolicy
  
     public function delete(User $user, FitnessCenter $fitnesscenter)
     {
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else

@@ -33,7 +33,8 @@ class CategoryPolicy
     {
  
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -46,7 +47,8 @@ class CategoryPolicy
  
     public function update(User $user, Category $category)
     {
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -60,7 +62,8 @@ class CategoryPolicy
  
     public function delete(User $user, Category $category)
     {
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else

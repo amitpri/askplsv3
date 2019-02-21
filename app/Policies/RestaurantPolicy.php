@@ -28,7 +28,8 @@ class RestaurantPolicy
     {
  
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -41,7 +42,8 @@ class RestaurantPolicy
  
     public function update(User $user, Restaurant $restaurant)
     {
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -55,7 +57,8 @@ class RestaurantPolicy
  
     public function delete(User $user, Restaurant $restaurant)
     {
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else

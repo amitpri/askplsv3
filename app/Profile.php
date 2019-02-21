@@ -30,7 +30,8 @@ class Profile extends Model
         	$loggedinid = Auth::user()->id;
             $loggedinemail = Auth::user()->email;
 
-            if( $loggedinemail != 'amitpri@gmail.com' ){
+            $loggedinrole = Auth::user()->role;
+if( $loggedinrole != 'super' ){
 
 
                 $builder->where('profiles.user_id', '=', $loggedinid);

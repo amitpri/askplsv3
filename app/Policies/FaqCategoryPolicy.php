@@ -18,7 +18,8 @@ class FaqCategoryPolicy
     public function view(User $user, FaqCategory $faqcategory)
     {
   
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -35,7 +36,8 @@ class FaqCategoryPolicy
     {
  
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -48,7 +50,8 @@ class FaqCategoryPolicy
  
     public function update(User $user, FaqCategory $faqcategory)
     {
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -62,7 +65,8 @@ class FaqCategoryPolicy
  
     public function delete(User $user, FaqCategory $faqcategory)
     {
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -88,7 +92,8 @@ class FaqCategoryPolicy
     {
  
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else

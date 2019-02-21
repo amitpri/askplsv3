@@ -22,7 +22,8 @@ class TopicCategoryMembersPolicy
         $topicable_id = Auth::user()->topicable_id;
         $topicable_type = Auth::user()->topicable_type;
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -51,7 +52,8 @@ class TopicCategoryMembersPolicy
         $topicable_id = Auth::user()->topicable_id;
         $topicable_type = Auth::user()->topicable_type;
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -75,7 +77,8 @@ class TopicCategoryMembersPolicy
         $topicable_id = Auth::user()->topicable_id;
         $topicable_type = Auth::user()->topicable_type;
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -110,7 +113,8 @@ class TopicCategoryMembersPolicy
         $topicable_id = Auth::user()->topicable_id;
         $topicable_type = Auth::user()->topicable_type;
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else

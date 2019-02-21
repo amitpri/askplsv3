@@ -23,7 +23,8 @@ class ContactFormPolicy
     public function view(User $user, ContactForm $contactform)
     {
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -69,7 +70,8 @@ class ContactFormPolicy
     public function viewAny(User $user )
     { 
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else

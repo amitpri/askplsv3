@@ -26,7 +26,8 @@ class TopicLog extends Model
 
             $loggedinemail = Auth::user()->email;
 
-            if( $loggedinemail != 'amitpri@gmail.com' ){
+            $loggedinrole = Auth::user()->role;
+if( $loggedinrole != 'super' ){
 
                 $builder->where('topic_logs.user_id', '=', $loggedinid);
 

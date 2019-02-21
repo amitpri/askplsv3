@@ -20,7 +20,8 @@ class ProfilePolicy
     {
         $loggedinid = Auth::user()->id;
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -46,7 +47,8 @@ class ProfilePolicy
     {
         $loggedinid = Auth::user()->id;
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -67,7 +69,8 @@ class ProfilePolicy
     {
         $loggedinid = Auth::user()->id;
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -97,7 +100,8 @@ class ProfilePolicy
     public function viewAny(User $user )
     {
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
 

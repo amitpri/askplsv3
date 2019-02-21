@@ -16,7 +16,8 @@ class PendingJobsPolicy
     {
         $loggedinid = Auth::user()->id;
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -95,7 +96,8 @@ class PendingJobsPolicy
     public function viewAny(User $user )
     {
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
 

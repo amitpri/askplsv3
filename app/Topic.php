@@ -58,7 +58,8 @@ class Topic extends Model
 
             $loggedinemail = Auth::user()->email;
 
-            if( $loggedinemail != 'amitpri@gmail.com' ){
+            $loggedinrole = Auth::user()->role;
+if( $loggedinrole != 'super' ){
 
                 $builder->where('topics.user_id', '=', $loggedinid);
             }

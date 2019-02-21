@@ -16,7 +16,8 @@ class ReviewPolicy
   
         $loggedinid = Auth::user()->id;
 
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -42,7 +43,8 @@ class ReviewPolicy
      */
     public function create(User $user)
     {
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
 
@@ -62,7 +64,8 @@ class ReviewPolicy
      */
     public function update(User $user, Review $review)
     {
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
 
@@ -82,7 +85,8 @@ class ReviewPolicy
      */
     public function delete(User $user, Review $review)
     {
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
 

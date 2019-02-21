@@ -27,7 +27,8 @@ class TemplatePolicy
     public function create(User $user)
     {
         
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
 
@@ -41,7 +42,8 @@ class TemplatePolicy
  
     public function update(User $user, Template $template)
     {
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
 
@@ -54,7 +56,8 @@ class TemplatePolicy
  
     public function delete(User $user, Template $template)
     {
-        if ( $user->email == 'amitpri@gmail.com' ) {
+        $loggedinrole = Auth::user()->role;
+if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
 
