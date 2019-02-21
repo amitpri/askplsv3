@@ -177,9 +177,9 @@
 
 						@endif
 							
-						@if(isset($topic->details))	 
+						@if(isset($topic->details))	  
 		 				
-		 					<p  style="color: black; font-size: 18px;">{{  $topic->details }} </span></p>
+		 					<p  style="color: black; font-size: 18px;">{!!html_entity_decode($topic->details)!!} </span></p>
 
 		 				@endif
 
