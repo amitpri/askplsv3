@@ -91,7 +91,7 @@ class Topic extends Resource
 
                     AdvancedImage::make('Image')->disk('public')->croppable()->resize(600,600),
 
-                    Text::make('Instagram')->sortable(),
+                    Text::make('Instagram')->sortable()->hideFromIndex(),
 
                     Youtube::make('Video')->hideFromIndex()->hideFromDetail(),
 
@@ -194,7 +194,7 @@ class Topic extends Resource
                     //Image::make('Image')->disk('public')->hideFromIndex()->hideFromDetail(),
                     AdvancedImage::make('Image')->disk('public')->croppable()->resize(600,600),
 
-                    Text::make('Instagram')->sortable(),
+                    Text::make('Instagram')->sortable()->hideFromIndex(),
 
                     Youtube::make('Video'), 
 
@@ -267,6 +267,8 @@ class Topic extends Resource
                     ])->hideFromIndex(),
       
                     AdvancedImage::make('Image')->disk('public')->croppable()->resize(600,600),
+
+                    Text::make('Instagram')->sortable()->hideFromIndex(),
 
                     Youtube::make('Video'), 
 
