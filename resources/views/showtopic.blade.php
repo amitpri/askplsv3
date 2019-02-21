@@ -168,14 +168,12 @@
 
 						@if(isset($topic->instagram))	 
 
-						<div class="container clearfix"> 
-							<div class="clearfix center divcenter" style="max-width: 800px; margin-top:40px;">
-								<div class="  divcenter">   
+						<div class="container clearfix" style="max-width: 800px;">  
+								  
 		                            <div class="embed-responsive embed-responsive-4by3"  >
 							   			<blockquote class='instagram-media' data-instgrm-permalink='{{ $topic->instagram }}' data-instgrm-version='9'> </blockquote>
 									</div>             
-	                            </div> 
-		                    </div> 
+	                            
 						</div> 
 
 						@endif
