@@ -170,9 +170,11 @@
 
 						<div class="container clearfix" style="max-width: 800px;">  
 								  
-		                            <div class="embed-responsive embed-responsive-4by3"  >
-							   			<blockquote class='embed-responsive-item instagram-media' data-instgrm-permalink='{{ $topic->instagram }}' data-instgrm-version='9'> </blockquote>
-									</div>             
+                            <div class="embed-responsive embed-responsive-4by3"  >
+                            	<div class="embed-responsive-item">
+					   				<blockquote class='instagram-media' data-instgrm-permalink='{{ $topic->instagram }}' data-instgrm-version='9'> </blockquote>
+					   			</div>
+							</div>             
 	                            
 						</div> 
 
