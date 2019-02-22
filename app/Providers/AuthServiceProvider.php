@@ -37,6 +37,7 @@ use App\Faq;
 use App\FaqCategory;
 use App\Image;
 use App\MemberProfile;
+use App\Agent;
 
 use App\Policies\ProfilePolicy;
 use App\Policies\GroupPolicy;
@@ -73,6 +74,7 @@ use App\Policies\MembershipPolicy;
 use App\Policies\TopicCategoryMembersPolicy;
 use App\Policies\ImagePolicy;
 use App\Policies\MemberProfilePolicy;
+use App\Policies\AgentPolicy;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -121,6 +123,7 @@ class AuthServiceProvider extends ServiceProvider
         FaqCategory::class => FaqCategoryPolicy::class,
         Image::class => ImagePolicy::class,
         MemberProfile::class => MemberProfilePolicy::class,
+        Agent::class => AgentPolicy::class,
         
     ];
 

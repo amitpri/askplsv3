@@ -16,7 +16,8 @@ class AccountPolicy
         $loggedinid = Auth::user()->id;
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -43,7 +44,8 @@ if ( $loggedinrole == 'super' ) {
         $loggedinid = Auth::user()->id;
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -64,7 +66,8 @@ if ( $loggedinrole == 'super' ) {
     {
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
 

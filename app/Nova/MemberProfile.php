@@ -122,10 +122,7 @@ class MemberProfile extends Resource
    
                 ];
             }
-
         
-
-       
     }
  
     public function cards(Request $request)

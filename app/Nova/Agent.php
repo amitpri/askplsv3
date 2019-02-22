@@ -2,46 +2,71 @@
 
 namespace App\Nova;
 
+use Auth;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\BelongsTo;
+
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Agent extends Resource
 {
-    /**
-     * The model the resource corresponds to.
-     *
-     * @var string
-     */
-    public static $model = 'App\Agent';
+    public static $group = "0.Agent";
 
-    /**
-     * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
-     */
+    public static $model = 'App\Agent'; 
+
     public static $title = 'id';
-
-    /**
-     * The columns that should be searched.
-     *
-     * @var array
-     */
+ 
     public static $search = [
         'id',
     ];
-
-    /**
-     * Get the fields displayed by the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
+ 
     public function fields(Request $request)
     {
-        return [
-            ID::make()->sortable(),
-        ];
+        
+        $loggedintenant = Auth::user()->tenant; 
+        $loggedinemail= Auth::user()->email;
+        $loggedinrole = Auth::user()->role;
+
+        if( $loggedinrole == "super"){
+
+            return [
+                    ID::make()->sortable(), 
+
+                    Text::make('Id')->withMeta(['extraAttributes' => [
+                              'readonly' => true
+                        ]]),
+
+                    Text::make('User Code')->withMeta(['extraAttributes' => [
+                              'readonly' => true
+                        ]]),
+
+                    Text::make('Name')->withMeta(['extraAttributes' => [
+                              'readonly' => true
+                        ]]),
+
+                    Text::make('Email')->withMeta(['extraAttributes' => [
+                              'readonly' => true
+                        ]]),
+
+                    Text::make('Role'), 
+
+                    BelongsTo::make('Category')->rules('required', 'max:100'),
+
+                    BelongsTo::make('City')->rules('required', 'max:100'),
+                        
+ 
+                ];
+
+        }else{
+             
+                return [
+                    ID::make()->sortable(), 
+    
+                ];
+            }
+        
     }
 
     /**

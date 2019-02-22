@@ -33,7 +33,8 @@ class Category extends Model
             $loggedinemail = Auth::user()->email;
 
             $loggedinrole = Auth::user()->role;
-if( $loggedinrole != 'super' ){
+            
+            if( $loggedinrole != 'super' ){
                 
                 $builder->where('status', '=', 1);
 
