@@ -52,7 +52,7 @@ class CollegePolicy
             return 1 === 1;
         }else
         { 
-            if ( $college->id == $loggedinid ) {
+            if ( $college->user_id == $loggedinid ) {
 
                 return 1 == 1;
             }else{
