@@ -43,6 +43,7 @@ class DoctorPolicy
  
     public function update(User $user, Doctor $doctor)
     {
+        $loggedinid = Auth::user()->id;
         $loggedinrole = Auth::user()->role;
         
         if ( $loggedinrole == 'super' ) {
@@ -50,8 +51,13 @@ class DoctorPolicy
             return 1 === 1;
         }else
         { 
+            if ( $doctor->user_id == $loggedinid ) {
 
-            return 1 == 2; 
+                return 1 == 1;
+            }else{
+
+                return 1 == 2;
+            }
         }
 
           

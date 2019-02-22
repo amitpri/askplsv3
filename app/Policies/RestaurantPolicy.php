@@ -43,6 +43,7 @@ class RestaurantPolicy
  
     public function update(User $user, Restaurant $restaurant)
     {
+        $loggedinid = Auth::user()->id;
         $loggedinrole = Auth::user()->role;
         
         if ( $loggedinrole == 'super' ) {
@@ -50,8 +51,13 @@ class RestaurantPolicy
             return 1 === 1;
         }else
         { 
+            if ( $restaurant->user_id == $loggedinid ) {
 
-            return 1 == 2; 
+                return 1 == 1;
+            }else{
+
+                return 1 == 2;
+            }
         }
 
           

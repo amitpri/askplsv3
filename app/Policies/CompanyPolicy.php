@@ -43,6 +43,7 @@ class CompanyPolicy
  
     public function update(User $user, Company $company)
     {
+        $loggedinid = Auth::user()->id;
         $loggedinrole = Auth::user()->role;
         
         if ( $loggedinrole == 'super' ) {
@@ -50,8 +51,13 @@ class CompanyPolicy
             return 1 === 1;
         }else
         { 
+            if ( $company->user_id == $loggedinid ) {
 
-            return 1 == 2; 
+                return 1 == 1;
+            }else{
+
+                return 1 == 2;
+            }
         }
 
           

@@ -44,6 +44,7 @@ class FitnessCenterPolicy
  
     public function update(User $user, FitnessCenter $fitnesscenter)
     {
+        $loggedinid = Auth::user()->id;
         $loggedinrole = Auth::user()->role;
         
         if ( $loggedinrole == 'super' ) {
@@ -51,8 +52,13 @@ class FitnessCenterPolicy
             return 1 === 1;
         }else
         { 
+            if ( $fitnesscenter->user_id == $loggedinid ) {
 
-            return 1 == 2; 
+                return 1 == 1;
+            }else{
+
+                return 1 == 2;
+            }
         }
 
           

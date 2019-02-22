@@ -43,6 +43,7 @@ class HotelPolicy
  
     public function update(User $user, Hotel $hotel)
     {
+        $loggedinid = Auth::user()->id;
         $loggedinrole = Auth::user()->role;
         
         if ( $loggedinrole == 'super' ) {
@@ -50,8 +51,13 @@ class HotelPolicy
             return 1 === 1;
         }else
         { 
+            if ( $hotel->user_id == $loggedinid ) {
 
-            return 1 == 2; 
+                return 1 == 1;
+            }else{
+
+                return 1 == 2;
+            }
         }
 
           
