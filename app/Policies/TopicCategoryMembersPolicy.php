@@ -23,7 +23,8 @@ class TopicCategoryMembersPolicy
         $topicable_type = Auth::user()->topicable_type;
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -53,7 +54,8 @@ if ( $loggedinrole == 'super' ) {
         $topicable_type = Auth::user()->topicable_type;
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -78,7 +80,8 @@ if ( $loggedinrole == 'super' ) {
         $topicable_type = Auth::user()->topicable_type;
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -114,9 +117,14 @@ if ( $loggedinrole == 'super' ) {
         $topicable_type = Auth::user()->topicable_type;
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
+        }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
+
         }else
         {
 

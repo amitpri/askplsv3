@@ -30,6 +30,7 @@ use App\Restaurant;
 use App\School;
 use App\Track;
 use App\Membership;
+use App\TopicCategory;
 use App\TopicCategoryMembers;
 use App\Order;
 use App\City;
@@ -71,6 +72,7 @@ use App\Policies\CityPolicy;
 use App\Policies\FaqPolicy;
 use App\Policies\FaqCategoryPolicy;
 use App\Policies\MembershipPolicy;
+use App\Policies\TopicCategoryPolicy;
 use App\Policies\TopicCategoryMembersPolicy;
 use App\Policies\ImagePolicy;
 use App\Policies\MemberProfilePolicy;
@@ -116,6 +118,7 @@ class AuthServiceProvider extends ServiceProvider
         School::class => SchoolPolicy::class,
         Track::class => TrackPolicy::class,
         Membership::class => MembershipPolicy::class,
+        TopicCategory::class => TopicCategoryPolicy::class,
         TopicCategoryMembers::class => TopicCategoryMembersPolicy::class,
         Order::class => OrderPolicy::class,
         City::class => CityPolicy::class,

@@ -17,9 +17,15 @@ class ReviewPolicy
         $loggedinid = Auth::user()->id;
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
+
+        }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
+
         }else
         {
 
@@ -44,9 +50,14 @@ if ( $loggedinrole == 'super' ) {
     public function create(User $user)
     {
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+
+        if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
+
+        }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
 
         }else{
 
@@ -65,9 +76,14 @@ if ( $loggedinrole == 'super' ) {
     public function update(User $user, Review $review)
     {
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+
+        if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
+
+        }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
 
         }else{
 
@@ -86,9 +102,14 @@ if ( $loggedinrole == 'super' ) {
     public function delete(User $user, Review $review)
     {
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+
+        if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
+
+        }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
 
         }else{
 
@@ -108,14 +129,7 @@ if ( $loggedinrole == 'super' ) {
     {
         //
     }
-
-    /**
-     * Determine whether the user can permanently delete the review.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Review  $review
-     * @return mixed
-     */
+ 
     public function forceDelete(User $user, Review $review)
     {
         //
@@ -124,7 +138,26 @@ if ( $loggedinrole == 'super' ) {
     public function viewAny(User $user )
     {
 
-        return 1 === 1;
+        $loggedinid = Auth::user()->id;
+        $paid = Auth::user()->paid;
+
+        $loggedinrole = Auth::user()->role;
+        
+        if ( $loggedinrole == 'super' ) {
+
+            return 1 === 1;
+            
+        }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
+
+        }else
+        {
+
+
+             return 1 === 1;
+
+        }
 
     }
 }

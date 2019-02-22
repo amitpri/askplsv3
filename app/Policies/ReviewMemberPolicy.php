@@ -18,9 +18,14 @@ class ReviewMemberPolicy
         $paid = Auth::user()->paid;
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
+        }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
+
         }else
         {
 
@@ -39,9 +44,14 @@ if ( $loggedinrole == 'super' ) {
     public function create(User $user)
     {
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 == 2;
+
+        }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
 
         }else{
 
@@ -60,9 +70,14 @@ if ( $loggedinrole == 'super' ) {
     public function update(User $user, ReviewMember $reviewmember)
     {
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 == 2;
+
+        }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
 
         }else{
 
@@ -81,9 +96,14 @@ if ( $loggedinrole == 'super' ) {
     public function delete(User $user, ReviewMember $reviewmember)
     {
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
+
+        }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
 
         }else{
 
@@ -91,14 +111,7 @@ if ( $loggedinrole == 'super' ) {
 
         }
     }
-
-    /**
-     * Determine whether the user can restore the review.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Review  $review
-     * @return mixed
-     */
+ 
     public function restore(User $user, ReviewMember $review)
     {
         //
@@ -123,9 +136,15 @@ if ( $loggedinrole == 'super' ) {
         $paid = Auth::user()->paid;
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
+            
+        }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
+
         }else
         {
 

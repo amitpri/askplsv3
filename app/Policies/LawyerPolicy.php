@@ -4,7 +4,7 @@ namespace App\Policies;
 use Auth;
 use App\User;
 use App\Lawyer;
-
+use App\CategoryAll;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class LawyerPolicy
@@ -29,7 +29,8 @@ class LawyerPolicy
  
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -43,7 +44,8 @@ if ( $loggedinrole == 'super' ) {
     public function update(User $user, Lawyer $lawyer)
     {
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -58,7 +60,8 @@ if ( $loggedinrole == 'super' ) {
     public function delete(User $user, Lawyer $lawyer)
     {
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -83,8 +86,37 @@ if ( $loggedinrole == 'super' ) {
     public function viewAny(User $user )
     {
  
+        $loggedinid = Auth::user()->id;
 
-            return 1 == 1;
+        $loggedinrole = Auth::user()->role;
+
+
+        if ( $loggedinrole == 'super' ) {
+
+            return 1 === 1;
+
+        }elseif( $loggedinrole == 'agent'  ){
+
+            $loggedincategoryid = Auth::user()->category_id;
+
+            $loggedincategoryname =  CategoryAll::find($loggedincategoryid)->category;
+
+            if( $loggedincategoryname == 'Lawyers'){
+
+                     return 1 === 1;
+
+            }else{
+
+                     return 1 === 2;
+            }
+
+           
+        }else
+        {
+ 
+            return 1 === 1;
+            
+        }
  
 
     } 

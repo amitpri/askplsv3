@@ -250,6 +250,7 @@ class School extends Resource
     {
         
         $loggedinemail= Auth::user()->email;
+        $loggedinrole = Auth::user()->role;
 
         if( $loggedinrole == "super"){
 

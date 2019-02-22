@@ -23,10 +23,17 @@ class SettingPolicy
         $loggedinid = Auth::user()->id;
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
-        }else
+
+        }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
+
+        }
+        else
         {
 
             if ( $setting->id == $loggedinid ) {
@@ -67,9 +74,14 @@ if ( $loggedinrole == 'super' ) {
         $loggedinid = Auth::user()->id;
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
+        }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
+
         }else
         {
 
@@ -89,9 +101,14 @@ if ( $loggedinrole == 'super' ) {
         $loggedinid = Auth::user()->id;
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
+        }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
+
         }else
         {
  
@@ -114,9 +131,25 @@ if ( $loggedinrole == 'super' ) {
     public function viewAny(User $user )
     { 
 
-        return 1 == 1;
- 
- 
+        $loggedinid = Auth::user()->id;
 
+        $loggedinrole = Auth::user()->role;
+        
+        if ( $loggedinrole == 'super' ) {
+
+            return 1 === 1;
+
+        }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
+
+        }else
+        {
+ 
+                return 1 === 1;
+            
+        }
+ 
+ 
     }  
 }

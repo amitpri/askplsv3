@@ -28,7 +28,8 @@ class TemplatePolicy
     {
         
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
 
@@ -43,7 +44,8 @@ if ( $loggedinrole == 'super' ) {
     public function update(User $user, Template $template)
     {
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
 
@@ -57,7 +59,8 @@ if ( $loggedinrole == 'super' ) {
     public function delete(User $user, Template $template)
     {
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
 
@@ -81,8 +84,24 @@ if ( $loggedinrole == 'super' ) {
     public function viewAny(User $user )
     { 
 
-        return 1 == 1;
+        $loggedinid = Auth::user()->id;
+
+        $loggedinrole = Auth::user()->role;
+        
+        if ( $loggedinrole == 'super' ) {
+
+            return 1 === 1;
+
+        }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
+
+        }else
+        {
  
+                return 1 === 1;
+            
+        }
  
 
     } 

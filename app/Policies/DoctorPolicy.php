@@ -4,6 +4,7 @@ namespace App\Policies;
 use Auth;
 use App\User;
 use App\Doctor;
+use App\CategoryAll;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class DoctorPolicy
@@ -28,7 +29,8 @@ class DoctorPolicy
  
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -42,7 +44,8 @@ if ( $loggedinrole == 'super' ) {
     public function update(User $user, Doctor $doctor)
     {
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -57,7 +60,8 @@ if ( $loggedinrole == 'super' ) {
     public function delete(User $user, Doctor $doctor)
     {
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else
@@ -82,8 +86,37 @@ if ( $loggedinrole == 'super' ) {
     public function viewAny(User $user )
     {
  
+        $loggedinid = Auth::user()->id;
 
-            return 1 == 1;
+        $loggedinrole = Auth::user()->role;
+
+
+        if ( $loggedinrole == 'super' ) {
+
+            return 1 === 1;
+
+        }elseif( $loggedinrole == 'agent'  ){
+
+            $loggedincategoryid = Auth::user()->category_id;
+
+            $loggedincategoryname =  CategoryAll::find($loggedincategoryid)->category;
+
+            if( $loggedincategoryname == 'Doctors'){
+
+                     return 1 === 1;
+
+            }else{
+
+                     return 1 === 2;
+            }
+
+           
+        }else
+        {
+ 
+            return 1 === 1;
+            
+        }
  
 
     } 
