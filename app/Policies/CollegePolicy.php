@@ -44,6 +44,7 @@ class CollegePolicy
  
     public function update(User $user, College $college)
     {
+        $loggedinid = Auth::user()->id;
         $loggedinrole = Auth::user()->role;
         
         if ( $loggedinrole == 'super' ) {
@@ -51,8 +52,13 @@ class CollegePolicy
             return 1 === 1;
         }else
         { 
+            if ( $college->id == $loggedinid ) {
 
-            return 1 == 2; 
+                return 1 == 1;
+            }else{
+
+                return 1 == 2;
+            }
         }
 
           

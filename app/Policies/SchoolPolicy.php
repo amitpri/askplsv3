@@ -43,6 +43,7 @@ class SchoolPolicy
  
     public function update(User $user, School $school)
     {
+        $loggedinid = Auth::user()->id;
         $loggedinrole = Auth::user()->role;
         
         if ( $loggedinrole == 'super' ) {
@@ -50,10 +51,14 @@ class SchoolPolicy
             return 1 === 1;
         }else
         { 
+            if ( $school->user_id == $loggedinid ) {
 
-            return 1 == 2; 
+                return 1 == 1;
+            }else{
+
+                return 1 == 2;
+            }
         }
-
           
     }
  
