@@ -22,16 +22,9 @@ class AgentPolicy
             return 1 === 1;
             
         }else
-        {
+        { 
 
-            if ( $agent->id == $loggedinid ) {
-
-                return 1 === 1;
-
-            }else{
-
-                return 1 === 2;
-            }
+                return 1 === 2; 
         }
     }
 
@@ -50,16 +43,9 @@ class AgentPolicy
 
             return 1 === 1;
         }else
-        {
+        { 
 
-            if ( $agent->id == $loggedinid ) {
-
-                return 1 === 1;
-
-            }else{
-
-                return 1 === 2;
-            }
+                return 1 === 2; 
         }
     }
 
@@ -74,7 +60,7 @@ class AgentPolicy
 
         }else{
 
-            return 1 == 1;
+            return 1 == 2;
 
         }
  
