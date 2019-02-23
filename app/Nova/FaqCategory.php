@@ -28,6 +28,12 @@ class FaqCategory extends Resource
         'id',
     ];
 
+    public static function label() {
+
+        return 'FAQ - Categories';
+
+    }
+
     /**
      * Get the fields displayed by the resource.
      *

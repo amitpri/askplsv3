@@ -36,6 +36,12 @@ class ContactForm extends Resource
         'id',
     ];
 
+    public static function label() {
+
+        return 'Contact Form';
+
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
