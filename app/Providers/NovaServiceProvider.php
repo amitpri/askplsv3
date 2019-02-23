@@ -65,6 +65,13 @@ use App\Nova\MemberProfile;
 use App\Nova\Agent;
 use App\Nova\AgentCreate;
 use App\Nova\AgentSchool;
+use App\Nova\AgentCollege;
+use App\Nova\AgentHotel;
+use App\Nova\AgentRestaurant;
+use App\Nova\AgentDoctor;
+use App\Nova\AgentLawyer;
+use App\Nova\AgentCompany;
+use App\Nova\AgentFitnessCenter;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -124,6 +131,13 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     AgentCreate::class,
                     Agent::class,
                     AgentSchool::class,
+                    AgentCollege::class,
+                    AgentHotel::class,
+                    AgentRestaurant::class,
+                    AgentDoctor::class,
+                    AgentLawyer::class,
+                    AgentCompany::class,
+                    AgentFitnessCenter::class,
 
  
                 ]);

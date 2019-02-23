@@ -24,6 +24,13 @@ class Agent extends Model
 
     } 
 
+    public function school()
+    {
+
+        return $this->hasMany('App\School','user_id');
+
+    }
+
     protected static function boot()
     {
         parent::boot();

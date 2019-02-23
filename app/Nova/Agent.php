@@ -6,6 +6,7 @@ use Auth;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasMany;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -33,6 +34,8 @@ class Agent extends Resource
 
             return [
                     ID::make()->sortable(), 
+
+                    HasMany::make('School'),
 
                     Text::make('Id')->withMeta(['extraAttributes' => [
                               'readonly' => true

@@ -11,11 +11,11 @@ use Laravel\Nova\Fields\HasMany;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class AgentSchool extends Resource
+class AgentRestaurant extends Resource
 {
     public static $group = "0.Agent";
 
-    public static $model = 'App\AgentSchool';
+    public static $model = 'App\AgentRestaurant';
  
     public static $title = 'id';
  
@@ -25,7 +25,7 @@ class AgentSchool extends Resource
 
     public static function label() {
 
-        return 'Agent - School';
+        return 'Agent - Restaurant';
 
     }
 
@@ -42,7 +42,7 @@ class AgentSchool extends Resource
                               'readonly' => true
                         ]])->sortable(), 
 
-            Text::make('School Name','name')->sortable()->withMeta(['extraAttributes' => [
+            Text::make('Restaurant Name','name')->sortable()->withMeta(['extraAttributes' => [
                               'readonly' => true
                         ]]),  
 

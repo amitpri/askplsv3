@@ -41,6 +41,13 @@ use App\MemberProfile;
 use App\Agent;
 use App\AgentCreate;
 use App\AgentSchool;
+use App\AgentCollege;
+use App\AgentHotel;
+use App\AgentRestaurant;
+use App\AgentDoctor;
+use App\AgentCompany;
+use App\AgentLawyer;
+use App\AgentFitnessCenter;
 
 use App\Policies\ProfilePolicy;
 use App\Policies\GroupPolicy;
@@ -81,6 +88,13 @@ use App\Policies\MemberProfilePolicy;
 use App\Policies\AgentPolicy;
 use App\Policies\AgentCreatePolicy;
 use App\Policies\AgentSchoolPolicy;
+use App\Policies\AgentCollegePolicy;
+use App\Policies\AgentHotelPolicy;
+use App\Policies\AgentRestaurantPolicy;
+use App\Policies\AgentDoctorPolicy;
+use App\Policies\AgentCompanyPolicy;
+use App\Policies\AgentLawyerPolicy;
+use App\Policies\AgentFitnessCenterPolicy;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -133,6 +147,13 @@ class AuthServiceProvider extends ServiceProvider
         Agent::class => AgentPolicy::class,
         AgentCreate::class => AgentCreatePolicy::class,
         AgentSchool::class => AgentSchoolPolicy::class,
+        AgentCollege::class => AgentCollegePolicy::class,
+        AgentHotel::class => AgentHotelPolicy::class,
+        AgentRestaurant::class => AgentRestaurantPolicy::class,
+        AgentDoctor::class => AgentDoctorPolicy::class,
+        AgentCompany::class => AgentCompanyPolicy::class,
+        AgentLawyer::class => AgentLawyerPolicy::class,
+        AgentFitnessCenter::class => AgentFitnessCenterPolicy::class,
         
     ];
 
