@@ -12,7 +12,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Faq extends Resource
 {
-    public static $group = 'FAQ';
+    public static $group = '0.Admin';
 
     public static $model = 'App\Faq';
 
