@@ -40,7 +40,7 @@ use Laravel\Nova\Fields\MorphTo;
 
 class TopicCategoryMembers extends Resource
 {
-    public static $group = 'Members';
+    public static $group = '1.Topics';
 
     public static $model = 'App\TopicCategoryMembers';
 
