@@ -26,7 +26,8 @@ class GroupPolicy
         $loggedinid = Auth::user()->id;
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }else

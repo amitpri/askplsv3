@@ -25,7 +25,8 @@ class GroupProfile extends Model
             $loggedinemail = Auth::user()->email;
 
             $loggedinrole = Auth::user()->role;
-if( $loggedinrole != 'super' ){
+            
+            if( $loggedinrole != 'super' ){
                 $builder->where('group_profiles.user_id', '=', $loggedinid);
             }
 

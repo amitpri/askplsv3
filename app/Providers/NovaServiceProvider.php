@@ -63,6 +63,8 @@ use App\Nova\Image;
 use App\Nova\MemberProfile;
 
 use App\Nova\Agent;
+use App\Nova\AgentCreate;
+use App\Nova\AgentSchool;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -119,7 +121,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     Image::class,
                     MemberProfile::class,
 
+                    AgentCreate::class,
                     Agent::class,
+                    AgentSchool::class,
 
  
                 ]);

@@ -2,7 +2,9 @@
 
 namespace App;
 
+use Auth;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Agent extends Model
 {
@@ -20,5 +22,22 @@ class Agent extends Model
 
         return $this->belongsTo('App\City', 'city_id');
 
+    } 
+
+    protected static function boot()
+    {
+        parent::boot();
+
+		static::addGlobalScope('user_id', function (Builder $builder) {
+
+            $loggedinid = Auth::user()->id;
+            $loggedinemail = Auth::user()->email;
+
+            $loggedinrole = Auth::user()->role;
+             
+            $builder->where('role', '=', 'agent');
+ 
+
+        });
     } 
 }
