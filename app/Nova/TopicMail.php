@@ -14,7 +14,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 class TopicMail extends Resource
 {
     
-    public static $group = '0.Admin - Tasks';
+    public static $group = '0.Admin';
 
     public static $displayInNavigation = false;
 

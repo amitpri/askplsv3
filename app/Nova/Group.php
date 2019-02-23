@@ -20,7 +20,7 @@ use Outhebox\NovaHiddenField\HiddenField;
 class Group extends Resource
 {
  
-    public static $group = '0.Admin - Setup';
+    public static $group = '0.Admin';
 
     public static $displayInNavigation = false;
 

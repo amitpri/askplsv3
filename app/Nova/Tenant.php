@@ -14,7 +14,7 @@ use Laravel\Nova\Fields\HasMany;
 
 class Tenant extends Resource
 {
-    public static $group = "0.Admin - Tasks";
+    public static $group = "0.Admin";
     
     public static $displayInNavigation = false;
      
