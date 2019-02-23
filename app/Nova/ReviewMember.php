@@ -25,7 +25,7 @@ class ReviewMember extends Resource
      * @var string
      */
 
-    public static $group = '3.Reviews';
+    public static $group = '2.Reviews';
     
 
     public static $model = 'App\ReviewMember';

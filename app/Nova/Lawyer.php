@@ -31,7 +31,7 @@ use Silvanite\NovaFieldCheckboxes\Checkboxes;
 
 class Lawyer extends Resource
 {
-    public static $group = '2.Categories';
+    public static $group = 'Categories';
     
     public static $model = 'App\Lawyer';
 

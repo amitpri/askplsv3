@@ -30,7 +30,7 @@ use Laravel\Nova\Fields\MorphMany;
 
 class CompanyMember extends Resource
 {
-    public static $group = '2.Categories';
+    public static $group = 'Categories';
 
     public static $model = 'App\CompanyMember';
 

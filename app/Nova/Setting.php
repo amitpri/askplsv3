@@ -23,7 +23,7 @@ use Laravel\Nova\Fields\Timezone;
 class Setting extends Resource
 {
 
-    public static $group = "4.Personal";
+    public static $group = "Personal";
 
     public static $model = 'App\\Setting';
  

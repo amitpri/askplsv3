@@ -40,7 +40,7 @@ use Laravel\Nova\Fields\MorphTo;
 
 class MemberProfile extends Resource
 {
-    public static $group = '0.Members';
+    public static $group = 'Members';
 
     public static $model = 'App\MemberProfile';
 
