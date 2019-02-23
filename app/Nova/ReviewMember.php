@@ -32,15 +32,18 @@ class ReviewMember extends Resource
 
  
     public static $title = 'id';
-
- 
-
  
     public static $search = [
 
          'topic_name' , 'review'
 
     ];
+
+    public static function label() {
+
+        return 'Review - Members';
+
+    }
 
  
     public function fields(Request $request)
