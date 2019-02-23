@@ -20,7 +20,7 @@ class Category extends Resource
      * @var string
      */
 
-    public static $group = '0.Admin - Setup';
+    public static $group = '0.Admin';
 
     public static $model = 'App\Category';
 

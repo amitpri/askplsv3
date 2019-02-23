@@ -12,7 +12,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 class City extends Resource
 {
     
-    public static $group = '0.Admin - Setup';
+    public static $group = '0.Admin';
 
     public static $model = 'App\City';
 

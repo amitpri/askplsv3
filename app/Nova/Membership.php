@@ -18,7 +18,7 @@ class Membership extends Resource
 {
      
 
-    public static $group = "0.Admin - Tasks";
+    public static $group = "0.Admin";
 
     public static $model = 'App\\Membership';  
 

@@ -16,7 +16,7 @@ class ContactForm extends Resource
      * @var string
      */
 
-    public static $group = '0.Admin - Tasks';
+    public static $group = '0.Admin';
     
     public static $model = 'App\ContactForm';
 
