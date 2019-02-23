@@ -34,9 +34,9 @@ class AgentRestaurant extends Resource
     {
         return [
 
-            HasMany::make('Agent'),
-
             BelongsTo::make('Agent'),
+
+            HasMany::make('Agent'),
  
             Text::make('Id')->withMeta(['extraAttributes' => [
                               'readonly' => true

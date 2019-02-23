@@ -29,14 +29,15 @@ class AgentSchool extends Resource
 
     }
 
- 
+
     public function fields(Request $request)
     {
         return [
 
-            HasMany::make('Agent'),
-
+            
             BelongsTo::make('Agent'),
+
+            HasMany::make('Agent'),
  
             Text::make('Id')->withMeta(['extraAttributes' => [
                               'readonly' => true

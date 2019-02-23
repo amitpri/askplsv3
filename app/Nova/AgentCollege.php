@@ -33,10 +33,10 @@ class AgentCollege extends Resource
     public function fields(Request $request)
     {
         return [
+            
+            BelongsTo::make('Agent'),
 
             HasMany::make('Agent'),
-
-            BelongsTo::make('Agent'),
  
             Text::make('Id')->withMeta(['extraAttributes' => [
                               'readonly' => true

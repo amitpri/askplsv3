@@ -34,10 +34,10 @@ class AgentFitnessCenter extends Resource
     {
         return [
 
+            BelongsTo::make('Agent'),
+
             HasMany::make('Agent'),
 
-            BelongsTo::make('Agent'),
- 
             Text::make('Id')->withMeta(['extraAttributes' => [
                               'readonly' => true
                         ]])->sortable(), 
