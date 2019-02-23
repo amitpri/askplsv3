@@ -40,7 +40,7 @@ use Laravel\Nova\Fields\MorphTo;
 
 class MemberProfile extends Resource
 {
-    public static $group = '1.Topics';
+    public static $group = 'Members';
 
     public static $model = 'App\MemberProfile';
 
@@ -106,7 +106,22 @@ class MemberProfile extends Resource
              
                 return [
                     ID::make()->sortable(), 
- 
+
+                    Text::make('Id')->withMeta(['extraAttributes' => [
+                              'readonly' => true
+                        ]]),
+
+                    Text::make('User Code')->withMeta(['extraAttributes' => [
+                              'readonly' => true
+                        ]]),
+
+                    Text::make('Name')->withMeta(['extraAttributes' => [
+                              'readonly' => true
+                        ]]),
+
+                    Text::make('Topic Name')->withMeta(['extraAttributes' => [
+                              'readonly' => true
+                        ]]),
 
                     MorphTo::make('Topicable')->types([
                         Doctor::class,
