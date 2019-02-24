@@ -22,18 +22,23 @@ class Company extends Model
 
         static::addGlobalScope('user_id', function (Builder $builder) {
 
-
-            $loggedinrole = Auth::user()->role;
-            
-            if( $loggedinrole == 'agent' ){
-
-            	$loggedincityid = Auth::user()->city_id;
-
-            	$loggedincityname =  City::find($loggedincityid)->name;
+            $guard = null;
+           if (Auth::guard($guard)->check()) {
                 
-                $builder->where('city', '=', $loggedincityname);
+                $loggedinrole = Auth::user()->role;
+            
+                if( $loggedinrole == 'agent' ){
 
+                    $loggedincityid = Auth::user()->city_id;
+
+                    $loggedincityname =  City::find($loggedincityid)->name;
+                    
+                    $builder->where('city', '=', $loggedincityname);
+
+                }
+                
             }
+            
             
 
         });
