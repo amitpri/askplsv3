@@ -36,7 +36,7 @@ class Company extends Model
                     $builder->where('city', '=', $loggedincityname);
 
                 }
-                
+
             }
             
             

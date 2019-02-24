@@ -23,18 +23,20 @@ class College extends Model
 
         static::addGlobalScope('user_id', function (Builder $builder) {
 
-            $loggedinid = Auth::user()->id;
-            $loggedinemail = Auth::user()->email;
-
-            $loggedinrole = Auth::user()->role;
-            
-            if( $loggedinrole == 'agent' ){
-
-            	$loggedincityid = Auth::user()->city_id;
-
-            	$loggedincityname =  City::find($loggedincityid)->name;
+            $guard = null;
+           if (Auth::guard($guard)->check()) {
                 
-                $builder->where('city', '=', $loggedincityname);
+                $loggedinrole = Auth::user()->role;
+            
+                if( $loggedinrole == 'agent' ){
+
+                    $loggedincityid = Auth::user()->city_id;
+
+                    $loggedincityname =  City::find($loggedincityid)->name;
+                    
+                    $builder->where('city', '=', $loggedincityname);
+
+                }
 
             }
             
