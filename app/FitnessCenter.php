@@ -2,7 +2,10 @@
 
 namespace App;
 
+use Auth;
+use App\City;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class FitnessCenter extends Model
 {
