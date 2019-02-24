@@ -207,7 +207,7 @@
                                 </ul>
                                 <br>
 
-                                <h4><a href="/support" style="color:black;">Contact</a></h4>
+                                <h4><a href="support?category=Contact" style="color:black;">Contact</a></h4>
 
 
                             </div>  

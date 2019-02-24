@@ -4,6 +4,8 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use OwenMelbz\RadioField\RadioButton;
+
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -45,6 +47,11 @@ class FaqCategory extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Category')->sortable()->rules('required', 'max:100'), 
+            RadioButton::make('Active', 'status')
+                    ->options([ 
+                        '0' => 'No',
+                        '1' => 'Yes',
+                    ])->sortable()->default('1'),
         ];
     }
 

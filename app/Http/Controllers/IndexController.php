@@ -63,7 +63,7 @@ class IndexController extends Controller
     public function support(Request $request)
     {
 
-        $faqcategories = FaqCategory::get(['id','category']);
+        $faqcategories = FaqCategory::where('status','=',1)->get(['id','category']);
 
         $category = $request->category ? $request->category : "";
 
