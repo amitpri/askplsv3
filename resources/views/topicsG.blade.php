@@ -84,7 +84,7 @@
 
     @include('analytics')
  
-    <title>AskPls | Anonymous Review Platform</title>
+    <title>{{ $categoryname }} - Anonymous Review </title>
 
 </head>
 

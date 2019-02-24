@@ -27,7 +27,7 @@
         <script src="/axios/axios.min.js"></script>
         @include('analytics') 
 
-    <title>{{ $user_code}}-{{ $name }} anonymous Reviews</title>
+    <title>{{ $user_code}}-{{ $name }} Reviews</title>
 
 </head>
 
