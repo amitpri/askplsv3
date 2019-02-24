@@ -12,8 +12,7 @@ class Company extends Model
 
     public function topiccategories()
     {
-  
-
+   
         return $this->morphMany('App\TopicCategory', 'topicable');
 
     }
@@ -23,8 +22,6 @@ class Company extends Model
 
         static::addGlobalScope('user_id', function (Builder $builder) {
 
-            $loggedinid = Auth::user()->id;
-            $loggedinemail = Auth::user()->email;
 
             $loggedinrole = Auth::user()->role;
             
