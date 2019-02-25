@@ -204,20 +204,18 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 
         }else{
 
-            if( $loggedintenant == 0 ){
+            if( $loggedinrole == 'agent' ){
 
-                return [  
-              //     new \Askpls\Workspacesummary\Workspacesummary(),
-                    new TopicCount,
-                    new ReviewCount,  
+                return [   
+             //       new TopicCount,
+             //       new ReviewCount,  
                     
                     
                     ];
             }else{
 
 
-                return [
-              //      new \Askpls\Workspacesummary\Workspacesummary(),
+                return [ 
                     new GroupCount,
                     new ProfileCount,
                     new ReviewCount,
