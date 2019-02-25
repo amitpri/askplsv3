@@ -27,9 +27,6 @@ class MemberProfilePolicy
         if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
-        }elseif ( $loggedinrole == 'agent' ) {
-
-            return 1 === 1;
         }else
         { 
 
@@ -39,26 +36,11 @@ class MemberProfilePolicy
     }
  
     public function create(User $user)
-    {
-        $loggedinid = Auth::user()->id;
-        $paid = Auth::user()->paid;
-        $topicable_id = Auth::user()->topicable_id;
-        $topicable_type = Auth::user()->topicable_type;
+    { 
 
-        $loggedinrole = Auth::user()->role;
-        
-        if ( $loggedinrole == 'super' ) {
-
-            return 1 === 1;
-        }elseif ( $loggedinrole == 'agent' ) {
-
-            return 1 === 1;
-        }else
-        { 
-
-            return 1 === 2;
+        return 1 === 2;
             
-        }
+       
     }
  
     public function update(User $user, MemberProfile $memberprofile)
@@ -71,9 +53,6 @@ class MemberProfilePolicy
         $loggedinrole = Auth::user()->role;
         
         if ( $loggedinrole == 'super' ) {
-
-            return 1 === 1;
-        }elseif ( $loggedinrole == 'agent' ) {
 
             return 1 === 1;
         }else
@@ -113,9 +92,6 @@ class MemberProfilePolicy
         $loggedinrole = Auth::user()->role;
         
         if ( $loggedinrole == 'super' ) {
-
-            return 1 === 1;
-        }elseif ( $loggedinrole == 'agent' ) {
 
             return 1 === 1;
         }else

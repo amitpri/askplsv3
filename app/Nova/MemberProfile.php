@@ -40,7 +40,7 @@ use Laravel\Nova\Fields\MorphTo;
 
 class MemberProfile extends Resource
 {
-    public static $group = 'Members';
+    public static $group = '0.Admin';
 
     public static $model = 'App\MemberProfile';
 
@@ -68,8 +68,7 @@ class MemberProfile extends Resource
 
         if( $loggedinrole == "super"){
 
-            return [
-                    ID::make()->sortable(), 
+            return [ 
 
                     Text::make('Id')->withMeta(['extraAttributes' => [
                               'readonly' => true
@@ -81,11 +80,7 @@ class MemberProfile extends Resource
 
                     Text::make('Name')->withMeta(['extraAttributes' => [
                               'readonly' => true
-                        ]]),
-
-                    Text::make('Topic Name')->withMeta(['extraAttributes' => [
-                              'readonly' => true
-                        ]]),
+                        ]]), 
 
                     MorphTo::make('Topicable')->types([
                         Doctor::class,
@@ -102,41 +97,7 @@ class MemberProfile extends Resource
  
                 ];
 
-        }else{
-             
-                return [
-                    ID::make()->sortable(), 
-
-                    Text::make('Id')->withMeta(['extraAttributes' => [
-                              'readonly' => true
-                        ]]),
-
-                    Text::make('User Code')->withMeta(['extraAttributes' => [
-                              'readonly' => true
-                        ]]),
-
-                    Text::make('Name')->withMeta(['extraAttributes' => [
-                              'readonly' => true
-                        ]]),
-
-                    Text::make('Topic Name')->withMeta(['extraAttributes' => [
-                              'readonly' => true
-                        ]]),
-
-                    MorphTo::make('Topicable')->types([
-                        Doctor::class,
-                        Hotel::class,
-                        Company::class,
-                        Lawyer::class,
-                        School::class,
-                        College::class,
-                        Restaurant::class,
-                        FitnessCenter::class,
-                    ])->searchable(), 
-          
-   
-                ];
-            }
+        } 
         
     }
  

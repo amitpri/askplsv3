@@ -28,11 +28,8 @@ class MemberProfile extends Model
             $loggedinemail = Auth::user()->email;
 
             $loggedinrole = Auth::user()->role;
-            
-            if( $loggedinrole != 'super' ){
 
-                $builder->where('users.id', '=', $loggedinid);
-            }
+            $builder->where('users.role', '=', 'user'); 
 
         });
     }
