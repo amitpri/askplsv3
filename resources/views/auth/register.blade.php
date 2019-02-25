@@ -60,9 +60,19 @@
                                 @endif
  
                         </div>
+
+                        <div class="mb-6 {{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label class="block font-bold mb-2" for="name">Phone</label>
+                            <input class="form-control form-input form-input-bordered w-full rounded-none {{ $errors->has('phone') ? ' is-invalid' : '' }}" id="phone" type="text" name="phone" value="{{ old('phone') }}" required autofocus>
+
+                            @if ($errors->has('phone'))
+                                <span class="text-center font-semibold text-danger my-3" role="alert">
+                                    <strong>{{ $errors->first('phone') }}</strong>
+                                </span>
+                            @endif
+                        </div>
  
                        
-
                         <div class="mb-6 {{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="password" class="mb-6 {{ $errors->has('email') ? ' has-error' : '' }}"><b>{{ __('Password') }}</b></label>
 
