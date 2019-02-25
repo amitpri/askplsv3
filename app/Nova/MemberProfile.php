@@ -82,6 +82,10 @@ class MemberProfile extends Resource
                               'readonly' => true
                         ]]), 
 
+                    Text::make('Email')->withMeta(['extraAttributes' => [
+                              'readonly' => true
+                        ]]), 
+
                     MorphTo::make('Topicable')->types([
                         Doctor::class,
                         Hotel::class,

@@ -20,9 +20,9 @@ use Outhebox\NovaHiddenField\HiddenField;
 class Group extends Resource
 {
  
-    public static $group = '0.Admin';
+    public static $group = '0.Company';
 
-    public static $displayInNavigation = false;
+    public static $displayInNavigation = true;
 
     public static $model = 'App\Group';
  

@@ -146,6 +146,8 @@ class Topic extends Resource
 
                     })->hideWhenUpdating(),
 
+                    BelongsToMany::make('Group'),
+
                     HasMany::make('Review'),
 
                      
@@ -223,6 +225,8 @@ class Topic extends Resource
                         }
 
                     })->hideWhenUpdating(), 
+
+                    BelongsToMany::make('Group'),
 
                     HasMany::make('Review'),
                 ];
@@ -330,9 +334,34 @@ class Topic extends Resource
  
     public function actions(Request $request)
     {
-        return [
+          
+        $loggedinpaid = Auth::user()->paid;
+        $loggedinrole = Auth::user()->role;
+        $loggedintopicable_type = Auth::user()->topicable_type;
 
-        //    new EmailTopicGroup, 
-        ];
+        if( $loggedinrole == 'super'){
+
+            return [
+
+                new EmailTopicGroup, 
+            ];
+
+        }elseif( $loggedinpaid == 1 && $loggedintopicable_type == 'App\Company'){
+
+            return [
+
+                new EmailTopicGroup, 
+            ];
+
+        }else{
+
+            return [
+ 
+            ];
+
+        } 
+
+
+        
     }
 }

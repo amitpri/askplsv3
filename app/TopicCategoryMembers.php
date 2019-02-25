@@ -18,6 +18,13 @@ class TopicCategoryMembers extends Model
 
     }
 
+    public function group()
+    {
+
+        return $this->belongsToMany('App\Group','topic_groups', 'topic_id'  );
+
+    }
+
 
     public function topicable(){
 
@@ -36,7 +43,8 @@ class TopicCategoryMembers extends Model
             $loggedinemail = Auth::user()->email;
 
             $loggedinrole = Auth::user()->role;
-if( $loggedinrole != 'super' ){
+            
+            if( $loggedinrole != 'super' ){
 
                 $builder->where('topic_category_members.user_id', '=', $loggedinid);
             }

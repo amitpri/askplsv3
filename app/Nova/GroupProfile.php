@@ -17,9 +17,9 @@ class GroupProfile extends Resource
      *
      * @var string
      */
-    public static $group = '0.Admin';
+    public static $group = '0.Company';
 
-    public static $displayInNavigation = false;
+    public static $displayInNavigation = true;
 
     public static $model = 'App\GroupProfile';
 

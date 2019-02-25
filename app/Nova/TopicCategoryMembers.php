@@ -19,6 +19,8 @@ use Laravel\Nova\Fields\BelongsTo;
 
 use Laravel\Nova\Fields\HasMany; 
 
+use App\Nova\Actions\EmailTopicCategoryGroup;
+
 use Outhebox\NovaHiddenField\HiddenField;
 
 use OwenMelbz\RadioField\RadioButton;
@@ -65,6 +67,8 @@ class TopicCategoryMembers extends Resource
         $loggedintenant = Auth::user()->tenant; 
         $loggedinemail= Auth::user()->email;
         $loggedinrole = Auth::user()->role;
+        $loggedinpaid = Auth::user()->paid; 
+        $loggedintopicable_type = Auth::user()->topicable_type;
 
         if( $loggedinrole == "super"){
 
@@ -152,6 +156,94 @@ class TopicCategoryMembers extends Resource
  
                 ];
 
+        }elseif( $loggedinpaid == 1 && $loggedintopicable_type == 'App\Company'){
+
+                return [
+                    ID::make()->sortable()->hideFromIndex(), 
+
+                    RadioButton::make('Anonymous', 'anonymous')
+                    ->options([ 
+                        '0' => 'No',
+                        '1' => 'Yes',                    
+                    ])->default('0')->hideFromIndex(),  
+
+                    MorphTo::make('Category', 'topicable')->types([
+                        DoctorMember::class,
+                        HotelMember::class,
+                        CompanyMember::class,
+                        LawyerMember::class,
+                        SchoolMember::class,
+                        CollegeMember::class,
+                        RestaurantMember::class,
+                        FitnessCenterMember::class,
+                    ]),
+
+                    HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
+
+                    Text::make('Topic Name')->sortable()->rules('required', 'max:100')
+                            ->help(
+                                'The heading of the review being asked for. Max length 100'
+                            )->hideWhenUpdating(), 
+
+                    Text::make('Topic Name')->hideFromIndex()->onlyOnForms()->hideWhenCreating()->withMeta(['extraAttributes' => [
+                              'readonly' => true
+                        ]]),  
+
+                    Trix::make('Details'), 
+
+                     
+
+                    RadioButton::make('Active', 'status')
+                    ->options([ 
+                        '0' => 'No',
+                        '1' => 'Yes',
+                    ])->sortable()->default('1')->hideFromIndex(), 
+
+                    HiddenField::make( 'url')->default(mt_rand(100000000, 999999999))->hideFromIndex()->hideFromDetail()->hideWhenUpdating(),
+
+                    TextCopy::make('Public URL' ,function(){
+ 
+                        if($this->topicable_type == 'App\CompanyMember'){
+
+                                return 'https://askpls.com/t/p?type=companies&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\DoctorMember'){
+
+                                return 'https://askpls.com/t/p?type=doctors&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\SchoolMember'){
+
+                                return 'https://askpls.com/t/p?type=schools&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\CollegeMember'){
+
+                                return 'https://askpls.com/t/p?type=colleges&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\RestaurantMember'){
+
+                                return 'https://askpls.com/t/p?type=restaurants&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\HotelMember'){
+
+                                return 'https://askpls.com/t/p?type=hotels&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\LawyerMember'){
+
+                                return 'https://askpls.com/t/p?type=lawyers&url=' . $this->url;
+                        } 
+                        if($this->topicable_type == 'App\FitnessCenterMember'){
+
+                                return 'https://askpls.com/t/p?type=fitnesscenters&url=' . $this->url;
+                        } 
+
+                    })->hideWhenUpdating(),
+
+                    BelongsToMany::make('Group'),
+                    
+                    HasMany::make('ReviewMember'),
+          
+   
+                ];
         }else{
              
                 return [
@@ -238,10 +330,8 @@ class TopicCategoryMembers extends Resource
           
    
                 ];
-            }
-
-        
-
+            } 
+ 
        
     }
  
@@ -265,6 +355,30 @@ class TopicCategoryMembers extends Resource
  
     public function actions(Request $request)
     {
-        return [];
+        $loggedinpaid = Auth::user()->paid;
+        $loggedinrole = Auth::user()->role;
+        $loggedintopicable_type = Auth::user()->topicable_type;
+
+        if( $loggedinrole == 'super'){
+
+            return [
+
+                new EmailTopicCategoryGroup, 
+            ];
+
+        }elseif( $loggedinpaid == 1 && $loggedintopicable_type == 'App\Company'){
+
+            return [
+
+                new EmailTopicCategoryGroup, 
+            ];
+
+        }else{
+
+            return [
+ 
+            ];
+
+        } 
     }
 }
