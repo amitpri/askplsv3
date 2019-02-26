@@ -55,7 +55,7 @@ class MemberProfile extends Resource
 
     public static $search = [
         
-        'user_id' ,'topic_name' , 'url' ,'topicable_type'
+        'id' ,'user_code' , 'name' ,'email' ,'topicable_type'
     ];
 
  
