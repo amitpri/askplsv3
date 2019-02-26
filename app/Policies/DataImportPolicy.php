@@ -79,13 +79,14 @@ class DataImportPolicy
     {
 
         $loggedinrole = Auth::user()->role;
+        $loggedinpaid = Auth::user()->paid;
         $loggedintopicable_type = Auth::user()->topicable_type;
         
         if ( $loggedinrole == 'super' ) {
 
             return 1 == 1;
 
-        }elseif( $loggedintopicable_type == 'App\Company'){
+        }elseif( $loggedintopicable_type == 'App\Company' && $loggedinpaid == 1 ){
 
             return 1 == 1;
 
