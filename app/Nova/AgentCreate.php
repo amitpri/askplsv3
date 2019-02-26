@@ -58,9 +58,9 @@ class AgentCreate extends Resource
 
                     Text::make('Role')->sortable(), 
 
-                    BelongsTo::make('Category')->rules('required', 'max:100'),
+                    BelongsTo::make('Category')->rules('required', 'max:100')->sortable(), 
 
-                    BelongsTo::make('City')->rules('required', 'max:100'),
+                    BelongsTo::make('City')->rules('required', 'max:100')->sortable(), 
                         
  
                 ];
