@@ -26,7 +26,7 @@ class Membership extends Resource
  
     public static $search = [
 
-        'id', 'name', 'email', 
+        'id', 'name', 'email', 'user_code' ,'phone' ,'paid','topicable_type'
     ];
   
 
