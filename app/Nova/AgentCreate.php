@@ -42,7 +42,7 @@ class AgentCreate extends Resource
 
                     Text::make('Id')->withMeta(['extraAttributes' => [
                               'readonly' => true
-                        ]]),
+                        ]])->sortable(), 
 
                     Text::make('User Code')->withMeta(['extraAttributes' => [
                               'readonly' => true
@@ -50,13 +50,13 @@ class AgentCreate extends Resource
 
                     Text::make('Name')->withMeta(['extraAttributes' => [
                               'readonly' => true
-                        ]]),
+                        ]])->sortable(), 
 
                     Text::make('Email')->withMeta(['extraAttributes' => [
                               'readonly' => true
-                        ]]),
+                        ]])->sortable(), 
 
-                    Text::make('Role'), 
+                    Text::make('Role')->sortable(), 
 
                     BelongsTo::make('Category')->rules('required', 'max:100'),
 
