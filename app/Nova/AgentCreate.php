@@ -19,7 +19,7 @@ class AgentCreate extends Resource
     public static $title = 'name';
  
     public static $search = [
-        'id',
+        'id', 'email', 'name' ,'role', 'user_code'
     ];
 
     public static function label() {
