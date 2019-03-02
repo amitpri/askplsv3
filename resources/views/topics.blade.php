@@ -240,7 +240,7 @@
 
                                 <div class="col_two_third nobottommargin">
 
-                                    <h4>Instagram Pictures Reviews - <a href="">All</a></h4> 
+                                    <h4>Instagram Pictures Reviews - <a href="/instagram">All</a></h4> 
 
                                     <ul class="clients-grid grid-5 nobottommargin clearfix">
                                         <li><a href="http://logofury.com/logo/enzo.html" data-animate="fadeIn"><img src="images/clients/1.png" alt="Clients"></a></li>
@@ -300,7 +300,7 @@
 
                                 <div class="colnobottommargin">
 
-                                    <h4>Youtube Videos Reviews - <a href="">All</a></h4> 
+                                    <h4>Youtube Videos Reviews - <a href="/youtube">All</a></h4> 
 
                                     <ul class="clients-grid grid-5 nobottommargin clearfix">
                                         <li><a href="http://logofury.com/logo/enzo.html" data-animate="fadeIn"><img src="images/clients/1.png" alt="Clients"></a></li>

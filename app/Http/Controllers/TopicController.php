@@ -1620,4 +1620,22 @@ class TopicController extends Controller
        
         return view('showtopicmember',compact('url','id' ,'topic_name', 'categorytype'));
     }
+
+    public function instagram(Request $request)
+    { 
+
+        $topicsinput = $request->topics;
+        
+        $topics = ShowTopic::where('status', '=' , 1)->where('type', '=' , 'public')
+                ->where('instagram', '<>' , "NULL")
+                ->take(100)
+                ->get(['id','url','instagram']);
+
+        return view('instagram',compact('topics')); 
+    }
+
+    public function youtube(Request $request)
+    { 
+
+    }
 }

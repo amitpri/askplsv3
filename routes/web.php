@@ -94,3 +94,6 @@ Route::get('/h/{id}', 'CategoryController@hotels');
 Route::get('/l/{id}', 'CategoryController@lawyers'); 
 Route::get('/r/{id}', 'CategoryController@restaurants'); 
 Route::get('/s/{id}', 'CategoryController@schools'); 
+
+Route::get('/instagram', 'TopicController@instagram'); 
+Route::get('/youtube', 'TopicController@youtube'); 
