@@ -236,6 +236,90 @@
                             <br>
                             <div v-show="showspinner" class="text-center"><img src="/ajax_loader.gif"></div>
 
+                            <div class="container clearfix">
+
+                                <div class="col_two_third nobottommargin">
+
+                                    <h4>Instagram Pictures Reviews - <a href="">All</a></h4> 
+
+                                    <ul class="clients-grid grid-5 nobottommargin clearfix">
+                                        <li><a href="http://logofury.com/logo/enzo.html" data-animate="fadeIn"><img src="images/clients/1.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com" data-animate="fadeIn" data-delay="100"><img src="images/clients/2.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofaves.com/2014/03/grabbt/" data-animate="fadeIn" data-delay="200"><img src="images/clients/3.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofaves.com/2014/01/ladera-granola/" data-animate="fadeIn" data-delay="300"><img src="images/clients/4.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofaves.com/2014/02/hershel-farms/" data-animate="fadeIn" data-delay="400"><img src="images/clients/5.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/food-fight-radio.html" data-animate="fadeIn" data-delay="500"><img src="images/clients/6.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com" data-animate="fadeIn" data-delay="600"><img src="images/clients/7.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/up-travel.html" data-animate="fadeIn" data-delay="700"><img src="images/clients/8.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/caffi-bardi.html" data-animate="fadeIn" data-delay="800"><img src="images/clients/9.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/bignix-design.html" data-animate="fadeIn" data-delay="900"><img src="images/clients/10.png" alt="Clients"></a></li>
+                                    </ul>
+
+                                </div>
+
+                                <div class="col_one_third nobottommargin col_last">
+
+                                    <h4>Recent Reviews?</h4>
+
+                                    <div class="fslider testimonial" data-animation="slide" data-arrows="false">
+                                        <div class="flexslider">
+                                            <div class="slider-wrap">
+                                                <div class="slide">
+                                                    <div class="testi-image">
+                                                        <a href="#"><img src="images/testimonials/3.jpg" alt="Customer Testimonails"></a>
+                                                    </div>
+                                                    <div class="testi-content">
+                                                        <p>Similique fugit repellendus expedita excepturi iure perferendis provident quia eaque. Repellendus, vero numquam?</p> 
+                                                    </div>
+                                                </div>
+                                                <div class="slide">
+                                                    <div class="testi-image">
+                                                        <a href="#"><img src="images/testimonials/2.jpg" alt="Customer Testimonails"></a>
+                                                    </div>
+                                                    <div class="testi-content">
+                                                        <p>Natus voluptatum enim quod necessitatibus quis expedita harum provident eos obcaecati id culpa corporis molestias.</p> 
+                                                    </div>
+                                                </div>
+                                                <div class="slide">
+                                                    <div class="testi-image">
+                                                        <a href="#"><img src="images/testimonials/1.jpg" alt="Customer Testimonails"></a>
+                                                    </div>
+                                                    <div class="testi-content">
+                                                        <p>Incidunt deleniti blanditiis quas aperiam recusandae consequatur ullam quibusdam cum libero illo rerum!</p> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="container clearfix">
+
+                                <div class="colnobottommargin">
+
+                                    <h4>Youtube Videos Reviews - <a href="">All</a></h4> 
+
+                                    <ul class="clients-grid grid-5 nobottommargin clearfix">
+                                        <li><a href="http://logofury.com/logo/enzo.html" data-animate="fadeIn"><img src="images/clients/1.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com" data-animate="fadeIn" data-delay="100"><img src="images/clients/2.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofaves.com/2014/03/grabbt/" data-animate="fadeIn" data-delay="200"><img src="images/clients/3.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofaves.com/2014/01/ladera-granola/" data-animate="fadeIn" data-delay="300"><img src="images/clients/4.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofaves.com/2014/02/hershel-farms/" data-animate="fadeIn" data-delay="400"><img src="images/clients/5.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/food-fight-radio.html" data-animate="fadeIn" data-delay="500"><img src="images/clients/6.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com" data-animate="fadeIn" data-delay="600"><img src="images/clients/7.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/up-travel.html" data-animate="fadeIn" data-delay="700"><img src="images/clients/8.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/caffi-bardi.html" data-animate="fadeIn" data-delay="800"><img src="images/clients/9.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/bignix-design.html" data-animate="fadeIn" data-delay="900"><img src="images/clients/10.png" alt="Clients"></a></li>
+                                        
+                                    </ul>
+
+                                </div> 
+
+                            </div>
+
                             <div  class="row" v-for="topic in topics" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
                                  
                                 <div class="col-12 col-md-12"  >
