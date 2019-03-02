@@ -246,7 +246,7 @@
 
                             @foreach ($topics as $topic)  
 
-                                <a href="/"  ><img class="image_fade" src="/storage/{{ $topic->instagram }}" alt="Gallery Thumb 1"></a> 
+                                <a href="/"  ><img class="image_fade" src="{{ $topic->instagram }}" alt="Gallery Thumb 1"></a> 
 
                             @endforeach
                                 
