@@ -177,9 +177,9 @@
                         </div>
                         <br>
                         <h1 v-cloak>@{{ inpName }} </h1>
-                        <span v-cloak>@{{inpAddress}}</span>
-                        <span v-cloak>@{{inpLocality}} &nbsp; @{{inpCity}} &nbsp; @{{inpCountry}}</span>
-                        <span><p v-if="inpWebsite" style="font-weight: 600;   color: black;  "><a target="_blank" :href="inpWebsite"> Website Link</a></p></span> 
+                        <h5 v-cloak>@{{inpAddress}}</h5>
+                        <h5 v-cloak>@{{inpLocality}} &nbsp; @{{inpCity}} &nbsp; @{{inpCountry}}</h5>
+                        <h5><p v-if="inpWebsite" style="font-weight: 600;   color: black;  "><a target="_blank" :href="inpWebsite"> Website Link</a></p></h5> 
                         
                         <iframe v-if="video" width="640" height="360" class="embed-responsive-item" 
                             :src="'https://www.youtube.com/embed/' + video" ></iframe>  
