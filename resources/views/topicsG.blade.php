@@ -441,7 +441,7 @@
                                                 @endisset   
 
                                               <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
+                                                <h4 class="mt-0"><a target="_blank" href="/c/fitnesscenters/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
                                                 <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
                                                 
                                                 <ul class="entry-meta clearfix">
