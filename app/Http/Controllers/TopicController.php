@@ -707,61 +707,77 @@ class TopicController extends Controller
 
         if( $categorytype == 'Colleges' || $categorytype == 'colleges'){
             
-            $user = College::where('collegekey','=',$url)->first(['id','collegekey AS user_code', 'name']);
+            $user = College::where('collegekey','=',$url)->first(['id','collegekey AS user_code', 'name' ,'type'  ,'address','locality' , 'city' , 'country'  , 'video' , 'website','links','details'  , 'profilepic' ]);
 
             $topicable = "App\College";
 
         }
         if( $categorytype == 'Companies' || $categorytype == 'companies'){
 
-            $user = Company::where('companykey','=',$url)->first(['id','companykey AS user_code', 'name']);
+            $user = Company::where('companykey','=',$url)->first(['id','companykey AS user_code', 'name' ,'type'  ,'address','locality' , 'city' , 'country'  ,'video' ,'website','links','details'  , 'profilepic' ]);
 
             $topicable = "App\Company";
 
         }
         if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
 
-            $user = Doctor::where('doctorkey','=',$url)->first(['id','doctorkey AS user_code', 'name']);
+            $user = Doctor::where('doctorkey','=',$url)->first(['id','doctorkey AS user_code', 'name' , 'speciality','gender','address','locality',  'city' , 'country' ,'video' ,'website','links','details','qualification', 'exp' , 'profilepic' ]);
 
             $topicable = "App\Doctor";
         }
         if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters' || $categorytype == 'fitness_centers'){
 
-            $user = FitnessCenter::where('fitnesscenterkey','=',$url)->first(['id','fitnesscenterkey AS user_code', 'name']);
+            $user = FitnessCenter::where('fitnesscenterkey','=',$url)->first(['id','fitnesscenterkey AS user_code', 'name','type'  ,'address','locality' , 'city' , 'country'  ,'video' ,'website','links','details'  , 'profilepic' ]);
 
             $topicable = "App\FitnessCenter";
 
         }
         if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
 
-            $user = Hotel::where('hotelkey','=',$url)->first(['id','hotelkey AS user_code', 'name']);
+            $user = Hotel::where('hotelkey','=',$url)->first(['id','hotelkey AS user_code', 'name','type' ,'address','locality',  'city' , 'country' ,'video' ,'website','links','details'   , 'profilepic' , 'video']);
 
             $topicable = "App\Hotel";
         }
         if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
 
-            $user = Lawyer::where('lawyerkey','=',$url)->first(['id','lawyerkey AS user_code', 'name']);
+            $user = Lawyer::where('lawyerkey','=',$url)->first(['id','lawyerkey AS user_code', 'name','speciality', 'gender' ,'address','locality' , 'city' , 'country'  ,'video' ,'website','links','details'  , 'profilepic' ]);
 
             $topicable = "App\Lawyer";
         }
         if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
 
-            $user = Restaurant::where('restaurantkey','=',$url)->first(['id','restaurantkey AS user_code', 'name']);
+            $user = Restaurant::where('restaurantkey','=',$url)->first(['id','restaurantkey AS user_code', 'name','type','address','locality' , 'city' , 'country'  ,'video' ,'website','links','details'  , 'profilepic']);
 
             $topicable = "App\Restaurant";
         }
 
         if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
 
-            $user = School::where('schoolkey','=',$url)->first(['id','schoolkey AS user_code' , 'name']);
+            $user = School::where('schoolkey','=',$url)->first(['id','schoolkey AS user_code' , 'name','type','address','locality' , 'city' , 'country'  ,'video' ,'website','links','details'  , 'profilepic' ]);
 
             $topicable = "App\School"; 
 
          }  
 
          $id = $user->id;
+         $user_code = $user->user_code;
          $name = $user->name;
+         $type = $user->type;
+         $address = $user->address;
+         $locality = $user->locality;
+         $city = $user->city;
+         $country = $user->country;
+         $video = $user->video;
+         $website = $user->website;
+         $links = $user->links;
+         $details = $user->details;
+         $profilepic = $user->profilepic;
+         $speciality = $user->speciality;
+         $gender = $user->gender;
+         $qualification = $user->qualification;
+         $exp = $user->exp; 
          
+
         $topic = ShowTopicCategory::where('topicable_type', '=', $topicable)->where('topicable_id', '=', $id)->first(['id']);
 
         if(!isset($topic)){
@@ -781,7 +797,7 @@ class TopicController extends Controller
 
         }
  
-        return view('viewprofiledoctor', compact('id', 'user_code', 'categorytype', 'name'));
+        return view('viewprofiledoctor', compact('id', 'user_code', 'categorytype', 'name' ,'type',  'address' ,  'locality' ,'city' ,'country' ,'video' ,'website' ,'links' ,'details' ,'profilepic' ,'speciality' ,'gender' ,'qualification' ,'exp' ));
     }
 
     public function viewprofiledoctordetails(Request $request){

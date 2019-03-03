@@ -170,9 +170,9 @@
                             <!--         <img src="https://askpls.com/storage/c62iwRejgSDKXde0NnGuOCcFDXiT3ftvEgbjxAGq.png" width="200"> -->
                         </div>
                         <br>
-                        <h1>@{{ inpName }} </h1>
-                        <span>@{{inpAddress}}</span>
-                        <span>@{{inpLocality}} &nbsp; @{{inpCity}} &nbsp; @{{inpCountry}}</span>
+                        <h1>{{ $name }} </h1>
+                        <span> {{ $address}}</span>
+                        <span> {{ $type }} &nbsp;  {{ $city}} &nbsp;  {{ $country}}</span>
                         <span><p v-if="inpWebsite" style="font-weight: 600;   color: black;  "><a target="_blank" :href="inpWebsite"> Website Link</a></p></span> 
                         
                         <iframe v-if="video" width="640" height="360" class="embed-responsive-item" 
@@ -180,10 +180,10 @@
 
                         <span><p  v-html="inpDetails"></p></span>
 
-                        <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpSpeciality}} </p>
-                        <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpQualification}}, &nbsp;  @{{inpExp}} yrs experience </p>
-                        <p v-if="categorytype == 'Hotels'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpType}} </p>
-                        <p v-if="categorytype == 'Restaurants'" style="font-weight: 600; opacity: 1; color: black;  ">@{{inpType}} </p>
+                        <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  "> {{ $speciality}} </p>
+                        <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  "> {{ $qualification}}, &nbsp;  @{{inpExp}} yrs experience </p>
+                        <p v-if="categorytype == 'Hotels'" style="font-weight: 600; opacity: 1; color: black;  "> {{ $type}} </p>
+                        <p v-if="categorytype == 'Restaurants'" style="font-weight: 600; opacity: 1; color: black;  "> {{ $type}} </p>
 
                     </div> 
 
