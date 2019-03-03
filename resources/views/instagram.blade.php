@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/colors.php?color=1c85e8" type="text/css" /> 
 
-    <meta name="google-site-verification" content="Egyom1onwFofLzu_ksa-hQECAvqCv86w4hIDLB7t-6Y" />
+    <script async src="https://www.instagram.com/embed.js"></script> 
  
     <style>
      span.twitter-typeahead .tt-menu {
@@ -234,19 +234,17 @@
 
                         <div class="col-lg-10 " > 
 
-                            <div class="divider"><i class="icon-circle"></i></div>
+                            
 
-                    <div class="col_full nobottommargin clearfix">
-
-                        <h3>6 Columns</h3>
-
-                         
+                    <div class="col_full nobottommargin clearfix"> 
 
                         <div class="masonry-thumbs grid-6"  >
 
                             @foreach ($topics as $topic)  
 
-                                <a href="/"  ><img class="image_fade" src="{{ $topic->instagram }}" alt="Gallery Thumb 1"></a> 
+                                <blockquote class="instagram-media" data-instgrm-permalink="{{ $topic->instagram }}" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style="   display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> </div></blockquote> 
+
+                                <div class="divider"><i class="icon-circle"></i></div>
 
                             @endforeach
                                 
