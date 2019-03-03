@@ -796,8 +796,136 @@ class TopicController extends Controller
                 ]);
 
         }
+
+        if( $categorytype == 'Colleges' || $categorytype == 'colleges'){
+            
+            $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
+                                    , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at ,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
+                                FROM `topic_categories` a ,  `colleges` b, `users` c
+                                        WHERE b.`id` = :id
+                                        AND a.`user_id` = c.`id`
+                                        AND b.`collegekey` = :user_code
+                                        AND a.`topicable_id` = b.`id` 
+                                        AND a.`topicable_type` like  '%College%' 
+                                        ORDER BY a.`updated_at` DESC
+                                        limit 10", ['id' => $id, 'user_code' => $user_code]);
+
+        }
+
+        if( $categorytype == 'Companies' || $categorytype == 'companies'){
+
+            $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
+                                    , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at ,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
+                                FROM `topic_categories` a ,  `companies` b, `users` c
+                                        WHERE b.`id` = :id
+                                        AND a.`user_id` = c.`id`
+                                        AND b.`companykey` = :user_code
+                                        AND a.`topicable_id` = b.`id` 
+                                        AND a.`topicable_type` like  '%Company%' 
+                                        ORDER BY a.`updated_at` DESC
+                                        limit 10", ['id' => $id, 'user_code' => $user_code]);
+
+        }
+        if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
+
+            $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
+                                    , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at ,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
+                                FROM `topic_categories` a ,  `doctors` b, `users` c
+                                        WHERE b.`id` = :id
+                                        AND a.`user_id` = c.`id`
+                                        AND b.`doctorkey` = :user_code
+                                        AND a.`topicable_id` = b.`id` 
+                                        AND a.`topicable_type` like  '%Doctor%' 
+                                        ORDER BY a.`updated_at` DESC
+                                        limit 10", ['id' => $id, 'user_code' => $user_code]);
+        }
+        if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
+
+            $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
+                                    , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at ,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
+                                FROM `topic_categories` a ,  `fitness_centers` b, `users` c
+                                        WHERE b.`id` = :id
+                                        AND a.`user_id` = c.`id`
+                                        AND b.`fitnesscenterkey` = :user_code
+                                        AND a.`topicable_id` = b.`id` 
+                                        AND a.`topicable_type` like  '%Fitness%' 
+                                        ORDER BY a.`updated_at` DESC
+                                        limit 10", ['id' => $id, 'user_code' => $user_code]);
+
+        }
+        if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
+
+            $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
+                                    , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at ,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
+                                FROM `topic_categories` a ,  `hotels` b, `users` c
+                                        WHERE b.`id` = :id
+                                        AND a.`user_id` = c.`id`
+                                        AND b.`hotelkey` = :user_code
+                                        AND a.`topicable_id` = b.`id` 
+                                        AND a.`topicable_type` like  '%Hotel%' 
+                                        ORDER BY a.`updated_at` DESC
+                                        limit 10", ['id' => $id, 'user_code' => $user_code]);
+        }
+        if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
+
+            $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
+                                    , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at ,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
+                                FROM `topic_categories` a ,  `lawyers` b, `users` c
+                                        WHERE b.`id` = :id
+                                        AND a.`user_id` = c.`id`
+                                        AND b.`lawyerkey` = :user_code
+                                        AND a.`topicable_id` = b.`id` 
+                                        AND a.`topicable_type` like  '%Lawyer%' 
+                                        ORDER BY a.`updated_at` DESC
+                                        limit 10", ['id' => $id, 'user_code' => $user_code]);
+        }
+        if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
+
+            $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
+                                    , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at ,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
+                                FROM `topic_categories` a ,  `restaurants` b, `users` c
+                                        WHERE b.`id` = :id
+                                        AND a.`user_id` = c.`id`
+                                        AND b.`restaurantkey` = :user_code
+                                        AND a.`topicable_id` = b.`id` 
+                                        AND a.`topicable_type` like  '%Restaurant%' 
+                                        ORDER BY a.`updated_at` DESC
+                                        limit 10", ['id' => $id, 'user_code' => $user_code]);
+        }
+
+        if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
+
+            $topics = DB::select("SELECT  a.`id`,  a.`url` , a.`user_id`,  a.`topic_name`
+                                    , DATE_FORMAT(a.`created_at`, '%d-%b-%Y')  created_at ,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
+                                FROM `topic_categories` a ,  `schools` b, `users` c
+                                        WHERE b.`id` = :id
+                                        AND a.`user_id` = c.`id`
+                                        AND b.`schoolkey` = :user_code
+                                        AND a.`topicable_id` = b.`id` 
+                                        AND a.`topicable_type` like  '%School%' 
+                                        ORDER BY a.`updated_at` DESC
+                                        limit 10", ['id' => $id, 'user_code' => $user_code]);
+
+         }    
+
  
-        return view('viewprofiledoctor', compact('id', 'user_code', 'categorytype', 'name' ,'type',  'address' ,  'locality' ,'city' ,'country' ,'video' ,'website' ,'links' ,'details' ,'profilepic' ,'speciality' ,'gender' ,'qualification' ,'exp' ));
+        return view('viewprofiledoctor', compact('topics','id', 'user_code', 'categorytype', 'name' ,'type',  'address' ,  'locality' ,'city' ,'country' ,'video' ,'website' ,'links' ,'details' ,'profilepic' ,'speciality' ,'gender' ,'qualification' ,'exp' ));
     }
 
     public function viewprofiledoctordetails(Request $request){

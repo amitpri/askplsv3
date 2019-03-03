@@ -185,13 +185,20 @@
                         <p v-if="categorytype == 'Hotels'" style="font-weight: 600; opacity: 1; color: black;  "> {{ $type}} </p>
                         <p v-if="categorytype == 'Restaurants'" style="font-weight: 600; opacity: 1; color: black;  "> {{ $type}} </p>
 
-                    </div> 
+                    </div>  
 
-                    <div class="promo promo-border" v-for="topic in topics" v-cloak>
-                        <h3><a :href="'/t/d?url=' + topic.url + '&type=' + categorytype">@{{topic.topic_name}}</a></h3>
-                        <span><p>Posted on @{{topic.created_at}} <span v-if="topic.user_name"> by <a target="_blank" :href="'/p/' + topic.user_code + '/' + topic.user_name ">@{{topic.user_name}}</a></span></p>  </span>
-                        <a :href="'/t/d?url=' + topic.url + '&type=' + categorytype" class="button button-small button-rounded">Comments</a>
-                    </div>
+                    @foreach ($topics as $topic)
+
+                        <div class="promo promo-border" >
+                            <h3><a href="/t/d?url={{ $topic->url }}&type={{ $categorytype }}">{{ $topic->topic_name}}</a></h3>
+                            <span><p>Posted on {{ $topic->created_at}} 
+                                @isset($topic->user_name)
+                                    <span> by <a target="_blank" href="/p/{{ $topic->user_code }}/{{ $topic->user_name}}">{{ $topic->user_name}}</a></span></p>  </span>
+                                @endisset 
+                            <a href="/t/d?url={{ $topic->url }}&type={{ $categorytype }}" class="button button-small button-rounded">Comments</a>
+                        </div>
+
+                    @endforeach 
 
     			<section  class="  center" >  
 
@@ -296,39 +303,7 @@
                     inpDetails: "",
                     inpWebsite : "",
 				},
-				mounted:function(){
-
-					axios.get('/p/d/details',{
-					params: {
-
-				      	id: this.inpId, 
-				      	usercode: this.inpUserCode, 
-                        categorytype: this.categorytype,
-				      	 
-				    	}
-
-					})
-					.then(response => {
- 
-						this.inpName = response.data.name;
-                        this.inpSpeciality = response.data.speciality;
-                        this.inpType = response.data.type;
-                        this.inpGender = response.data.gender;
-                        this.inpAddress = response.data.address;
-                        this.inpDetails = response.data.details;
-                        this.inpLocality = response.data.locality; 
-                        this.inpCity = response.data.city;
-                        this.inpCountry = response.data.country;
-                        this.inpWebsite = response.data.website;
-                        this.inpLinks = response.data.links;
-                        this.inpDetails = response.data.details;
-                        this.inpQualification = response.data.qualification;
-                        this.inpExp = response.data.exp;
-                        this.profilepic = response.data.profilepic; 
-                        this.video = response.data.video;
-						
-
-					});
+				mounted:function(){ 
 
 					axios.get('/p/d/showtopics',{
 					params: {
