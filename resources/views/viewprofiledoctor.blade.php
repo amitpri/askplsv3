@@ -181,7 +181,7 @@
                         <span><p  v-html="inpDetails"></p></span>
 
                         <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  "> {{ $speciality}} </p>
-                        <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  "> {{ $qualification}}, &nbsp;  @{{inpExp}} yrs experience </p>
+                        <p v-if="categorytype == 'Doctors'" style="font-weight: 600; opacity: 1; color: black;  "> {{ $qualification}}, &nbsp;  {{ $exp}} yrs experience </p>
                         <p v-if="categorytype == 'Hotels'" style="font-weight: 600; opacity: 1; color: black;  "> {{ $type}} </p>
                         <p v-if="categorytype == 'Restaurants'" style="font-weight: 600; opacity: 1; color: black;  "> {{ $type}} </p>
 

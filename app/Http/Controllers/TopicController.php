@@ -740,7 +740,7 @@ class TopicController extends Controller
         }
         if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
 
-            $user = Lawyer::where('lawyerkey','=',$url)->first(['id','lawyerkey AS user_code', 'name','speciality', 'gender' ,'address','locality' , 'city' , 'country'  ,'video' ,'website','links','details'  , 'profilepic' ]);
+            $user = Lawyer::where('lawyerkey','=',$url)->first(['id','lawyerkey AS user_code', 'name', 'gender' ,'address','locality' , 'city' , 'country'  ,'video' ,'website','links','details'  , 'profilepic' ]);
 
             $topicable = "App\Lawyer";
         }
