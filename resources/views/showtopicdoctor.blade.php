@@ -153,37 +153,58 @@
 		<!-- Page Title
 		============================================= -->
 
-		<div id="feedback" style=" margin-top:40px;     ">
-			<div class="container">
-		 		<section  class="  center" v-for="topic in topics">
-					<h1 class="font-secondary nott mb-3" style="color: black; font-size: 36px;    ">@{{ topic.topic_name }}</h1>
-					<p style="font-weight: 300; opacity: .7; color: black;  ">
-							Review topic for <a :href="'/c/' +  categorytype + '/' + topic.profilekey + '/' + topic.name.replace(/ /g,'_')">@{{ topic.name }}</a>  </p> 
-							<span>Posted on @{{ topic.created_at }} <span v-if="topic.user_name"> by <a target="_blank" :href="'/p/' + topic.user_code + '/' + topic.user_name">@{{topic.user_name}}</a></span></span>
-					<p>&nbsp;</p>
-	 				
-	 				<p  style="color: black; font-size: 18px;    "><span v-html="topic.details"> </span></p>
+		<div id="feedback" style=" margin-top:40px;">
+			<div class="container"> 
 
-					<img v-if="topic.image" :src="'/storage/' + topic.image" max-width="400">
-	 
+				@foreach ($topics as $topic)
 
-					<iframe v-if="topic.video" width="640" height="360" class="embed-responsive-item" 
-					  		:src="'https://www.youtube.com/embed/' + topic.video" ></iframe> 
-	 
+					<section  class="center" >
+						<h1 class="font-secondary nott mb-3" style="color: black; font-size: 36px;    ">{{ $topic->topic_name }}</h1>
+						<p style="font-weight: 300; opacity: .7; color: black;  ">
+								Review topic for <a href="/c/{{ $categorytype }}/{{ $topic->profilekey }}/{{ $topic->name }}">{{ $topic->name }}</a>  </p> 
+								<span>Posted on {{ $topic->created_at }} 
+									@isset($topic->user_name)
+	                                    <span> by <a target="_blank" href="/p/{{ $topic->user_code }}/{{ $topic->user_name}}">{{ $topic->user_name}}</a></span></p>  </span>
+	                                @endisset 
+										 
+						<p>&nbsp;</p>
+
+						@isset($topic->details)
+
+							<p  style="color: black; font-size: 18px;    "><p>{!!html_entity_decode($topic->details)!!}</p></p>
+
+						@endisset 
+
+						@isset($topic->image)
+
+							<img  src="/storage/{{ $topic->image}}" max-width="400">
+
+						@endisset 
+
+						@isset($topic->video)
+
+							<iframe   width="640" height="360" class="embed-responsive-item" 
+						  		 src="https://www.youtube.com/embed/{{ $topic->video }}" ></iframe> 
+
+						@endisset 
+		 				 
+					
+					</section> 
+
+				@endforeach 
+
 					<div class="container clearfix"> 
-						<div class="clearfix center divcenter" style="max-width: 800px; margin-top:40px;">
-							<div id="widget-subscribe-form">
-	                            <div class="  divcenter">
-	                                <textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="5" cols="30" v-model="inpReview" style="border: none;" placeholder="Enter Anonymous Review"></textarea>   
-	                                <button @click="savefeedback" type="submit" class="button " style="border-radius: 3px;">Submit Review</button>                   
-	                            </div>
-	                        </div>
-	                    </div>
-	 
-					</div> 
-				</section><!-- #page-title end -->
- 			</div
-		 -->
+							<div class="clearfix center divcenter" style="max-width: 800px; margin-top:40px;">
+								<div id="widget-subscribe-form">
+		                            <div class="  divcenter">
+		                                <textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="5" cols="30" v-model="inpReview" style="border: none;" placeholder="Enter Anonymous Review"></textarea>   
+		                                <button @click="savefeedback" type="submit" class="button " style="border-radius: 3px;">Submit Review</button>                   
+		                            </div>
+		                        </div>
+		                    </div>
+		 
+						</div> 
+ 			</div>
 			<section>
 
 				<div class="content-wrap clearfix">

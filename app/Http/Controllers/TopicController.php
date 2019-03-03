@@ -1159,8 +1159,132 @@ class TopicController extends Controller
         
         $id = $topic->id;
         $topic_name = $topic->topic_name; 
+
+        if( $categorytype == 'Colleges' || $categorytype == 'colleges'){
+            
+            $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`collegekey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name, 
+                                    b.`collegekey` as profilekey
+                                        FROM `topic_categories` a ,  `colleges` b , `users` c
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = c.`id`
+                                        AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
+        
+
+
+        }
+        if( $categorytype == 'Companies' || $categorytype == 'companies'){
+
+            $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`companykey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name, 
+                                    b.`companykey` as profilekey
+                                        FROM `topic_categories` a ,  `companies` b , `users` c
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = c.`id`
+                                        AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
+        
+ 
+        }
+        if( $categorytype == 'Doctors' || $categorytype == 'doctors'){
+
+            $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`doctorkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name, 
+                                    b.`doctorkey` as profilekey
+                                        FROM `topic_categories` a ,  `doctors` b , `users` c
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = c.`id`
+                                        AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
+        
+ 
+        }
+        if( $categorytype == 'Fitness Centers' || $categorytype == 'fitnesscenters'){
+
+            $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`fitnesscenterkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name, 
+                                    b.`fitnesscenterkey` as profilekey
+                                        FROM `topic_categories` a ,  `fitnesscenters` b , `users` c
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = c.`id`
+                                        AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
+        
+ 
+
+        }
+        if( $categorytype == 'Hotels' || $categorytype == 'hotels'){
+
+            $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`hotelkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name, 
+                                    b.`hotelkey` as profilekey
+                                        FROM `topic_categories` a ,  `hotels` b , `users` c
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = c.`id`
+                                        AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
+        
+ 
+        }
+        if( $categorytype == 'Lawyers' || $categorytype == 'lawyers'){
+
+            $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`lawyerkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name, 
+                                    b.`lawyerkey` as profilekey
+                                        FROM `topic_categories` a ,  `lawyers` b , `users` c
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = c.`id`
+                                        AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
+         
+        }
+        if( $categorytype == 'Restaurants' || $categorytype == 'restaurants'){
+
+            $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`restaurantkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name, 
+                                    b.`restaurantkey` as profilekey
+                                        FROM `topic_categories` a ,  `restaurants` b , `users` c
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = c.`id`
+                                        AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
+        
+ 
+        }
+
+        if( $categorytype == 'Schools' || $categorytype == 'schools'){ 
+
+            $topics = DB::select("SELECT  a.`id`, a.`url`, a.`user_id`,  a.`topic_name`,  a.`details` 
+                                , a.`image`, a.`video`, b.`name`
+                                    , b.`schoolkey`  AS user_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
+                                    (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
+                                    (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name, 
+                                    b.`schoolkey` as profilekey
+                                        FROM `topic_categories` a ,  `schools` b , `users` c
+                                        WHERE a.`url` = :url
+                                        AND a.`user_id` = c.`id`
+                                        AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
+        
+ 
+
+         }
        
-        return view('showtopicdoctor',compact('url','id' ,'topic_name', 'categorytype'));
+        return view('showtopicdoctor',compact('topics','url','id' ,'topic_name', 'categorytype'));
     }
 
     public function showdoctordetails(Request $request)
