@@ -22,7 +22,7 @@
     <script src="/vue/vue.min.js"></script>
     <script src="/axios/axios.min.js"></script>
 
-    <meta name="google-site-verification" content="Egyom1onwFofLzu_ksa-hQECAvqCv86w4hIDLB7t-6Y" />
+    <script async src="https://www.instagram.com/embed.js"></script> 
 
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.15.4"></script>
     <style>
@@ -178,18 +178,40 @@
 
                                     <h4>Instagram Pictures Reviews - <a href="/instagram">All</a></h4> 
 
-                                    <ul class="clients-grid grid-5 nobottommargin clearfix">
-                                        <li><a href="http://logofury.com/logo/enzo.html" data-animate="fadeIn"><img src="images/clients/1.png" alt="Clients"></a></li>
-                                        <li><a href="http://logofury.com" data-animate="fadeIn" data-delay="100"><img src="images/clients/2.png" alt="Clients"></a></li>
-                                        <li><a href="http://logofaves.com/2014/03/grabbt/" data-animate="fadeIn" data-delay="200"><img src="images/clients/3.png" alt="Clients"></a></li>
-                                        <li><a href="http://logofaves.com/2014/01/ladera-granola/" data-animate="fadeIn" data-delay="300"><img src="images/clients/4.png" alt="Clients"></a></li>
-                                        <li><a href="http://logofaves.com/2014/02/hershel-farms/" data-animate="fadeIn" data-delay="400"><img src="images/clients/5.png" alt="Clients"></a></li>
-                                        <li><a href="http://logofury.com/logo/food-fight-radio.html" data-animate="fadeIn" data-delay="500"><img src="images/clients/6.png" alt="Clients"></a></li>
-                                        <li><a href="http://logofury.com" data-animate="fadeIn" data-delay="600"><img src="images/clients/7.png" alt="Clients"></a></li>
-                                        <li><a href="http://logofury.com/logo/up-travel.html" data-animate="fadeIn" data-delay="700"><img src="images/clients/8.png" alt="Clients"></a></li>
-                                        <li><a href="http://logofury.com/logo/caffi-bardi.html" data-animate="fadeIn" data-delay="800"><img src="images/clients/9.png" alt="Clients"></a></li>
-                                        <li><a href="http://logofury.com/logo/bignix-design.html" data-animate="fadeIn" data-delay="900"><img src="images/clients/10.png" alt="Clients"></a></li>
-                                    </ul>
+                                    <div class="container">
+                                      <div class="row">
+                                        <div class="col-sm">
+                                            <button type="button" class="btn btn-outline-primary btn-block">View Profile</button>
+                                            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Bo30J25BWJV" data-instgrm-version="9" style=" background:#FFF; padding:0; width:19.375%; width:-webkit-calc(100% - 2px); width:calc(5% - 2px);"> </blockquote> 
+                                            <button type="button" class="btn btn-primary btn-sm btn-block" style="margin-bottom: 20px;">Add Anonymous Comments</button>
+                                        </div>
+                                        <div class="col-sm">
+                                            <button type="button" class="btn btn-outline-primary btn-block">View Profile</button>
+                                            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Bo30J25BWJV" data-instgrm-version="9" style=" background:#FFF; padding:0; width:19.375%; width:-webkit-calc(100% - 2px); width:calc(5% - 2px);"> </blockquote> 
+                                            <button type="button" class="btn btn-primary btn-sm btn-block">Add Anonymous Comments</button>
+                                        </div>
+                                        <div class="col-sm">
+                                            <button type="button" class="btn btn-outline-primary btn-block">View Profile</button>
+                                            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Bo30J25BWJV" data-instgrm-version="9" style=" background:#FFF; padding:0; width:19.375%; width:-webkit-calc(100% - 2px); width:calc(5% - 2px);"> </blockquote> 
+                                            <button type="button" class="btn btn-primary btn-sm btn-block">Add Anonymous Comments</button>
+                                        </div>
+                                        <div class="col-sm">
+                                            <button type="button" class="btn btn-outline-primary btn-block">View Profile</button>
+                                            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Bo30J25BWJV" data-instgrm-version="9" style=" background:#FFF; padding:0; width:19.375%; width:-webkit-calc(100% - 2px); width:calc(5% - 2px);"> </blockquote> 
+                                            <button type="button" class="btn btn-primary btn-sm btn-block">Add Anonymous Comments</button>
+                                        </div>
+                                        <div class="col-sm">
+                                            <button type="button" class="btn btn-outline-primary btn-block">View Profile</button>
+                                            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Bo30J25BWJV" data-instgrm-version="9" style=" background:#FFF; padding:0; width:19.375%; width:-webkit-calc(100% - 2px); width:calc(5% - 2px);"> </blockquote> 
+                                            <button type="button" class="btn btn-primary btn-sm btn-block">Add Anonymous Comments</button>
+                                        </div>
+                                        <div class="col-sm">
+                                            <button type="button" class="btn btn-outline-primary btn-block">View Profile</button>
+                                            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Bo30J25BWJV" data-instgrm-version="9" style=" background:#FFF; padding:0; width:19.375%; width:-webkit-calc(100% - 2px); width:calc(5% - 2px);"> </blockquote> 
+                                            <button type="button" class="btn btn-primary btn-sm btn-block">Add Anonymous Comments</button>
+                                        </div>
+                                      </div>
+                                    </div> 
 
                                 </div> 
 
