@@ -66,6 +66,40 @@ class TopicController extends Controller
    
     }
 
+    public function index2(Request $request)
+    {
+
+        $categories = ShowCategory::orderBy('order','asc')->get(['id','category','status']);
+
+        $categorytype = '';
+
+        $userid = "1";
+        $user_name ="";
+        $user_email ="";
+        $ipaddress = $request->getClientIp();
+        $page ="index";
+        $url_code ="";
+        $type ="";
+        $referrer ="";
+ 
+        $track = Track::create(
+                [   
+                    'user_id' => $userid,
+                    'user_name' => $user_name,
+                    'user_email' => $user_email,
+                    'ipaddress' => $ipaddress,   
+                    'page' => $page,
+                    'url' => $url_code,
+                    'type' => $type,
+                    'referrer' => $referrer,                              
+                ]);
+
+        $searchcategoryid = '';
+
+        return view('index',compact('categories', 'categorytype', 'searchcategoryid'));
+   
+    }
+
     public function doctors()
     {
 

@@ -152,79 +152,258 @@
             <div class="content-wrap clearfix">
 
                 <div class="container">
-                    <form id="widget-subscribe-form"  target="#"  class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
-                        <div class="input-group divcenter" v-if="vCatType > 0" >
-
-                            <input   type="text" id="workspace" class="form-control form-control-lg not-dark" placeholder="Enter Topics..." style="border: 0; box-shadow: none; overflow: hidden;" v-model="searchquery"  @keyup="filteredtopics" >
-
-                            <div class="col-md-4 col-lg-3">
-                                <a @click="filteredtopics"  href="" class="button   btn-block" style="border-radius: 3px;">Search Topics</a>  
-                            </div>
-                             
-                        </div>
-
-                        <div class="input-group divcenter" v-if="vCatType < 1" >
-
-                            <input   type="search" id="address-input" class="form-control form-control-lg not-dark" placeholder="Enter City..." style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;" v-model="citylist"  @keyup="filteredcities" >
-
-                            <input   type="text" id="workspace" class="form-control form-control-lg not-dark" :placeholder="vPlaceholders" style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;" v-model="searchcategoryname"  @keyup="filteredcategoryname" >
-
-                            <div class="col-lg-4 col-xl-4">
-
-                                <a @click="filteredcategoryname"  href="" class="button btn-block" style="border-radius: 3px;" v-cloak>@{{ vSearchName}}</a>  
-                            </div>
-                             
-                        </div>
-
-                        <div class="input-group divcenter" v-if="vCatType < 1" >
-
-                           <div v-for="city in cities">
-                               <li style=" list-style: none;">  
-                                <a href="#" @click="event.preventDefault();setcity(city)" v-cloak>@{{city.name}}&nbsp;  </a></li> 
-                           </div>
-                             
-                        </div>
-
-                    </form>  
-
-                   <div class="row clearfix" style="margin-top:30px; "  >
-
-                        <div class="col-md-2">
-
-                            @empty($categorytype)
- 
-                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                       
-                              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" >
-                                <span class="navbar-toggler-icon"></span>
-                              </button>
-
-                              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="nav flex-column"> 
-                                    <a @click="clearfilter" v-if="vCat1 > 0" href="" style="margin-bottom: 20px;" v-cloak>Clear Filters</a> 
-
-                               @foreach ($categories as $category)
- 
-                                   <li class="nav-item" >
-                                    <a @click="categorysearch({{ $category}})" class="nav-link" href="#">{{ $category->category}}</a>
-                                  </li>  
-
-                                @endforeach  
- 
-                                   
-                                </ul>
-                              </div>
-                            </nav> 
-
-                            @endempty 
-                                 
-                        </div> 
                     
-                        <div class="col-lg-10 " v-if="vCatTopics == 0">
- 
+
+                   <div class="row clearfix" style="margin-top:-50px; "  > 
+                    
+                        <div class="col-lg-12 " v-if="vCatTopics == 0">
+
+                            <div class="container clearfix"  v-cloak>
+
+                                <div v-show="topmessage" class="clearfix center divcenter" style="max-width: 800px;">
+                                    <div class="emphasis-title">
+                                        <h4 class="font-secondary" style="color: black; font-size: 36px; font-weight: 900; text-shadow: 0 7px 10px rgba(0,0,0,0.07), 0 4px 4px rgba(0,0,0,0.2);">Private Anonymous Reviews Platform </h4>
+                                        <p style="font-weight: 300; opacity: .7; color: black; text-shadow: 0 -4px 20px rgba(0, 0, 0, .25);">Get genuine Anonymous Feedback from people you care</p>
+                                    </div> 
+                                  
+                                </div>
+
+                            </div>
+                            <br>
                             <div v-show="showspinner" class="text-center"><img src="/ajax_loader.gif"></div>
 
-                         
+                            <div class="container clearfix">
+
+                                <div class="col_full nobottommargin">
+
+                                    <h4>Instagram Pictures Reviews - <a href="/instagram">All</a></h4> 
+
+                                    <ul class="clients-grid grid-5 nobottommargin clearfix">
+                                        <li><a href="http://logofury.com/logo/enzo.html" data-animate="fadeIn"><img src="images/clients/1.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com" data-animate="fadeIn" data-delay="100"><img src="images/clients/2.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofaves.com/2014/03/grabbt/" data-animate="fadeIn" data-delay="200"><img src="images/clients/3.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofaves.com/2014/01/ladera-granola/" data-animate="fadeIn" data-delay="300"><img src="images/clients/4.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofaves.com/2014/02/hershel-farms/" data-animate="fadeIn" data-delay="400"><img src="images/clients/5.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/food-fight-radio.html" data-animate="fadeIn" data-delay="500"><img src="images/clients/6.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com" data-animate="fadeIn" data-delay="600"><img src="images/clients/7.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/up-travel.html" data-animate="fadeIn" data-delay="700"><img src="images/clients/8.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/caffi-bardi.html" data-animate="fadeIn" data-delay="800"><img src="images/clients/9.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/bignix-design.html" data-animate="fadeIn" data-delay="900"><img src="images/clients/10.png" alt="Clients"></a></li>
+                                    </ul>
+
+                                </div> 
+
+                            </div>
+
+                            <div class="container clearfix">
+
+                                <div class="colnobottommargin">
+
+                                    <h4>Youtube Videos Reviews - <a href="/youtube">All</a></h4> 
+
+                                    <ul class="clients-grid grid-5 nobottommargin clearfix">
+                                        <li><a href="http://logofury.com/logo/enzo.html" data-animate="fadeIn"><img src="images/clients/1.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com" data-animate="fadeIn" data-delay="100"><img src="images/clients/2.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofaves.com/2014/03/grabbt/" data-animate="fadeIn" data-delay="200"><img src="images/clients/3.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofaves.com/2014/01/ladera-granola/" data-animate="fadeIn" data-delay="300"><img src="images/clients/4.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofaves.com/2014/02/hershel-farms/" data-animate="fadeIn" data-delay="400"><img src="images/clients/5.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/food-fight-radio.html" data-animate="fadeIn" data-delay="500"><img src="images/clients/6.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com" data-animate="fadeIn" data-delay="600"><img src="images/clients/7.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/up-travel.html" data-animate="fadeIn" data-delay="700"><img src="images/clients/8.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/caffi-bardi.html" data-animate="fadeIn" data-delay="800"><img src="images/clients/9.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/bignix-design.html" data-animate="fadeIn" data-delay="900"><img src="images/clients/10.png" alt="Clients"></a></li>
+                                        
+                                    </ul>
+
+                                </div> 
+
+                            </div>
+
+                            <div class="container clearfix">
+
+                                <div class="colnobottommargin">
+
+                                    <h4>Youtube Videos Reviews - <a href="/youtube">All</a></h4> 
+
+                                    <ul class="clients-grid grid-5 nobottommargin clearfix">
+                                        <li><a href="http://logofury.com/logo/enzo.html" data-animate="fadeIn"><img src="images/clients/1.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com" data-animate="fadeIn" data-delay="100"><img src="images/clients/2.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofaves.com/2014/03/grabbt/" data-animate="fadeIn" data-delay="200"><img src="images/clients/3.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofaves.com/2014/01/ladera-granola/" data-animate="fadeIn" data-delay="300"><img src="images/clients/4.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofaves.com/2014/02/hershel-farms/" data-animate="fadeIn" data-delay="400"><img src="images/clients/5.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/food-fight-radio.html" data-animate="fadeIn" data-delay="500"><img src="images/clients/6.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com" data-animate="fadeIn" data-delay="600"><img src="images/clients/7.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/up-travel.html" data-animate="fadeIn" data-delay="700"><img src="images/clients/8.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/caffi-bardi.html" data-animate="fadeIn" data-delay="800"><img src="images/clients/9.png" alt="Clients"></a></li>
+                                        <li><a href="http://logofury.com/logo/bignix-design.html" data-animate="fadeIn" data-delay="900"><img src="images/clients/10.png" alt="Clients"></a></li>
+                                        
+                                    </ul>
+
+                                </div> 
+
+                            </div>
+
+                            <div class="section nobg mt-4 mb-0 pb-0">
+                                <div class="container">
+                                    <div class="heading-block nobottomborder center divcenter mb-0 clearfix" style="max-width: 550px"> 
+                                        <h3 class="nott ls0 mb-3">Professional categories</h3>
+                                        <p>Anonymous reviews for professional categories</p>
+                                    </div>
+                                    <div class="row justify-content-between align-items-center clearfix">
+
+                                        <div class="col-lg-4 col-sm-6">
+
+                                            <div class="feature-box fbox-right noborder">
+                                                <div class="fbox-icon">
+                                                    <a href="#"><img src="demos/seo/images/icons/seo.svg" alt="Feature Icon" class="nobg noradius"></a>
+                                                </div>
+                                                <h3 class="nott ls0">SEO optimization</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, dolore, voluptates!</p>
+                                            </div>
+
+                                            <div class="feature-box fbox-right noborder mt-5">
+                                                <div class="fbox-icon">
+                                                    <a href="#"><img src="demos/seo/images/icons/adword.svg" alt="Feature Icon" class="nobg noradius"></a>
+                                                </div>
+                                                <h3 class="nott ls0">Adwords Campaign</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, provident.</p>
+                                            </div>
+
+                                            <div class="feature-box fbox-right noborder mt-5">
+                                                <div class="fbox-icon">
+                                                    <a href="#"><img src="demos/seo/images/icons/analysis.svg" alt="Feature Icon" class="nobg noradius"></a>
+                                                </div>
+                                                <h3 class="nott ls0">Digital Analysis</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, ipsa!</p>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-lg-3 col-7 offset-3 offset-sm-0 d-sm-none d-lg-block center my-5">
+                                            <img src="demos/seo/images/sections/2.png" alt="iphone" class="rounded  parallax" data-bottom-top="transform: translateY(-30px)" data-top-bottom="transform: translateY(30px)">
+                                        </div>
+
+                                        <div class="col-lg-4 col-sm-6">
+
+                                            <div class="feature-box noborder">
+                                                <div class="fbox-icon">
+                                                    <a href="#"><img src="demos/seo/images/icons/social.svg" alt="Feature Icon" class="nobg noradius"></a>
+                                                </div>
+                                                <h3 class="nott ls0">Social Media Marketing</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, dolore, voluptates!</p>
+                                            </div>
+
+                                            <div class="feature-box noborder mt-5">
+                                                <div class="fbox-icon">
+                                                    <a href="#"><img src="demos/seo/images/icons/experience.svg" alt="Feature Icon" class="nobg noradius"></a>
+                                                </div>
+                                                <h3 class="nott ls0">Customer Experience</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, ipsa!</p>
+                                            </div>
+
+                                            <div class="feature-box noborder mt-5">
+                                                <div class="fbox-icon">
+                                                    <a href="#"><img src="demos/seo/images/icons/content_marketing.svg" alt="Feature Icon" class="nobg noradius"></a>
+                                                </div>
+                                                <h3 class="nott ls0">Content Marketing</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, provident.</p>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="section nobg mt-4 mb-0 pb-0">
+                                <div class="container">
+                                    <div class="heading-block nobottomborder center divcenter mb-0 clearfix" style="max-width: 550px"> 
+                                        <h3 class="nott ls0 mb-3">Personal Topics</h3>
+                                        <p>Anonymous reviews for professional categories</p>
+                                    </div>
+                                    <div class="row justify-content-between align-items-center clearfix">
+
+                                        <div class="col-lg-6 col-sm-6">
+
+                                            <div class="feature-box fbox-right noborder">
+                                                
+                                                <h3 class="nott ls0">SEO optimization</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                            </div>
+
+                                            <div class="feature-box fbox-right noborder mt-5">
+                                                
+                                                <h3 class="nott ls0">Adwords Campaign</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                            </div>
+
+                                            <div class="feature-box fbox-right noborder mt-5">
+                                              
+                                                <h3 class="nott ls0">Digital Analysis</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                            </div>
+
+                                        </div> 
+
+                                        <div class="col-lg-6 col-sm-6">
+
+                                            <div class="feature-box noborder">
+                                               
+                                                <h3 class="nott ls0">Social Media Marketing</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                            </div>
+
+                                            <div class="feature-box noborder mt-5">
+                                               
+                                                <h3 class="nott ls0">Customer Experience</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                            </div>
+
+                                            <div class="feature-box noborder mt-5">
+                                                 
+                                                <h3 class="nott ls0">Content Marketing</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="section mt-5 footer-stick promo-section nobg" style="padding: 100px 0; overflow: visible">
+                                <div class="container">
+                                    <div class="heading-block nobottomborder center">
+                                        <h5 class="uppercase ls1 mb-1">Grab your Free Trail and Explore the Options</h5>
+                                        <h2 class="nott ls0">Try Keyword Search 30 Days Free With Canvas<span>SEO</span></h2>
+                                        <a href="#" class="button button-large button-rounded nott ml-0 ls0 mt-4">Contact Us Now</a>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div  class="row" v-for="topic in topics" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
                                  

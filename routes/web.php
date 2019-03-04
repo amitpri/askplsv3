@@ -19,6 +19,8 @@ Route::get('/workspace/create', 'HomeController@workspacecreate');
 Route::get('/workspace/created', 'HomeController@workspacecreated');
 
 Route::get('/', 'TopicController@index');
+Route::get('/index2', 'TopicController@index2');
+
 Route::get('/doctors', 'TopicController@doctors');
 Route::get('/hotels', 'TopicController@hotels');
 Route::get('/restaurants', 'TopicController@restaurants');
