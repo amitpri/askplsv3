@@ -216,42 +216,33 @@
 
                         <div class="col-md-2"> 
  
-                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                       
-                              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" >
-                                <span class="navbar-toggler-icon"></span>
-                              </button>
-
-                              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="nav flex-column"> 
-
-                                     
-                                </ul>
-                              </div>
-                            </nav>  
+                           
                                  
                         </div> 
 
                         <div class="col-lg-10 " > 
 
-                            
+                            <div class="container">
 
-                    <div class="col_full nobottommargin clearfix"> 
+                                @foreach ($topics as $topic) 
+                                  <div class="row">
+                                    <div class="col-6 align-self-center">
+                                      <blockquote class="instagram-media" data-instgrm-permalink="{{ $topic->instagram }}" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px;  padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(75% - 2px);">
+                                             
+                                        </blockquote>  
+                                    </div> 
+                                    <div class="col-4 col-lg-4 align-self-center justify-content-end">
+                                        <div id="widget-subscribe-form" class="divcenter">
+                                             
+                                            <textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="5" cols="50" v-model="inpReview" style="border: none;" placeholder="Enter Anonymous Review"></textarea>   
+                                            <button @click="savefeedback" type="submit" class="button " style="border-radius: 3px;">Submit Review</button>                   
+                                            
+                                        </div>
+                                    </div>
+                                  </div>
+                                @endforeach
 
-                        <div class="masonry-thumbs grid-6"  >
-
-                            @foreach ($topics as $topic)  
-
-                                <blockquote class="instagram-media" data-instgrm-permalink="{{ $topic->instagram }}" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style="   display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> </div></blockquote> 
-
-                                <div class="divider"><i class="icon-circle"></i></div>
-
-                            @endforeach
-                                
-                        </div>
-                        
-                    </div>
-   
+                            </div> 
 
                         </div>
 
