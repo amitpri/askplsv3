@@ -100,8 +100,7 @@
             <div id="header-wrap">
 
                 <div class="container clearfix">
-
-                    <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+ 
 
                     <div class="row justify-content-xl-between justify-content-lg-between clearfix">
 
