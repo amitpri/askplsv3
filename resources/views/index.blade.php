@@ -241,7 +241,7 @@
                             <div class="section nobg mt-4 mb-0 pb-0">
                                 <div class="container">
                                     <div class="heading-block nobottomborder center divcenter mb-0 clearfix" style="max-width: 550px"> 
-                                        <h3 class="nott ls0 mb-3">Professional categories</h3>
+                                        <h3 class="nott ls0 mb-3">Professional categorytopicsearch</h3>
                                         <p>Anonymous reviews for professional categories</p>
                                     </div>
                                     <div class="row justify-content-between align-items-center clearfix">
@@ -249,58 +249,46 @@
                                         <div class="col-lg-4 col-sm-6">
 
                                             <div class="feature-box fbox-right noborder">
-                                                <div class="fbox-icon">
-                                                    <a href="#"><img src="demos/seo/images/icons/seo.svg" alt="Feature Icon" class="nobg noradius"></a>
-                                                </div>
-                                                <h3 class="nott ls0">SEO optimization</h3>
+                                                
+                                                <h3 class="nott ls0">Schools Reviews</h3>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, dolore, voluptates!</p>
                                             </div>
 
                                             <div class="feature-box fbox-right noborder mt-5">
-                                                <div class="fbox-icon">
-                                                    <a href="#"><img src="demos/seo/images/icons/adword.svg" alt="Feature Icon" class="nobg noradius"></a>
-                                                </div>
-                                                <h3 class="nott ls0">Adwords Campaign</h3>
+                                                 
+                                                <h3 class="nott ls0">Colleges Reviews</h3>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, provident.</p>
                                             </div>
 
                                             <div class="feature-box fbox-right noborder mt-5">
-                                                <div class="fbox-icon">
-                                                    <a href="#"><img src="demos/seo/images/icons/analysis.svg" alt="Feature Icon" class="nobg noradius"></a>
-                                                </div>
-                                                <h3 class="nott ls0">Digital Analysis</h3>
+                                                 
+                                                <h3 class="nott ls0">Companies Reviews</h3>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, ipsa!</p>
                                             </div>
 
                                         </div>
 
                                         <div class="col-lg-3 col-7 offset-3 offset-sm-0 d-sm-none d-lg-block center my-5">
-                                            <img src="demos/seo/images/sections/2.png" alt="iphone" class="rounded  parallax" data-bottom-top="transform: translateY(-30px)" data-top-bottom="transform: translateY(30px)">
+                                            <img src="images/askplsmobile.jpeg" alt="iphone" class="rounded  parallax" data-bottom-top="transform: translateY(-30px)" data-top-bottom="transform: translateY(30px)">
                                         </div>
 
                                         <div class="col-lg-4 col-sm-6">
 
                                             <div class="feature-box noborder">
-                                                <div class="fbox-icon">
-                                                    <a href="#"><img src="demos/seo/images/icons/social.svg" alt="Feature Icon" class="nobg noradius"></a>
-                                                </div>
-                                                <h3 class="nott ls0">Social Media Marketing</h3>
+                                                
+                                                <h3 class="nott ls0">Doctors Reviews</h3>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, dolore, voluptates!</p>
                                             </div>
 
                                             <div class="feature-box noborder mt-5">
-                                                <div class="fbox-icon">
-                                                    <a href="#"><img src="demos/seo/images/icons/experience.svg" alt="Feature Icon" class="nobg noradius"></a>
-                                                </div>
-                                                <h3 class="nott ls0">Customer Experience</h3>
+                                                 
+                                                <h3 class="nott ls0">Hotels Reviews</h3>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, ipsa!</p>
                                             </div>
 
                                             <div class="feature-box noborder mt-5">
-                                                <div class="fbox-icon">
-                                                    <a href="#"><img src="demos/seo/images/icons/content_marketing.svg" alt="Feature Icon" class="nobg noradius"></a>
-                                                </div>
-                                                <h3 class="nott ls0">Content Marketing</h3>
+                                                
+                                                <h3 class="nott ls0">Restaurants Reviews</h3>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, provident.</p>
                                             </div>
 
