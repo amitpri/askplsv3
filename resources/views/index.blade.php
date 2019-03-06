@@ -177,7 +177,7 @@
 
                                         @foreach ($topics_images as $topic_images) 
 
-                                            <li><a href="http://logofury.com/logo/enzo.html" data-animate="fadeIn"><img src="/storage/{{$topic_images->image}}" alt=""></a></li> 
+                                            <li><a href=" " data-animate="fadeIn"><img src="/storage/{{$topic_images->image}}" width="100px" height="100px;" alt=""></a></li> 
 
                                         @endforeach
 
