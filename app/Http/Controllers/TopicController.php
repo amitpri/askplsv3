@@ -71,7 +71,7 @@ class TopicController extends Controller
  
         $topics_insta = ShowTopic::where('status', '=' , 1)->where('type', '=' , 'public')
                 ->where('instagram', '<>' , "NULL")
-                ->take(6)
+                ->take(4)
                 ->get(['id','url','instagram']);
 
         $topics_images = ShowTopic::where('status', '=' , 1)->where('type', '=' , 'public')
