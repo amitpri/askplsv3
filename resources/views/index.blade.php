@@ -195,11 +195,14 @@
                                         <h4 class="nott ls0 mb-3">Youtube Videos Reviews- <a href="/youtube">All</a></h4> 
                                     </div> 
 
+                                    <ul class="clients-grid grid-5 nobottommargin clearfix">
+
                                     @foreach ($topics_youtube as $topic_youtube) 
 
-                                            <li><a href="http://logofury.com/logo/enzo.html" data-animate="fadeIn"><img src="https://img.youtube.com/vi/{{ $topic_youtube->video}}/default.jpg" alt="Clients"></a></li> 
+                                            <li><a href="" data-animate="fadeIn"><img src="https://img.youtube.com/vi/{{ $topic_youtube->video}}/default.jpg" alt="Clients"></a></li> 
 
-                                        @endforeach
+                                    @endforeach
+                                    </ul>
 
                                 </div> 
 
