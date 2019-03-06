@@ -22,7 +22,7 @@
     <script src="/vue/vue.min.js"></script>
     <script src="/axios/axios.min.js"></script>
 
-    <script async src="https://www.instagram.com/embed.js"></script> 
+    <script async src="embed.js"></script> 
 
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.15.4"></script>
     <style>
@@ -183,11 +183,13 @@
 
                                         @foreach ($topics_insta as $topic_insta)
 
-                                            <div class="col-sm">
-                                                <button type="button" class="btn btn-outline-primary btn-block">View Profile</button>
-                                                <blockquote class="instagram-media" data-instgrm-permalink="{{ $topic_insta->instagram}}" data-instgrm-version="9" style=" background:#FFF; padding:0; width:19.375%; width:-webkit-calc(100% - 2px); width:calc(5% - 2px);"> </blockquote> 
-                                                <button type="button" class="btn btn-primary btn-sm btn-block" style="margin-bottom: 20px;">Add Anonymous Comments</button>
+                                            <div class="col-sm" style="">
+                                                <button type="button" class="btn btn-primary btn-sm">View AskPls Profile</button> 
+
+                                                <blockquote class="instagram-media" data-instgrm-permalink="{{ $topic_insta->instagram}}" data-instgrm-version="9" style=" background:#FFF; padding:0; width:19.375%; width:-webkit-calc(20% - 2px); width:calc(5% - 2px); max-width: 100px;"> </blockquote> 
+                                                <button type="button" class="btn btn-primary btn-sm  " style="margin-bottom: 20px;">Add Anonymous Comments</button>
                                             </div> 
+
 
                                         @endforeach
 
