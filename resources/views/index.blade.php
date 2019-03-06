@@ -387,11 +387,7 @@
                                                 ============================================= -->
                                                 <div class="col-md-6">
                                                     <div class="feature-box media-box bottommargin">
-                                                        <div class="fbox-icon">
-                                                            <a href="#">
-                                                                <i class="icon-line2-book-open noradius nobg tleft"></i>
-                                                            </a>
-                                                        </div>
+                                                        
                                                         <div class="fbox-desc">
                                                             <h3 class="text-white">21,000 Online Courses</h3>
                                                             <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi rem, facilis nobis voluptatum est voluptatem accusamus molestiae eaque perspiciatis mollitia.</p>
@@ -403,11 +399,7 @@
                                                 ============================================= -->
                                                 <div class="col-md-6">
                                                     <div class="feature-box media-box bottommargin">
-                                                        <div class="fbox-icon">
-                                                            <a href="#">
-                                                                <i class="icon-line2-note noradius nobg tleft"></i>
-                                                            </a>
-                                                        </div>
+                                                        
                                                         <div class="fbox-desc">
                                                             <h3 class="text-white">Lifetime Access</h3>
                                                             <p class="text-white">Porro repellat vero sapiente amet vitae quibusdam necessitatibus consectetur, labore totam. Accusamus perspiciatis asperiores labore esse.</p>
@@ -419,11 +411,7 @@
                                                 ============================================= -->
                                                 <div class="col-md-6">
                                                     <div class="feature-box media-box bottommargin">
-                                                        <div class="fbox-icon">
-                                                            <a href="#">
-                                                                <i class="icon-line2-user noradius nobg tleft"></i>
-                                                            </a>
-                                                        </div>
+                                                        
                                                         <div class="fbox-desc">
                                                             <h3 class="text-white">Expert Instructors</h3>
                                                             <p class="text-white">Quos, non, esse eligendi ab accusantium voluptatem. Maxime eligendi beatae, atque tempora ullam. Vitae delectus quia, consequuntur rerum quo.</p>
@@ -435,11 +423,7 @@
                                                 ============================================= -->
                                                 <div class="col-md-6">
                                                     <div class="feature-box media-box bottommargin">
-                                                        <div class="fbox-icon">
-                                                            <a href="#">
-                                                                <i class="icon-line2-globe noradius nobg tleft"></i>
-                                                            </a>
-                                                        </div>
+                                                        
                                                         <div class="fbox-desc">
                                                             <h3 class="text-white">Different Languages</h3>
                                                             <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi rem, facilis nobis voluptatum est voluptatem accusamus molestiae eaque perspiciatis mollitia.</p>
@@ -456,10 +440,8 @@
 
                                             <div class="card shadow" data-animate="shake" style="opacity: 1 !important">
                                                 <div class="card-body">
-
-                                                    <div class="badge registration-badge shadow-sm alert-primary">FREE</div>
-                                                    <h4 class="card-title ls-1 mt-4 t700 h5">Get Your Free Online Courses!</h4>
-                                                    <h6 class="card-subtitle mb-4 t400 uppercase ls2 text-black-50">Free Registration here.</h6>
+ 
+                                                    <h4 class="card-title ls-1 mt-4 t700 h5">Register Yourself and Post a Topic!</h4> 
 
                                                     <div class="form-widget">
                                                         <div class="form-result"></div>
@@ -480,9 +462,9 @@
                                                             </div>
 
                                                             <div class="col_full">
-                                                                <button class="button button-rounded btn-block button-large bgcolor text-white nott ls0" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Apply It Now</button>
+                                                                <button class="button button-rounded btn-block button-large bgcolor text-white nott ls0" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Register</button>
                                                                 <br>
-                                                                <small style="display: block; font-size: 12px; margin-top: 15px; color: #AAA;"><em>We'll do our best to get back to you within 6-8 working hours.</em></small>
+                                                                <small style="display: block; font-size: 12px; margin-top: 15px; color: #AAA;"></small>
                                                             </div>
 
                                                             <div class="clear"></div>
@@ -509,25 +491,41 @@
 
                             </div>
 
+                            <br><br>
+                            <div id="posts" class="post-grid grid-container grid-2 clearfix" data-layout="fitRows">
+
+                                @foreach ($topics as $topic)
+                       
+                                    <div class="entry clearfix">
+                                       
+                                        <div class="entry-title">
+                                            <h2><a href="/t/{{ $topic->url }}/{{ str_replace(' ','_',$topic->topic_name) }}">{{ $topic->topic_name}}</a></h2>
+                                        </div>
+                                        <ul class="entry-meta clearfix">
+                                            <li><i class="icon-calendar3"></i> {{ $topic->created_at }}</li>
+
+                                            @if( $topic->comments > 0)
+                                                <li><i class="icon-comments"></i> {{ $topic->comments }}</li>
+                                            @endif
+                                            <li><i class="icon-picture"></i>{{ $topic->category }}</li>
+
+                                            <li><a target="_blank" href="/p/{{ $topic->user_code}}/{{ str_replace(' ','_',$topic->name) }}"><i class="icon-user"></i>{{ $topic->name }}</a></li>
+
+                                        </ul> 
+                                    </div> 
+
+                                @endforeach
+
+                            </div> 
+
                             <br>
 
                             <div  class="row" v-for="topic in topics" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
                                  
                                 <div class="col-12 col-md-12"  >
-                                    <div class="review-title">
-                                        <h4><a target="_blank" :href="'/t/' + topic.url + '/' + topic.topic_name.replace(/ /g,'_')" style="">@{{ topic.topic_name }}</a></h4>
-                                    </div>
-                                    <div class="review-content"> 
-                                        <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">
-                                        <img  v-if="topic.video" :src="'https://img.youtube.com/vi/' + topic.video + '/default.jpg'">
-
-                                        <p  v-html="topic.details"></p>
-                                    </div>
-                                    <ul class="entry-meta clearfix">
-                                    <li><i class="icon-calendar3"></i> @{{ topic.created_at }}</li>
-                                    <li><a target="_blank" href="#" :href="'/p/' + topic.user_code + '/' + topic.name.replace(/ /g,'_')"><i class="icon-user"></i> @{{ topic.name }}</a></li>
-                                    <li><i class="icon-folder-open"></i> <a @click="categorytopicsearch(topic)"   href="#">@{{ topic.category }}</a> </li>
-                                    <li v-if="topic.comments > 0"><a :href="'/t/' + topic.url"><i class="icon-comments"></i> @{{ topic.comments }} Reviews</a></li> 
+                                     
+                                    <ul class="entry-meta clearfix"> 
+                                    <li><a target="_blank" href="#" :href="'/p/' + topic.user_code + '/' + topic.name.replace(/ /g,'_')"><i class="icon-user"></i> @{{ topic.name }}</a></li> 
                                 </ul>
                                 </div>
                                 
