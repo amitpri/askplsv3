@@ -204,13 +204,13 @@
 
                                 <div class="colnobottommargin">
 
-                                    <h4>Youtube Videos Reviews - <a href="/youtube">All</a></h4> 
+                                    <h4>Pictures Reviews - <a href="/youtube">All</a></h4> 
 
                                     <ul class="clients-grid grid-5 nobottommargin clearfix">
 
                                         @foreach ($topics_images as $topic_images) 
 
-                                            <li><a href="http://logofury.com/logo/enzo.html" data-animate="fadeIn"><img src="images/clients/1.png" alt="Clients"></a></li> 
+                                            <li><a href="http://logofury.com/logo/enzo.html" data-animate="fadeIn"><img src="/storage/{{$topic_images->image}}" alt=""></a></li> 
 
                                         @endforeach
 
@@ -229,7 +229,7 @@
 
                                     @foreach ($topics_youtube as $topic_youtube) 
 
-                                            <li><a href="http://logofury.com/logo/enzo.html" data-animate="fadeIn"><img src="images/clients/1.png" alt="Clients"></a></li> 
+                                            <li><a href="http://logofury.com/logo/enzo.html" data-animate="fadeIn"><img src="https://img.youtube.com/vi/{{ $topic_youtube->video}}/default.jpg" alt="Clients"></a></li> 
 
                                         @endforeach
 
