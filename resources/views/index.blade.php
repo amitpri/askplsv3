@@ -250,19 +250,19 @@
 
                                             <div class="feature-box fbox-right noborder">
                                                 
-                                                <h3 class="nott ls0">Schools Reviews</h3>
+                                                <h3 class="nott ls0"><a href="/g/schools">Schools Reviews</a></h3>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, dolore, voluptates!</p>
                                             </div>
 
                                             <div class="feature-box fbox-right noborder mt-5">
                                                  
-                                                <h3 class="nott ls0">Colleges Reviews</h3>
+                                                <h3 class="nott ls0"><a href="/g/colleges">Colleges Reviews</a></h3>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, provident.</p>
                                             </div>
 
                                             <div class="feature-box fbox-right noborder mt-5">
                                                  
-                                                <h3 class="nott ls0">Companies Reviews</h3>
+                                                <h3 class="nott ls0"><a href="/g/companies">Companies Reviews</a></h3>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, ipsa!</p>
                                             </div>
 
@@ -276,19 +276,19 @@
 
                                             <div class="feature-box noborder">
                                                 
-                                                <h3 class="nott ls0">Doctors Reviews</h3>
+                                                <h3 class="nott ls0"><a href="/g/doctors">Doctors Reviews</a></h3>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, dolore, voluptates!</p>
                                             </div>
 
                                             <div class="feature-box noborder mt-5">
                                                  
-                                                <h3 class="nott ls0">Hotels Reviews</h3>
+                                                <h3 class="nott ls0"><a href="/g/hotels">Hotels Reviews</a></h3>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, ipsa!</p>
                                             </div>
 
                                             <div class="feature-box noborder mt-5">
                                                 
-                                                <h3 class="nott ls0">Restaurants Reviews</h3>
+                                                <h3 class="nott ls0"><a href="/g/restaurants">Restaurants Reviews</a></h3>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, provident.</p>
                                             </div>
 
