@@ -171,35 +171,7 @@
                             </div>
                             <br>
                             <div v-show="showspinner" class="text-center"><img src="/ajax_loader.gif"></div>
-
-                            <div class="container clearfix">
-
-                                <div class="col_full nobottommargin">
-
-                                    <h4>Instagram Pictures Reviews - <a href="/instagram">All</a></h4> 
-
-                                    <div class="container">
-                                      <div class="row">
-
-                                        @foreach ($topics_insta as $topic_insta)
-
-                                            <div class="col-sm" style=""> 
-
-                                                <blockquote class="instagram-media" data-instgrm-permalink="{{ $topic_insta->instagram}}" data-instgrm-version="9" style=" background:#FFF; padding:0; width:19.375%; width:-webkit-calc(20% - 2px); width:calc(5% - 2px); max-width: 100px;"> </blockquote> 
-                                                <button type="button" class="btn btn-primary btn-sm  " style="margin-bottom: 20px;">Add Anonymous Comments</button>
-                                            </div> 
-
-
-                                        @endforeach
-
-                                      </div>
-                                    </div> 
-
-                                </div> 
-
-                            </div>
-
-                            <br>
+ 
 
                             <div class="container clearfix">
 
@@ -237,6 +209,35 @@
                                 </div> 
 
                             </div>
+
+                            <div class="container clearfix">
+
+                                <div class="col_full nobottommargin">
+
+                                    <h4>Instagram Pictures Reviews - <a href="/instagram">All</a></h4> 
+
+                                    <div class="container">
+                                      <div class="row">
+
+                                        @foreach ($topics_insta as $topic_insta)
+
+                                            <div class="col-sm" style=""> 
+
+                                                <blockquote class="instagram-media" data-instgrm-permalink="{{ $topic_insta->instagram}}" data-instgrm-version="9" style=" background:#FFF; padding:0; width:19.375%; width:-webkit-calc(20% - 2px); width:calc(5% - 2px); max-width: 100px;"> </blockquote> 
+                                                <button type="button" class="btn btn-primary btn-sm  " style="margin-bottom: 20px;">Add Anonymous Comments</button>
+                                            </div> 
+
+
+                                        @endforeach
+
+                                      </div>
+                                    </div> 
+
+                                </div> 
+
+                            </div>
+
+                            <br>
 
                             <div class="section nobg mt-4 mb-0 pb-0">
                                 <div class="container">
@@ -372,141 +373,143 @@
 
                             <div class="section mt-5 mb-0" style="padding: 120px 0; background-image: url('demos/course/images/icon-pattern-bg.jpg'); background-size: auto; background-repeat: repeat">
 
-                    <!-- Wave Shape
-                    ============================================= -->
-                    <div class="wave-top" style="position: absolute; top: 0; left: 0; width: 100%; background-image: url('images/shape-dividers/wave-3.svg'); height: 12px; z-index: 2; background-repeat: repeat-x;"></div>
+                                <!-- Wave Shape
+                                ============================================= -->
+                                <div class="wave-top" style="position: absolute; top: 0; left: 0; width: 100%; background-image: url('images/shape-dividers/wave-3.svg'); height: 12px; z-index: 2; background-repeat: repeat-x;"></div>
 
-                    <div class="container">
-                        <div class="row">
+                                <div class="container">
+                                    <div class="row">
 
-                            <div class="col-lg-8">
-                                <div class="row dark clearfix">
+                                        <div class="col-lg-8">
+                                            <div class="row dark clearfix">
 
-                                    <!-- Feature - 1
-                                    ============================================= -->
-                                    <div class="col-md-6">
-                                        <div class="feature-box media-box bottommargin">
-                                            <div class="fbox-icon">
-                                                <a href="#">
-                                                    <i class="icon-line2-book-open noradius nobg tleft"></i>
-                                                </a>
-                                            </div>
-                                            <div class="fbox-desc">
-                                                <h3 class="text-white">21,000 Online Courses</h3>
-                                                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi rem, facilis nobis voluptatum est voluptatem accusamus molestiae eaque perspiciatis mollitia.</p>
+                                                <!-- Feature - 1
+                                                ============================================= -->
+                                                <div class="col-md-6">
+                                                    <div class="feature-box media-box bottommargin">
+                                                        <div class="fbox-icon">
+                                                            <a href="#">
+                                                                <i class="icon-line2-book-open noradius nobg tleft"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="fbox-desc">
+                                                            <h3 class="text-white">21,000 Online Courses</h3>
+                                                            <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi rem, facilis nobis voluptatum est voluptatem accusamus molestiae eaque perspiciatis mollitia.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Feature - 2
+                                                ============================================= -->
+                                                <div class="col-md-6">
+                                                    <div class="feature-box media-box bottommargin">
+                                                        <div class="fbox-icon">
+                                                            <a href="#">
+                                                                <i class="icon-line2-note noradius nobg tleft"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="fbox-desc">
+                                                            <h3 class="text-white">Lifetime Access</h3>
+                                                            <p class="text-white">Porro repellat vero sapiente amet vitae quibusdam necessitatibus consectetur, labore totam. Accusamus perspiciatis asperiores labore esse.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Feature - 3
+                                                ============================================= -->
+                                                <div class="col-md-6">
+                                                    <div class="feature-box media-box bottommargin">
+                                                        <div class="fbox-icon">
+                                                            <a href="#">
+                                                                <i class="icon-line2-user noradius nobg tleft"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="fbox-desc">
+                                                            <h3 class="text-white">Expert Instructors</h3>
+                                                            <p class="text-white">Quos, non, esse eligendi ab accusantium voluptatem. Maxime eligendi beatae, atque tempora ullam. Vitae delectus quia, consequuntur rerum quo.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Feature - 4
+                                                ============================================= -->
+                                                <div class="col-md-6">
+                                                    <div class="feature-box media-box bottommargin">
+                                                        <div class="fbox-icon">
+                                                            <a href="#">
+                                                                <i class="icon-line2-globe noradius nobg tleft"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="fbox-desc">
+                                                            <h3 class="text-white">Different Languages</h3>
+                                                            <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi rem, facilis nobis voluptatum est voluptatem accusamus molestiae eaque perspiciatis mollitia.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Feature - 2
-                                    ============================================= -->
-                                    <div class="col-md-6">
-                                        <div class="feature-box media-box bottommargin">
-                                            <div class="fbox-icon">
-                                                <a href="#">
-                                                    <i class="icon-line2-note noradius nobg tleft"></i>
-                                                </a>
-                                            </div>
-                                            <div class="fbox-desc">
-                                                <h3 class="text-white">Lifetime Access</h3>
-                                                <p class="text-white">Porro repellat vero sapiente amet vitae quibusdam necessitatibus consectetur, labore totam. Accusamus perspiciatis asperiores labore esse.</p>
+                                        <!-- Registration Foem
+                                        ============================================= -->
+                                        <div class="col-lg-4">
+
+                                            <div class="card shadow" data-animate="shake" style="opacity: 1 !important">
+                                                <div class="card-body">
+
+                                                    <div class="badge registration-badge shadow-sm alert-primary">FREE</div>
+                                                    <h4 class="card-title ls-1 mt-4 t700 h5">Get Your Free Online Courses!</h4>
+                                                    <h6 class="card-subtitle mb-4 t400 uppercase ls2 text-black-50">Free Registration here.</h6>
+
+                                                    <div class="form-widget">
+                                                        <div class="form-result"></div>
+
+                                                        <form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/form.php" method="post">
+
+                                                            <div class="form-process"></div>
+
+                                                            <div class="col_full">
+                                                                <input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control border-form-control required" placeholder="Your Full Name:" />
+                                                            </div>
+                                                            <div class="col_full">
+                                                                <input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email sm-form-control border-form-control" placeholder="Your Email Address:" />
+                                                            </div>
+
+                                                            <div class="col_full">
+                                                                <input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="sm-form-control border-form-control required" placeholder="Your Phone Number:" />
+                                                            </div>
+
+                                                            <div class="col_full">
+                                                                <button class="button button-rounded btn-block button-large bgcolor text-white nott ls0" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Apply It Now</button>
+                                                                <br>
+                                                                <small style="display: block; font-size: 12px; margin-top: 15px; color: #AAA;"><em>We'll do our best to get back to you within 6-8 working hours.</em></small>
+                                                            </div>
+
+                                                            <div class="clear"></div>
+
+                                                            <div class="col_full hidden">
+                                                                <input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
+                                                            </div>
+
+                                                            <input type="hidden" name="prefix" value="template-contactform-">
+
+                                                        </form>
+                                                    </div>
+
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Feature - 3
-                                    ============================================= -->
-                                    <div class="col-md-6">
-                                        <div class="feature-box media-box bottommargin">
-                                            <div class="fbox-icon">
-                                                <a href="#">
-                                                    <i class="icon-line2-user noradius nobg tleft"></i>
-                                                </a>
-                                            </div>
-                                            <div class="fbox-desc">
-                                                <h3 class="text-white">Expert Instructors</h3>
-                                                <p class="text-white">Quos, non, esse eligendi ab accusantium voluptatem. Maxime eligendi beatae, atque tempora ullam. Vitae delectus quia, consequuntur rerum quo.</p>
-                                            </div>
-                                        </div>
                                     </div>
-
-                                    <!-- Feature - 4
-                                    ============================================= -->
-                                    <div class="col-md-6">
-                                        <div class="feature-box media-box bottommargin">
-                                            <div class="fbox-icon">
-                                                <a href="#">
-                                                    <i class="icon-line2-globe noradius nobg tleft"></i>
-                                                </a>
-                                            </div>
-                                            <div class="fbox-desc">
-                                                <h3 class="text-white">Different Languages</h3>
-                                                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi rem, facilis nobis voluptatum est voluptatem accusamus molestiae eaque perspiciatis mollitia.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
+
+                                <!-- Wave Shape
+                                ============================================= -->
+                                <div class="wave-bottom" style="position: absolute; top: auto; bottom: 0; left: 0; width: 100%; background-image: url('images/shape-dividers/wave-3.svg'); height: 12px; z-index: 2; background-repeat: repeat-x; transform: rotate(180deg);"></div>
+
                             </div>
 
-                            <!-- Registration Foem
-                            ============================================= -->
-                            <div class="col-lg-4">
-
-                                <div class="card shadow" data-animate="shake" style="opacity: 1 !important">
-                                    <div class="card-body">
-
-                                        <div class="badge registration-badge shadow-sm alert-primary">FREE</div>
-                                        <h4 class="card-title ls-1 mt-4 t700 h5">Get Your Free Online Courses!</h4>
-                                        <h6 class="card-subtitle mb-4 t400 uppercase ls2 text-black-50">Free Registration here.</h6>
-
-                                        <div class="form-widget">
-                                            <div class="form-result"></div>
-
-                                            <form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/form.php" method="post">
-
-                                                <div class="form-process"></div>
-
-                                                <div class="col_full">
-                                                    <input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control border-form-control required" placeholder="Your Full Name:" />
-                                                </div>
-                                                <div class="col_full">
-                                                    <input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email sm-form-control border-form-control" placeholder="Your Email Address:" />
-                                                </div>
-
-                                                <div class="col_full">
-                                                    <input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="sm-form-control border-form-control required" placeholder="Your Phone Number:" />
-                                                </div>
-
-                                                <div class="col_full">
-                                                    <button class="button button-rounded btn-block button-large bgcolor text-white nott ls0" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Apply It Now</button>
-                                                    <br>
-                                                    <small style="display: block; font-size: 12px; margin-top: 15px; color: #AAA;"><em>We'll do our best to get back to you within 6-8 working hours.</em></small>
-                                                </div>
-
-                                                <div class="clear"></div>
-
-                                                <div class="col_full hidden">
-                                                    <input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
-                                                </div>
-
-                                                <input type="hidden" name="prefix" value="template-contactform-">
-
-                                            </form>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Wave Shape
-                    ============================================= -->
-                    <div class="wave-bottom" style="position: absolute; top: auto; bottom: 0; left: 0; width: 100%; background-image: url('images/shape-dividers/wave-3.svg'); height: 12px; z-index: 2; background-repeat: repeat-x; transform: rotate(180deg);"></div>
-
-                </div>
+                            <br>
 
                             <div  class="row" v-for="topic in topics" style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger" v-cloak >
                                  
