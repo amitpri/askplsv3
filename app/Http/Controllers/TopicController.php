@@ -68,35 +68,23 @@ class TopicController extends Controller
 
     public function index2(Request $request)
     {
-
-        $categories = ShowCategory::orderBy('order','asc')->get(['id','category','status']);
-
-        $categorytype = '';
-
-        $userid = "1";
-        $user_name ="";
-        $user_email ="";
-        $ipaddress = $request->getClientIp();
-        $page ="index";
-        $url_code ="";
-        $type ="";
-        $referrer ="";
  
-        $track = Track::create(
-                [   
-                    'user_id' => $userid,
-                    'user_name' => $user_name,
-                    'user_email' => $user_email,
-                    'ipaddress' => $ipaddress,   
-                    'page' => $page,
-                    'url' => $url_code,
-                    'type' => $type,
-                    'referrer' => $referrer,                              
-                ]);
+        $topics_insta = ShowTopic::where('status', '=' , 1)->where('type', '=' , 'public')
+                ->where('instagram', '<>' , "NULL")
+                ->take(6)
+                ->get(['id','url','instagram']);
 
-        $searchcategoryid = '';
+        $topics_images = ShowTopic::where('status', '=' , 1)->where('type', '=' , 'public')
+                ->where('image', '<>' , "NULL")
+                ->take(10)
+                ->get(['id','url','image']);
 
-        return view('index',compact('categories', 'categorytype', 'searchcategoryid'));
+        $topics_youtube = ShowTopic::where('status', '=' , 1)->where('type', '=' , 'public')
+                ->where('video', '<>' , "NULL")
+                ->take(10)
+                ->get(['id','url','video']);
+
+        return view('index',compact('topics_insta','topics_images','topics_youtube'));
    
     }
 
