@@ -349,11 +349,11 @@
                                 </div>
                             </div>
 
-                            <div class="section mt-5 mb-0" style="padding: 120px 0; background-image: url('demos/course/images/icon-pattern-bg.jpg'); background-size: auto; background-repeat: repeat">
+                            <div class="section mt-5 mb-0" style="padding: 120px 0; background-image: url('images/icon-pattern-bg.jpg'); background-size: auto; background-repeat: repeat">
 
                                 <!-- Wave Shape
                                 ============================================= -->
-                                <div class="wave-top" style="position: absolute; top: 0; left: 0; width: 100%; background-image: url('images/shape-dividers/wave-3.svg'); height: 12px; z-index: 2; background-repeat: repeat-x;"></div>
+                                <div class="wave-top" style="position: absolute; top: 0; left: 0; width: 100%; background-image: url('images/wave-3.svg'); height: 12px; z-index: 2; background-repeat: repeat-x;"></div>
 
                                 <div class="container">
                                     <div class="row">
@@ -465,12 +465,10 @@
 
                                 <!-- Wave Shape
                                 ============================================= -->
-                                <div class="wave-bottom" style="position: absolute; top: auto; bottom: 0; left: 0; width: 100%; background-image: url('images/shape-dividers/wave-3.svg'); height: 12px; z-index: 2; background-repeat: repeat-x; transform: rotate(180deg);"></div>
+                                <div class="wave-bottom" style="position: absolute; top: auto; bottom: 0; left: 0; width: 100%; background-image: url('images/wave-3.svg'); height: 12px; z-index: 2; background-repeat: repeat-x; transform: rotate(180deg);"></div>
 
                             </div>
- 
-
-
+  
 
                             <div class="section mt-5 footer-stick promo-section nobg" style="padding: 100px 0; overflow: visible">
                                 <div class="container">
