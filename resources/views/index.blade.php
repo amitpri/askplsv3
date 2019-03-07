@@ -213,11 +213,11 @@
                             </div> 
 
 
-                            <div class="section m-0" style="background: url('demos/seo/images/sections/5.png') no-repeat center top; background-size: cover; padding: 50px 0 0;">
+                            <div class="section m-0" style="background: url('demos/seo/images/sections/5.jpg') no-repeat center top; background-size: cover; padding: 50px 0 0;">
 
                                 <div class="container clearfix">
 
-                                    <div class="col_full nobottommargin" style=" border: 2px solid #EEE;border-radius: 5px;">
+                                    <div class="col_full nobottommargin"  >
 
                                         <div class="heading-block nobottomborder center divcenter mb-0 clearfix" style="max-width: 550px"> 
                                             <h4 class="nott ls0 mb-3">Instagram Pictures Reviews - <a href="/instagram">All</a></h4> 
