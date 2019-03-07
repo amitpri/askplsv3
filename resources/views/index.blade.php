@@ -349,16 +349,6 @@
                                 </div>
                             </div>
 
-                            <div class="section mt-5 footer-stick promo-section nobg" style="padding: 100px 0; overflow: visible">
-                                <div class="container">
-                                    <div class="heading-block nobottomborder center">
-                                        <h5 class="uppercase ls1 mb-1">Grab your Free Trail and Explore the Options</h5>
-                                        <h2 class="nott ls0">Try Keyword Search 30 Days Free With Canvas<span>SEO</span></h2>
-                                        <a href="#" class="button button-large button-rounded nott ml-0 ls0 mt-4">Contact Us Now</a>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="section mt-5 mb-0" style="padding: 120px 0; background-image: url('demos/course/images/icon-pattern-bg.jpg'); background-size: auto; background-repeat: repeat">
 
                                 <!-- Wave Shape
@@ -480,6 +470,20 @@
                             </div>
 
                             <br><br>
+
+
+
+                            <div class="section mt-5 footer-stick promo-section nobg" style="padding: 100px 0; overflow: visible">
+                                <div class="container">
+                                    <div class="heading-block nobottomborder center">
+                                        <h5 class="uppercase ls1 mb-1">Grab your Free Trail and Explore the Options</h5>
+                                        <h2 class="nott ls0">Create your own topic and get <span>Anonymous </span>feedbacks</h2>
+                                        <a href="#" class="button button-large button-rounded nott ml-0 ls0 mt-4">Create Topic</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br>
                             <div id="posts" class="post-grid grid-container grid-2 clearfix" data-layout="fitRows">
 
                                 @foreach ($topics as $topic)
