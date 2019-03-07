@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\Redis;
 
 class TopicController extends Controller
 {
-    public function index(Request $request)
+    public function topics(Request $request)
     {
 
         $categories = ShowCategory::orderBy('order','asc')->get(['id','category','status']);
@@ -66,7 +66,7 @@ class TopicController extends Controller
    
     }
 
-    public function index2(Request $request)
+    public function index(Request $request)
     {
  
         $topics_insta = ShowTopic::where('status', '=' , 1)->where('type', '=' , 'public')

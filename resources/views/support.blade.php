@@ -106,7 +106,8 @@
                             <nav id="primary-menu" class="with-arrows fnone clearfix">
 
                                 <ul> 
-                                    <li><a href="/t"><div>Home</div></a></li> 
+                                    <li><a href="/"><div>Home</div></a></li> 
+                                    <li><a href="/topics"><div>Topics</div></a></li> 
                                     <li><a href="/about"><div>About AskPls</div></a></li> 
                                     <li><a href="/prices"><div>Prices</div></a></li> 
                                     <li><a href="/support"><div>Support</div></a></li>
