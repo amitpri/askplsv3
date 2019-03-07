@@ -177,7 +177,7 @@
 
                                             @foreach ($topics_images as $topic_images) 
 
-                                                <li><a href="/t/{{ $topic_images->url}}/{{ str_replace(' ','_',$topic->topic_images)}}" data-animate="fadeIn"><img src="/storage/{{$topic_images->image}}" width="100px" max-height="100px;" alt=""></a></li> 
+                                                <li><a target="_blank" href="/t/{{ $topic_images->url}}/{{ str_replace(' ','_',$topic->topic_images)}}" data-animate="fadeIn"><img src="/storage/{{$topic_images->image}}" width="100px" max-height="100px;" alt=""></a></li> 
 
                                             @endforeach
 
@@ -201,7 +201,7 @@
 
                                     @foreach ($topics_youtube as $topic_youtube) 
 
-                                            <li><a href="/t/{{ $topic_youtube->url}}/{{ str_replace(' ','_',$topic_youtube->topic_name)}}" data-animate="fadeIn"><img src="https://img.youtube.com/vi/{{ $topic_youtube->video}}/default.jpg" alt="Clients"></a></li> 
+                                            <li><a target="_blank" href="/t/{{ $topic_youtube->url}}/{{ str_replace(' ','_',$topic_youtube->topic_name)}}" data-animate="fadeIn"><img src="https://img.youtube.com/vi/{{ $topic_youtube->video}}/default.jpg" alt="Clients"></a></li> 
 
                                     @endforeach
                                     </ul>
@@ -229,7 +229,8 @@
                                                 <div class="col-sm" style=""> 
 
                                                     <blockquote class="instagram-media" data-instgrm-permalink="{{ $topic_insta->instagram}}" data-instgrm-version="9" style=" background:#FFF; padding:0; width:19.375%; width:-webkit-calc(20% - 2px); width:calc(5% - 2px); max-width: 100px;"> </blockquote> 
-                                                    <a class="btn btn-outline-primary btn-sm  " style="margin-bottom: 20px;" href="/t/{{ $topic_insta->url}}/{{ str_replace(' ','_',$topic_insta->topic_name)}}">Add Anonymous Comments</a> 
+
+                                                    <a target="_blank" class="btn btn-outline-primary btn-sm  " style="margin-bottom: 20px;" href="/t/{{ $topic_insta->url}}/{{ str_replace(' ','_',$topic_insta->topic_name)}}">Add Anonymous Comments</a> 
                                                 </div> 
 
 
