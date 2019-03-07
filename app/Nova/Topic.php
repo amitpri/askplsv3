@@ -90,7 +90,7 @@ class Topic extends Resource
  
                   //  Image::make('Image')->disk('public')->hideFromIndex()->hideFromDetail(),
 
-                    AdvancedImage::make('Image')->disk('public')->croppable()->resize(600,600),
+                    AdvancedImage::make('Image')->disk('public')->croppable(1/1)->resize(600,600),
 
                     Text::make('Instagram')->sortable()->hideFromIndex(),
 
@@ -195,7 +195,7 @@ class Topic extends Resource
                     ])->hideFromIndex(),
      
                     //Image::make('Image')->disk('public')->hideFromIndex()->hideFromDetail(),
-                    AdvancedImage::make('Image')->disk('public')->croppable()->resize(600,600),
+                    AdvancedImage::make('Image')->disk('public')->croppable(1/1)->resize(600,600),
 
                     Text::make('Instagram')->sortable()->hideFromIndex(),
 
@@ -271,7 +271,7 @@ class Topic extends Resource
                         ],
                     ])->hideFromIndex(),
       
-                    AdvancedImage::make('Image')->disk('public')->croppable()->resize(600,600),
+                    AdvancedImage::make('Image')->disk('public')->croppable(1/1)->resize(600,600),
 
                     Text::make('Instagram')->sortable()->hideFromIndex(),
 
