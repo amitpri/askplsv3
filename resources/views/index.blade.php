@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="/style.css" type="text/css" />  
     <link rel="stylesheet" href="/askpls.css" type="text/css" />
-
-    <link rel="stylesheet" href="/css/font-icons.css" type="text/css" />
-    <link rel="stylesheet" href="/css/animate.css" type="text/css" /> 
+  
  
     <link rel="stylesheet" href="/askplsfonts.css" type="text/css" />
 
