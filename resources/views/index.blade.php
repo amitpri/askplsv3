@@ -252,19 +252,19 @@
                                             <div class="feature-box fbox-right noborder">
                                                 
                                                 <h3 class="nott ls0"><a href="/g/schools">Schools Reviews</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, dolore, voluptates!</p>
+                                                <p>Customized solutions for schools to understand how are the teachers, and what parents are thinking.</p>
                                             </div>
 
                                             <div class="feature-box fbox-right noborder mt-5">
                                                  
-                                                <h3 class="nott ls0"><a href="/g/colleges">Colleges Reviews</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, provident.</p>
+                                                <h3 class="nott ls0"><a href="/g/colleges">Doctors Reviews</a></h3>
+                                                <p>Understands the genuine patients feedback for a doctor or hospital.</p>
                                             </div>
 
                                             <div class="feature-box fbox-right noborder mt-5">
                                                  
                                                 <h3 class="nott ls0"><a href="/g/companies">Companies Reviews</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, ipsa!</p>
+                                                <p>Understands employees feedbacks, Get HR initiatives feedbacks, appraisal process reviews</p>
                                             </div>
 
                                         </div>
@@ -277,20 +277,20 @@
 
                                             <div class="feature-box noborder">
                                                 
-                                                <h3 class="nott ls0"><a href="/g/doctors">Doctors Reviews</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, dolore, voluptates!</p>
+                                                <h3 class="nott ls0"><a href="/g/doctors">Colleges Reviews</a></h3>
+                                                <p>College based feedbacks for understanding students thoughts on different teachers and overall improvements.</p>
                                             </div>
 
                                             <div class="feature-box noborder mt-5">
                                                  
                                                 <h3 class="nott ls0"><a href="/g/hotels">Hotels Reviews</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, ipsa!</p>
+                                                <p>Room Quality, events, new year bashing!! Understand it first and then decide</p>
                                             </div>
 
                                             <div class="feature-box noborder mt-5">
                                                 
                                                 <h3 class="nott ls0"><a href="/g/restaurants">Restaurants Reviews</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, provident.</p>
+                                                <p>How is the food, how did staff behave with customers.</p>
                                             </div>
 
                                         </div>
@@ -468,15 +468,14 @@
                                 <div class="wave-bottom" style="position: absolute; top: auto; bottom: 0; left: 0; width: 100%; background-image: url('images/shape-dividers/wave-3.svg'); height: 12px; z-index: 2; background-repeat: repeat-x; transform: rotate(180deg);"></div>
 
                             </div>
-
-                            <br><br>
+ 
 
 
 
                             <div class="section mt-5 footer-stick promo-section nobg" style="padding: 100px 0; overflow: visible">
                                 <div class="container">
                                     <div class="heading-block nobottomborder center">
-                                        <h5 class="uppercase ls1 mb-1">Grab your Free Trail and Explore the Options</h5>
+                                        <h5 class="uppercase ls1 mb-1">Leave no chance and understands what other thinks of you.</h5>
                                         <h2 class="nott ls0">Create your own topic and get <span>Anonymous </span>feedbacks</h2>
                                         <a href="#" class="button button-large button-rounded nott ml-0 ls0 mt-4">Create Topic</a>
                                     </div>
