@@ -7,7 +7,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Playfair+Display:700,700i,900" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="/style.css" type="text/css" />  
+    <link rel="stylesheet" href="/style_mini.css" type="text/css" />  
     <link rel="stylesheet" href="/askpls.css" type="text/css" />
 
     <link rel="stylesheet" href="/css/font-icons.css" type="text/css" />
