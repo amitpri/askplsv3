@@ -163,12 +163,12 @@
 
                             </div> 
 
-                            <div class="section m-0" style="background: url('demos/seo/images/sections/4.png') no-repeat center top; background-size: cover; padding: 140px 0 0;">
+                            <div class="section m-0" style="background: url('demos/seo/images/sections/4.png') no-repeat center top; background-size: cover; padding: 50px 0 0;">
 
-                                <div class="container clearfix" style="border: 2px bold red;">
+                                <div class="container clearfix"  >
 
                                     
-                                    <div class="colnobottommargin"  style="background-color: #FFF;border: 1px solid blue;margin-bottom: 10px;border-radius: 0px;">
+                                    <div class="colnobottommargin"  style="background-color:  border: 1px solid blue;margin-bottom: 10px;border-radius: 0px;">
 
                                          <div class="heading-block nobottomborder center divcenter mb-0 clearfix" style="max-width: 550px"> 
                                             <h4 class="nott ls0 mb-3">Pictures Reviews - <a href="/youtube">All</a></h4> 
