@@ -191,52 +191,61 @@
 
                             </div>
 
-                            <div class="container clearfix">
+                            <div class="section m-0" style="padding: 50px 0 0;" >
 
-                                <div class="colnobottommargin" style="background-color: #FFF;border: 2px solid #EEE; margin-bottom: 10px;border-radius: 5px;"> 
-                                    <div class="heading-block nobottomborder center divcenter mb-0 clearfix" style="max-width: 550px"> 
-                                        <h4 class="nott ls0 mb-3">Youtube Videos Reviews- <a href="/youtube">All</a></h4> 
+                                <div class="container clearfix">
+
+                                    <div class="colnobottommargin" style="background-color: #FFF;border: 2px solid #EEE; margin-bottom: 10px;border-radius: 5px;"> 
+                                        <div class="heading-block nobottomborder center divcenter mb-0 clearfix" style="max-width: 550px"> 
+                                            <h4 class="nott ls0 mb-3">Youtube Videos Reviews- <a href="/youtube">All</a></h4> 
+                                        </div> 
+
+                                        <ul class="clients-grid grid-5 nobottommargin clearfix">
+
+                                        @foreach ($topics_youtube as $topic_youtube) 
+
+                                                <li><a href="" data-animate="fadeIn"><img src="https://img.youtube.com/vi/{{ $topic_youtube->video}}/default.jpg" alt="Clients"></a></li> 
+
+                                        @endforeach
+                                        </ul>
+
                                     </div> 
 
-                                    <ul class="clients-grid grid-5 nobottommargin clearfix">
-
-                                    @foreach ($topics_youtube as $topic_youtube) 
-
-                                            <li><a href="" data-animate="fadeIn"><img src="https://img.youtube.com/vi/{{ $topic_youtube->video}}/default.jpg" alt="Clients"></a></li> 
-
-                                    @endforeach
-                                    </ul>
-
-                                </div> 
+                                </div>
 
                             </div>
 
-                            <div class="container clearfix">
 
-                                <div class="col_full nobottommargin" style="background-color: #FFF;border: 2px solid #EEE;border-radius: 5px;">
+                            <div class="section m-0" style="background: url('demos/seo/images/sections/5.png') no-repeat center top; background-size: cover; padding: 50px 0 0;">
 
-                                    <div class="heading-block nobottomborder center divcenter mb-0 clearfix" style="max-width: 550px"> 
-                                        <h4 class="nott ls0 mb-3">Instagram Pictures Reviews - <a href="/instagram">All</a></h4> 
-                                    </div>  
+                                <div class="container clearfix">
 
-                                    <div class="container">
-                                      <div class="row">
+                                    <div class="col_full nobottommargin" style="background-color: #FFF;border: 2px solid #EEE;border-radius: 5px;">
 
-                                        @foreach ($topics_insta as $topic_insta)
+                                        <div class="heading-block nobottomborder center divcenter mb-0 clearfix" style="max-width: 550px"> 
+                                            <h4 class="nott ls0 mb-3">Instagram Pictures Reviews - <a href="/instagram">All</a></h4> 
+                                        </div>  
 
-                                            <div class="col-sm" style=""> 
+                                        <div class="container">
+                                          <div class="row">
 
-                                                <blockquote class="instagram-media" data-instgrm-permalink="{{ $topic_insta->instagram}}" data-instgrm-version="9" style=" background:#FFF; padding:0; width:19.375%; width:-webkit-calc(20% - 2px); width:calc(5% - 2px); max-width: 100px;"> </blockquote> 
-                                                <button type="button" class="btn btn-outline-primary btn-sm  " style="margin-bottom: 20px;">Add Anonymous Comments</button>
-                                            </div> 
+                                            @foreach ($topics_insta as $topic_insta)
+
+                                                <div class="col-sm" style=""> 
+
+                                                    <blockquote class="instagram-media" data-instgrm-permalink="{{ $topic_insta->instagram}}" data-instgrm-version="9" style=" background:#FFF; padding:0; width:19.375%; width:-webkit-calc(20% - 2px); width:calc(5% - 2px); max-width: 100px;"> </blockquote> 
+                                                    <button type="button" class="btn btn-outline-primary btn-sm  " style="margin-bottom: 20px;">Add Anonymous Comments</button>
+                                                </div> 
 
 
-                                        @endforeach
+                                            @endforeach
 
-                                      </div>
+                                          </div>
+                                        </div> 
+
                                     </div> 
 
-                                </div> 
+                                </div>
 
                             </div>
 
