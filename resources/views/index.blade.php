@@ -257,19 +257,19 @@
 
                                         <div class="col-lg-4 col-sm-6">
 
-                                            <div class="feature-box fbox-right noborder">
+                                            <div class="feature-box noborder">
                                                 
                                                 <h3 class="nott ls0"><a href="/g/schools">Schools Reviews</a></h3>
                                                 <p>Customized solutions for schools to understand how are the teachers, and what parents are thinking.</p>
                                             </div>
 
-                                            <div class="feature-box fbox-right noborder mt-5">
+                                            <div class="feature-box noborder mt-5">
                                                  
                                                 <h3 class="nott ls0"><a href="/g/colleges">Doctors Reviews</a></h3>
                                                 <p>Understands the genuine patients feedback for a doctor or hospital.</p>
                                             </div>
 
-                                            <div class="feature-box fbox-right noborder mt-5">
+                                            <div class="feature-box  noborder mt-5">
                                                  
                                                 <h3 class="nott ls0"><a href="/g/companies">Companies Reviews</a></h3>
                                                 <p>Understands employees feedbacks, Get HR initiatives feedbacks, appraisal process reviews</p>
