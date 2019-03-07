@@ -193,7 +193,7 @@
 		 				@if(isset($topic->video))
  
 							<iframe  width="640" height="360" class="embed-responsive-item" 
-						  		src="https://www.youtube.com/embed/{{ topic.video }}" ></iframe> 
+						  		src="https://www.youtube.com/embed/{{ $topic->video }}" ></iframe> 
 		 				
 		 				@endif
 
