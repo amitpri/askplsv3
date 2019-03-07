@@ -72,17 +72,17 @@ class TopicController extends Controller
         $topics_insta = ShowTopic::where('status', '=' , 1)->where('type', '=' , 'public')
                 ->where('instagram', '<>' , "NULL")
                 ->take(4)
-                ->get(['id','url','instagram']);
+                ->get(['id', 'topic_name','url','instagram']);
 
         $topics_images = ShowTopic::where('status', '=' , 1)->where('type', '=' , 'public')
                 ->where('image', '<>' , "NULL")
                 ->take(10)
-                ->get(['id','url','image']);
+                ->get(['id', 'topic_name','url','image']);
 
         $topics_youtube = ShowTopic::where('status', '=' , 1)->where('type', '=' , 'public')
                 ->where('video', '<>' , "NULL")
                 ->take(10)
-                ->get(['id','url','video']);
+                ->get(['id' , 'topic_name','url','video']);
 
         $topics = DB::select("SELECT  a.`id`,b.`user_code` , a.`url` , a.`user_id`,  a.`topic_name`,  a.`details` , c.`category`, c.`id` as category_id, b.`name`, a.`video` ,a.`image` , DATE_FORMAT(a.`created_at`, '%d %b %Y') created_at, a.`comments`
                                     FROM `topics` a ,  `users` b,  `categories` c 

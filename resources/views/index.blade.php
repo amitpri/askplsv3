@@ -170,14 +170,14 @@
                                     <div class="colnobottommargin"  style="background-color:  border: 1px solid blue;margin-bottom: 10px;border-radius: 0px;">
 
                                          <div class="heading-block nobottomborder center divcenter mb-0 clearfix" style="max-width: 550px"> 
-                                            <h4 class="nott ls0 mb-3">Pictures Reviews - <a href="/youtube">All</a></h4> 
+                                            <h4 class="nott ls0 mb-3">Pictures Reviews - <a href="/pictures">All</a></h4> 
                                         </div> 
 
                                         <ul class="clients-grid grid-5 nobottommargin clearfix">
 
                                             @foreach ($topics_images as $topic_images) 
 
-                                                <li><a href=" " data-animate="fadeIn"><img src="/storage/{{$topic_images->image}}" width="100px" max-height="100px;" alt=""></a></li> 
+                                                <li><a href="/t/{{ $topic_images->url}}/{{ str_replace(' ','_',$topic->topic_images)}}" data-animate="fadeIn"><img src="/storage/{{$topic_images->image}}" width="100px" max-height="100px;" alt=""></a></li> 
 
                                             @endforeach
 
@@ -190,7 +190,6 @@
 
                             </div>
  
-
                             <div class="container clearfix" style="margin-top: 20px;">
 
                                 <div class="colnobottommargin" style="background-color: #FFF;border: 2px solid #EEE; margin-bottom: 10px;border-radius: 5px;"> 
@@ -202,7 +201,7 @@
 
                                     @foreach ($topics_youtube as $topic_youtube) 
 
-                                            <li><a href="" data-animate="fadeIn"><img src="https://img.youtube.com/vi/{{ $topic_youtube->video}}/default.jpg" alt="Clients"></a></li> 
+                                            <li><a href="/t/{{ $topic_youtube->url}}/{{ str_replace(' ','_',$topic_youtube->topic_name)}}" data-animate="fadeIn"><img src="https://img.youtube.com/vi/{{ $topic_youtube->video}}/default.jpg" alt="Clients"></a></li> 
 
                                     @endforeach
                                     </ul>
@@ -230,7 +229,7 @@
                                                 <div class="col-sm" style=""> 
 
                                                     <blockquote class="instagram-media" data-instgrm-permalink="{{ $topic_insta->instagram}}" data-instgrm-version="9" style=" background:#FFF; padding:0; width:19.375%; width:-webkit-calc(20% - 2px); width:calc(5% - 2px); max-width: 100px;"> </blockquote> 
-                                                    <button type="button" class="btn btn-outline-primary btn-sm  " style="margin-bottom: 20px;">Add Anonymous Comments</button>
+                                                    <a class="btn btn-outline-primary btn-sm  " style="margin-bottom: 20px;" href="/t/{{ $topic_insta->url}}/{{ str_replace(' ','_',$topic_insta->topic_name)}}">Add Anonymous Comments</a> 
                                                 </div> 
 
 
