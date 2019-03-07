@@ -311,22 +311,16 @@
 
                                             <div class="feature-box fbox-right noborder">
                                                 
-                                                <h3 class="nott ls0">Personal Topics</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <h3 class="nott ls0">Personal Topics</h3> 
+                                                <p>How do I look in this Instagram picture?</p> 
+                                                <p>ohh!! I love her so much. What to do? </p> 
                                             </div>
 
                                             <div class="feature-box fbox-right noborder mt-5">
                                                 
                                                 <h3 class="nott ls0">Political Topics</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Rafael deal? really an issue?</p>
+                                                <p>When will court complete hearing on Ram Temple</p> 
                                             </div>
 
                                         </div> 
@@ -336,11 +330,8 @@
                                             <div class="feature-box noborder">
                                                
                                                 <h3 class="nott ls0">Current Affairs Topics</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>India and Pak conflict</p>
+                                                <p>H1B policy</p> 
                                             </div> 
 
 
@@ -348,11 +339,8 @@
                                             <div class="feature-box  noborder mt-5">
                                               
                                                 <h3 class="nott ls0">Movies Topics</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                                <p>Feedback for Manmarziyaan</p>
+                                                <p>Amitabh new movie</p> 
                                             </div>
 
                                         </div>
