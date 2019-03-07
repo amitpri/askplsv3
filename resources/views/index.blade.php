@@ -309,14 +309,14 @@
 
                                         <div class="col-lg-6 col-sm-6">
 
-                                            <div class="feature-box fbox-right noborder">
+                                            <div class="feature-box noborder">
                                                 
                                                 <h3 class="nott ls0">Personal Topics</h3> 
                                                 <p>How do I look in this Instagram picture?</p> 
                                                 <p>ohh!! I love her so much. What to do? </p> 
                                             </div>
 
-                                            <div class="feature-box fbox-right noborder mt-5">
+                                            <div class="feature-box   noborder mt-5">
                                                 
                                                 <h3 class="nott ls0">Political Topics</h3>
                                                 <p>Rafael deal? really an issue?</p>
@@ -487,7 +487,7 @@
                                     <div class="entry clearfix">
                                        
                                         <div class="entry-title">
-                                            <h2><a href="/t/{{ $topic->url }}/{{ str_replace(' ','_',$topic->topic_name) }}">{{ $topic->topic_name}}</a></h2>
+                                            <h4><a href="/t/{{ $topic->url }}/{{ str_replace(' ','_',$topic->topic_name) }}">{{ $topic->topic_name}}</a></h4>
                                         </div>
                                         <ul class="entry-meta clearfix">
                                             <li><i class="icon-calendar3"></i> {{ $topic->created_at }}</li>
