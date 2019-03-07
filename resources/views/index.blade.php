@@ -5,7 +5,6 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="AskPls" />
 
-    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Playfair+Display:700,700i,900" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="/style.css" type="text/css" />  
     <link rel="stylesheet" href="/askpls.css" type="text/css" />
@@ -19,9 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/colors.php?color=1c85e8" type="text/css" /> 
 
-    <script async src="embed.js"></script> 
-
-    <script src="https://cdn.jsdelivr.net/npm/places.js@1.15.4"></script>
+    <script async src="embed.js"></script>  
  
 
     @include('analytics')
