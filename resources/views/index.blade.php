@@ -190,37 +190,34 @@
                                 </div>
 
                             </div>
+ 
 
-                            <div class="section m-0" style="padding: 50px 0 0;" >
+                            <div class="container clearfix" style="margin-top: 20px;">
 
-                                <div class="container clearfix">
-
-                                    <div class="colnobottommargin" style="background-color: #FFF;border: 2px solid #EEE; margin-bottom: 10px;border-radius: 5px;"> 
-                                        <div class="heading-block nobottomborder center divcenter mb-0 clearfix" style="max-width: 550px"> 
-                                            <h4 class="nott ls0 mb-3">Youtube Videos Reviews- <a href="/youtube">All</a></h4> 
-                                        </div> 
-
-                                        <ul class="clients-grid grid-5 nobottommargin clearfix">
-
-                                        @foreach ($topics_youtube as $topic_youtube) 
-
-                                                <li><a href="" data-animate="fadeIn"><img src="https://img.youtube.com/vi/{{ $topic_youtube->video}}/default.jpg" alt="Clients"></a></li> 
-
-                                        @endforeach
-                                        </ul>
-
+                                <div class="colnobottommargin" style="background-color: #FFF;border: 2px solid #EEE; margin-bottom: 10px;border-radius: 5px;"> 
+                                    <div class="heading-block nobottomborder center divcenter mb-0 clearfix" style="max-width: 550px"> 
+                                        <h4 class="nott ls0 mb-3">Youtube Videos Reviews- <a href="/youtube">All</a></h4> 
                                     </div> 
 
-                                </div>
+                                    <ul class="clients-grid grid-5 nobottommargin clearfix">
 
-                            </div>
+                                    @foreach ($topics_youtube as $topic_youtube) 
+
+                                            <li><a href="" data-animate="fadeIn"><img src="https://img.youtube.com/vi/{{ $topic_youtube->video}}/default.jpg" alt="Clients"></a></li> 
+
+                                    @endforeach
+                                    </ul>
+
+                                </div> 
+
+                            </div> 
 
 
                             <div class="section m-0" style="background: url('demos/seo/images/sections/5.png') no-repeat center top; background-size: cover; padding: 50px 0 0;">
 
                                 <div class="container clearfix">
 
-                                    <div class="col_full nobottommargin" style="background-color: #FFF;border: 2px solid #EEE;border-radius: 5px;">
+                                    <div class="col_full nobottommargin" style=" border: 2px solid #EEE;border-radius: 5px;">
 
                                         <div class="heading-block nobottomborder center divcenter mb-0 clearfix" style="max-width: 550px"> 
                                             <h4 class="nott ls0 mb-3">Instagram Pictures Reviews - <a href="/instagram">All</a></h4> 
