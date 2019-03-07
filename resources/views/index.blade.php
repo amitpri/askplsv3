@@ -377,8 +377,8 @@
                                                     <div class="feature-box media-box bottommargin">
                                                         
                                                         <div class="fbox-desc">
-                                                            <h3 class="text-white">21,000 Online Courses</h3>
-                                                            <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi rem, facilis nobis voluptatum est voluptatem accusamus molestiae eaque perspiciatis mollitia.</p>
+                                                            <h3 class="text-white">Unlimited Topics</h3>
+                                                            <p class="text-white">Create unlimited topics and get honest reviews from people on any subject ranging from personal choices to political stuffs.</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -389,8 +389,8 @@
                                                     <div class="feature-box media-box bottommargin">
                                                         
                                                         <div class="fbox-desc">
-                                                            <h3 class="text-white">Lifetime Access</h3>
-                                                            <p class="text-white">Porro repellat vero sapiente amet vitae quibusdam necessitatibus consectetur, labore totam. Accusamus perspiciatis asperiores labore esse.</p>
+                                                            <h3 class="text-white">Private and Public Topics</h3>
+                                                            <p class="text-white">Have full control over who can give you feedbacks. Either show it to the world or get it in private.</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -401,8 +401,8 @@
                                                     <div class="feature-box media-box bottommargin">
                                                         
                                                         <div class="fbox-desc">
-                                                            <h3 class="text-white">Expert Instructors</h3>
-                                                            <p class="text-white">Quos, non, esse eligendi ab accusantium voluptatem. Maxime eligendi beatae, atque tempora ullam. Vitae delectus quia, consequuntur rerum quo.</p>
+                                                            <h3 class="text-white">Professional Feedbacks</h3>
+                                                            <p class="text-white">Get feedbacks from your organization people. Customized solutions for Companies, schools, colleges, doctors and many more</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -413,8 +413,8 @@
                                                     <div class="feature-box media-box bottommargin">
                                                         
                                                         <div class="fbox-desc">
-                                                            <h3 class="text-white">Different Languages</h3>
-                                                            <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi rem, facilis nobis voluptatum est voluptatem accusamus molestiae eaque perspiciatis mollitia.</p>
+                                                            <h3 class="text-white">Full Support</h3>
+                                                            <p class="text-white">Full support for professional topics. Get customized solutions for your specific needs.</p>
                                                         </div>
                                                     </div>
                                                 </div>
