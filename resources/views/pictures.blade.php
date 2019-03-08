@@ -243,9 +243,11 @@
 
                         @endforeach
 
-                         <div  class="row" style="float: right;"> {{ $topics->links() }}</div>
+
  
                     </div><!-- #shop end -->
+
+                    <div  class="row" style="float: right;"> {{ $topics->links() }}</div>
 
                 </div>
 
