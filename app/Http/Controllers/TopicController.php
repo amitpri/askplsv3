@@ -1957,6 +1957,14 @@ class TopicController extends Controller
                                             AND a.`type` = 'public' 
                                             ORDER BY a.`updated_at` DESC
                                             limit 50"); 
+        $topics = DB::table('topics')
+                        ->join('users','topics.user_id','=','users.id') 
+                        ->where('topics.type','public') 
+                        ->where('topics.image','<>', '')
+                        ->where('topics.status',1) 
+                        ->orderBy('topics.updated_at','desc')
+                        ->select('topics.id', 'topics.url',  'topics.topic_name',  'topics.image',   'users.user_code' , 'users.name')
+                        ->simplePaginate(20); 
 
         return view('pictures',compact('topics')); 
     }
