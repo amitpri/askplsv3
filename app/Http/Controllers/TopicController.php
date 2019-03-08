@@ -1246,7 +1246,7 @@ class TopicController extends Controller
                                     (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
                                     (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name, 
                                     b.`fitnesscenterkey` as profilekey
-                                        FROM `topic_categories` a ,  `fitnesscenters` b , `users` c
+                                        FROM `topic_categories` a ,  `fitness_centers` b , `users` c
                                         WHERE a.`url` = :url
                                         AND a.`user_id` = c.`id`
                                         AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
