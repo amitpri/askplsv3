@@ -236,15 +236,13 @@
                                     <a href="#"><img src="/storage/{{ $topic->image}}" alt="{{ $topic->topic_name}}"></a> 
                                 </div>
                                 <div class="product-desc">
-                                    <div class="product-title"><h3><a href="#">Checked Short Dress</a></h3></div>
-                                    <div class="product-price"><ins><a href="">$12.49</a></ins></div> 
+                                    <div class="product-title"><h6><a href="#">{{ $topic->topic_name}}</a></h6></div>
+                                    <div class="product-price"><ins><h6><a href="">{{ $topic->name}}</a><h6></ins></div> 
                                 </div>
                             </div> 
 
                         @endforeach
-
-
-
+ 
                     </div><!-- #shop end -->
 
                 </div>
