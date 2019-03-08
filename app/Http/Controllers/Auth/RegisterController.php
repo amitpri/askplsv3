@@ -81,7 +81,9 @@ class RegisterController extends Controller
     public function showRegistrationForm(Request $request)
     {
         $req_emailid = $request->emailid;
+        $req_name = $request->name;
+        $req_phone = $request->phone;
 
-        return view('auth.register',compact('req_emailid'));
+        return view('auth.register',compact('req_emailid','req_name','req_phone'));
     } 
 }

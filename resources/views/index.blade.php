@@ -429,37 +429,30 @@
  
                                                     <h4 class="card-title ls-1 mt-4 t700 h5">Register Yourself and Post a Topic!</h4> 
 
-                                                    <div class="form-widget">
-                                                        <div class="form-result"></div>
+                                                    <div class="form-widget"> 
 
-                                                        <form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/form.php" method="post">
+                                                        <form class="nobottommargin" id="template-contactform" name="template-contactform" action="/register" method="get" >
 
                                                             <div class="form-process"></div>
 
                                                             <div class="col_full">
-                                                                <input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control border-form-control required" placeholder="Your Full Name:" />
+                                                                <input type="text" name="name" value="" class="sm-form-control border-form-control required" placeholder="Your Full Name:" />
                                                             </div>
                                                             <div class="col_full">
-                                                                <input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email sm-form-control border-form-control" placeholder="Your Email Address:" />
-                                                            </div>
-
-                                                            <div class="col_full">
-                                                                <input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="sm-form-control border-form-control required" placeholder="Your Phone Number:" />
+                                                                <input type="email" name="emailid" value="" class="required email sm-form-control border-form-control" placeholder="Your Email Address:" />
                                                             </div>
 
                                                             <div class="col_full">
-                                                                <button class="button button-rounded btn-block button-large bgcolor text-white nott ls0" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Register</button>
+                                                                <input type="text" name="phone" value="" class="sm-form-control border-form-control required" placeholder="Your Phone Number:" />
+                                                            </div>
+
+                                                            <div class="col_full">
+                                                                <button class="button button-rounded btn-block button-large bgcolor text-white nott ls0" type="submit" id="template-contactform-submit"  value="submit">Register</button>
                                                                 <br>
                                                                 <small style="display: block; font-size: 12px; margin-top: 15px; color: #AAA;"></small>
                                                             </div>
 
-                                                            <div class="clear"></div>
-
-                                                            <div class="col_full hidden">
-                                                                <input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
-                                                            </div>
-
-                                                            <input type="hidden" name="prefix" value="template-contactform-">
+                                                            <div class="clear"></div>  
 
                                                         </form>
                                                     </div>

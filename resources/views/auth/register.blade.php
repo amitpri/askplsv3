@@ -32,7 +32,14 @@
 
                         <div class="mb-6 {{ $errors->has('email') ? ' has-error' : '' }}">
                             <label class="block font-bold mb-2" for="name">{{ __('Name') }}</label>
-                            <input class="form-control form-input form-input-bordered w-full rounded-none {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
+
+                            @if ( old('name') )
+                                <input class="form-control form-input form-input-bordered w-full rounded-none {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
+                            @else
+
+                                <input class="form-control form-input form-input-bordered w-full rounded-none {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" type="text" name="name" value="{{ $req_name }}" required autofocus>
+
+                            @endif
 
                             @if ($errors->has('name'))
                                 <span class="text-center font-semibold text-danger my-3" role="alert">
@@ -63,7 +70,13 @@
 
                         <div class="mb-6 {{ $errors->has('email') ? ' has-error' : '' }}">
                             <label class="block font-bold mb-2" for="name">Phone</label>
-                            <input class="form-control form-input form-input-bordered w-full rounded-none {{ $errors->has('phone') ? ' is-invalid' : '' }}" id="phone" type="text" name="phone" value="{{ old('phone') }}" required autofocus>
+
+                            @if ( old('email') )
+                                <input class="form-control form-input form-input-bordered w-full rounded-none {{ $errors->has('phone') ? ' is-invalid' : '' }}" id="phone" type="text" name="phone" value="{{ old('phone') }}" required autofocus>
+                            @else
+                                <input class="form-control form-input form-input-bordered w-full rounded-none {{ $errors->has('phone') ? ' is-invalid' : '' }}" id="phone" type="text" name="phone" value="{{ $req_phone }}" required autofocus>
+
+                            @endif
 
                             @if ($errors->has('phone'))
                                 <span class="text-center font-semibold text-danger my-3" role="alert">
