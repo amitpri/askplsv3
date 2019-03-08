@@ -208,7 +208,7 @@
                         style="margin-top:-60px; " >
                         <div class="input-group divcenter"   >
 
-                            <input type="text" id="workspace" class="form-control form-control-lg not-dark search-input" placeholder="Search pictures by topic name..." style="border: 0; box-shadow: none; overflow: hidden;"  >
+                            <input type="text" id="workspace" class="form-control form-control-lg not-dark search-input" placeholder="Search youtube videos by topic name..." style="border: 0; box-shadow: none; overflow: hidden;"  >
 
                         </div> 
                     </form>                     

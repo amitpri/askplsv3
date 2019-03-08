@@ -56,6 +56,7 @@ Route::get('/st/getmoremessages', 'ShowtopicsController@getmoremessages');
 Route::get('/st/filtered', 'ShowtopicsController@filtered');
 Route::get('/st/filteredimages', 'ShowtopicsController@filteredimages');
 Route::get('/st/filteredvideos', 'ShowtopicsController@filteredvideos');
+Route::get('/st/filteredinstagram', 'ShowtopicsController@filteredinstagram');
 Route::get('/st/messages', 'ShowtopicsController@messages');
 Route::get('/st/postreview', 'ShowtopicsController@postreview'); 
 Route::get('/st/showdetails', 'ShowtopicsController@showdetails'); 
