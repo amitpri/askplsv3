@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/colors.php?color=1c85e8" type="text/css" /> 
 
-    <meta name="google-site-verification" content="Egyom1onwFofLzu_ksa-hQECAvqCv86w4hIDLB7t-6Y" />
+    <script async src="https://www.instagram.com/embed.js"></script> 
  
     <style>
      span.twitter-typeahead .tt-menu {
@@ -203,443 +203,57 @@
 
             <div class="content-wrap clearfix">
 
-                <div class="container">
-                     @if($searchtype == 0) 
+                <div class="container"> 
+                    <form id="widget-subscribe-form"  target="#"  class="nobottommargin col-md-9 offset-md-2" 
+                        style="margin-top:-60px; " >
+                        <div class="input-group divcenter"   >
 
-                        <form id="widget-subscribe-form"  target="#"  class="nobottommargin col-md-9 offset-md-2" 
-                            style="margin-top:-60px; " >
-                            <div class="input-group divcenter"   >
+                            <input type="text" id="workspace" class="form-control form-control-lg not-dark search-input" placeholder="Search pictures by topic name..." style="border: 0; box-shadow: none; overflow: hidden;"  >
 
-                                <input type="text" id="workspace" class="form-control form-control-lg not-dark search-input" placeholder="Enter Topics..." style="border: 0; box-shadow: none; overflow: hidden;"  >
-
-                            </div> 
-                        </form>  
-
-                    @elseif($searchtype == 1)
-
-                        <form id="widget-subscribe-form"  target="#" method="get"  class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
-                            <div class="input-group divcenter" v >
-
-                                <input id="searchcity"   type="search" id="address-input" class="form-control form-control-lg not-dark search-input-city" placeholder="Enter City..." style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;"   onchange="onChangeCity(this)">
-
-                                <input id="searchcategory" name="category"   type="text" id="workspace" class="form-control form-control-lg not-dark search-input-category"  placeholder="Enter" style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;"    disabled>
-  
-                            </div>
-                        </form>
-
-                    @elseif($searchtype == 2)
-
-                        <form id="widget-subscribe-form"  target="#" method="get"  class="nobottommargin col-md-9 offset-md-2" style="margin-top:-60px; " >
-                            <div class="input-group divcenter" v >
-
-                                <input id="searchcity"   type="search" id="address-input" class="form-control form-control-lg not-dark search-input-city" placeholder="Enter City..." style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;"   onchange="onChangeCity2(this)">
-
-                                <input id="searchcategory2" name="category"   type="text" id="workspace" class="form-control form-control-lg not-dark search-input-category2"  placeholder="Enter" style="border: 0; box-shadow: none; overflow: hidden; font-size:16px;"    >
-  
-                            </div>
-                        </form>
-
-                    @else
-
-                    @endif
-
-                   <div class="row clearfix" style="margin-top:30px; "  >
-
-                        <div class="col-md-2"> 
- 
-                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                       
-                              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" >
-                                <span class="navbar-toggler-icon"></span>
-                              </button>
-
-                              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="nav flex-column"> 
-
-                                    @if( $categorytype != '')
-                                    <a  href="/g" style="margin-bottom: 20px;">Clear Filters</a> 
-                                    @endif
-
-                               @foreach ($categories as $category)
- 
-                                   <li class="nav-item" >
- 
-                                        <a href="/g/{{ $category->category}}" class="nav-link"  >{{ $category->category}}</a>
-                                   
-                                  </li>  
-
-                                @endforeach  
- 
-                                   
-                                </ul>
-                              </div>
-                            </nav>  
-                                 
                         </div> 
-
-                        <div class="col-lg-10 " > 
-
-                            @if( $categorytype == '')
-
-                                    @foreach ($topics as $topic)          
-
-                                        <div  class="row"  style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
-                                             
-                                            <div class="col-12 col-md-12"  >
-                                                <div class="review-title">
-                                                    <h4><a target="_blank" href="/t/{{ $topic->url}}/{{ str_replace(' ','_',$topic->topic_name)}}" style="">{{ $topic->topic_name }}</a></h4>
-                                                </div>
-                                                <div class="review-content"> 
-                                                    @isset($topic->profilepic)
-                                                        <img  src="/storage/{{ $topic->profilepic }}"  width="100">
-                                                    @endisset
-
-                                                    @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
-                                                    @endisset 
-                                                   
-                                                    <p>{!!html_entity_decode($topic->details)!!}</p>
-
-                                                </div>
-                                                <ul class="entry-meta clearfix">
-                                                <li><i class="icon-calendar3"></i> {{ $topic->created_at }}</li>
-                                                <li><a  target="_blank"  href="/p/{{ $topic->user_code }}/{{ str_replace(' ','_',$topic->name) }}"><i class="icon-user"></i> {{ $topic->name }}</a></li>
-                                                <li><i class="icon-folder-open"></i>  {{ $topic->category }} </li>
-
-                                                @if($topic->comments > 0)
-                                                    <li><i class="icon-comments"></i> {{ $topic->comments }} Reviews</li> 
-                                                @endif
-
-                                            </ul>
-                                            </div>
-                                            
-                                        </div>  
-
-                                    @endforeach
-     
-
-                            @elseif ( $categorytype == 'colleges' )
-     
-                                    @foreach ($topics as $topic)
-
-                                        <div  class="row"  style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
-
-                                            <div class="media" style="padding-top: 10px;"> 
-
-                                                @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
-                                                @else
-                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
-                                                @endisset 
-
-                                                @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
-                                                @endisset  
-
-                                              <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
-                                                <ul class="entry-meta clearfix">
-                                                    <li><i class="icon-calendar3"></i> {{ $topic->type}} </li>
-                                                    <li> <i class="icon-user"></i>{{ $topic->city}}  </li> 
-                                                
-                                                </ul>
-                                              </div>
-                                            </div>  
-
-                                        </div>
-
-                                    @endforeach
-                                         
-                            @elseif ( $categorytype == 'companies' )
-     
-                                    @foreach ($topics as $topic)
-
-                                        <div  class="row"  style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
-
-                                            <div class="media" style="padding-top: 10px;"> 
-
-                                                @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
-                                                @else
-                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
-                                                @endisset 
-
-                                                @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
-                                                @endisset   
-
-                                              <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
-                                                <ul class="entry-meta clearfix"> 
-
-                                                    @isset($topic->city)
-                                                    <li> <i class="icon-user"></i> {{ $topic->city}}  </li> 
-                                                    @endisset
-
-                                                </ul>
-                                              </div>
-                                            </div>  
-
-                                        </div>
-
-                                    @endforeach
-                                         
-                            @elseif ( $categorytype == 'doctors' )
-     
-                                    @foreach ($topics as $topic)
-
-                                        <div  class="row"  style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
-
-                                            <div class="media" style="padding-top: 10px;"> 
-
-                                                @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
-                                                @else
-                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
-                                                @endisset 
-
-                                                @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
-                                                @endisset   
-
-                                              <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
-                                                <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->qualification}}  |  {{ $topic->exp}} yrs exp. </p>  
-                                                <ul class="entry-meta clearfix">
-                                                    @isset($topic->speciality)
-                                                    <li><i class="icon-calendar3"></i>{{ $topic->speciality}} </li>
-                                                    @endisset
-                                                    @isset($topic->locality)
-                                                        <li> <i class="icon-group"></i>{{ $topic->locality}}</li>
-                                                    @endisset 
-                                                    <li><i class="icon-building"></i> {{ $topic->city}}</li>
-                                                
-                                                </ul>
-                                              </div>
-                                            </div>  
-
-                                        </div>
-
-                                    @endforeach
-
-
-                            @elseif ( $categorytype == 'fitness_centers' )
-     
-                                    @foreach ($topics as $topic)
-
-                                        <div  class="row"  style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
-
-                                            <div class="media" style="padding-top: 10px;"> 
-
-                                                @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
-                                                @else
-                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
-                                                @endisset 
-
-                                                @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
-                                                @endisset   
-
-                                              <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
-                                                <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
-                                                
-                                                <ul class="entry-meta clearfix">
-                                                    @isset($topic->type)
-                                                        <li><i class="icon-calendar3"></i> {{ $topic->type}} </li>
-                                                    @endisset
-                                                    @isset($topic->locality)
-                                                        <li> <i class="icon-group"></i> {{ $topic->locality}}  </li>
-                                                    @endisset
-                                                    @isset($topic->city)
-                                                        <li><i class="icon-building"></i>  {{ $topic->city}} </li>
-                                                    @endisset
-                                                </ul>
-                                              </div>
-                                            </div>  
-
-                                        </div>
-
-                                    @endforeach        
-
-                            @elseif ( $categorytype == 'hotels' )
-     
-                                    @foreach ($topics as $topic)
-
-                                        <div  class="row"  style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
-
-                                            <div class="media" style="padding-top: 10px;"> 
-
-                                                @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
-                                                @else
-                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
-                                                @endisset 
-
-                                                @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
-                                                @endisset   
-
-                                              <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
-                                                <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
-                                                
-                                                <ul class="entry-meta clearfix">
-                                                    @isset($topic->type)
-                                                        <li><i class="icon-calendar3"></i> {{ $topic->type}}  </li>
-                                                    @endisset 
-                                                    @isset($topic->locality)
-                                                        <li> <i class="icon-group"></i> {{ $topic->locality}}  </li>
-                                                    @endisset 
-                                                    @isset($topic->city)
-                                                        <li><i class="icon-building"></i> {{ $topic->city}}</li>
-                                                    @endisset 
-                                                
-                                                </ul>
-                                              </div>
-                                            </div>  
-
-                                        </div>
-
-                                    @endforeach        
-
-                               @elseif ( $categorytype == 'lawyers' )
-     
-                                    @foreach ($topics as $topic)
-
-                                        <div  class="row"  style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
-
-                                            <div class="media" style="padding-top: 10px;"> 
-
-                                                @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
-                                                @else
-                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
-                                                @endisset 
-
-                                                @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
-                                                @endisset   
-
-                                              <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
-                                                <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
-                                                
-                                                <ul class="entry-meta clearfix">
-                                                    @isset($topic->speciality)
-                                                        <li><i class="icon-calendar3"></i> {{ $topic->speciality}}  </li>
-                                                    @endisset 
-                                                    @isset($topic->locality)
-                                                        <li> <i class="icon-group"></i>  {{ $topic->locality}}  </li>
-                                                    @endisset 
-                                                    @isset($topic->city) 
-                                                        <li><i class="icon-building"></i>   {{ $topic->city}} </li>
-                                                    @endisset 
-                                                
-                                                </ul>
-                                              </div>
-                                            </div>  
-
-                                        </div>
-
-                                    @endforeach        
-
-                               @elseif ( $categorytype == 'restaurants' )
-     
-                                    @foreach ($topics as $topic)
-
-                                        <div  class="row"  style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
-
-                                            <div class="media" style="padding-top: 10px;"> 
-
-                                                @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
-                                                @else
-                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
-                                                @endisset 
-
-                                                @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
-                                                @endisset   
-
-                                              <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
-                                                <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
-                                                
-                                                <ul class="entry-meta clearfix">
-                                                    @isset($topic->type) 
-                                                        <li><i class="icon-calendar3"></i> {{ $topic->type}} </li>
-                                                    @endisset 
-                                                    @isset($topic->locality)
-                                                        <li> <i class="icon-group"></i>{{ $topic->locality}}  </li>
-                                                    @endisset 
-                                                    @isset($topic->city)
-                                                        <li><i class="icon-building"></i> {{ $topic->city}} </li> 
-                                                    @endisset 
-                                                
-                                                </ul>
-                                              </div>
-                                            </div>  
-
-                                        </div>
-
-                                    @endforeach        
-
-                               @elseif ( $categorytype == 'schools' )
-     
-                                    @foreach ($topics as $topic)
-
-                                        <div  class="row"  style="margin-bottom: 10px;padding-bottom: 10px; min-height: 120px; border: 1px solid #F2E7E5;border-radius: 5px;" class="border border-danger"  >
-
-                                            <div class="media" style="padding-top: 10px;"> 
-
-                                                @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
-                                                @else
-                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
-                                                @endisset  
-
-                                              <div class="media-body" style="margin-left: 20px;">
-                                                <h4 class="mt-0"><a target="_blank" href="/c/{{$categorytype}}/{{$topic->url }}/{{ str_replace(' ','_',$topic->name)}}" style="">{{ $topic->name }}</a></h4> 
-                                                <p style="font-weight: 400; opacity: 0.8;  " >{{ $topic->address}}    </p> 
-                                                
-                                                <ul class="entry-meta clearfix"> 
-                                                    @isset($topic->type)
-                                                        <li><i class="icon-calendar3"></i> {{ $topic->type}} </li>
-                                                    @endisset 
-                                                    @isset($topic->locality)
-                                                        <li> <i class="icon-group"></i> {{ $topic->locality}}   </li>
-                                                    @endisset 
-                                                    @isset($topic->city)
-                                                        <li><i class="icon-building"></i> {{ $topic->city}} </li>
-                                                    @endisset 
-                                                     
-                                                
-                                                </ul>
-                                              </div>
-                                            </div>  
-
-                                        </div>
-
-                                    @endforeach        
-
-                                   @endif 
-
-
-                                    <div  class="row" style="float: right;"> {{ $topics->links() }}</div>
-
-                        </div>
-
-                    </div>
+                    </form>                     
 
                 </div> 
 
             </div>
             
+        </section>  
+ 
+        <section id="content" style="">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <!-- Shop
+                    ============================================= -->
+                    <div id="shop" class="shop grid-container clearfix" data-layout="fitRows">
+
+                        @foreach ( $topics as $topic)
+
+                            <div class="product clearfix">
+                                <div class="product-image">
+                                    <a href="#"><img src="https://img.youtube.com/vi/{{ $topic->video}}/default.jpg" alt="{{ $topic->topic_name}}"></a> 
+                                </div>
+                                <div class="product-desc">
+                                    <div class="product-title"><h6><a target="_blank" href="/t/{{ $topic->url}}/{{ str_replace(' ','_',$topic->topic_name)}}">{{ $topic->topic_name}}</a></h6></div>
+                                    <div class="product-price"><ins><h6><a target="_blank" href="/p/{{ $topic->user_code}}/{{ str_replace(' ','_',$topic->name) }}">{{ $topic->name}}</a><h6></ins></div> 
+                                </div>
+                            </div> 
+
+                        @endforeach
 
 
-        </section> 
+ 
+                    </div><!-- #shop end -->
+
+                    <div  class="row" style="float: right;"> {{ $topics->links() }}</div>
+
+                </div>
+
+            </div>
+
+        </section><!-- #content end -->
         <footer id="footer" class="topmargin noborder" style="background-color: #F5F5F5;">          
 
             <div class="line nomargin"></div>
@@ -679,24 +293,13 @@
             
             var engine = new Bloodhound({
                 remote: {
-                    url: '/st/filtered?categoryid={{ $categoryid}}&topics=%QUERY%',
+                    url: '/st/filteredvideos?&topics=%QUERY%',
                     wildcard: '%QUERY%'
                 },
                 datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace
-            });
-
-            var enginecity = new Bloodhound({
-                remote: {
-                    url: '/cities/get?city=%QUERY%',
-                    wildcard: '%QUERY%'
-                },
-                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
-                queryTokenizer: Bloodhound.tokenizers.whitespace
-            });
-
-            
-
+            }); 
+ 
             $(".search-input").typeahead({
                 hint: true,
                 highlight: false,
@@ -771,278 +374,12 @@
                                  `                     
               }
                 }
-            });
-
-            $(".search-input-city").typeahead({
-                hint: true,
-                highlight: false,
-                minLength: 1
-            }, {
-                source: enginecity.ttAdapter(),
-
-                displayKey: "name",
-
-                name: 'usersList',
-            
-                templates: {
-                    empty: [
-                        '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
-                    ],
-                    header: [
-                        '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
-                    ],
-                    suggestion: function (data) {
-                        
-                        v0 = data.name;
-
-                        return `
-                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
-                                    <div class="d-flex w-100 justify-content-between">
-                                      <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
-                                      
-                                    </div>  
-                                    
-                                  </a>
-                                  <br>
-                                  <br>
-
-                                 `                     
-              }
-                }
             }); 
         });
  
 
     </script>
- 
-
-   <script>
-    function onChangeCity() { 
-
-      var selectedcity = document.getElementById("searchcity").value; 
-
-      if(selectedcity != ""){
-
-        document.getElementById("searchcategory").disabled = false;
-      }
-      if(selectedcity == ""){
-
-        document.getElementById("searchcategory").disabled = true;
-      }
-
-      var enginecategory = new Bloodhound({
-                remote: {
-                    url: '/t/d/categories?categoryid={{ $categoryid}}&type={{ $categorytype}}&city=' + selectedcity + '&search=%QUERY%',
-                    wildcard: '%QUERY%'
-                },
-                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
-                queryTokenizer: Bloodhound.tokenizers.whitespace
-            });
-
-          $(".search-input-category").typeahead({
-                    hint: true,
-                    highlight: false,
-                    minLength: 1
-                }, {
-                    source: enginecategory.ttAdapter(),
-
-                    displayKey: "name",
-
-                    name: 'usersList',
-                
-                    templates: {
-                        empty: [
-                            '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
-                        ],
-                        header: [
-                            '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
-                        ],
-                        suggestion: function (data) {
-
-                        v0 = data.name;  
-                        v0_changed = v0.replace(/ /g,'_');
-                        v1 = data.locality;
-                        v2 = data.profilepic; 
- 
-
-                        if( data.locality == null){
-                             v1 = "";
-                        } 
-
-                        if( data.profilepic == null){
-                             v2 = "<img src='/no-image.png'  width='40' class='mr-3'>";
-                        }else{
-                            v2 = "<img src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
-
-                        }
-                       
-
-                            return `
-                                    <a href="/c/{{ $categorytype}}/` +  data.url + `/` + v0_changed + `" class="list-group-item list-group-item-action flex-column align-items-start ">
-                                        <div class="d-flex w-100 justify-content-between">
-                                          <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
-                                          
-                                        </div>  
-                                         ` + v2 +`
-                                        <small class="text-secondary">` + v1 +`</small>
-                                        
-                                      </a>
-                                      <br>
-                                      <br>
-
-                                     `                     
-                        }
-                    }
-                });
-       
-    }
-
-    function onChangeCity2() { 
-
-      var selectedcity2 = document.getElementById("searchcity").value; 
-
-
-      var enginecategory_city2 = new Bloodhound({
-                remote: {
-                    url: '/t/d/categories?categoryid={{ $categoryid}}&type={{ $categorytype}}&city=' + selectedcity2 + '&search=%QUERY%',
-                    wildcard: '%QUERY%'
-                },
-                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
-                queryTokenizer: Bloodhound.tokenizers.whitespace
-            });
-
-          $(".search-input-category2").typeahead({
-                    hint: true,
-                    highlight: false,
-                    minLength: 1
-                }, {
-                    source: enginecategory_city2.ttAdapter(),
-
-                    displayKey: "name",
-
-                    name: 'usersList',
-                
-                    templates: {
-                        empty: [
-                            '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
-                        ],
-                        header: [
-                            '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
-                        ],
-                        suggestion: function (data) {
-
-                        v0 = data.name;  
-                        v0_changed = v0.replace(/ /g,'_');
-                        v1 = data.locality;
-                        v2 = data.profilepic; 
- 
-
-                        if( data.locality == null){
-                             v1 = "";
-                        } 
-
-                        if( data.profilepic == null){
-                      //       v2 = "<img src='/no-image.png'  width='40' class='mr-3'>";
-                            v2 = "";
-                        }else{
-                            v2 = "<img src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
-
-                        }
-                       
-
-                            return `
-                                    <a href="/c/{{ $categorytype}}/` +  data.url + `/` + v0_changed + `" class="list-group-item list-group-item-action flex-column align-items-start ">
-                                        <div class="d-flex w-100 justify-content-between">
-                                          <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
-                                          
-                                        </div>  
-                                         ` + v2 +`
-                                        <small class="text-secondary">` + v1 +`</small>
-                                        
-                                      </a>
-                                      <br>
-                                      <br>
-
-                                     `                     
-                        }
-                    }
-                });
-       
-    }
-    </script>
-
-    <script>
-    jQuery(document).ready(function($) {  
-
-
-      var enginecategory2 = new Bloodhound({
-                remote: {
-                    url: '/t/d/categories?categoryid={{ $categoryid}}&type={{ $categorytype}}&search=%QUERY%',
-                    wildcard: '%QUERY%'
-                },
-                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
-                queryTokenizer: Bloodhound.tokenizers.whitespace
-            });
-
-          $(".search-input-category2").typeahead({
-                    hint: true,
-                    highlight: false,
-                    minLength: 1
-                }, {
-                    source: enginecategory2.ttAdapter(),
-
-                    displayKey: "name",
-
-                    name: 'usersList',
-                
-                    templates: {
-                        empty: [
-                            '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
-                        ],
-                        header: [
-                            '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
-                        ],
-                        suggestion: function (data) {
-
-                        v0 = data.name;  
-                        v0_changed = v0.replace(/ /g,'_');
-
-                        v1 = data.locality;
-                        v2 = data.profilepic; 
- 
-
-                        if( data.locality == null){
-                             v1 = "";
-                        } 
-
-                        if( data.profilepic == null){
-                             v2 = "<img src='/no-image.png'  width='40' class='mr-3'>";
-                        }else{
-                            v2 = "<img src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
-
-                        }
-                       
-
-                            return `
-                                    <a href="/c/{{ $categorytype}}/` +  data.url + `/` + v0_changed + `" class="list-group-item list-group-item-action flex-column align-items-start ">
-                                        <div class="d-flex w-100 justify-content-between">
-                                          <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
-                                          
-                                        </div>  
-                                         ` + v2 +`
-                                        <small class="text-secondary">` + v1 +`</small>
-                                        
-                                      </a>
-                                      <br>
-                                      <br>
-
-                                     `                     
-                        }
-                    }
-                });
-       
-    })
-    </script>
+  
 
 </body>
 </html>

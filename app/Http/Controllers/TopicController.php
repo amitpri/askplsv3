@@ -1937,12 +1937,16 @@ class TopicController extends Controller
 
     public function youtube(Request $request)
     { 
-        $topicsinput = $request->topics;
         
-        $topics = ShowTopic::where('status', '=' , 1)->where('type', '=' , 'public')
-                ->where('instagram', '<>' , "NULL")
-                ->take(100)
-                ->get(['id','url','instagram']);
+ 
+        $topics = DB::table('topics')
+                        ->join('users','topics.user_id','=','users.id') 
+                        ->where('topics.type','public') 
+                        ->where('topics.video','<>', '')
+                        ->where('topics.status',1) 
+                        ->orderBy('topics.updated_at','desc')
+                        ->select('topics.id', 'topics.url',  'topics.topic_name',  'topics.video',   'users.user_code' , 'users.name')
+                        ->simplePaginate(20); 
 
         return view('youtube',compact('topics')); 
     }
@@ -1950,13 +1954,7 @@ class TopicController extends Controller
     public function pictures(Request $request)
     { 
         
-        $topics = DB::select("SELECT  a.`id`,  a.`url` ,  a.`topic_name`,  b.`user_code`,   b.`name`,  a.`image`  
-                                    FROM `topics` a ,  `users` b 
-                                            WHERE a.`user_id` = b.`id` 
-                                            AND a.`image` is not null
-                                            AND a.`type` = 'public' 
-                                            ORDER BY a.`updated_at` DESC
-                                            limit 50"); 
+ 
         $topics = DB::table('topics')
                         ->join('users','topics.user_id','=','users.id') 
                         ->where('topics.type','public') 
