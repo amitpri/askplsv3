@@ -27,7 +27,7 @@
         <script src="/axios/axios.min.js"></script>
         @include('analytics')
  
-    <title>{{ $url}} | {{ $topic_name }}</title>
+    <title> {{ $topic_name }} | {{ $url}}</title>
 
 </head>
 
