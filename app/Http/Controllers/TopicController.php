@@ -1527,7 +1527,7 @@ class TopicController extends Controller
                                     , b.`fitnesscenterkey`  AS category_code,    DATE_FORMAT(a.`created_at`, '%d-%b-%Y') created_at,
                                     (case when (a.`anonymous` = 0) then c.`user_code` else '' end) as user_code,
                                     (case when (a.`anonymous` = 0) then c.`name` else '' end) as user_name
-                                        FROM `topic_category_members` a ,  `fitnesscenters` b , `users` c
+                                        FROM `topic_category_members` a ,  `fitness_centers` b , `users` c
                                         WHERE a.`url` = :url
                                         AND a.`user_id` = c.`id`
                                         AND a.`topicable_id` = b.`id`  ", ['url' => $url]);
