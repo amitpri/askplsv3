@@ -54,6 +54,7 @@ Route::get('/st/default', 'ShowtopicsController@default');
 Route::get('/st/getmore', 'ShowtopicsController@getmore');
 Route::get('/st/getmoremessages', 'ShowtopicsController@getmoremessages');
 Route::get('/st/filtered', 'ShowtopicsController@filtered');
+Route::get('/st/filteredimages', 'ShowtopicsController@filteredimages');
 Route::get('/st/messages', 'ShowtopicsController@messages');
 Route::get('/st/postreview', 'ShowtopicsController@postreview'); 
 Route::get('/st/showdetails', 'ShowtopicsController@showdetails'); 

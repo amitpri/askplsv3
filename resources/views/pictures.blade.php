@@ -208,7 +208,7 @@
                         style="margin-top:-60px; " >
                         <div class="input-group divcenter"   >
 
-                            <input type="text" id="workspace" class="form-control form-control-lg not-dark search-input" placeholder="Search pictures by topic id..." style="border: 0; box-shadow: none; overflow: hidden;"  >
+                            <input type="text" id="workspace" class="form-control form-control-lg not-dark search-input" placeholder="Search pictures by topic name..." style="border: 0; box-shadow: none; overflow: hidden;"  >
 
                         </div> 
                     </form>                     
@@ -293,24 +293,13 @@
             
             var engine = new Bloodhound({
                 remote: {
-                    url: '/st/filtered?&topics=%QUERY%',
+                    url: '/st/filteredimages?&topics=%QUERY%',
                     wildcard: '%QUERY%'
                 },
                 datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace
-            });
-
-            var enginecity = new Bloodhound({
-                remote: {
-                    url: '/cities/get?city=%QUERY%',
-                    wildcard: '%QUERY%'
-                },
-                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
-                queryTokenizer: Bloodhound.tokenizers.whitespace
-            });
-
-            
-
+            }); 
+ 
             $(".search-input").typeahead({
                 hint: true,
                 highlight: false,
@@ -385,278 +374,12 @@
                                  `                     
               }
                 }
-            });
-
-            $(".search-input-city").typeahead({
-                hint: true,
-                highlight: false,
-                minLength: 1
-            }, {
-                source: enginecity.ttAdapter(),
-
-                displayKey: "name",
-
-                name: 'usersList',
-            
-                templates: {
-                    empty: [
-                        '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
-                    ],
-                    header: [
-                        '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
-                    ],
-                    suggestion: function (data) {
-                        
-                        v0 = data.name;
-
-                        return `
-                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
-                                    <div class="d-flex w-100 justify-content-between">
-                                      <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
-                                      
-                                    </div>  
-                                    
-                                  </a>
-                                  <br>
-                                  <br>
-
-                                 `                     
-              }
-                }
             }); 
         });
  
 
     </script>
- 
-
-   <script>
-    function onChangeCity() { 
-
-      var selectedcity = document.getElementById("searchcity").value; 
-
-      if(selectedcity != ""){
-
-        document.getElementById("searchcategory").disabled = false;
-      }
-      if(selectedcity == ""){
-
-        document.getElementById("searchcategory").disabled = true;
-      }
-
-      var enginecategory = new Bloodhound({
-                remote: {
-                    url: '/t/d/categories?&city=' + selectedcity + '&search=%QUERY%',
-                    wildcard: '%QUERY%'
-                },
-                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
-                queryTokenizer: Bloodhound.tokenizers.whitespace
-            });
-
-          $(".search-input-category").typeahead({
-                    hint: true,
-                    highlight: false,
-                    minLength: 1
-                }, {
-                    source: enginecategory.ttAdapter(),
-
-                    displayKey: "name",
-
-                    name: 'usersList',
-                
-                    templates: {
-                        empty: [
-                            '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
-                        ],
-                        header: [
-                            '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
-                        ],
-                        suggestion: function (data) {
-
-                        v0 = data.name;  
-                        v0_changed = v0.replace(/ /g,'_');
-                        v1 = data.locality;
-                        v2 = data.profilepic; 
- 
-
-                        if( data.locality == null){
-                             v1 = "";
-                        } 
-
-                        if( data.profilepic == null){
-                             v2 = "<img src='/no-image.png'  width='40' class='mr-3'>";
-                        }else{
-                            v2 = "<img src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
-
-                        }
-                       
-
-                            return `
-                                    <a href="/c/` +  data.url + `/` + v0_changed + `" class="list-group-item list-group-item-action flex-column align-items-start ">
-                                        <div class="d-flex w-100 justify-content-between">
-                                          <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
-                                          
-                                        </div>  
-                                         ` + v2 +`
-                                        <small class="text-secondary">` + v1 +`</small>
-                                        
-                                      </a>
-                                      <br>
-                                      <br>
-
-                                     `                     
-                        }
-                    }
-                });
-       
-    }
-
-    function onChangeCity2() { 
-
-      var selectedcity2 = document.getElementById("searchcity").value; 
-
-
-      var enginecategory_city2 = new Bloodhound({
-                remote: {
-                    url: '/t/d/categories?&city=' + selectedcity2 + '&search=%QUERY%',
-                    wildcard: '%QUERY%'
-                },
-                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
-                queryTokenizer: Bloodhound.tokenizers.whitespace
-            });
-
-          $(".search-input-category2").typeahead({
-                    hint: true,
-                    highlight: false,
-                    minLength: 1
-                }, {
-                    source: enginecategory_city2.ttAdapter(),
-
-                    displayKey: "name",
-
-                    name: 'usersList',
-                
-                    templates: {
-                        empty: [
-                            '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
-                        ],
-                        header: [
-                            '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
-                        ],
-                        suggestion: function (data) {
-
-                        v0 = data.name;  
-                        v0_changed = v0.replace(/ /g,'_');
-                        v1 = data.locality;
-                        v2 = data.profilepic; 
- 
-
-                        if( data.locality == null){
-                             v1 = "";
-                        } 
-
-                        if( data.profilepic == null){
-                      //       v2 = "<img src='/no-image.png'  width='40' class='mr-3'>";
-                            v2 = "";
-                        }else{
-                            v2 = "<img src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
-
-                        }
-                       
-
-                            return `
-                                    <a href="/c/` +  data.url + `/` + v0_changed + `" class="list-group-item list-group-item-action flex-column align-items-start ">
-                                        <div class="d-flex w-100 justify-content-between">
-                                          <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
-                                          
-                                        </div>  
-                                         ` + v2 +`
-                                        <small class="text-secondary">` + v1 +`</small>
-                                        
-                                      </a>
-                                      <br>
-                                      <br>
-
-                                     `                     
-                        }
-                    }
-                });
-       
-    }
-    </script>
-
-    <script>
-    jQuery(document).ready(function($) {  
-
-
-      var enginecategory2 = new Bloodhound({
-                remote: {
-                    url: '/t/d/categories?&search=%QUERY%',
-                    wildcard: '%QUERY%'
-                },
-                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
-                queryTokenizer: Bloodhound.tokenizers.whitespace
-            });
-
-          $(".search-input-category2").typeahead({
-                    hint: true,
-                    highlight: false,
-                    minLength: 1
-                }, {
-                    source: enginecategory2.ttAdapter(),
-
-                    displayKey: "name",
-
-                    name: 'usersList',
-                
-                    templates: {
-                        empty: [
-                            '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
-                        ],
-                        header: [
-                            '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
-                        ],
-                        suggestion: function (data) {
-
-                        v0 = data.name;  
-                        v0_changed = v0.replace(/ /g,'_');
-
-                        v1 = data.locality;
-                        v2 = data.profilepic; 
- 
-
-                        if( data.locality == null){
-                             v1 = "";
-                        } 
-
-                        if( data.profilepic == null){
-                             v2 = "<img src='/no-image.png'  width='40' class='mr-3'>";
-                        }else{
-                            v2 = "<img src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
-
-                        }
-                       
-
-                            return `
-                                    <a href="/c/` +  data.url + `/` + v0_changed + `" class="list-group-item list-group-item-action flex-column align-items-start ">
-                                        <div class="d-flex w-100 justify-content-between">
-                                          <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
-                                          
-                                        </div>  
-                                         ` + v2 +`
-                                        <small class="text-secondary">` + v1 +`</small>
-                                        
-                                      </a>
-                                      <br>
-                                      <br>
-
-                                     `                     
-                        }
-                    }
-                });
-       
-    })
-    </script>
+  
 
 </body>
 </html>
