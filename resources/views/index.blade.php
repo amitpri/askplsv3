@@ -476,7 +476,7 @@
                                     <div class="heading-block nobottomborder center">
                                         <h5 class="uppercase ls1 mb-1">Leave no chance and understands what other thinks of you.</h5>
                                         <h2 class="nott ls0">Create your own topic and get <span>Anonymous </span>feedbacks</h2>
-                                        <a href="#" class="button button-large button-rounded nott ml-0 ls0 mt-4">Create Topic</a>
+                                        <a href="/portal/resources/topics/new?viaResource=&viaResourceId=&viaRelationship=" class="button button-large button-rounded nott ml-0 ls0 mt-4">Create Topic</a>
                                     </div>
                                 </div>
                             </div>
