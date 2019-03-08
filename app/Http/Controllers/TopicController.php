@@ -1964,7 +1964,7 @@ class TopicController extends Controller
                         ->where('topics.status',1) 
                         ->orderBy('topics.updated_at','desc')
                         ->select('topics.id', 'topics.url',  'topics.topic_name',  'topics.image',   'users.user_code' , 'users.name')
-                        ->simplePaginate(5); 
+                        ->simplePaginate(20); 
 
         return view('pictures',compact('topics')); 
     }
