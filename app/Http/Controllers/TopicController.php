@@ -1949,14 +1949,14 @@ class TopicController extends Controller
 
     public function pictures(Request $request)
     { 
-        $topicsinput = $request->topics; 
-
+        
         $topics = DB::select("SELECT  a.`id`,  a.`url` ,  a.`topic_name`,  b.`user_code`,   b.`name`,  a.`image`  
                                     FROM `topics` a ,  `users` b 
                                             WHERE a.`user_id` = b.`id` 
+                                            AND a.`image` is not null
                                             AND a.`type` = 'public' 
                                             ORDER BY a.`updated_at` DESC
-                                            limit 50");
+                                            limit 50"); 
 
         return view('pictures',compact('topics')); 
     }
