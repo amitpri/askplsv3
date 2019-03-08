@@ -1925,12 +1925,14 @@ class TopicController extends Controller
     public function instagram(Request $request)
     { 
 
-        $topicsinput = $request->topics;
-        
-        $topics = ShowTopic::where('status', '=' , 1)->where('type', '=' , 'public')
-                ->where('instagram', '<>' , "NULL")
-                ->take(100)
-                ->get(['id','url','instagram']);
+        $topics = DB::table('topics')
+                        ->join('users','topics.user_id','=','users.id') 
+                        ->where('topics.type','public') 
+                        ->where('topics.instagram','<>', '')
+                        ->where('topics.status',1) 
+                        ->orderBy('topics.updated_at','desc')
+                        ->select('topics.id', 'topics.url',  'topics.topic_name',  'topics.instagram',   'users.user_code' , 'users.name')
+                        ->simplePaginate(20);  
 
         return view('instagram',compact('topics')); 
     }

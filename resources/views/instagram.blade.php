@@ -204,58 +204,55 @@
             <div class="content-wrap clearfix">
 
                 <div class="container"> 
-                        <form id="widget-subscribe-form"  target="#"  class="nobottommargin col-md-9 offset-md-2" 
-                            style="margin-top:-60px; " >
-                            <div class="input-group divcenter"   >
+                    <form id="widget-subscribe-form"  target="#"  class="nobottommargin col-md-9 offset-md-2" 
+                        style="margin-top:-60px; " >
+                        <div class="input-group divcenter"   >
 
-                                <input type="text" id="workspace" class="form-control form-control-lg not-dark search-input" placeholder="Enter Topics..." style="border: 0; box-shadow: none; overflow: hidden;"  >
+                            <input type="text" id="workspace" class="form-control form-control-lg not-dark search-input" placeholder="Search pictures by topic name..." style="border: 0; box-shadow: none; overflow: hidden;"  >
 
-                            </div> 
-                        </form>   
- 
-                   <div class="row clearfix" style="margin-top:30px; "  >
-
-                        <div class="col-md-2"> 
- 
-                           
-                                 
                         </div> 
-
-                        <div class="col-lg-10 " > 
-
-                            <div class="container">
-
-                                @foreach ($topics as $topic) 
-                                  <div class="row">
-                                    <div class="col-6 align-self-center">
-                                      <blockquote class="instagram-media" data-instgrm-permalink="{{ $topic->instagram }}" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px;  padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(75% - 2px);">
-                                             
-                                        </blockquote>  
-                                    </div> 
-                                    <div class="col-4 col-lg-4 align-self-center justify-content-end">
-                                        <div id="widget-subscribe-form" class="divcenter">
-                                             
-                                            <textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="5" cols="50" v-model="inpReview" style="border: none;" placeholder="Enter Anonymous Review"></textarea>   
-                                            <button @click="savefeedback" type="submit" class="button " style="border-radius: 3px;">Submit Review</button>                   
-                                            
-                                        </div>
-                                    </div>
-                                  </div>
-                                @endforeach
-
-                            </div> 
-
-                        </div>
-
-                    </div>
+                    </form>                     
 
                 </div> 
 
             </div>
             
+        </section>  
+ 
+        <section id="content" style="">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <!-- Shop
+                    ============================================= -->
+                    <div id="shop" class="shop grid-container clearfix" data-layout="fitRows">
+
+                        @foreach ( $topics as $topic)
+
+                            <div class="product clearfix">
+                                <div class="product-image">
+                                    <blockquote class="instagram-media" data-instgrm-permalink="{{ $topic->instagram}}" data-instgrm-version="9" style=" background:#FFF; padding:0; width:19.375%; width:-webkit-calc(20% - 2px); width:calc(5% - 2px); max-width: 100px;"> </blockquote> 
+                                </div>
+                                <div class="product-desc">
+                                    <div class="product-title"><h6><a target="_blank" class="btn btn-outline-primary btn-sm  " style="margin-bottom: 20px;" href="/t/{{ $topic->url}}/{{ str_replace(' ','_',$topic->topic_name)}}">Add Anonymous Comments</a> <h6></ins></div> 
+                                </div>
+                            </div> 
+
+                        @endforeach
 
 
-        </section> 
+ 
+                    </div><!-- #shop end -->
+
+                    <div  class="row" style="float: right;"> {{ $topics->links() }}</div>
+
+                </div>
+
+            </div>
+
+        </section><!-- #content end -->
         <footer id="footer" class="topmargin noborder" style="background-color: #F5F5F5;">          
 
             <div class="line nomargin"></div>
@@ -295,24 +292,13 @@
             
             var engine = new Bloodhound({
                 remote: {
-                    url: '/st/filtered?&topics=%QUERY%',
+                    url: '/st/filteredinstagram?&topics=%QUERY%',
                     wildcard: '%QUERY%'
                 },
                 datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace
-            });
-
-            var enginecity = new Bloodhound({
-                remote: {
-                    url: '/cities/get?city=%QUERY%',
-                    wildcard: '%QUERY%'
-                },
-                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
-                queryTokenizer: Bloodhound.tokenizers.whitespace
-            });
-
-            
-
+            }); 
+ 
             $(".search-input").typeahead({
                 hint: true,
                 highlight: false,
@@ -387,278 +373,12 @@
                                  `                     
               }
                 }
-            });
-
-            $(".search-input-city").typeahead({
-                hint: true,
-                highlight: false,
-                minLength: 1
-            }, {
-                source: enginecity.ttAdapter(),
-
-                displayKey: "name",
-
-                name: 'usersList',
-            
-                templates: {
-                    empty: [
-                        '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
-                    ],
-                    header: [
-                        '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
-                    ],
-                    suggestion: function (data) {
-                        
-                        v0 = data.name;
-
-                        return `
-                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
-                                    <div class="d-flex w-100 justify-content-between">
-                                      <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
-                                      
-                                    </div>  
-                                    
-                                  </a>
-                                  <br>
-                                  <br>
-
-                                 `                     
-              }
-                }
             }); 
         });
  
 
     </script>
- 
-
-   <script>
-    function onChangeCity() { 
-
-      var selectedcity = document.getElementById("searchcity").value; 
-
-      if(selectedcity != ""){
-
-        document.getElementById("searchcategory").disabled = false;
-      }
-      if(selectedcity == ""){
-
-        document.getElementById("searchcategory").disabled = true;
-      }
-
-      var enginecategory = new Bloodhound({
-                remote: {
-                    url: '/t/d/categories?&city=' + selectedcity + '&search=%QUERY%',
-                    wildcard: '%QUERY%'
-                },
-                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
-                queryTokenizer: Bloodhound.tokenizers.whitespace
-            });
-
-          $(".search-input-category").typeahead({
-                    hint: true,
-                    highlight: false,
-                    minLength: 1
-                }, {
-                    source: enginecategory.ttAdapter(),
-
-                    displayKey: "name",
-
-                    name: 'usersList',
-                
-                    templates: {
-                        empty: [
-                            '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
-                        ],
-                        header: [
-                            '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
-                        ],
-                        suggestion: function (data) {
-
-                        v0 = data.name;  
-                        v0_changed = v0.replace(/ /g,'_');
-                        v1 = data.locality;
-                        v2 = data.profilepic; 
- 
-
-                        if( data.locality == null){
-                             v1 = "";
-                        } 
-
-                        if( data.profilepic == null){
-                             v2 = "<img src='/no-image.png'  width='40' class='mr-3'>";
-                        }else{
-                            v2 = "<img src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
-
-                        }
-                       
-
-                            return `
-                                    <a href="/c/` +  data.url + `/` + v0_changed + `" class="list-group-item list-group-item-action flex-column align-items-start ">
-                                        <div class="d-flex w-100 justify-content-between">
-                                          <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
-                                          
-                                        </div>  
-                                         ` + v2 +`
-                                        <small class="text-secondary">` + v1 +`</small>
-                                        
-                                      </a>
-                                      <br>
-                                      <br>
-
-                                     `                     
-                        }
-                    }
-                });
-       
-    }
-
-    function onChangeCity2() { 
-
-      var selectedcity2 = document.getElementById("searchcity").value; 
-
-
-      var enginecategory_city2 = new Bloodhound({
-                remote: {
-                    url: '/t/d/categories?&city=' + selectedcity2 + '&search=%QUERY%',
-                    wildcard: '%QUERY%'
-                },
-                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
-                queryTokenizer: Bloodhound.tokenizers.whitespace
-            });
-
-          $(".search-input-category2").typeahead({
-                    hint: true,
-                    highlight: false,
-                    minLength: 1
-                }, {
-                    source: enginecategory_city2.ttAdapter(),
-
-                    displayKey: "name",
-
-                    name: 'usersList',
-                
-                    templates: {
-                        empty: [
-                            '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
-                        ],
-                        header: [
-                            '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
-                        ],
-                        suggestion: function (data) {
-
-                        v0 = data.name;  
-                        v0_changed = v0.replace(/ /g,'_');
-                        v1 = data.locality;
-                        v2 = data.profilepic; 
- 
-
-                        if( data.locality == null){
-                             v1 = "";
-                        } 
-
-                        if( data.profilepic == null){
-                      //       v2 = "<img src='/no-image.png'  width='40' class='mr-3'>";
-                            v2 = "";
-                        }else{
-                            v2 = "<img src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
-
-                        }
-                       
-
-                            return `
-                                    <a href="/c/` +  data.url + `/` + v0_changed + `" class="list-group-item list-group-item-action flex-column align-items-start ">
-                                        <div class="d-flex w-100 justify-content-between">
-                                          <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
-                                          
-                                        </div>  
-                                         ` + v2 +`
-                                        <small class="text-secondary">` + v1 +`</small>
-                                        
-                                      </a>
-                                      <br>
-                                      <br>
-
-                                     `                     
-                        }
-                    }
-                });
-       
-    }
-    </script>
-
-    <script>
-    jQuery(document).ready(function($) {  
-
-
-      var enginecategory2 = new Bloodhound({
-                remote: {
-                    url: '/t/d/categories?&search=%QUERY%',
-                    wildcard: '%QUERY%'
-                },
-                datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
-                queryTokenizer: Bloodhound.tokenizers.whitespace
-            });
-
-          $(".search-input-category2").typeahead({
-                    hint: true,
-                    highlight: false,
-                    minLength: 1
-                }, {
-                    source: enginecategory2.ttAdapter(),
-
-                    displayKey: "name",
-
-                    name: 'usersList',
-                
-                    templates: {
-                        empty: [
-                            '<div class="list-group search-results-dropdown" style="margin-top:-20px; width:1000px"><div class="list-group-item">No Data Found</div></div>'
-                        ],
-                        header: [
-                            '<div class="list-group search-results-dropdown style="margin-top:-20px; color:black;">'
-                        ],
-                        suggestion: function (data) {
-
-                        v0 = data.name;  
-                        v0_changed = v0.replace(/ /g,'_');
-
-                        v1 = data.locality;
-                        v2 = data.profilepic; 
- 
-
-                        if( data.locality == null){
-                             v1 = "";
-                        } 
-
-                        if( data.profilepic == null){
-                             v2 = "<img src='/no-image.png'  width='40' class='mr-3'>";
-                        }else{
-                            v2 = "<img src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
-
-                        }
-                       
-
-                            return `
-                                    <a href="/c/` +  data.url + `/` + v0_changed + `" class="list-group-item list-group-item-action flex-column align-items-start ">
-                                        <div class="d-flex w-100 justify-content-between">
-                                          <h5 class="mb-1 text-primary" > ` + v0 + `</h5>
-                                          
-                                        </div>  
-                                         ` + v2 +`
-                                        <small class="text-secondary">` + v1 +`</small>
-                                        
-                                      </a>
-                                      <br>
-                                      <br>
-
-                                     `                     
-                        }
-                    }
-                });
-       
-    })
-    </script>
+  
 
 </body>
 </html>
