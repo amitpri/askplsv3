@@ -291,11 +291,11 @@
                                                 </div>
                                                 <div class="review-content"> 
                                                     @isset($topic->profilepic)
-                                                        <img  src="/storage/{{ $topic->profilepic }}"  width="100">
+                                                        <img  alt="{{ $topic->topic_name}}" src="/storage/{{ $topic->profilepic }}"  width="100">
                                                     @endisset
 
                                                     @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
+                                                        <img alt="{{ $topic->topic_name}}" src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
                                                     @endisset 
                                                    
                                                     <p>{!!html_entity_decode($topic->details)!!}</p>
@@ -327,13 +327,13 @@
                                             <div class="media" style="padding-top: 10px;"> 
 
                                                 @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
+                                                    <img alt="{{ $topic->topic_name}}" src="/storage/{{ $topic->profilepic }}"  width="100">
                                                 @else
-                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
+                                                    <img alt="{{ $topic->topic_name}}" src="/no-image.png"  width="100" class="mr-3"> 
                                                 @endisset 
 
                                                 @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
+                                                        <img alt="{{ $topic->topic_name}}" src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
                                                 @endisset  
 
                                               <div class="media-body" style="margin-left: 20px;">
@@ -359,13 +359,13 @@
                                             <div class="media" style="padding-top: 10px;"> 
 
                                                 @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
+                                                    <img alt="{{ $topic->topic_name}}" src="/storage/{{ $topic->profilepic }}"  width="100">
                                                 @else
-                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
+                                                    <img alt="{{ $topic->topic_name}}" src="/no-image.png"  width="100" class="mr-3"> 
                                                 @endisset 
 
                                                 @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
+                                                        <img alt="{{ $topic->topic_name}}" src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
                                                 @endisset   
 
                                               <div class="media-body" style="margin-left: 20px;">
@@ -393,13 +393,13 @@
                                             <div class="media" style="padding-top: 10px;"> 
 
                                                 @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
+                                                    <img  alt="{{ $topic->topic_name}}"src="/storage/{{ $topic->profilepic }}"  width="100">
                                                 @else
-                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
+                                                    <img alt="{{ $topic->topic_name}}" src="/no-image.png"  width="100" class="mr-3"> 
                                                 @endisset 
 
                                                 @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
+                                                        <img  alt="{{ $topic->topic_name}}" src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
                                                 @endisset   
 
                                               <div class="media-body" style="margin-left: 20px;">
@@ -432,13 +432,13 @@
                                             <div class="media" style="padding-top: 10px;"> 
 
                                                 @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
+                                                    <img alt="{{ $topic->topic_name}}" src="/storage/{{ $topic->profilepic }}"  width="100">
                                                 @else
-                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
+                                                    <img alt="{{ $topic->topic_name}}" src="/no-image.png"  width="100" class="mr-3"> 
                                                 @endisset 
 
                                                 @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
+                                                        <img alt="{{ $topic->topic_name}}"  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
                                                 @endisset   
 
                                               <div class="media-body" style="margin-left: 20px;">
@@ -472,13 +472,13 @@
                                             <div class="media" style="padding-top: 10px;"> 
 
                                                 @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
+                                                    <img alt="{{ $topic->topic_name}}" src="/storage/{{ $topic->profilepic }}"  width="100">
                                                 @else
-                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
+                                                    <img alt="{{ $topic->topic_name}}" src="/no-image.png"  width="100" class="mr-3"> 
                                                 @endisset 
 
                                                 @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
+                                                        <img alt="{{ $topic->topic_name}}" src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
                                                 @endisset   
 
                                               <div class="media-body" style="margin-left: 20px;">
@@ -513,13 +513,13 @@
                                             <div class="media" style="padding-top: 10px;"> 
 
                                                 @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
+                                                    <img alt="{{ $topic->topic_name}}" src="/storage/{{ $topic->profilepic }}"  width="100">
                                                 @else
-                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
+                                                    <img alt="{{ $topic->topic_name}}" src="/no-image.png"  width="100" class="mr-3"> 
                                                 @endisset 
 
                                                 @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
+                                                        <img alt="{{ $topic->topic_name}}" src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
                                                 @endisset   
 
                                               <div class="media-body" style="margin-left: 20px;">
@@ -554,13 +554,13 @@
                                             <div class="media" style="padding-top: 10px;"> 
 
                                                 @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
+                                                    <img alt="{{ $topic->topic_name}}" src="/storage/{{ $topic->profilepic }}"  width="100">
                                                 @else
-                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
+                                                    <img alt="{{ $topic->topic_name}}" src="/no-image.png"  width="100" class="mr-3"> 
                                                 @endisset 
 
                                                 @isset($topic->video)
-                                                        <img  src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
+                                                        <img alt="{{ $topic->topic_name}}" src="https://img.youtube.com/vi/{{ $topic->video }}/default.jpg"  width="100">
                                                 @endisset   
 
                                               <div class="media-body" style="margin-left: 20px;">
@@ -595,9 +595,9 @@
                                             <div class="media" style="padding-top: 10px;"> 
 
                                                 @isset($topic->profilepic)
-                                                    <img  src="/storage/{{ $topic->profilepic }}"  width="100">
+                                                    <img  alt="{{ $topic->topic_name}}" src="/storage/{{ $topic->profilepic }}"  width="100">
                                                 @else
-                                                    <img src="/no-image.png"  width="100" class="mr-3"> 
+                                                    <img alt="{{ $topic->topic_name}}" src="/no-image.png"  width="100" class="mr-3"> 
                                                 @endisset  
 
                                               <div class="media-body" style="margin-left: 20px;">
@@ -870,9 +870,9 @@
                         } 
 
                         if( data.profilepic == null){
-                             v2 = "<img src='/no-image.png'  width='40' class='mr-3'>";
+                             v2 = "<img alt='AskPls' src='/no-image.png'  width='40' class='mr-3'>";
                         }else{
-                            v2 = "<img src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
+                            v2 = "<img alt='AskPls' src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
 
                         }
                        
@@ -945,7 +945,7 @@
                       //       v2 = "<img src='/no-image.png'  width='40' class='mr-3'>";
                             v2 = "";
                         }else{
-                            v2 = "<img src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
+                            v2 = "<img alt='AskPls' src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
 
                         }
                        
@@ -1016,9 +1016,9 @@
                         } 
 
                         if( data.profilepic == null){
-                             v2 = "<img src='/no-image.png'  width='40' class='mr-3'>";
+                             v2 = "<img  alt='AskPls' src='/no-image.png'  width='40' class='mr-3'>";
                         }else{
-                            v2 = "<img src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
+                            v2 = "<img alt='AskPls' src='/storage/" + data.profilepic + "'  width='40' class='mr-3'>";
 
                         }
                        

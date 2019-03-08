@@ -223,7 +223,7 @@
                     
                         <div class="col-lg-10 " v-if="vCatTopics == 0">
  
-                            <div v-show="showspinner" class="text-center"><img src="/ajax_loader.gif"></div>
+                            <div v-show="showspinner" class="text-center"><img alt="loading.." src="/ajax_loader.gif"></div>
 
                          
 
@@ -234,8 +234,8 @@
                                         <h4><a target="_blank" :href="'/t/' + topic.url + '/' + topic.topic_name.replace(/ /g,'_')" style="">@{{ topic.topic_name }}</a></h4>
                                     </div>
                                     <div class="review-content"> 
-                                        <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">
-                                        <img  v-if="topic.video" :src="'https://img.youtube.com/vi/' + topic.video + '/default.jpg'">
+                                        <img alt="picture"  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100">
+                                        <img alt="video" v-if="topic.video" :src="'https://img.youtube.com/vi/' + topic.video + '/default.jpg'">
 
                                         <p  v-html="topic.details"></p>
                                     </div>
@@ -309,8 +309,8 @@
 
                                     <div class="media" style="padding-top: 10px;"> 
                                       
-                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
-                                      <img  v-else src="/no-image.png"  width="100" class="mr-3"> 
+                                      <img alt="Colleges picture" v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
+                                      <img alt="Colleges video" v-else src="/no-image.png"  width="100" class="mr-3"> 
 
                                       <div class="media-body" style="margin-left: 20px;">
                                         <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url  + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 
@@ -328,8 +328,8 @@
 
                                     <div class="media" style="padding-top: 10px;"> 
                                       
-                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3 img-fluid"> 
-                                      <img  v-else src="/no-image.png"  width="100" class="mr-3 img-fluid"> 
+                                      <img  alt="Doctors picture" v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3 img-fluid"> 
+                                      <img  alt="Doctors video" v-else src="/no-image.png"  width="100" class="mr-3 img-fluid"> 
 
                                       <div class="media-body" style="margin-left: 20px;">
                                         <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 
@@ -351,8 +351,8 @@
 
                                     <div class="media" style="padding-top: 10px;"> 
                                       
-                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3 img-fluid rounded"> 
-                                      <img  v-else src="/no-image.png"  width="100" class="mr-3 img-fluid rounded"> 
+                                      <img alt="Companies picture" v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3 img-fluid rounded"> 
+                                      <img alt="Companies video" v-else src="/no-image.png"  width="100" class="mr-3 img-fluid rounded"> 
 
                                       <div class="media-body" style="margin-left: 20px;">
                                         <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 
@@ -369,10 +369,10 @@
 
                                     <div class="media" style="padding-top: 10px;"> 
                                       
-                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
-                                      <img  v-else src="/no-image.png"  width="100" class="mr-3"> 
+                                      <img alt="Fitness Centers picture" v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
+                                      <img alt="Fitness Centers videos"  v-else src="/no-image.png"  width="100" class="mr-3"> 
 
-                                      <div class="media-body" style="margin-left: 20px;">
+                                      <div alt="Fitness Centers picture" class="media-body" style="margin-left: 20px;">
                                         <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 
                                         <p style="font-weight: 400; opacity: 0.8;  " >@{{ topic.address}}    </p>  
 
@@ -392,8 +392,8 @@
 
                                     <div class="media" style="padding-top: 10px;"> 
                                       
-                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
-                                      <img  v-else src="/no-image.png"  width="100" class="mr-3"> 
+                                      <img alt="Hotels picture" v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
+                                      <img alt="Hotels videos" v-else src="/no-image.png"  width="100" class="mr-3"> 
 
                                       <div class="media-body" style="margin-left: 20px;">
                                         <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 
@@ -413,8 +413,8 @@
 
                                     <div class="media" style="padding-top: 10px;"> 
                                       
-                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
-                                      <img  v-else src="/no-image.png"  width="100" class="mr-3"> 
+                                      <img alt="Lawyers picture" v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
+                                      <img alt="Lawyers videos" v-else src="/no-image.png"  width="100" class="mr-3"> 
 
                                       <div class="media-body" style="margin-left: 20px;">
                                         <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 
@@ -444,8 +444,8 @@
 
                                     <div class="media" style="padding-top: 10px;"> 
                                       
-                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
-                                      <img  v-else src="/no-image.png"  width="100" class="mr-3"> 
+                                      <img alt="Restaurants picture" v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
+                                      <img alt="Restaurants videos" v-else src="/no-image.png"  width="100" class="mr-3"> 
 
                                       <div class="media-body" style="margin-left: 20px;">
                                         <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 
@@ -471,8 +471,8 @@
 
                                     <div class="media" style="padding-top: 10px;"> 
                                       
-                                      <img  v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
-                                      <img  v-else src="/no-image.png"  width="100" class="mr-3"> 
+                                      <img alt="Schools picture" v-if="topic.profilepic" :src="'/storage/' + topic.profilepic"  width="100" class="mr-3"> 
+                                      <img alt="Schools videos" v-else src="/no-image.png"  width="100" class="mr-3"> 
 
                                       <div class="media-body" style="margin-left: 20px;">
                                         <h4 class="mt-0"><a target="_blank" :href="'/c/' +  vCatName  + '/'+ topic.url + '/' + topic.name.replace(/ /g,'_')" style="">@{{ topic.name }}</a></h4> 

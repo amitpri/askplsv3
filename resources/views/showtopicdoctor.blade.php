@@ -178,7 +178,7 @@
 
 						@isset($topic->image)
 
-							<img  src="/storage/{{ $topic->image}}" max-width="400">
+							<img  src="/storage/{{ $topic->image}}" max-width="400" alt="{{ $topic->user_name}}">
 
 						@endisset 
 

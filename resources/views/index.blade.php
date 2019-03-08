@@ -177,7 +177,9 @@
 
                                             @foreach ($topics_images as $topic_images) 
 
-                                                <li><a target="_blank" href="/t/{{ $topic_images->url}}/{{ str_replace(' ','_',$topic_images->topic_name)}}" data-animate="fadeIn"><img src="/storage/{{$topic_images->image}}" width="100px" max-height="100px;" alt=""></a></li> 
+                                                <li><a target="_blank" href="/t/{{ $topic_images->url}}/{{ str_replace(' ','_',$topic_images->topic_name)}}" data-animate="fadeIn">
+                                                    <img src="/storage/{{$topic_images->image}}" width="100px" max-height="100px;" 
+                                                        alt="{{ $topic_images->topic_name}}"></a></li> 
 
                                             @endforeach
 
