@@ -1951,7 +1951,7 @@ class TopicController extends Controller
     { 
         $topicsinput = $request->topics; 
 
-        $topics = DB::select("SELECT  a.`id`,  a.`url` ,  a.`topic_name`,    b.`name`,  a.`image`  
+        $topics = DB::select("SELECT  a.`id`,  a.`url` ,  a.`topic_name`,  b.`user_code`,   b.`name`,  a.`image`  
                                     FROM `topics` a ,  `users` b 
                                             WHERE a.`user_id` = b.`id` 
                                             AND a.`type` = 'public' 

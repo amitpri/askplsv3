@@ -236,8 +236,8 @@
                                     <a href="#"><img src="/storage/{{ $topic->image}}" alt="{{ $topic->topic_name}}"></a> 
                                 </div>
                                 <div class="product-desc">
-                                    <div class="product-title"><h6><a href="#">{{ $topic->topic_name}}</a></h6></div>
-                                    <div class="product-price"><ins><h6><a href="">{{ $topic->name}}</a><h6></ins></div> 
+                                    <div class="product-title"><h6><a target="_blank" href="/t/{{ $topic->url}}/{{ str_replace(' ','_',$topic->topic_name)}}">{{ $topic->topic_name}}</a></h6></div>
+                                    <div class="product-price"><ins><h6><a target="_blank" href="/p/{{ $topic->user_code}}/{{ str_replace(' ','_',$topic->name) }}">{{ $topic->name}}</a><h6></ins></div> 
                                 </div>
                             </div> 
 
