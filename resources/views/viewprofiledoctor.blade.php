@@ -193,7 +193,7 @@
                         <div class="promo promo-border" >
                             <h3><a href="/t/d?url={{ $topic->url }}&type={{ $categorytype }}">{{ $topic->topic_name}}</a></h3>
                             <span><p>Posted on {{ $topic->created_at}} 
-                                @isset($topic->user_name)
+                                @if($topic->user_name > -1)
                                     <span> by <a target="_blank" href="/p/{{ $topic->user_code }}/{{ $topic->user_name}}">{{ $topic->user_name}}</a></span></p>  </span>
                                 @endisset 
                             <a href="/t/d?url={{ $topic->url }}&type={{ $categorytype }}" class="button button-small button-rounded">Comments</a>
