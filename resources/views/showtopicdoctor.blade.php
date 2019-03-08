@@ -4,7 +4,7 @@
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="AskPls" />
-    <meta name="description" content="AskPls | {{ $categorytype}} | {{ $topic_name }} Reviews">
+    <meta name="description" content="AskPls | {{ $url}} |{{ $categorytype}} | {{ $topic_name }} Reviews">
  
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Playfair+Display:700,700i,900" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
@@ -27,7 +27,7 @@
         <script src="/axios/axios.min.js"></script>
         @include('analytics')
  
-    <title>{{ $topic_name }}</title>
+    <title>{{ $url}} | {{ $topic_name }}</title>
 
 </head>
 

@@ -709,7 +709,7 @@ class TopicController extends Controller
   
     }
 
-    public function categoryurl(Request $request,$category, $url ){
+    public function categoryurl(Request $request,$category, $url , $inpname){
 
         $user_code = $url;
         $categorytype = $category;
@@ -958,7 +958,7 @@ class TopicController extends Controller
          }    
  
  
-        return view('viewprofiledoctor', compact('topics','id', 'user_code', 'categorytype', 'name' ,'type',  'address' ,  'locality' ,'city' ,'country' ,'video' ,'website' ,'links' ,'details' ,'profilepic' ,'speciality' ,'gender' ,'qualification' ,'exp' ));
+        return view('viewprofiledoctor', compact('topics','id', 'user_code', 'categorytype', 'name' ,'type',  'address' ,  'locality' ,'city' ,'country' ,'video' ,'website' ,'links' ,'details' ,'profilepic' ,'speciality' ,'gender' ,'qualification' ,'exp' , 'inpname' ));
     }
 
     public function viewprofiledoctordetails(Request $request){

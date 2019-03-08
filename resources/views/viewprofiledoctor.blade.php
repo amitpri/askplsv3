@@ -4,7 +4,7 @@
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="AskPls" />
-    <meta name="description" content="AskPls | {{ $categorytype}} | {{ $name }} Reviews">
+    <meta name="description" content="AskPls | {{ $categorytype}} | {{ $inpname }} Reviews">
 
     <!-- Stylesheets
     ============================================= -->
