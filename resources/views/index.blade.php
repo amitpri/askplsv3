@@ -170,7 +170,7 @@
                                     <div class="colnobottommargin"  style="background-color:  border: 1px solid blue;margin-bottom: 10px;border-radius: 0px;">
 
                                          <div class="heading-block nobottomborder center divcenter mb-0 clearfix" style="max-width: 550px"> 
-                                            <h4 class="nott ls0 mb-3">Pictures Reviews - <a href="/pictures">All</a></h4> 
+                                            <h4 class="nott ls0 mb-3">Pictures Reviews - <a target="_blank" href="/pictures">All</a></h4> 
                                         </div> 
 
                                         <ul class="clients-grid grid-5 nobottommargin clearfix">
@@ -194,7 +194,7 @@
 
                                 <div class="colnobottommargin" style="background-color: #FFF;border: 2px solid #EEE; margin-bottom: 10px;border-radius: 5px;"> 
                                     <div class="heading-block nobottomborder center divcenter mb-0 clearfix" style="max-width: 550px"> 
-                                        <h4 class="nott ls0 mb-3">Youtube Videos Reviews- <a href="/youtube">All</a></h4> 
+                                        <h4 class="nott ls0 mb-3">Youtube Videos Reviews- <a target="_blank" href="/youtube">All</a></h4> 
                                     </div> 
 
                                     <ul class="clients-grid grid-5 nobottommargin clearfix">
@@ -218,7 +218,7 @@
                                     <div class="col_full nobottommargin"  >
 
                                         <div class="heading-block nobottomborder center divcenter mb-0 clearfix" style="max-width: 550px"> 
-                                            <h4 class="nott ls0 mb-3">Instagram Pictures Reviews - <a href="/instagram">All</a></h4> 
+                                            <h4 class="nott ls0 mb-3">Instagram Pictures Reviews - <a target="_blank" href="/instagram">All</a></h4> 
                                         </div>  
 
                                         <div class="container">

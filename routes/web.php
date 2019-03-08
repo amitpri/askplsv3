@@ -99,3 +99,4 @@ Route::get('/s/{id}', 'CategoryController@schools');
 
 Route::get('/instagram', 'TopicController@instagram'); 
 Route::get('/youtube', 'TopicController@youtube'); 
+Route::get('/pictures', 'TopicController@pictures');  

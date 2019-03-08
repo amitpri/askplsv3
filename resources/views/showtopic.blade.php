@@ -196,7 +196,6 @@
 						  		src="https://www.youtube.com/embed/{{ $topic->video }}" ></iframe> 
 		 				
 		 				@endif
-
 						
 					</section> 
 				@endforeach
