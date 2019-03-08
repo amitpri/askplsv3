@@ -165,15 +165,16 @@
 						<p style="font-weight: 300; opacity: .7; color: black;  ">
 								Review topic for <a href="/c/{{ $categorytype }}/{{ $topic->profilekey }}/{{ $topic->name }}">{{ $topic->name }}</a>  </p> 
 								<span>Posted on {{ $topic->created_at }} 
-									@isset($topic->user_name)
+
+									@if($topic->user_name > -1)
 	                                    <span> by <a target="_blank" href="/p/{{ $topic->user_code }}/{{ $topic->user_name}}">{{ $topic->user_name}}</a></span></p>  </span>
-	                                @endisset 
+	                                @endif 
 										 
 						<p>&nbsp;</p>
 
 						@isset($topic->details)
 
-							<p  style="color: black; font-size: 18px;    "><p>{!!html_entity_decode($topic->details)!!}</p></p>
+							<p  style="color: black; font-size: 18px;"><p>{!!html_entity_decode($topic->details)!!}</p></p>
 
 						@endisset 
 
