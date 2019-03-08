@@ -233,6 +233,7 @@
 
                             <div class="product clearfix">
                                 <div class="product-image">
+                                    <a target="_blank" class="btn btn-outline-primary btn-sm  " style="margin-bottom: 20px;" href="/t/{{ $topic->url}}/{{ str_replace(' ','_',$topic->topic_name)}}"> View Profile </a>
                                     <blockquote class="instagram-media" data-instgrm-permalink="{{ $topic->instagram}}" data-instgrm-version="9" style=" background:#FFF; padding:0; width:19.375%; width:-webkit-calc(20% - 2px); width:calc(5% - 2px); max-width: 100px;"> </blockquote> 
                                 </div>
                                 <div class="product-desc">
