@@ -203,7 +203,7 @@
 
                                     @foreach ($topics_youtube as $topic_youtube) 
 
-                                            <li><a target="_blank" href="/t/{{ $topic_youtube->url}}/{{ str_replace(' ','_',$topic_youtube->topic_name)}}" data-animate="fadeIn"><img src="https://img.youtube.com/vi/{{ $topic_youtube->video}}/default.jpg" alt="Clients"></a></li> 
+                                            <li><a target="_blank" href="/t/{{ $topic_youtube->url}}/{{ str_replace(' ','_',$topic_youtube->topic_name)}}" data-animate="fadeIn"><img src="https://img.youtube.com/vi/{{ $topic_youtube->video}}/mqdefault.jpg" alt="Clients"></a></li> 
 
                                     @endforeach
                                     </ul>
