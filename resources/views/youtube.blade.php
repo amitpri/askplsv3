@@ -233,7 +233,7 @@
 
                             <div class="product clearfix">
                                 <div class="product-image">
-                                    <a href="/t/{{ $topic->url}}/{{ str_replace(' ','_',$topic->topic_name)}}"><img style="max-width: 120px;" src="https://img.youtube.com/vi/{{ $topic->video}}/default.jpg" alt="{{ $topic->topic_name}}"></a> 
+                                    <a href="/t/{{ $topic->url}}/{{ str_replace(' ','_',$topic->topic_name)}}"><img src="https://img.youtube.com/vi/{{ $topic->video}}/mqdefault.jpg" alt="{{ $topic->topic_name}}"></a> 
                                 </div>
                                 <div class="product-desc">
                                     <div class="product-title"><h6><a target="_blank" href="/t/{{ $topic->url}}/{{ str_replace(' ','_',$topic->topic_name)}}">{{ $topic->topic_name}}</a></h6></div>
