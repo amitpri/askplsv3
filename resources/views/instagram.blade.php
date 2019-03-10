@@ -220,8 +220,12 @@
         </section>  
  
         <section id="content" style="">
+ 
+            <div class="heading-block nobottomborder center divcenter mb-0 clearfix" > 
+                    <h1 class="nott ls0 mb-3">Instagram Pictures Reviews  </h1> 
+                                        </div>  
 
-            <div class="content-wrap">
+            <div class="content-wrap" style="margin-top: -50px;">
 
                 <div class="container clearfix">
 
