@@ -84,7 +84,7 @@
 
     @include('analytics')
  
-    <title>Anonymous Review </title>
+    <title>Instagram Reviews | Instagram picture comments</title>
 
 </head>
 
