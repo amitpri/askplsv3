@@ -96,6 +96,7 @@ class FitnessCenterPolicy
         $loggedinid = Auth::user()->id;
 
         $loggedinrole = Auth::user()->role;
+        $loggedintopicable_type = Auth::user()->topicable_type;
 
 
         if ( $loggedinrole == 'super' ) {
@@ -118,6 +119,10 @@ class FitnessCenterPolicy
             }
 
            
+        }elseif( $loggedintopicable_type == 'App\Company'){
+
+            return 1 === 2;
+
         }else
         {
  

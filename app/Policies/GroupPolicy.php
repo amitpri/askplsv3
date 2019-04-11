@@ -30,6 +30,7 @@ class GroupPolicy
         if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
+            
         }else
         {
 
