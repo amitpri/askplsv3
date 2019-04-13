@@ -48,6 +48,12 @@ class TopicCompany extends Resource
         
         'user_id' ,'topic_name' , 'url' 
     ];
+
+    public static function label() {
+
+        return 'Topics';
+
+    }
   
     public function fields(Request $request)
     {
