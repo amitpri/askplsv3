@@ -7,6 +7,7 @@ use App\Group;
 use App\GroupProfile;
 use App\DataImport;
 use App\Topic;    
+use App\TopicCompany;   
 use App\Review;
 use App\ReviewMember;
 use App\TopicLog;
@@ -54,6 +55,7 @@ use App\Policies\GroupPolicy;
 use App\Policies\GroupProfilePolicy;
 use App\Policies\DataImportPolicy;
 use App\Policies\TopicPolicy;  
+use App\Policies\TopicCompanyPolicy;  
 use App\Policies\ReviewPolicy;
 use App\Policies\ReviewMemberPolicy;
 use App\Policies\TopicLogPolicy;
@@ -113,6 +115,7 @@ class AuthServiceProvider extends ServiceProvider
         GroupProfile::class => GroupProfilePolicy::class,
         DataImport::class => DataImportPolicy::class,
         Topic::class => TopicPolicy::class, 
+        TopicCompany::class => TopicCompanyPolicy::class, 
         Review::class => ReviewPolicy::class,
         ReviewMember::class => ReviewMemberPolicy::class,
         TopicLog::class => TopicLogPolicy::class,
