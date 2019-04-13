@@ -25,7 +25,7 @@ class ReviewCompany extends Resource
      * @var string
      */
 
-    public static $group = '0.Company';
+    public static $group = 'Company';
     
 
     public static $model = 'App\ReviewCompany';

@@ -23,7 +23,7 @@ class Profile extends Resource
      *
      * @var string
      */
-    public static $group = '0.Company';
+    public static $group = 'Company';
     
     public static $displayInNavigation = true;
 

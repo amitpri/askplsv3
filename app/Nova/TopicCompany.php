@@ -38,7 +38,7 @@ use Silvanite\NovaFieldCheckboxes\Checkboxes;
 class TopicCompany extends Resource
 { 
 
-    public static $group = '0.Company';
+    public static $group = 'Company';
     
     public static $model = 'App\TopicCompany';
  
