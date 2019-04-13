@@ -11,7 +11,7 @@ class TopicCompanyPolicy
 {
     use HandlesAuthorization;
 
-    public function view(User $user, Topic $topic)
+    public function view(User $user, TopicCompany $topiccompany)
     {
         $loggedinid = Auth::user()->id;
 
@@ -23,7 +23,7 @@ class TopicCompanyPolicy
         }else
         {
 
-            if ( $topic->user_id == $loggedinid ) {
+            if ( $topiccompany->user_id == $loggedinid ) {
 
                 return 1 === 1;
 
@@ -45,7 +45,7 @@ class TopicCompanyPolicy
         return 1 === 1;
     }
 
-    public function update(User $user, Topic $topic)
+    public function update(User $user, TopicCompany $topiccompany)
     {
         $loggedinid = Auth::user()->id;
 
@@ -57,7 +57,7 @@ class TopicCompanyPolicy
         }else
         {
 
-            if ( $topic->user_id == $loggedinid ) {
+            if ( $topiccompany->user_id == $loggedinid ) {
 
                 return 1 === 1;
 
@@ -75,7 +75,7 @@ class TopicCompanyPolicy
      * @param  \App\Review  $review
      * @return mixed
      */
-    public function delete(User $user, Topic $topic)
+    public function delete(User $user, TopicCompany $topiccompany)
     {
         $loggedinid = Auth::user()->id;
 
@@ -87,7 +87,7 @@ class TopicCompanyPolicy
         }else
         {
 
-            if ( $topic->user_id == $loggedinid ) {
+            if ( $topiccompany->user_id == $loggedinid ) {
 
                 return 1 === 1;
 
@@ -105,7 +105,7 @@ class TopicCompanyPolicy
      * @param  \App\Review  $review
      * @return mixed
      */
-    public function restore(User $user, Topic $topic)
+    public function restore(User $user, TopicCompany $topiccompany)
     {
         //
     }
@@ -117,7 +117,7 @@ class TopicCompanyPolicy
      * @param  \App\Review  $review
      * @return mixed
      */
-    public function forceDelete(User $user, Topic $topic)
+    public function forceDelete(User $user, TopicCompany $topiccompany)
     {
         //
     }
@@ -126,7 +126,6 @@ class TopicCompanyPolicy
     {
 
         $loggedinid = Auth::user()->id;
-
         $loggedinrole = Auth::user()->role;
         $loggedintopicable_type = Auth::user()->topicable_type;
         
@@ -134,11 +133,7 @@ class TopicCompanyPolicy
 
             return 1 === 1;
 
-        }elseif( $loggedinrole == 'agent'  ){
-
-            return 1 === 2;
-
-        }elseif( $loggedintopicable_type == 'App\Company'){
+        }elseif( $loggedintopicable_type == 'App\Company' && $loggedinpaid == 1 ){
 
             return 1 === 1;
 

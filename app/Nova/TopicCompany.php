@@ -40,7 +40,7 @@ class TopicCompany extends Resource
 
     public static $group = '0.Company';
     
-    public static $model = 'App\Topic';
+    public static $model = 'App\TopicCompany';
  
     public static $title = 'topic_name';
 
