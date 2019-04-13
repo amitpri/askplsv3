@@ -52,11 +52,16 @@ class TopicCategoryPolicy
         $loggedinid = Auth::user()->id; 
 
         $loggedinrole = Auth::user()->role;
+        $loggedintopicable_type = Auth::user()->topicable_type;
         
         if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
         }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
+
+        }elseif( $loggedintopicable_type == 'App\Company'){
 
             return 1 === 2;
 
