@@ -42,6 +42,12 @@ class ReviewCompany extends Resource
 
     ];
 
+    public static function label() {
+
+        return 'Reviews';
+
+    }
+
  
     public function fields(Request $request)
     {
