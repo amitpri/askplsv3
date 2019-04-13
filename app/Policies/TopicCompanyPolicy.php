@@ -127,6 +127,7 @@ class TopicCompanyPolicy
 
         $loggedinid = Auth::user()->id;
         $loggedinrole = Auth::user()->role;
+        $loggedinpaid = Auth::user()->paid;
         $loggedintopicable_type = Auth::user()->topicable_type;
         
         if ( $loggedinrole == 'super' ) {
