@@ -86,10 +86,10 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 
                 Nova::resources([
 
+                    Group::class,
+                    Profile::class,
                     TopicCompany::class, 
                     ReviewCompany::class, 
-                    Profile::class,
-                    Group::class,
                     GroupProfile::class,
                     DataImport::class,
                     Topic::class, 
