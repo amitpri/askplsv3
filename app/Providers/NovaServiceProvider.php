@@ -20,6 +20,7 @@ use App\Nova\DataImport;
 use App\Nova\Topic;
 use App\Nova\TopicCompany;
 use App\Nova\Review;
+use App\Nova\ReviewCompany;
 use App\Nova\ReviewMember;
 use App\Nova\Template;
 use App\Nova\Account; 
@@ -85,10 +86,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 
                 Nova::resources([
 
+                    TopicCompany::class, 
+                    ReviewCompany::class, 
                     Profile::class,
                     Group::class,
                     GroupProfile::class,
-                    TopicCompany::class, 
                     DataImport::class,
                     Topic::class, 
                     TopicCategoryMembers::class, 
