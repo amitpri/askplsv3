@@ -115,6 +115,7 @@ class TopicCategoryMembersPolicy
         $paid = Auth::user()->paid;
         $topicable_id = Auth::user()->topicable_id;
         $topicable_type = Auth::user()->topicable_type;
+        $loggedintopicable_type = Auth::user()->topicable_type;
 
         $loggedinrole = Auth::user()->role;
         
@@ -122,6 +123,10 @@ class TopicCategoryMembersPolicy
 
             return 1 === 1;
         }elseif( $loggedinrole == 'agent'  ){
+
+            return 1 === 2;
+
+        }elseif( $loggedintopicable_type == 'App\Company'){
 
             return 1 === 2;
 
