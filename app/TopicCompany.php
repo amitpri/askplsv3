@@ -22,7 +22,7 @@ class TopicCompany extends Model
     public function group()
     {
 
-    	return $this->belongsToMany('App\Group','topic_groups');
+    	return $this->belongsToMany('App\Group','topic_groups','topic_id','group_id');
 
     }
 
