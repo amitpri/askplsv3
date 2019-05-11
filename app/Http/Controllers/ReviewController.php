@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Review;
 use App\Topic;
+use App\TopicCompany;
 use App\TopicMail;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class ReviewController extends Controller
 
         $topicmail = TopicMail::where('mailkey', '=' , $key)->first(['id','topic_id','profile_id','mailkey']);
 
-        $topic = Topic::where('id', $topicmail->topic_id)->first(['id','user_id','topic_name','details']);
+        $topic = TopicCompany::where('id', $topicmail->topic_id)->first(['id','user_id','topic_name','details']);
 
         return view('review', compact('currentmenu','topic','topicmail'));
 
