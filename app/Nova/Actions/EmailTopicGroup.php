@@ -22,6 +22,7 @@ use App\Profile;
 use App\GroupProfile;
 use App\TopicMail;
 use App\TopicLog;
+use App\TopicCompany;
 
 class EmailTopicGroup extends Action // implements ShouldQueue
 {
@@ -38,9 +39,9 @@ class EmailTopicGroup extends Action // implements ShouldQueue
             $loggedinid = Auth::user()->id;
 
    //          dd($topic_id);
-            $groups = Topic::find($topic_id)->group()->get();
+            $groups = TopicCompany::find($topic_id)->group()->get();
 
-     //       dd($groups);
+   //         dd($groups);
 
             foreach ($groups as $group) {
 
