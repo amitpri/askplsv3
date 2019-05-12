@@ -83,8 +83,8 @@
 
                     <div class="clearfix center divcenter" style="max-width: 800px;">
                         <div class="emphasis-title">
-                            <h1 class="font-secondary" style="color: black; font-size: 76px; font-weight: 900; text-shadow: 0 7px 10px rgba(0,0,0,0.07), 0 4px 4px rgba(0,0,0,0.2);">{{ $topic->topic_name }} </h1>
-                            <p style="font-weight: 300; opacity: .7; color: black; text-shadow: 0 -4px 20px rgba(0, 0, 0, .25);">{{ $topic->details }}</p>
+                            <h1 class="font-secondary" style="color: black; font-size: 24px; font-weight: 400; text-shadow: 0 7px 10px rgba(0,0,0,0.07), 0 4px 4px rgba(0,0,0,0.2);">{{ $topic->topic_name }} </h1>
+                            <p style="font-weight: 300; opacity: .7; color: black; text-shadow: 0 -4px 20px rgba(0, 0, 0, .25);">{!!html_entity_decode($topic->details)!!}</p>
                         </div>
        
                         <form id="widget-subscribe-form" action="/register" role="form" method="get" class="nobottommargin" data-animate="fadeInUp">
