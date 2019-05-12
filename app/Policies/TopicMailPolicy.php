@@ -16,9 +16,11 @@ class TopicMailPolicy
         $loggedinid = Auth::user()->id;
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+
+        if ( $loggedinrole == 'super' ) {
 
             return 1 === 1;
+        
         }else
         {
 
@@ -113,13 +115,20 @@ if ( $loggedinrole == 'super' ) {
     {
 
         $loggedinrole = Auth::user()->role;
-if ( $loggedinrole == 'super' ) {
+        $loggedinpaid = Auth::user()->paid;
+        $loggedintopicable_type = Auth::user()->topicable_type;
+        
+        if ( $loggedinrole == 'super' ) {
+
+            return 1 == 1;
+
+        }elseif( $loggedintopicable_type == 'App\Company' && $loggedinpaid == 1 ){
 
             return 1 == 1;
 
         }else{
 
-            return $user->tenant > 0; 
+            return 1 == 2;
 
         }
 

@@ -14,9 +14,9 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 class TopicMail extends Resource
 {
     
-    public static $group = '0.Admin';
+    public static $group = 'Logs';
 
-    public static $displayInNavigation = false;
+    public static $displayInNavigation = true;
 
     public static $model = 'App\TopicMail';
 

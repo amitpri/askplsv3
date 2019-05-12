@@ -14,11 +14,11 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 class TopicLog extends Resource
 {
      
-    public static $group = '0.Admin';
+    public static $group = 'Logs';
 
     public static $model = 'App\TopicLog';
 
-    public static $displayInNavigation = false;
+    public static $displayInNavigation = true;
 
     public static function label() {
 
