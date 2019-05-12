@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Review;
+use App\ReviewCompany;
 use App\Topic;
 use App\TopicCompany;
 use App\TopicMail;
@@ -42,7 +43,7 @@ class ReviewController extends Controller
 
         if( $mailkey2 === $mailkey){
             
-            $feedbacks = Review::where('user_id', '=' , $user_id)->
+            $feedbacks = ReviewCompany::where('user_id', '=' , $user_id)->
                         where('topic_id', '=' , $topic_id)-> 
                       //  where('profile_id', '=' , $profile_id)->
                         first(['review','published']);
@@ -74,7 +75,7 @@ class ReviewController extends Controller
 
         if( $mailkey2 === $mailkey){
             
-            $feedbacks = Review::updateOrCreate([
+            $feedbacks = ReviewCompany::updateOrCreate([
                         'user_id' => $user_id,
                         'topic_id' => $topic_id,
                         'profile_id' => $profile_id,
@@ -117,7 +118,7 @@ class ReviewController extends Controller
 
         if( $mailkey2 === $mailkey){
             
-            $feedbacks = Review::updateOrCreate([
+            $feedbacks = ReviewCompany::updateOrCreate([
                         'user_id' => $user_id,
                         'topic_id' => $topic_id,
                         'profile_id' => $profile_id,
