@@ -10,7 +10,7 @@ class Review extends Model
 {
     protected $fillable = [
         
-           'user_id','topic_id','topic_categories_id','group_id','profile_id','emailid','mailkey', 'review', 'published'
+           'user_id','topic_id','topic_categories_id','group_id','profile_id','emailid','mailkey', 'review', 'published','topic_name'
     ];
 
     public function topic()

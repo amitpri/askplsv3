@@ -83,7 +83,7 @@ class ReviewController extends Controller
                     [
                         'user_id' => $user_id,
                         'topic_id' => $topic_id,
-                        'topic' => $topic,
+                        'topic_name' => $topic,
                         'profile_id' => $profile_id,
                         'review' => $review,
                         'published' => 0,
@@ -126,7 +126,7 @@ class ReviewController extends Controller
                     [
                         'user_id' => $user_id,
                         'topic_id' => $topic_id,
-                        'topic' => $topic,
+                        'topic_name' => $topic,
                         'profile_id' => $profile_id,
                         'review' => $review,
                         'published' => 1,

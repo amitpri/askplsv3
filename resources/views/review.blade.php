@@ -136,7 +136,7 @@
 					inpUser_id : "{!! $topic->user_id !!}", 
 					inpProfile_id : "{!! $topicmail->profile_id !!}", 
 					inpTopic_id : "{!! $topicmail->topic_id !!}", 
-					inpTopic : "{!! $topic->topic !!}", 
+					inpTopic : "{!! $topic->topic_name !!}", 
 					inpMailkey : "{!! $topicmail->mailkey !!}", 
 					published : true,
 					},
