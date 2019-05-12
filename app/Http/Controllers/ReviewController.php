@@ -19,7 +19,7 @@ class ReviewController extends Controller
 
         $topic = TopicCompany::where('id', $topicmail->topic_id)->first(['id','user_id','topic_name','details']);
 
-        dd($topic);
+        dd($topicmail);
 
         return view('review', compact('currentmenu','topic','topicmail'));
 
