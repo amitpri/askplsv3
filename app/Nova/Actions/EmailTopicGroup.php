@@ -41,7 +41,7 @@ class EmailTopicGroup extends Action // implements ShouldQueue
    //          dd($topic_id);
             $groups = TopicCompany::find($topic_id)->group()->get();
 
-            dd($groups);
+   //         dd($groups);
 
             foreach ($groups as $group) {
 
@@ -52,7 +52,7 @@ class EmailTopicGroup extends Action // implements ShouldQueue
                     'user_id' => $loggedinid,
                     'topic_id' => $topic_id,
                     'group_id' => $group_id,
-                    'topic_name' => $group->topic_name,
+                    'topic_name' => $topic_id,
                     'group_title' => $group_id, 
 
                 ]);
